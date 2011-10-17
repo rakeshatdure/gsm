@@ -1,0 +1,91 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich">
+
+<f:view contentType="text/html">
+
+	<h:head>
+		<script>
+			function openWin(url, w, h, title) {
+				//var w = 1000, h = 670; // default sizes
+				var left = (screen.width / 2) - (w / 2);
+				var top = (screen.height / 2) - (h / 2);
+				window
+						.open(
+								url,
+								title,
+								'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='
+										+ w
+										+ ', height='
+										+ h
+										+ ', top='
+										+ top
+										+ ', left=' + left);
+			}
+		</script>
+		<title>ELI-ERP</title>
+		<h:outputStylesheet library="css" name="LoginUS.css" />
+	</h:head>
+	<h:body id="login" class="global" style="background-color:#B5B5B5;">
+		<h:form id="loginformDB">
+
+			<div id="content">
+				<div id="bgform"
+					style="background: resources/css/Images/bg-form.png" class="bgform">
+					<div id="labelus" class="labelus">
+						<label for="txtUserName"><h:outputText
+								value="#{utilInitLang.ac_ma_UserName}" /> </label>
+					</div>
+					<div id="input" class="input">
+						<h:inputText id="txtUserName" style="background:url('resources/css/Images/us_input.png') no-repeat" styleClass="input"
+							value="#{loginUS.username}" />
+						
+					</div>
+					<div id="labelps" class="labelps">
+						<h:outputLabel for="txtPassword" 
+							value="#{utilInitLang.ac_ma_Password}" />
+						<p>&nbsp;</p>
+					</div>
+					<div id="input" class="input">
+						<h:inputSecret id="txtPassword" value="#{loginUS.pass}" style="background:url('resources/css/Images/us_input.png') no-repeat" styleClass="input"/>
+						
+					</div>
+					<div id="loginbtn" class="loginbtn">
+						<h:commandButton value="#{utilInitLang.ac_login}" styleClass="lookout" style="background:url('resources/css/Images/button.png') no-repeat;margin-left:55px;color:white;"
+							action="#{loginUS.checkLogin}"/>
+					</div>
+					<div style="color:red;position:absolute;top:470px;margin-left:145px;">
+						<h:outputText value="#{loginUS.mesuser}" style="color:red;"
+							rendered="#{loginUS.flag}" /><br/>
+							<h:outputText value="#{loginUS.mespass}" rendered="#{loginUS.flg}" style="color:red;"/>
+					</div>
+				</div>
+				
+				<div id="bggroup" class="bggroup">
+					<img id="pict467kmghei" class="fil smf"
+						src="resources/css/Images/bggroup.png" alt="" />
+				</div>
+				<div id="banner">
+					<img id="pict468bclqoi" class="fil smf"
+						src="resources/css/Images/title.png" alt="" />
+				</div>
+
+
+
+
+				<div id="bannertext">
+					<p>
+						<span style="font-size: 20px;color:#2d2c2c;">Member Login</span>
+					</p>
+					<p><span style="color:#918d8d;">Enter your username and password</span></p>
+				</div>
+			</div>
+		</h:form>
+	</h:body>
+</f:view>
+</html>

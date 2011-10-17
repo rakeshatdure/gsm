@@ -1,0 +1,26 @@
+<ui:composition template="/templates/templateMain.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+	
+	
+		<div class="glossymenu">				
+			<a class="menuitem submenuheader" href="#">#{utilInitLang.st_PeriodicInventory}</a>
+			<div class="submenu" id="pay">
+				<ul>
+				<li>
+					<h:commandLink action="#{linkDAO.acLinkPeriodicInventory}" value="#{utilInitLang.ac_lien_SSearch}"></h:commandLink>
+				</li>
+				<li>
+					<h:commandLink action="#{linkDAO.acLinkPeriodicInventory}" value="#{utilInitLang.st_PeriodicInventory}"></h:commandLink>
+				</li>
+				</ul>
+			</div>
+		</div>
+	
+	
+</ui:composition>
+

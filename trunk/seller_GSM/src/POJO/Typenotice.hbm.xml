@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 26, 2011 2:51:41 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="POJO.Typenotice" table="typenotice" >
+        <id name="typeNoticeId" type="int">
+            <column name="TypeNoticeId" />
+            <generator class="identity" />
+        </id>
+        <property name="nameTypeNotice" type="string">
+            <column name="NameTypeNotice" length="100" not-null="true" />
+        </property>
+         <set name="notices" inverse="true" cascade="all">
+            <key>
+                <column name="TypeNoticeId" />
+            </key>
+            <one-to-many class="POJO.Notice" />
+        </set>
+    </class>
+</hibernate-mapping>

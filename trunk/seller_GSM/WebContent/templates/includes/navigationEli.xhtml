@@ -1,0 +1,101 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	<h:form>
+			<div class="glossymenu">
+				<h:commandLink class="menuitem" action="#{linkDAO.acLinkIndex}" onclick="hideDiv('home')" value="#{utilInitLang.home}"></h:commandLink>
+				<a class="menuitem submenuheader" href="#">#{utilInitLang.payment}</a>
+				<div class="submenu" id="pay">
+					<ul>
+					<li>
+						<h:commandLink action="#{linkDAO.acLinkSearch}" value="#{utilInitLang.ac_lien_SSearch}"></h:commandLink>
+					</li>
+					<li>
+						<h:commandLink action="#{linkDAO.acLinkSearchSalse}" value="#{utilInitLang.ac_SearchSalse}"></h:commandLink>
+					</li>
+					<li>
+						<h:commandLink action="#{linkDAO.acLinkSearchPurchase}" value="#{utilInitLang.ac_SearchPurchase}"></h:commandLink>
+					</li>
+					<li>
+						<h:commandLink action="#{linkDAO.acLinkOrders}" value="#{utilInitLang.payment}"></h:commandLink>
+					</li>
+					<li>
+						<h:commandLink action="#{linkDAO.acLinkOrdersSalse}" value="#{utilInitLang.ac_OrderSalse}"></h:commandLink>
+					</li>
+					<li>
+						<h:commandLink action="#{linkDAO.acLinkOrdersPurchase}" value="#{utilInitLang.ac_OrderPurchase}"></h:commandLink>
+					</li>
+					
+					</ul>
+				</div>
+				<a class="menuitem submenuheader" href="#">#{utilInitLang.ac_approved}</a>
+				<div class="submenu" id="app">
+					<ul>
+					<li><h:commandLink action="#{docDAO.gotoyouDocumentApprove}" value="#{utilInitLang.yourDocApprove}">(<h:outputText value="#{docDAO.numYourDocApprove}" id="numYourDocApprove" />)</h:commandLink>
+						</li>
+					<li><h:commandLink action="#{docDAO.gotoMainApproving}" value="#{utilInitLang.viewDocApproving}">(<h:outputText value="#{docDAO.numAppvore}" id="numAppvore" />)</h:commandLink>
+					
+					</li>
+					<li><h:commandLink action="#{docDAO.gotoAppvored}" value="#{utilInitLang.docApproved}">(<h:outputText
+									value="#{docDAO.numAppvored}" id="numAppvored" />)</h:commandLink></li>
+					
+					<li><h:commandLink action="#{docDAO.gotoDocDecline}" value="#{utilInitLang.docDecline}">
+								(<h:outputText value="#{docDecline.numdocDecline}" />)</h:commandLink>
+					</li>
+					<li><h:commandLink action="#{docDAO.gotoNewDoc}" value="#{utilInitLang.docDecline}">
+								(<h:outputText value="#{newListDocDAO.numNewDoc}"/>)</h:commandLink></li>
+					</ul>
+				</div>
+				<a class="menuitem submenuheader" href="#">#{utilInitLang.ac_ManagerCompany}</a>
+				<div class="submenu" id="part">
+					<ul>
+					<li>
+						<h:commandLink action="#{linkDAO.acLinkManager}" value="#{utilInitLang.ac_ManagerCompany}"></h:commandLink>
+					</li>
+					</ul>
+				</div>
+				<a class="menuitem submenuheader" href="#">#{utilInitLang.ac_EmployeeManagement}</a>
+				<div class="submenu" id="emp">
+					<ul>
+					<li>
+						<h:commandLink action="#{linkDAO.acLinkManagerEmp}" value="#{utilInitLang.ac_EmployeeManagement}"></h:commandLink>
+					</li>
+					</ul>
+				</div>
+				<a class="menuitem submenuheader" href="#">#{utilInitLang.ac_Logictics}</a>
+				<div class="submenu" id="logictic">
+					<ul>
+					<li>
+						<a4j:commandLink value="aaaaaa"></a4j:commandLink>
+					</li>
+					<li>
+						<a4j:commandLink value="aaaaaa"></a4j:commandLink>
+					</li>
+					<li>
+						<a4j:commandLink value="aaaaaa"></a4j:commandLink>
+					</li>
+					</ul>
+				</div>
+				<a class="menuitem submenuheader" href="#">#{utilInitLang.ac_du_admin}</a>
+				<div class="submenu" id="admin">
+					<ul>
+						<li><h:commandLink action="#{linkDAO.acLinkAddLanguage}"  value="#{utilInitLang.ac_title_addlang}"></h:commandLink></li>
+						<li><h:commandLink action="#{linkDAO.acLinkLanguage}"  value="#{utilInitLang.ac_du_editLanguage}"></h:commandLink></li>
+						<li><h:commandLink action="#{linkDAO.acLinkTax}"  value="#{utilInitLang.ac_title_tax}"></h:commandLink></li>
+						<li><h:commandLink action="#{linkDAO.acLinkUnit}"  value="#{utilInitLang.ac_title_unit}"></h:commandLink></li>
+						<li><h:commandLink action="#{linkDAO.acLinkAccountStatus}"  value="#{utilInitLang.ac_title_accountstatus}"></h:commandLink></li>
+						<li><h:commandLink action="#{linkDAO.acLinkTransactionType}"  value="#{utilInitLang.ac_title_transactiontype}"></h:commandLink></li>
+						<li><h:commandLink action="#{linkDAO.acLinkPaymentMethod}"  value="#{utilInitLang.ac_title_paymentmethod}"></h:commandLink></li>
+						<li><h:commandLink action="#{linkDAO.acLinkChangeLogo}"  value="#{utilInitLang.ac_title_changelogo}"></h:commandLink></li>
+					</ul>
+				</div>
+				<h:commandLink class="menuitem" action="#{accessBean.logout }" onclick="hideDiv('home')"  value="#{utilInitLang.logout }"></h:commandLink>
+			</div>
+	</h:form>
+
+</ui:composition>

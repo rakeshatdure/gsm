@@ -1,0 +1,98 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+	
+<f:view contentType="text/html">
+
+	<h:head>
+	<script>
+	function openWin(url, w, h, title) {
+		//var w = 1000, h = 670; // default sizes
+		var left = (screen.width / 2) - (w / 2);
+		var top = (screen.height / 2) - (h / 2);
+		window
+				.open(
+						url,
+						title,
+						'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='
+								+ w
+								+ ', height='
+								+ h
+								+ ', top='
+								+ top
+								+ ', left=' + left);
+	}
+</script>
+		<title>ELI-ERP</title>
+		<h:outputStylesheet library="css" name="Login.css" />
+	</h:head>
+	<h:body id="login">
+	<div style="float:right;padding : 0px 20px">
+						<h:form id="form_Login">
+								<h:selectOneMenu id="cb_Language_S" value="#{languageBean.nngu}">
+									<a4j:ajax execute="@form" event="change"
+										listener="#{languageBean.changeLogin}" />
+									<f:selectItems value="#{languageBean.loadAllLanguage}" />
+								</h:selectOneMenu>
+							</h:form>
+					</div>
+		<h:form id="loginformDB">
+			<div id="wrappertop"></div>
+			<div id="wrapper">
+				<div id="content">
+					<div id="header">
+						<h1>
+							<a href="#">
+							<img src="resources/css/Images/Elisoft Logo.gif" alt="Elisoft"/></a>
+						</h1>
+					</div>
+					<div id="darkbanner" class="banner320">
+						<h2><h:outputText value="#{utilInitLang.ac_ConnectDatabase}"/></h2>	
+					</div>
+					<div id="darkbannerwrap"></div>
+
+					<fieldset class="form">
+						
+						<p>
+							<label for="txtUserName"><h:outputText value="#{utilInitLang.ac_CompanyName}"/></label>
+							<h:inputText id="txtUserName" styleClass="input"
+								value="#{accessBean.username}" />
+							<h:outputText value="#{accessBean.mesuser}"
+								rendered="#{accessBean.flag}" styleClass="error" />
+						</p>
+						<p>
+							<label for="txtPassword"><h:outputText value="#{utilInitLang.ac_ma_Password}"/></label>
+							<h:inputSecret id="txtPassword" styleClass="input"
+								value="#{accessBean.pass}" /> 
+							<h:outputText value="#{accessBean.mespass}"
+								rendered="#{accessBean.flg}" styleClass="error" />
+						</p>
+						<div style="position: relative;">
+							<div style="float: left;width: 180px ;text-align: right;">
+								<h:commandButton value="Login" image="resources/css/Images/btnLogin.png" action="#{accessBean.checkLogin}"/>
+							</div>
+							<div style="float: right;width: 140px">						
+								<h:commandButton value="Reset" image="resources/css/Images/btnClear.png" />
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+
+			<div id="wrapperbottom_branding">
+				<div id="wrapperbottom_branding_text">
+					<p style="color: #333333">&copy; 2011 Elisoft Company, All
+						Rights Reserved</p>
+				</div>
+				<div id="wrapperbottom_branding_shadow">&nbsp;</div>
+			</div>
+		</h:form>
+	</h:body>
+</f:view>
+</html>

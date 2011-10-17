@@ -1,0 +1,37 @@
+
+<pretty-config xmlns="http://ocpsoft.com/prettyfaces-xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://ocpsoft.com/prettyfaces-xsd 
+	http://ocpsoft.com/xml/ns/prettyfaces/pretty-1.0.xsd">
+	<url-mapping id="error">
+		<pattern> /error.html </pattern>
+		<view-id> /error.xhtml </view-id>
+	</url-mapping>
+	
+	<url-mapping id="index">
+		<pattern> /index.html </pattern>
+		<view-id>  /index.xhtml </view-id>
+	</url-mapping>
+	
+	<url-mapping id="index">
+		<pattern> /login.html </pattern>
+		<view-id>  /login.xhtml </view-id>
+	</url-mapping>
+	
+	<url-mapping id="search">
+		<pattern> /search.html </pattern>
+		<view-id> /Search.xhtml </view-id>
+	</url-mapping>
+	
+	
+	<url-mapping id="language">
+		<pattern> /language.html </pattern>
+		<view-id> /language.xhtml </view-id>
+	</url-mapping>
+	
+	<url-mapping id="information">
+		<pattern> /information.html </pattern>
+		<view-id> /information.xhtml </view-id>
+	</url-mapping>
+	
+</pretty-config>

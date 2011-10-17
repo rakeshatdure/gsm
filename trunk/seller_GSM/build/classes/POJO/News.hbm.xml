@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2011 10:22:52 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="POJO.News" table="news" >
+        <id name="newsId" type="java.lang.Integer">
+            <column name="NewsId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="newscategory" class="POJO.Newscategory" fetch="select">
+            <column name="NewsCategoryID" not-null="true" />
+        </many-to-one>
+        <property name="newsTitle" type="string">
+            <column name="NewsTitle" not-null="true" />
+        </property>
+        <property name="summary" type="string">
+            <column name="Summary" length="65535" not-null="true" />
+        </property>
+        <property name="content" type="string">
+            <column name="Content" length="65535" not-null="true" />
+        </property>
+        <property name="author" type="string">
+            <column name="Author" length="100" not-null="true" />
+        </property>
+        <property name="date" type="date">
+            <column name="Date" length="10" not-null="true" />
+        </property>
+        <set name="newsphotoses" inverse="true">
+            <key>
+                <column name="NewsId" not-null="true" />
+            </key>
+            <one-to-many class="POJO.Newsphotos" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	<f:metadata>
+		<f:viewParam name="name" value="#{name}" />
+	</f:metadata>
+	<h:head>
+		<title>ELI-ERP</title>
+		<h:outputStylesheet library="css" name="main.css" />
+		<h:outputScript name="jquery-1.4.4.js" library="menu" />
+		<h:outputScript name="openWin.js" library="approve/js" />
+		<h:outputScript name="jquery.cookie.js" library="menu" />
+		<h:outputScript name="menu.js" library="menu" />
+		<script>
+			var accessDB = "#{!empty sessionScope['accessDB']}";
+			if (accessDB == "true") { 
+		        if("#{sessionScope['dbName']}" != "#{name}"){	        	
+		        	document.location = "/#{name}/erp";		        	
+		        }
+			}
+		</script>
+		<script>
+			$('document')
+					.ready(
+							function() {
+								$('#myLogo')
+										.error(
+												function() {
+													$('#myLogo')
+															.attr("src",
+																	'#{facesContext.externalContext.requestContextPath}/images/nophoto.png');
+												});
+								$('#myLogo').attr("src", '#{link.logo}');
+							});
+		</script>
+		<script>
+			function logoutMenu(){
+				$.cookie('menu', null);
+				return true;
+			}
+		
+			function checkLogin() {
+				var emp = "#{!empty sessionScope['Employee']}";
+				var accessDB = "#{!empty sessionScope['accessDB']}";
+				if (accessDB == "false") {
+					reDirectToAccessDB();
+				} else if (emp == "false")
+					reDirectToLoginBean();
+			}
+		</script>
+	</h:head>
+
+	<h:body>
+		<div id="header">
+			<div id="bannerBack">
+				<div id="banner"></div>
+			</div>
+			<div id="menu">
+				<ui:include src="#{link.pathTopLink}" />
+			</div>
+		</div>
+		<div id="body">
+			<div style="margin-top:100px">
+				<ui:insert name="body">
+					Body content missed
+				</ui:insert>
+			</div>
+		</div>
+		<div id="footer">
+			<div id="copyright">2011 Elisoft Company - All rights Reserved</div>
+		</div>
+	</h:body>
+</html>
