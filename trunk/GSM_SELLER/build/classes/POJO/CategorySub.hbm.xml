@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2011 10:22:52 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="POJO.CategorySub" table="categorysub">
+        <id name="categorySubId" type="string">
+            <column name="CategorySubId" length="10"/>
+            <generator class="assigned" />
+        </id>
+        <property name="categoryChildId" type="string">
+            <column name="CategoryChildId" length="10" not-null="true" />
+        </property>
+        <property name="categorySubName" type="string">
+            <column name="CategorySubName" not-null="true" />
+        </property>
+        <set inverse="true" name="products"  cascade="all">
+	      <key>
+	        <column length="10" name="CategorySubId" not-null="true"/>
+	      </key>
+	      <one-to-many class="POJO.Products"/>
+	    </set>
+    </class>
+</hibernate-mapping>

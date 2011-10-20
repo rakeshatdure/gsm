@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 22, 2011 8:52:13 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="POJO.Template" table="templates">
+        <id name="templateId" type="java.lang.Integer">
+            <column name="TemplateID" />
+            <generator class="identity" />
+        </id>
+        <property name="templateName" type="string">
+            <column name="TemplateName" length="100" not-null="true" />
+        </property>
+        <property name="templateContent" type="string">
+            <column name="TemplateContent" length="65535" not-null="true" />
+        </property>
+        <property name="createDate" type="date">
+            <column name="CreateDate" length="10" not-null="true" />
+        </property>
+        <property name="updateDate" type="date">
+            <column name="UpdateDate" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

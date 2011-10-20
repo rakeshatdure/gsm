@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 15, 2011 11:05:08 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+	<class name="POJO.Delivercost" table="delivercost">
+		<id name="deliverCostId" type="int">
+			<column name="DeliverCostID" />
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="seller" class="POJO.User" fetch="select">
+			<column name="Seller" not-null="true"></column>
+		</many-to-one>
+		
+		<property name="deliverCostName" type="string">
+			<column name="DeliverCostName" length="255"/>
+		</property>
+		<property name="cost" type="java.lang.Float">
+			<column name="Cost" precision="12" scale="0" />
+		</property>
+		<property name="updateDate" type="timestamp">
+			<column name="UpdateDate" length="19" />
+		</property>
+		<property name="typeFee" type="string">
+			<column name="TypeFee" length="100"></column>
+		</property>
+		<property name="feeExtra" type="java.lang.Float">
+			<column name="FeeExtra"></column>
+		</property>
+		<property name="conditionForFree" type="java.lang.Float">
+			<column name="ConditionForFree"></column>
+		</property>
+		<property name="deliverCostDefault" type="string">
+			<column name="DeliverCostDefault" length="100"></column>
+		</property>
+		<property name="isUser" type="string">
+			<column name="IsUser" length="100"></column>
+		</property>
+		<set name="products" inverse="true" cascade="all">
+			<key>
+				<column name="DeliverCost" length="100" />
+			</key>
+			<one-to-many class="POJO.Products" />
+		</set>
+
+	</class>
+</hibernate-mapping>
