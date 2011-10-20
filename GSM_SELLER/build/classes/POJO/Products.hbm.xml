@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2011 10:22:52 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+	<class name="POJO.Products" table="products">
+		<id name="productId" type="java.lang.Integer">
+			<column name="ProductID" />
+			<generator class="identity" />
+		</id>
+		<many-to-one name="deliverCost" class="POJO.Delivercost"
+			fetch="select">
+			<column name="DeliverCost"></column>
+		</many-to-one>
+		<property name="productName" type="string">
+			<column name="ProductName" length="100" not-null="true" />
+		</property>
+		<property name="size" type="string">
+			<column name="Size" length="100" />
+		</property>
+		<property name="color" type="string">
+			<column name="Color" length="100" />
+		</property>
+		<property name="detail" type="string">
+			<column name="Detail" length="65535" />
+		</property>
+		<property name="amount" type="int">
+			<column name="Amount" length="11" not-null="true" />
+		</property>
+		<property name="unit" type="string">
+			<column name="Unit" length="100"/>
+		</property>
+		<property name="price" type="float">
+			<column name="Price" precision="12" scale="0" not-null="true" />
+		</property>
+		<property name="categoryChildId" type="string">
+			<column name="CategoryChildId" length="10" />
+		</property>
+		<property name="categorySubId" type="string">
+			<column name="CategorySubId" length="10" />
+		</property>
+		<property name="manufacturerId" type="int">
+			<column name="ManufacturerId" not-null="true" />
+		</property>
+		<many-to-one name="user" class="POJO.User" fetch="select">
+			<column name="Account" length="100" not-null="true" />
+		</many-to-one>
+		<property name="uploadDate" type="date">
+			<column name="UploadDate" length="10" not-null="true" />
+		</property>
+		<property name="originId" type="int">
+			<column name="OriginId" length="10" not-null="true" />
+		</property>
+		<property name="productTypeId" type="int">
+			<column name="ProductTypeId" length="10" not-null="true" />
+		</property>
+		<set name="productorderdetails" inverse="true" cascade="all">
+			<key>
+				<column name="ProductId" not-null="true" />
+			</key>
+			<one-to-many class="POJO.Productorderdetail" />
+		</set>
+		<set inverse="true" name="productphotos" cascade="all">
+			<key>
+				<column length="10" name="ProductID" not-null="true" />
+			</key>
+			<one-to-many class="POJO.Productphotos" />
+		</set>
+		<set inverse="true" name="promotions" cascade="all">
+			<key>
+				<column length="10" name="ProductID" not-null="true" />
+			</key>
+			<one-to-many class="POJO.Promotions" />
+		</set>
+		<set inverse="true" name="inventorys" cascade="all">
+			<key>
+				<column length="10" name="ProductId" not-null="true" />
+			</key>
+			<one-to-many class="POJO.Inventory" />
+		</set>
+		<set inverse="true" name="extensions" cascade="all">
+			<key>
+				<column length="10" name="ProductId" not-null="true" />
+			</key>
+			<one-to-many class="POJO.Extension" />
+		</set>
+		<set inverse="true" name="options" cascade="all">
+			<key>
+				<column length="100" name="Product" not-null="true"/>
+			</key>
+			<one-to-many class="POJO.Options"/>
+		</set>
+
+	</class>
+</hibernate-mapping>
