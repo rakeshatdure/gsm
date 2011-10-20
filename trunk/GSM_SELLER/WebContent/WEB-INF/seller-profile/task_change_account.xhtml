@@ -31,26 +31,158 @@
 					<h:outputLabel value="*Note 4" />
 				</h:panelGrid>
 				<div style="height: 15px" />
-
-				<h:panelGrid style="width:960px;" columns="4" rules="all">
-					<h:outputLabel value="ID của seller" />
+				<h:panelGrid style="width:960px;border:thin solid black;"
+					columns="4" rules="all">
+					<h:outputLabel value="ID của seller" style="text-align:center" />
 					<h:inputText value="" />
 
-					<h:outputLabel value="Tên của seller" />
+					<h:outputLabel value="Tên của seller" style="text-align:center" />
 					<h:inputText value="" />
+					<f:facet name="footer">
+						<h:outputLabel style="text-align:center"
+							value="Xin vui lòng nhập các thông tin về đăng ký kinh doanh." />
+					</f:facet>
 				</h:panelGrid>
-				
-				
-				<h:panelGrid style="width:960px;text-align:center;" columns="1" rules="all">
-					<h:outputLabel value="Xin vui lòng nhập các thông tin về đăng ký kinh doanh." />
+				<h:panelGrid
+					style="width:960px;border-left:thin solid black;border-right:thin solid black;border-bottom:thin solid black;"
+					columns="2" rules="all">
+					<h:outputLabel value="Xac nhan so dang ki kinh doanh" />
+
+					<h:form>
+						<h:panelGrid style="border:thin solid black;" columns="2"
+							rules="all">
+							<h:outputLabel value="So dk giay phep kinh doanh" />
+							<h:inputText value="" />
+							<h:outputLabel value="Ten cong ty" />
+							<h:inputText value="" />
+							<h:outputLabel value="Ten nguoi dai dien" />
+							<h:inputText value="" />
+						</h:panelGrid>
+						<h:panelGrid>
+							<f:facet name="footer">
+								<h:outputLabel value="* Note 1" />
+							</f:facet>
+						</h:panelGrid>
+					</h:form>
+
 				</h:panelGrid>
-				
-				<h:panelGrid style="width:960px;" columns="2">
-				<h:outputLabel value="Xác nhận số đăng kí kinh doanh">
-				
-				</h:outputLabel>
+				<div style="height: 4px" />
+				<h:panelGrid style="width:960px;border:thin solid black;"
+					columns="2" rules="all">
+					<h:outputLabel value="Xac nhan thong tin nguoi dai dien" />
+
+					<h:form>
+						<h:panelGrid style="border:thin solid black;" columns="2"
+							rules="all">
+							<h:outputLabel value="Ten nguoi dai dien" />
+							<h:inputText value=""></h:inputText>
+							<h:outputLabel value="So CMND" />
+							<h:form>
+								<h:panelGroup>
+									<h:selectOneRadio onselect="true" />
+									<h:outputLabel value="Trong nuoc" />
+									<h:selectOneRadio onselect="true" />
+									<h:outputLabel value="Quoc te" />
+								</h:panelGroup>
+
+								<div style="height: 2px" />
+								<h:panelGroup>
+									<h:inputText value="" />
+									<h:outputLabel>-</h:outputLabel>
+									<h:inputText value="" />
+									<h:commandButton value="Xac minh" />
+								</h:panelGroup>
+
+								<div style="height: 2px" />
+								<h:outputLabel value=" * Note 2" />
+							</h:form>
+						</h:panelGrid>
+						<h:panelGrid>
+							<f:facet name="footer">
+								<h:outputLabel value="* Note 1" />
+							</f:facet>
+						</h:panelGrid>
+					</h:form>
+					<h:outputLabel value="Loai hinh kinh doanh" />
+					<h:panelGroup>
+						<h:inputText value="" />
+						<h:outputLabel value="/" />
+						<h:inputText value="" />
+					</h:panelGroup>
+					<h:outputLabel value="kkkkkkkk" />
+					<h:selectOneListbox value="abababdb" />
+
+					<h:outputLabel value="Ma so khai trinh" />
+					<h:panelGroup>
+						<h:inputText value="0000-00-0000" />
+						<h:outputLabel value=" * Nhập theo ......." />
+					</h:panelGroup>
 				</h:panelGrid>
 
+				<div style="height: 5px" />
+				<h:panelGrid style="width:960px;border:thin solid black;"
+					columns="2" rules="all">
+					<h:outputLabel value="Địa điểm nơi đăng kí kinh doanh" />
+
+					<h:form>
+						<h:panelGroup>
+							<h:inputText value="" />
+							<h:outputLabel value="_" />
+							<h:inputText value="" />
+							<h:commandButton value="Tim dia chi" />
+						</h:panelGroup>
+						<div style="height: 2px" />
+						<h:inputText value="" style="width:300px" />
+						<div style="height: 2px" />
+						<h:inputText value="" style="width:300px" />
+					</h:form>
+
+					<h:panelGroup>
+						<h:selectBooleanCheckbox value="" />
+						<h:outputLabel value="So tai khoan thanh toan" />
+					</h:panelGroup>
+					<h:form>
+						<h:panelGroup>
+							<h:outputLabel value="Ten chu tai khoan" />
+							<h:inputText value="" />
+							<h:outputLabel value="Ngan hang" />
+							<h:selectOneListbox value="ajsdgjs" />
+							<h:outputLabel value="So tai khoan" />
+							<h:inputText value="" />
+							<h:commandButton value="xac nhan" />
+						</h:panelGroup>
+						<div style="height: 2px" />
+						<h:outputLabel
+							value="* Khi thay doi tai khoan sau khi chon nut radio hay xac nhan tinh huu hieu cua no sau do yeu cau chuyen doi" />
+					</h:form>
+				</h:panelGrid>
+				<div style="height: 15px" />
+				<div style="text-align: center; marign-left: -140px;">
+					<h:commandButton value="Yeu cau chuyen doi" />
+				</div>
+
+				<h:panelGrid columns="3"
+					style="width:960px;border:thin solid black;">
+					<h:form>
+						<rich:dataTable iterationStatusVar="" value="">
+							<rich:column>
+								<f:facet name="header">
+									<h:outputLabel value="Chung loai" />
+								</f:facet>
+							</rich:column>
+							<rich:column>
+								<f:facet name="header">
+									<h:outputLabel value="Ho so xuat trinh" />
+								</f:facet>
+							</rich:column>
+							<rich:column>
+								<f:facet name="header">
+									<h:outputLabel value="Hinh thuc dang ki" />
+								</f:facet>
+							</rich:column>
+						</rich:dataTable>
+					</h:form>
+				</h:panelGrid>
 			</div>
 		</div>
 	</h:form>
