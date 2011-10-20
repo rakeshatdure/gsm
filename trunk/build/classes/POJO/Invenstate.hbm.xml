@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 19, 2011 4:27:38 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="POJO.Invenstate" table="invenstate" >
+        <id name="stateId" type="int">
+            <column name="StateId" />
+            <generator class="assigned" />
+        </id>
+        <property name="stateName" type="string">
+            <column name="StateName" />
+        </property>
+        <set inverse="true" name="inventorys" cascade="all">
+	      <key>
+	        <column length="10" name="StateId" not-null="true"/>
+	      </key>
+	      <one-to-many class="POJO.Inventory"/>
+	    </set>
+    </class>
+</hibernate-mapping>

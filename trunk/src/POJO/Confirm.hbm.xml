@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 9, 2011 10:44:56 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+	<class name="POJO.Confirm" table="confirm">
+		<id name="confirmId" type="java.lang.Integer">
+			<column name="ConfirmID" />
+			<generator class="identity" />
+		</id>
+		<property name="orderCancelID" type="int">
+			<column name="OrderCancelID" />
+		</property>
+		<property name="exchangeOrderID" type="int">
+			<column name="ExchangeOrderID"></column>
+		</property>
+		<property name="objects" type="string">
+			<column name="Object" length="10" />
+		</property>
+		<property name="memo" type="string">
+			<column name="Memo" />
+		</property>
+		<property name="isCurrent" type="string">
+			<column name="IsCurrent" length="10" />
+		</property>
+		<property name="updateDate" type="date">
+			<column name="UpdateDate" length="10" />
+		</property>
+	</class>
+</hibernate-mapping>
