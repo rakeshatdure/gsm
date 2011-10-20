@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 3, 2011 5:04:54 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="POJO.Producttype" table="producttype">
+        <id name="productTypeId" type="java.lang.Integer">
+            <column name="ProductTypeId" />
+            <generator class="identity" />
+        </id>
+        <property name="productTypeName" type="string">
+            <column name="ProductTypeName" length="100" not-null="true" />
+        </property>
+        <set inverse="true" name="products" cascade="all">
+	      <key>
+	        <column length="10" name="ProductTypeId" not-null="true"/>
+	      </key>
+	      <one-to-many class="POJO.Products"/>
+	    </set>
+    </class>
+</hibernate-mapping>
