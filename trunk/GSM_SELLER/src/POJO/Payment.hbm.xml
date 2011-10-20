@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 6, 2011 3:12:24 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="POJO.Payment" table="payment" >
+        <id name="paymentId" type="java.lang.Integer">
+            <column name="PaymentId" />
+            <generator class="identity" />
+        </id>
+        <property name="orderDetailId" type="int">
+            <column name="OrderDetailId" not-null="true" />
+        </property>
+        <property name="paymentMethodId" type="int">
+            <column name="PaymentMethodId" length="10" not-null="true" />
+        </property>
+        <property name="paymentDate" type="date">
+            <column name="PaymentDate" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
