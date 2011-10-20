@@ -157,28 +157,43 @@
 					</h:form>
 				</h:panelGrid>
 				<div style="height: 15px" />
-				<div style="text-align: center; marign-left: -140px;">
+				<div style="text-align: center; margin-left: -140px;">
 					<h:commandButton value="Yeu cau chuyen doi" />
 				</div>
 
 				<h:panelGrid columns="3"
 					style="width:960px;border:thin solid black;">
 					<h:form>
-						<rich:dataTable iterationStatusVar="" value="">
+						<rich:dataTable iterationStatusVar="" value="" rows="2"
+							columnClasses="center" selectionMode="single" style="width:960px;border:thin solid black;" >
 							<rich:column>
 								<f:facet name="header">
 									<h:outputLabel value="Chung loai" />
 								</f:facet>
+								<h:panelGroup>
+									<h:outputLabel
+										value="Thay đổi tên công ty cũng như địa điểm kinh doanh" />
+									<h:outputLabel value="|" />
+									<h:outputLabel value="Tác nhân/cổ phần" />
+								</h:panelGroup>
 							</rich:column>
 							<rich:column>
 								<f:facet name="header">
 									<h:outputLabel value="Ho so xuat trinh" />
 								</f:facet>
+								<h:outputLabel value="Bản sao giấy phép đăng kí KD" />
+								<div style="height: 3px" />
+								<div style="height: 1px; border-top: 1px solid gray"></div>
+								<div style="height: 3px" />
+								<h:outputLabel value="google translate ko hieu" />
 							</rich:column>
 							<rich:column>
 								<f:facet name="header">
 									<h:outputLabel value="Hinh thuc dang ki" />
 								</f:facet>
+								<h:outputLabel value="Xuất trình tài liệu ở đây"/>
+								<div style="height:2px"/>
+								<h:outputLabel value="Sau khi xuất trình hồ sơ mới có thể tiến hành"/>
 							</rich:column>
 						</rich:dataTable>
 					</h:form>
