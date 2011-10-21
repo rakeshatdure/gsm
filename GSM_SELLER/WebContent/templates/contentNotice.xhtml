@@ -34,12 +34,12 @@
 				<h:panelGrid style="font-family: cambria;font-size: 18px;font-weight: bold;color: white;" columns="2">
 					<h:graphicImage url="/resources/images/icon_tt.png"
 						style="margin: 0px 5px 0px 5px; padding: 0px;"></h:graphicImage>
-					<h:outputLabel value="Mục thông tin" style="margin: 0px; padding: 0px;"></h:outputLabel>
+					<h:outputLabel value="#{initLang.notice}" style="margin: 0px; padding: 0px;"></h:outputLabel>
 				</h:panelGrid>
 				</div>
 				<h:panelGrid style="width:960px; height: 40px; border: 2px solid #67a8f1;" >
 					<h:outputLabel style="backgroud-color: #f2f4f2;"
-						value="Mục thông tin sẽ hướng dẫn sử dụng những thông tin giúp đỡ cho việc bán hàng."/>
+						value="#{initLang.mNotice1}"/>
 				</h:panelGrid>
 			</div>
 			</h:form>
@@ -48,17 +48,17 @@
 				<h:form id="form">
 				<div style="border-bottom: 3px solid #6383d4;height: 32px; position: inherit;">
 					<h:panelGrid columns="6">
-						<a4j:commandButton styleClass="button" value="Tất Cả Thông Báo"
+						<a4j:commandButton styleClass="button" value="#{initLang.allnotice}"
 							action="#{typenoticebean.getAllNotice}" render="table,res"/>
-						<a4j:commandButton styleClass="button" value="Thông Tin Chung"
+						<a4j:commandButton styleClass="button" value="#{initLang.generalnotice}"
 							action="#{typenoticebean.getNotice1}" render="table,res"/>
-						<a4j:commandButton styleClass="button" value="TT Giao Dịch An Toàn"
+						<a4j:commandButton styleClass="button" value="#{initLang.safeNotice}"
 							action="#{typenoticebean.getNotice2}" render="table,res"/>
-						<a4j:commandButton styleClass="button" value="Danh Mục Thông Báo"
+						<a4j:commandButton styleClass="button" value="#{initLang.categorynotice}"
 							action="#{typenoticebean.getNotice3}" render="table,res"/>
-						<a4j:commandButton styleClass="button" value="Thông Tin Quảng Cáo"
+						<a4j:commandButton styleClass="button" value="#{initLang.advnotice}"
 							action="#{typenoticebean.getNotice4}" render="table,res"/>
-						<a4j:commandButton styleClass="button" value="Thông Tin Hệ Thống"
+						<a4j:commandButton styleClass="button" value="#{initLang.systemnotice}"
 							action="#{typenoticebean.getNotice5}" render="table,res"/>
 					</h:panelGrid>
 				</div>
@@ -67,17 +67,18 @@
 				<div style="width: 960px; float: left; margin: 20px 0px 10px 0px;">
 				
 						<rich:extendedDataTable id="table" value="#{NoticeBean.listNotice}" var="notice"
-			                selection="#{NoticeSelection.selection}" rowClasses="odd-row, even-row"
+			                selection="#{NoticeSelection.selection}" rowClasses="odd-row, even-row"  sortMode="single"
 			                frozenColumns="1" style="height:300px; width:960px;" selectionMode="single">
 			                <f:facet name="header">
 			                    <h:outputText value="#{typenoticebean.nameTypeNotice}" style="color: white" />
 			                </f:facet>
 				            <a4j:ajax execute="@form" event="selectionchange"
 				                listener="#{NoticeSelection.selectionListener}" render=":res" />
-							<rich:column sortBy="#{notice.noticeId}" sortable="true" id="noticeId" width="100px"
-										sortIconAscending="dataTableAscIcon" sortIconDescending="dataTableDescIcon" style="text-align: center;">
+				                
+							<rich:column sortable="true" id="noticeId" width="100px" filterBy="#{notice.noticeId}" filterEvent="onkeyup"
+										 sortBy="#{notice.noticeId}"  style="text-align: center;">
 				                <f:facet name="header">
-				                    <h:outputText value="Số" style="color: white" />
+                        			<h:outputText value="#{initLang._no}" style="color: white" />
 				                </f:facet>
 				                <h:outputText value="#{notice.noticeId}"/>
 				            </rich:column>
@@ -85,7 +86,7 @@
 				            <rich:column sortBy="#{notice.typenotice}" sortable="true" id="typenotice" width="200px"
 										sortIconAscending="dataTableAscIcon" sortIconDescending="dataTableDescIcon">
 				                <f:facet name="header">
-				                    <h:outputText value="Loại Thông báo" style="color: white" />
+				                    <h:outputText value="#{initLang.category}" style="color: white" />
 				                </f:facet>
 				                <h:outputText value="#{notice.nameTypeNotice}"/>
 				            </rich:column>
@@ -93,7 +94,7 @@
 				            <rich:column sortBy="#{notice.title}" sortable="true" id="title" width="500px"
 										sortIconAscending="dataTableAscIcon" sortIconDescending="dataTableDescIcon">
 				                <f:facet name="header">
-				                    <h:outputText value="Tiêu đề" style="color: white" />
+				                    <h:outputText value="#{initLang.title}" style="color: white" />
 				                </f:facet>
 				                <h:outputText value="#{notice.title}" style="cursor: pointer;"/>
 				            </rich:column>
@@ -101,7 +102,7 @@
 				            <rich:column sortBy="#{notice.dateNotice}" sortable="true" id="dateNotice" width="150px"
 										sortIconAscending="dataTableAscIcon" sortIconDescending="dataTableDescIcon">
 				                <f:facet name="header">
-				                    <h:outputText value="Ngày" style="color: white" />
+				                    <h:outputText value="#{initLang.date}" style="color: white" />
 				                </f:facet>
 				                <h:outputText value="#{notice.dateNotice}"/>
 				            </rich:column>
@@ -111,12 +112,12 @@
 				</div>
 				<div style="float: left;">
 					<a4j:outputPanel id="res">
-			            <rich:panel header="Content of Notice selection:"
+			            <rich:panel header="#{initLang.hdNo}:"
 			                rendered="#{not empty NoticeSelection.selectionItems}" style="width:960px; margin-top: 10px;">
 			                <rich:list type="definitions" style="padding-left: 0px"
 			                    value="#{NoticeSelection.selectionItems}" var="sel">
 			                    <div id="tcn" style="border: 1px solid #959799;height: 20px;padding-top: 6px">
-			                    	<h:outputText value="Tiêu đề: #{sel.title}" style="font-size: 14px; font-weight: bold;"/>
+			                    	<h:outputText value="#{initLang.ttNo}: #{sel.title}" style="font-size: 14px; font-weight: bold;"/>
 			                    </div>
 			                    <br/>
 			                    <div id="cn" style="border: 1px dotted #67696b; padding: 5px 5px 5px 10px;">
