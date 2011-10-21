@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2011 10:22:52 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="POJO.Stateorder" table="stateorder" >
+        <id name="stateOrderId" type="java.lang.Integer">
+            <column name="StateOrderID" />
+            <generator class="identity" />
+        </id>
+        <property name="stateOrderName" type="string">
+            <column name="StateOrderName" length="100" not-null="true" />
+        </property>
+        <set name="productorders" inverse="true" cascade="all">
+            <key>
+                <column name="StateOrderID" not-null="true" />
+            </key>
+            <one-to-many class="POJO.Productorder" />
+        </set>
+    </class>
+</hibernate-mapping>
