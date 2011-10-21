@@ -1,0 +1,56 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:metadata>
+	<f:viewParam name="name" value="#{name}" />
+</f:metadata>
+<h:head>
+	<title>SELLER_GSM</title>
+	<h:outputStylesheet library="css" name="main.css" />
+	<h:outputScript name="jquery-1.4.4.js" library="menu" />
+	<h:outputScript name="openWin.js" library="approve/js" />
+	<h:outputScript name="jquery.cookie.js" library="menu" />
+	<h:outputScript name="menu.js" library="menu" />
+</h:head>
+<f:view>
+<h:body>
+	<div id="body">
+	<h:form>
+	<h:panelGrid  columns="2"
+			style="border-collapse: separate; border-spacing: 20px;">
+	<f:facet name="header">
+				<h:outputText value="Login"
+					style="color:red ;display: block;margin-left: 15px;margin-top: 15px;" />
+			</f:facet>
+			<h:outputText value="Username" />
+			<h:inputText
+				style="border: 1px solid silver;height: 24px;width: 200px;"
+				value="#{user.account}" />
+			<h:outputText value="Password" />
+			<h:inputSecret
+				style="border: 1px solid silver;height: 24px;width: 200px;"
+				value="#{user.pass}" />
+
+			<h:outputText value="" />
+				<h:commandButton value="Login"
+				style="background:url('#{facesContext.externalContext.requestContextPath}/resources/images/loginbt.png');
+						color:white;width:90px;height:32px;border:0;cursor:pointer" 
+				action="#{user.canLogin}"></h:commandButton>
+				
+	</h:panelGrid>
+	</h:form>
+		
+	</div>
+	<div id="footer">
+		<div id="copyright">2011 Elisoft Company - All rights Reserved</div>
+	</div>
+</h:body>
+</f:view>
+</html>
