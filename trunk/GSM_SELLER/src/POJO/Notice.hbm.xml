@@ -8,12 +8,12 @@
             <column name="NoticeId" />
             <generator class="identity" />
         </id>
-        <many-to-one name="typenotice" class="POJO.Typenotice" fetch="select">
+        <property name="typenotice" type="int">
             <column name="TypeNoticeId"  length="100" not-null="true"/>
-        </many-to-one>
-        <many-to-one name="user" class="POJO.User" fetch="select">
+        </property>
+        <property name="user" type="string">
             <column name="Account" length="100" />
-        </many-to-one>
+        </property>
         <property name="dateNotice" type="date">
             <column name="DateNotice" length="10" not-null="true" />
         </property>

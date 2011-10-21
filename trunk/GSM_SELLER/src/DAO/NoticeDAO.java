@@ -31,13 +31,11 @@ public class NoticeDAO extends HibernateDAO {
 			ResultSet rs = helper.executeQuery(sql);
 			while (rs.next()) {
 				Notice notice = new Notice();
-				Typenotice typenotice = new Typenotice();
 				User user = new User();
 				notice.setNoticeId(rs.getInt("noticeId"));
 				notice.setTitle(rs.getString("Title"));
-				typenotice.setNameTypeNotice(rs.getString("nameTypeNotice"));
 				notice.setDateNotice(rs.getDate("dateNotice"));
-				notice.setTypenotice(typenotice);
+				notice.setTypenotice(rs.getInt("typeNoticeId"));
 				lstNotice.add(notice);
 			}
 		} catch (Exception ex) {
@@ -56,13 +54,10 @@ public class NoticeDAO extends HibernateDAO {
 			ResultSet rs = helper.executeQuery(sql);
 			while (rs.next()) {
 				Notice notice = new Notice();
-				Typenotice typenotice = new Typenotice();
-				User user = new User();
 				notice.setNoticeId(rs.getInt("noticeId"));
 				notice.setTitle(rs.getString("Title"));
-				typenotice.setNameTypeNotice(rs.getString("nameTypeNotice"));
 				notice.setDateNotice(rs.getDate("dateNotice"));
-				notice.setTypenotice(typenotice);
+				notice.setTypenotice(rs.getInt("typeNoticeId"));
 				lstNotice.add(notice);
 			}
 		} catch (Exception ex) {
@@ -81,14 +76,11 @@ public class NoticeDAO extends HibernateDAO {
 			ResultSet rs = helper.executeQuery(sql);
 			while (rs.next()) {
 				Notice notice = new Notice();
-				Typenotice typenotice = new Typenotice();
-				User user = new User();
 				notice.setNoticeId(rs.getInt("noticeId"));
 				notice.setContentNotice(rs.getString("ContentNotice"));
 				notice.setTitle(rs.getString("Title"));
-				typenotice.setNameTypeNotice(rs.getString("nameTypeNotice"));
 				notice.setDateNotice(rs.getDate("dateNotice"));
-				notice.setTypenotice(typenotice);
+				notice.setTypenotice(rs.getInt("typeNoticeId"));
 				lstNotice.add(notice);
 			}
 		} catch (Exception ex) {
@@ -107,13 +99,11 @@ public class NoticeDAO extends HibernateDAO {
 			ResultSet rs = helper.executeQuery(sql);
 			while (rs.next()) {
 				Notice notice = new Notice();
-				Typenotice typenotice = new Typenotice();
 				User user = new User();
 				notice.setNoticeId(rs.getInt("noticeId"));
 				notice.setTitle(rs.getString("Title"));
-				typenotice.setNameTypeNotice(rs.getString("nameTypeNotice"));
 				notice.setDateNotice(rs.getDate("dateNotice"));
-				notice.setTypenotice(typenotice);
+				notice.setTypenotice(rs.getInt("typeNoticeId"));
 				lstNotice.add(notice);
 			}
 		} catch (Exception ex) {

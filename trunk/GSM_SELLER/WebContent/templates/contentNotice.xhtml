@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+	<h:head>
+		<h:outputStylesheet name="/notice.css" library="/css" />
+		<h:outputStylesheet>
+			.even-row {
+			    background-color: #FCFFFE;
+			}
+			 
+			.odd-row {
+			    background-color: #ECF3FE;
+			}
+			 
+			.active-row {
+			    background-color: #FFEBDA !important;
+			    cursor: pointer;
+			}
+		</h:outputStylesheet>
+		<title>Notice Manage</title>
+	</h:head>
+	<h:body>
+		
+		<div style="width: 1224px">
+			<h:form>
+			<div id="title_Notice" style="width: 960px; float: left; height: 70px">
+				<div style="width: 100%;height: 40px;background:url(resources/images/bg_thongtin.jpg) repeat-x left top;">
+				<h:panelGrid style="font-family: cambria;font-size: 18px;font-weight: bold;color: white;" columns="2">
+					<h:graphicImage url="/resources/images/icon_tt.png"
+						style="margin: 0px 5px 0px 5px; padding: 0px;"></h:graphicImage>
+					<h:outputLabel value="Mục thông tin" style="margin: 0px; padding: 0px;"></h:outputLabel>
+				</h:panelGrid>
+				</div>
+				<h:panelGrid style="width:960px; height: 40px; border: 2px solid #67a8f1;" >
+					<h:outputLabel style="backgroud-color: #f2f4f2;"
+						value="Mục thông tin sẽ hướng dẫn sử dụng những thông tin giúp đỡ cho việc bán hàng."/>
+				</h:panelGrid>
+			</div>
+			</h:form>
+			
+			<div id="tabsNotice" style="width: 960px; float: left; margin: 20px 0px 10px 0px;">
+				<h:form id="form">
+				<div style="border-bottom: 3px solid #6383d4;height: 32px; position: inherit;">
+					<h:panelGrid columns="6">
+						<a4j:commandButton styleClass="button" value="Tất Cả Thông Báo"
+							action="#{typenoticebean.getAllNotice}" render="table,res"/>
+						<a4j:commandButton styleClass="button" value="Thông Tin Chung"
+							action="#{typenoticebean.getNotice1}" render="table,res"/>
+						<a4j:commandButton styleClass="button" value="TT Giao Dịch An Toàn"
+							action="#{typenoticebean.getNotice2}" render="table,res"/>
+						<a4j:commandButton styleClass="button" value="Danh Mục Thông Báo"
+							action="#{typenoticebean.getNotice3}" render="table,res"/>
+						<a4j:commandButton styleClass="button" value="Thông Tin Quảng Cáo"
+							action="#{typenoticebean.getNotice4}" render="table,res"/>
+						<a4j:commandButton styleClass="button" value="Thông Tin Hệ Thống"
+							action="#{typenoticebean.getNotice5}" render="table,res"/>
+					</h:panelGrid>
+				</div>
+				</h:form>
+				<h:form>
+				<div style="width: 960px; float: left; margin: 20px 0px 10px 0px;">
+				
+						<rich:extendedDataTable id="table" value="#{NoticeBean.listNotice}" var="notice"
+			                selection="#{NoticeSelection.selection}" rowClasses="odd-row, even-row"
+			                frozenColumns="1" style="height:300px; width:960px;" selectionMode="single">
+			                <f:facet name="header">
+			                    <h:outputText value="#{typenoticebean.nameTypeNotice}" style="color: white" />
+			                </f:facet>
+				            <a4j:ajax execute="@form" event="selectionchange"
+				                listener="#{NoticeSelection.selectionListener}" render=":res" />
+							<rich:column sortBy="#{notice.noticeId}" sortable="true" id="noticeId" width="100px"
+										sortIconAscending="dataTableAscIcon" sortIconDescending="dataTableDescIcon" style="text-align: center;">
+				                <f:facet name="header">
+				                    <h:outputText value="Số" style="color: white" />
+				                </f:facet>
+				                <h:outputText value="#{notice.noticeId}"/>
+				            </rich:column>
+				            
+				            <rich:column sortBy="#{notice.typenotice}" sortable="true" id="typenotice" width="200px"
+										sortIconAscending="dataTableAscIcon" sortIconDescending="dataTableDescIcon">
+				                <f:facet name="header">
+				                    <h:outputText value="Loại Thông báo" style="color: white" />
+				                </f:facet>
+				                <h:outputText value="#{notice.nameTypeNotice}"/>
+				            </rich:column>
+				            
+				            <rich:column sortBy="#{notice.title}" sortable="true" id="title" width="500px"
+										sortIconAscending="dataTableAscIcon" sortIconDescending="dataTableDescIcon">
+				                <f:facet name="header">
+				                    <h:outputText value="Tiêu đề" style="color: white" />
+				                </f:facet>
+				                <h:outputText value="#{notice.title}" style="cursor: pointer;"/>
+				            </rich:column>
+				            
+				            <rich:column sortBy="#{notice.dateNotice}" sortable="true" id="dateNotice" width="150px"
+										sortIconAscending="dataTableAscIcon" sortIconDescending="dataTableDescIcon">
+				                <f:facet name="header">
+				                    <h:outputText value="Ngày" style="color: white" />
+				                </f:facet>
+				                <h:outputText value="#{notice.dateNotice}"/>
+				            </rich:column>
+						
+						</rich:extendedDataTable>
+
+				</div>
+				<div style="float: left;">
+					<a4j:outputPanel id="res">
+			            <rich:panel header="Content of Notice selection:"
+			                rendered="#{not empty NoticeSelection.selectionItems}" style="width:960px; margin-top: 10px;">
+			                <rich:list type="definitions" style="padding-left: 0px"
+			                    value="#{NoticeSelection.selectionItems}" var="sel">
+			                    <div id="tcn" style="border: 1px solid #959799;height: 20px;padding-top: 6px">
+			                    	<h:outputText value="Tiêu đề: #{sel.title}" style="font-size: 14px; font-weight: bold;"/>
+			                    </div>
+			                    <br/>
+			                    <div id="cn" style="border: 1px dotted #67696b; padding: 5px 5px 5px 10px;">
+			                    	<h:outputText value="#{sel.contentNotice}"/>
+			                    </div>
+			                </rich:list>
+			            </rich:panel>
+			        </a4j:outputPanel>
+				</div>
+				</h:form>
+			</div>
+		</div>
+	</h:body>
+</html>
+
