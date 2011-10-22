@@ -18,13 +18,22 @@
 				</f:facet>
 
 
-				<rich:menuItem submitMode="none" onclick="document.location.href='#{user.redirectProfileSeller}'">
+				<rich:menuItem submitMode="none"
+					onclick="document.location.href='#{user.redirectAnswerSeller}'">
+					<h:outputLink value="#{user.redirectAnswerSeller}">
+						<h:outputLabel value="Seller's answer" />
+					</h:outputLink>
+				</rich:menuItem>
+
+				<rich:menuItem submitMode="none"
+					onclick="document.location.href='#{user.redirectProfileSeller}'">
 					<h:outputLink value="#{user.redirectProfileSeller}">
 						<h:outputLabel value="Seller Profile" />
 					</h:outputLink>
 				</rich:menuItem>
 
-				<rich:menuItem submitMode="none" onclick="document.location.href='#{user.redirectTaskChangeProfileSeller}'">
+				<rich:menuItem submitMode="none"
+					onclick="document.location.href='#{user.redirectTaskChangeProfileSeller}'">
 					<h:outputLink value="#{user.redirectTaskChangeProfileSeller}">
 						<h:outputLabel value="Task change account infor" />
 					</h:outputLink>

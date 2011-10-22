@@ -1,6 +1,8 @@
 package DAO;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import POJO.Bank;
@@ -98,4 +100,116 @@ public class BankDAO extends HibernateDAO{
     public static boolean deleteBank(Bank p,String lang) {
         return HibernateDAO.delete(p, lang);
     }
+    
+    // load all bankName in database
+    public static List<String> lstBankName(String lang){
+    	  List<String> list = new ArrayList<String>();
+          MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
+          
+          try {
+              String sql = "select bank.Banking from bank GROUP BY bank.Banking DESC";
+              helper.open(lang);
+             
+              ResultSet rs = helper.executeQuery(sql);
+              while (rs.next()) {
+            	  String s = new String(rs.getString("Banking"));
+            	  list.add(s);
+              }
+          } catch (Exception ex) {
+              ex.getMessage();
+          }
+          return list;
+    }
+    // load bank Name by account
+    public static String getBankName(String account,String lang){
+    	MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
+    	String s = null;
+    	try{
+    	  String sql = "select  bank.Banking "
+              + "from `user`, bank where `user`.Account=bank.Account  "
+              + "and bank.Account='" + account + "'";
+    	  helper.open(lang);
+    	  ResultSet rs = helper.executeQuery(sql);
+          while (rs.next()) {
+        	   s = new String(rs.getString("Banking"));
+          }
+    	}catch(SQLException e){
+    		
+    	}
+    	return s;
+    }
+    // load account number by account and bankName
+    public static String getAccountNumber(String account,String bankName,String lang){
+    	MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
+    	String s = null;
+    	try{
+    	  String sql = "select  bank.AccountNumber "
+              + "from `user`, bank where `user`.Account=bank.Account  "
+              + "and bank.Account='" + account + "' and bank.Banking ='"+ bankName +"'";
+    	  helper.open(lang);
+    	  ResultSet rs = helper.executeQuery(sql);
+          while (rs.next()) {
+        	   s = new String(rs.getString("AccountNumber"));
+          }
+    	}catch(SQLException e){
+    		
+    	}
+    	return s;
+    }
+    
+    // load account number by account
+    public static String getAccountNumber(String account,String lang){
+    	MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
+    	String s = null;
+    	try{
+    	  String sql = "select  bank.AccountNumber "
+              + "from `user`, bank where `user`.Account=bank.Account  "
+              + "and bank.Account='" + account + "' ";
+    	  helper.open(lang);
+    	  ResultSet rs = helper.executeQuery(sql);
+          while (rs.next()) {
+        	   s = new String(rs.getString("AccountNumber"));
+          }
+    	}catch(SQLException e){
+    		
+    	}
+    	return s;
+    }
+    // update bankName, AccountNumber
+    public boolean updateBank(String bankName,String accountNumber,String lang,String account){
+		boolean result = false;
+		MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
+		try {
+			helper.open();
+			String sql = "update bank set Banking ='" + bankName + "' " +
+					" , AccountNumber='" + accountNumber + "' where Account='" +account+"'";
+			int rs = helper.executeUpdate(sql);
+			helper.close();
+			if(rs > 0){
+				result = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+    
+
+    // update bankName, AccountName by User
+    public boolean updateBank(Integer bankID,String lang,String account){
+		boolean result = false;
+		MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
+		try {
+			helper.open();
+			String sql = "UPDATE `user` SET `user`.BankId ='" + bankID + "' where `user`.Account='" +account+"'";
+			int rs = helper.executeUpdate(sql);
+			helper.close();
+			if(rs > 0){
+				result = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

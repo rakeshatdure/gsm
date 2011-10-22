@@ -55,7 +55,7 @@ public class MySqlDataAccessHelper {
             DriverManager.registerDriver(new org.gjt.mm.mysql.Driver());
             //Set language
            
-             		connectionString += "mallshoppingnewdesign_vi";
+             		connectionString += "mallshoppingnewdesign_en";
             Properties pros = new Properties();
             pros.setProperty("characterEncoding", "utf8");
             //Set username & password 

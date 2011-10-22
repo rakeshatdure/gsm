@@ -50,10 +50,13 @@ public class User  implements java.io.Serializable {
 	private Set deliverCosts = new HashSet(0);
 	private Set shippingcompanys=new HashSet(0);
 	
+	
 	@SuppressWarnings("unused")
 	private String redirectProfileSeller;
 	@SuppressWarnings("unused")
 	private String redirectTaskChangeProfileSeller;
+	@SuppressWarnings("unused")
+	private String redirectAnswerSeller;
 
 
 	public User(String account,String pass){
@@ -71,6 +74,13 @@ public class User  implements java.io.Serializable {
 		this.pass = pass;
 		this.address = address;
 		this.email = email;
+	}
+	public User(String account,String pass,String address,String email,String fullName){
+		this.account = account;
+		this.pass = pass;
+		this.address = address;
+		this.email = email;
+		this.fullName = fullName;
 	}
 	public User() {
 	}
@@ -108,6 +118,7 @@ public class User  implements java.io.Serializable {
 		this.banks = banks;
 		this.shippingcompanys=shippingcompanys;
 	}
+	
 
 	public String getAccount() {
 		return this.account;
@@ -272,6 +283,12 @@ public class User  implements java.io.Serializable {
 			String redirectTaskChangeProfileSeller) {
 		this.redirectTaskChangeProfileSeller = redirectTaskChangeProfileSeller;
 	}
+	public String getRedirectAnswerSeller() {
+		return answerSeller();
+	}
+	public void setRedirectAnswerSeller(String redirectAnswerSeller) {
+		this.redirectAnswerSeller = redirectAnswerSeller;
+	}
 
 	public String canLogin(){
 		try {
@@ -285,8 +302,8 @@ public class User  implements java.io.Serializable {
 			System.out.println("pass: "+pass);
 			
 			while(rs.next()){
-				User user = new User(rs.getString("Account"),rs.getString("Pass"),rs.getString("Address"),rs.getString("Email"));
-				Role role =RoleBUS.getRole(Integer.parseInt(rs.getString("RoleId")), "MALL_VI");
+				User user = new User(rs.getString("Account"),rs.getString("Pass"),rs.getString("Address"),rs.getString("Email"),rs.getString("FullName"));
+				Role role =RoleBUS.getRole(Integer.parseInt(rs.getString("RoleId")), "MALL_EN");
 				user.setRole(role);
 				list.add(user);
 				System.out.println("Rolessss :" + user.getRole().getRoleId()) ;
@@ -331,6 +348,11 @@ public class User  implements java.io.Serializable {
 	public String taskChangeProfileSeller() {
 		return "seller-profile/task_change_account.xhtml";
 	}
+	
+	public String answerSeller(){
+		return "seller-profile/answer_seller.xhtml";
+	}
+	
 	
 }
 
