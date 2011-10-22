@@ -3,6 +3,9 @@ package POJO;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.faces.bean.ManagedBean;
+
+@ManagedBean
 public class NoticeView implements Serializable{
 
 	/**

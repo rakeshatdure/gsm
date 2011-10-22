@@ -21,6 +21,7 @@ import POJO.Typenotice;
 public class NoticeParser extends HibernateDAO {
 	private List<NoticeView> listNotice;
 	private String action = "";
+	private String lang;
 	
 	@SuppressWarnings("unchecked")
 	public  List<NoticeView> getListNotice() {
@@ -33,7 +34,7 @@ public class NoticeParser extends HibernateDAO {
 			action = "from Notice n where n.typenotice = " + ss.getAttribute("notice").toString();
 		}
 		listNotice = new ArrayList<NoticeView>();
-		List<Notice> lstNo = HibernateDAO.getList(action, "MALL_VN");
+		List<Notice> lstNo = HibernateDAO.getList(action, lang);
 		int size = lstNo.size();
 		for(int i = 0; i < size; i++)
 		{
@@ -52,7 +53,7 @@ public class NoticeParser extends HibernateDAO {
 	@SuppressWarnings("unchecked")
 	public String getNameTypeNotice(int id) {
 		String nameType = "";
-		List<Typenotice> lstTn = HibernateDAO.getList("from Typenotice tn where tn.typeNoticeId = " + id, "MALL_VN");
+		List<Typenotice> lstTn = HibernateDAO.getList("from Typenotice tn where tn.typeNoticeId = " + id, lang);
 		for(Typenotice t : lstTn){
 			nameType = t.getNameTypeNotice();
 		}
@@ -69,6 +70,17 @@ public class NoticeParser extends HibernateDAO {
 
 	public void setListNotice(List<NoticeView> listNotice) {
 		this.listNotice = listNotice;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+
+	public String getLang() {
+		FacesContext f = FacesContext.getCurrentInstance();
+		HttpSession ss = (HttpSession)f.getExternalContext().getSession(true);
+		lang = (String) ss.getAttribute("MALL_LA");
+		return lang;
 	}	
 	
 	

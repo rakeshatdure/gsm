@@ -76,33 +76,37 @@
 				                listener="#{NoticeSelection.selectionListener}" render=":res" />
 				                
 							<rich:column sortable="true" id="noticeId" width="100px" filterBy="#{notice.noticeId}" filterEvent="onkeyup"
-										 sortBy="#{notice.noticeId}"  style="text-align: center;">
+										 sortBy="#{notice.noticeId}" sortOrder="#{noticesort.idNoticeOrder}" style="text-align: center;">
 				                <f:facet name="header">
-                        			<h:outputText value="#{initLang._no}" style="color: white" />
+		                      			<a4j:commandLink value="#{initLang._no}" action="#{noticesort.sortByIdNotice}"
+		                      				render="table, res" style="color: white;cursor: pointer;" />
 				                </f:facet>
 				                <h:outputText value="#{notice.noticeId}"/>
 				            </rich:column>
 				            
-				            <rich:column sortBy="#{notice.typenotice}" sortable="true" id="typenotice" width="200px"
-										sortIconAscending="dataTableAscIcon" sortIconDescending="dataTableDescIcon">
+				            <rich:column sortBy="#{notice.nameTypeNotice}" sortable="true" id="typenotice" width="200px"
+										filterBy="#{notice.nameTypeNotice}" filterEvent="onkeyup" sortOrder="#{noticesort.nameTypeNoticeOrder}">
 				                <f:facet name="header">
-				                    <h:outputText value="#{initLang.category}" style="color: white" />
+				                    <a4j:commandLink value="#{initLang.category}" action="#{noticesort.sortByNameTypeNotice}"
+		                      				render="table, res" style="color: white;cursor: pointer;" />
 				                </f:facet>
 				                <h:outputText value="#{notice.nameTypeNotice}"/>
 				            </rich:column>
 				            
 				            <rich:column sortBy="#{notice.title}" sortable="true" id="title" width="500px"
-										sortIconAscending="dataTableAscIcon" sortIconDescending="dataTableDescIcon">
+										filterBy="#{notice.title}" filterEvent="onkeyup" sortOrder="#{noticesort.titleNoticeOrder}">
 				                <f:facet name="header">
-				                    <h:outputText value="#{initLang.title}" style="color: white" />
+				                    <a4j:commandLink value="#{initLang.title}" action="#{noticesort.sortByTitleNotice}"
+		                      				render="table, res" style="color: white;cursor: pointer;" />
 				                </f:facet>
 				                <h:outputText value="#{notice.title}" style="cursor: pointer;"/>
 				            </rich:column>
 				            
 				            <rich:column sortBy="#{notice.dateNotice}" sortable="true" id="dateNotice" width="150px"
-										sortIconAscending="dataTableAscIcon" sortIconDescending="dataTableDescIcon">
+										filterBy="#{notice.dateNotice}" filterEvent="onkeyup" sortOrder="#{noticesort.dateNoticeOrder}">
 				                <f:facet name="header">
-				                    <h:outputText value="#{initLang.date}" style="color: white" />
+				                    <a4j:commandLink value="#{initLang.date}" action="#{noticesort.sortByDateNotice}"
+		                      				render="table, res" style="color: white;cursor: pointer;" />
 				                </f:facet>
 				                <h:outputText value="#{notice.dateNotice}"/>
 				            </rich:column>

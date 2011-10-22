@@ -16,13 +16,13 @@ public class NoticeSortBean implements Serializable {
 	 */
 	private static final long serialVersionUID = -5068260866113659391L;
 
-	private SortOrder idNoticeOrder;
-	private SortOrder nameTypeNotice;
-	private SortOrder titleNoticeOrder;
-	private SortOrder dateNoticeOrder;
+	private SortOrder idNoticeOrder = SortOrder.unsorted;
+	private SortOrder nameTypeNoticeOrder = SortOrder.unsorted;
+	private SortOrder titleNoticeOrder = SortOrder.unsorted;
+	private SortOrder dateNoticeOrder = SortOrder.unsorted;
 	
 	public void sortByIdNotice() {
-		nameTypeNotice = SortOrder.unsorted;
+		nameTypeNoticeOrder = SortOrder.unsorted;
         titleNoticeOrder = SortOrder.unsorted;
         dateNoticeOrder = SortOrder.unsorted;
         if (idNoticeOrder.equals(SortOrder.ascending)) {
@@ -32,20 +32,20 @@ public class NoticeSortBean implements Serializable {
         }
     }
 	
-	public void sortByTypeNotice() {
+	public void sortByNameTypeNotice() {
         idNoticeOrder = SortOrder.unsorted;
         titleNoticeOrder = SortOrder.unsorted;
         dateNoticeOrder = SortOrder.unsorted;
-        if (nameTypeNotice.equals(SortOrder.ascending)) {
-            setTypeNoticeOrder(SortOrder.descending);
+        if (nameTypeNoticeOrder.equals(SortOrder.ascending)) {
+            setNameTypeNoticeOrder(SortOrder.descending);
         } else {
-        	setTypeNoticeOrder(SortOrder.ascending);
+        	setNameTypeNoticeOrder(SortOrder.ascending);
         }
     }
 	
 	public void sortByTitleNotice() {
         idNoticeOrder = SortOrder.unsorted;
-        nameTypeNotice = SortOrder.unsorted;
+        nameTypeNoticeOrder = SortOrder.unsorted;
         dateNoticeOrder = SortOrder.unsorted;
         if (titleNoticeOrder.equals(SortOrder.ascending)) {
             setTitleNoticeOrder(SortOrder.descending);
@@ -55,7 +55,7 @@ public class NoticeSortBean implements Serializable {
     }
 	
 	public void sortByDateNotice() {
-		nameTypeNotice = SortOrder.unsorted;
+		nameTypeNoticeOrder = SortOrder.unsorted;
         titleNoticeOrder = SortOrder.unsorted;
         idNoticeOrder = SortOrder.unsorted;
         if (dateNoticeOrder.equals(SortOrder.ascending)) {
@@ -71,12 +71,15 @@ public class NoticeSortBean implements Serializable {
 	public void setIdNoticeOrder(SortOrder idNoticeOrder) {
 		this.idNoticeOrder = idNoticeOrder;
 	}
-	public SortOrder getTypeNoticeOrder() {
-		return nameTypeNotice;
+	
+	public SortOrder getNameTypeNoticeOrder() {
+		return nameTypeNoticeOrder;
 	}
-	public void setTypeNoticeOrder(SortOrder typeNoticeOrder) {
-		this.nameTypeNotice = typeNoticeOrder;
+
+	public void setNameTypeNoticeOrder(SortOrder nameTypeNoticeOrder) {
+		this.nameTypeNoticeOrder = nameTypeNoticeOrder;
 	}
+
 	public SortOrder getTitleNoticeOrder() {
 		return titleNoticeOrder;
 	}

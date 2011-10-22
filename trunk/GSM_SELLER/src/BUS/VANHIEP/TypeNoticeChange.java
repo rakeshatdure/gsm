@@ -23,6 +23,7 @@ public class TypeNoticeChange extends HibernateDAO {
 
 	private String idTypeNotice;
 	private String nameTypeNotice;
+	private String lang;
 	
 	public TypeNoticeChange() {
 		// TODO Auto-generated constructor stub
@@ -79,7 +80,7 @@ public class TypeNoticeChange extends HibernateDAO {
 		if(ss.getAttribute("notice") == null || ss.getAttribute("notice") == ""){
 			nameTypeNotice = "Tất cả thông báo";
 		} else {
-			List<Typenotice> lstTn = HibernateDAO.getList("from Typenotice tn where tn.typeNoticeId = " + ss.getAttribute("notice").toString(), "MALL_VN");
+			List<Typenotice> lstTn = HibernateDAO.getList("from Typenotice tn where tn.typeNoticeId = " + ss.getAttribute("notice").toString(), lang);
 			for(Typenotice t : lstTn){
 				nameTypeNotice = t.getNameTypeNotice();
 			}
@@ -89,6 +90,17 @@ public class TypeNoticeChange extends HibernateDAO {
 
 	public void setNameTypeNotice(String nameTypeNotice) {
 		this.nameTypeNotice = nameTypeNotice;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+
+	public String getLang() {
+		FacesContext f = FacesContext.getCurrentInstance();
+		HttpSession ss = (HttpSession)f.getExternalContext().getSession(true);
+		lang = (String) ss.getAttribute("MALL_LA");
+		return lang;
 	}
 
 }
