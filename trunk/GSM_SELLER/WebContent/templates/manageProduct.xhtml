@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+	<h:head>
+		<h:outputStylesheet name="/pro-style.css" library="/css" />
+		<title>Notice Manage</title>
+	</h:head>
+	<h:body>
+		<!-- Header page Manage Product -->
+		<div id="title_mPro" style="width: 960px; float: left; height: 70px">
+			<div style="width: 100%;height: 40px;background:url(resources/images/bg_thongtin.jpg) repeat-x left top;">
+			<h:panelGrid style="font-family: cambria;font-size: 18px;font-weight: bold;color: white;" columns="2">
+				<h:graphicImage url="/resources/images/icon_tt.png"
+					style="margin: 0px 5px 0px 5px; padding: 0px;"></h:graphicImage>
+				<h:outputLabel value="Trang quản lý tổng hợp các sản phẩm" style="margin: 0px; padding: 0px;"/>
+			</h:panelGrid>
+			</div>
+			<h:panelGrid style="width:960px; height: 40px; border: 2px solid #67a8f1;" columns="4">
+				<h:panelGrid style="width: 600px;">
+					<h:outputLabel style="backgroud-color: #f2f4f2;padding-right: 30px;width: 500px;"
+					value="Trang quản lý tổng hợp sản phẩm có thể đăng ký sản phẩm mới hoặc biên tập hoặc chỉnh sửa lại thông tin sản phẩm"/>
+				</h:panelGrid>
+				<a4j:commandLink value="HD Quản lý tồn kho" styleClass="bt_header"/>
+				<a4j:commandLink styleClass="bt_header" value="Thông tin SP tồn kho"/>
+				<a4j:commandLink styleClass="bt_header" value="Chi tiết"/>
+			</h:panelGrid>
+		</div>
+		
+		<div style="width: 960px; float: left; height: 80px; background-color: #f0f8fc; border: 1px solid #d7ebf3; margin-top: 35px">
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:panelGrid style="padding: 28px 3px 28px 2px;">
+						<a4j:commandLink styleClass="bt_viewCus" value="Lượt xem sản phẩm" style="text-decoration: none;"/>
+					</h:panelGrid>
+					<h:panelGrid>
+						
+					</h:panelGrid>
+				</h:panelGrid>
+			</h:form>
+		</div>
+	</h:body>
+</html>
+
