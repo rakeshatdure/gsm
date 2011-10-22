@@ -1,0 +1,77 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+	<h:head>
+		<h:outputStylesheet name="common-style" library="css"></h:outputStylesheet>
+		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
+	</h:head>
+
+	<h:body>
+
+		<h:form rendered="#{company.user.role.roleId != 4}">
+			<div style="text-align: center; padding: 50px">
+				<h3>
+					<h:outputText value="You don't have permission" />
+				</h3>
+			</div>
+		</h:form>
+		<h:form rendered="#{company.user.role.roleId == 4}">
+			<div style="width: 1224px">
+				<ui:insert>
+					<ui:include src="/WEB-INF/menu/sub-menu-profile.xhtml"></ui:include>
+				</ui:insert>
+				<div style="height: 5px" />
+
+				<div style="width: 960px; float: left;">
+
+					<h:panelGrid style="width:960px" columns="2">
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/button-cycle.jpg"
+								style="float:left;margin-top:5px;" />
+							<h:outputLabel style="width:300px;font-size:20px;color:blue"
+								value="Mục cần giải đáp thắc mắc" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<h:commandButton value="Button 1">
+							</h:commandButton>
+							<h:commandButton value="Button 2">
+							</h:commandButton>
+						</h:panelGroup>
+					</h:panelGrid>
+					<div style="border: 1px solid #57AAD6;" />
+					<div style="height: 10px;" />
+					<h:outputLabel value="Notice 1" />
+					<div style="height: 10px;" />
+					<div style="border: 1px solid #89C3E2;" />
+
+					<div style="height: 3px" />
+					<h:panelGrid style="border:1px solid #AACCD9;width:920px;">
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/button2.jpg"
+								style="float:left;margin-top:5px;" />
+							<h:outputLabel style="width:300px;font-size:20px;color:blue"
+								value="Label 1" />
+						</h:panelGroup>
+						
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/button2.jpg"
+								style="float:left;margin-top:5px;" />
+							<h:outputLabel style="width:300px;font-size:20px;color:blue"
+								value="Label 2" />
+							<h:commandButton value="Button 3"/>
+						</h:panelGroup>
+					</h:panelGrid>
+				</div>
+			</div>
+		</h:form>
+	</h:body>
+</f:view>
+</html>
