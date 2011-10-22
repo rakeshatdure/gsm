@@ -64,7 +64,10 @@
 		<dispatcher>FORWARD</dispatcher>
 		<dispatcher>ERROR</dispatcher>
 	</filter-mapping>
+	
 	<session-config>
   		<session-timeout>120</session-timeout>
 	</session-config>
+	
+	
 </web-app>

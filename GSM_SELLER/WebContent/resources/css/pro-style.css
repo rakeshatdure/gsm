@@ -1,0 +1,57 @@
+.bt_header
+{
+	height: 25px;
+	padding: 5px 10px 6px;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #3698a8;
+	cursor: pointer;
+	background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p1.jpg') repeat-x left top;
+}
+
+.bt_header:hover
+{
+	height: 25px;
+	padding: 5px 10px 6px;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #3698a8;
+	cursor: pointer;
+	background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p2.jpg') repeat-x left top;
+}
+
+.bt_viewCus
+{
+	padding: 28px 5px 28px 5px;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border: 1px inset #2985ad;
+	cursor: pointer;
+	background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_btV.jpg') repeat-x left top;
+	
+}
+
+.bt_viewCus:hover
+{
+	padding: 28px 5px 28px 5px;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border: 1px inset #2985ad;
+	cursor: pointer;
+	background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_btV1.jpg') repeat-x left top;
+	
+}
