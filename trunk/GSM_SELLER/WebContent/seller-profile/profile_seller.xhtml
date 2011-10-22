@@ -27,9 +27,9 @@
 					<ui:include src="/WEB-INF/menu/sub-menu-profile.xhtml"></ui:include>
 				</ui:insert>
 				<div style="height: 5px" />
-				
+
 				<div style="width: 960px; float: left;">
-					<h:panelGrid style=" width:960px;background-color:#CC9900;">
+					<h:panelGrid style=" width:960px;background-color:#FFC519;">
 						<h:outputLabel value="Thông tin của tôi" />
 					</h:panelGrid>
 					<h:panelGrid style="width:960px" columns="2">
@@ -181,8 +181,8 @@
 						<input type="submit" value="Sửa" style="float: right"></input>
 					</h:panelGrid>
 					<div style="height: 10px"></div>
-					<h:form style="width:960px;border:thin solid black">
-						<h:panelGrid columns="4" style="width:960px" rules="all">
+					<h:form >
+						<h:panelGrid columns="4" style="width:960px;border:thin solid black" rules="all">
 							<h:outputLabel value="Bảo mật cố định và di động" />
 							<h:selectOneListbox value="" />
 							<h:outputLabel value="Tính năng bảo mật" />
@@ -210,10 +210,11 @@
 						<h:panelGrid style="width:960px;" columns="2" rules="all">
 							<h:outputLabel value="Cách thức cấp phát hóa đơn" />
 							<h:panelGroup>
-								<h:selectBooleanCheckbox value="" />
-								<h:outputLabel value="Phát tự động" />
-								<h:selectBooleanCheckbox value="" />
-								<h:outputLabel value="Phát trực tiếp" />
+								<h:selectOneRadio value="">
+									<f:selectItem itemLabel="Phát tự động" />
+									<f:selectItem itemLabel="Phát trực tiếp" />
+								</h:selectOneRadio>
+
 								<h:outputLabel value="Thời gian thay đổi gần nhất" />
 								<h:inputText value="" />
 							</h:panelGroup>
@@ -222,10 +223,10 @@
 
 							<h:outputLabel value="Tiền thuế ngày phát hành hóa đơn" />
 							<h:panelGroup>
-								<h:selectBooleanCheckbox value="" />
-								<h:outputLabel value="Ngày xác nhận tiền gửi" />
-								<h:selectBooleanCheckbox value="" />
-								<h:outputLabel value="Ngày giao hàng" />
+								<h:selectOneRadio value="">
+									<f:selectItem itemLabel="Ngày xác nhận tiền gửi" />
+									<f:selectItem itemLabel="Ngày giao hàng" />
+								</h:selectOneRadio>
 							</h:panelGroup>
 						</h:panelGrid>
 					</h:form>
@@ -305,7 +306,7 @@
 							style="width:960px;border-bottom:thin solid;border-top:thin solid;"
 							columns="2" rules="cols">
 							<h:outputLabel value="Địa chỉ chính khi đổi trả hàng"></h:outputLabel>
-							<h:panelGroup>
+							<h:panelGroup style="width:760px;">
 								<h:inputText value="" style="width:50px"></h:inputText>
 								<h:inputText value="" style="width:350px"></h:inputText>
 								<h:commandButton value="Quản lí địa chỉ liên hệ của seller"></h:commandButton>
@@ -314,7 +315,7 @@
 						<h:panelGrid style="width:960px;border-bottom:thin solid;"
 							columns="2" rules="cols">
 							<h:outputLabel value="Địa chỉ chính khi xuất hàng"></h:outputLabel>
-							<h:panelGroup>
+							<h:panelGroup style="width:760px;">
 								<h:inputText value="" style="width:50px"></h:inputText>
 								<h:inputText value="" style="width:350px"></h:inputText>
 								<h:commandButton value="Quản lí địa chỉ liên hệ của seller"></h:commandButton>
@@ -388,10 +389,10 @@
 
 							<h:outputLabel value="hội viên tư vấn/thông báo"></h:outputLabel>
 							<h:panelGroup>
-								<h:selectBooleanCheckbox value=""></h:selectBooleanCheckbox>
-								<h:outputLabel value="label 1"></h:outputLabel>
-								<h:selectBooleanCheckbox value=""></h:selectBooleanCheckbox>
-								<h:outputLabel value="label 2"></h:outputLabel>
+								<h:selectOneRadio value="">
+									<f:selectItem itemLabel="Label 1" />
+									<f:selectItem itemLabel="Label 1" />
+								</h:selectOneRadio>
 							</h:panelGroup>
 							<h:outputLabel value=""></h:outputLabel>
 							<h:outputLabel value=""></h:outputLabel>

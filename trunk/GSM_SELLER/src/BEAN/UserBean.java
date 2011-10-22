@@ -6,7 +6,6 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-import BUS.UserBUS;
 import DAO.UserDAO;
 import POJO.User;
 import UTIL.VuHong_MD5;
@@ -16,9 +15,6 @@ import UTIL.VuHong_MD5;
 @SessionScoped
 public class UserBean {
 	private String oldPass="",newPass="",rePass="";
-	private User user;
-	private String redirectProfileSeller;
-	private String redirectTaskChangeProfileSeller;
 
 	public String getOldPass() {
 		return oldPass;
@@ -43,30 +39,6 @@ public class UserBean {
 	public void setRePass(String rePass) {
 		this.rePass = rePass;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
-	public String getRedirectProfileSeller() {
-		return redirectProfileSeller;
-	}
-
-	public void setRedirectProfileSeller(String redirectProfileSeller) {
-		this.redirectProfileSeller = redirectProfileSeller;
-	}
-
-	public String getRedirectTaskChangeProfileSeller() {
-		return redirectTaskChangeProfileSeller;
-	}
-
-	public void setRedirectTaskChangeProfileSeller(
-			String redirectTaskChangeProfileSeller) {
-		this.redirectTaskChangeProfileSeller = redirectTaskChangeProfileSeller;
-	}
-
 	public void changePass(){
 		if(valid()){
 			UserDAO dao = new UserDAO();
@@ -74,14 +46,14 @@ public class UserBean {
 			User user = (User)ses.getAttribute("uselogin");
 			user.setPass(VuHong_MD5.encrypt(newPass));
 			ses.setAttribute("uselogin", user);
-
+			
 			dao.updatePass(newPass,user.getAccount());
 		}
 	}
 	public boolean valid(){
 		boolean flag = true;
 		if(!checkSame()){
-			FacesContext.getCurrentInstance().addMessage("frmPass",new FacesMessage( "old password and new password are diference"));
+			FacesContext.getCurrentInstance().addMessage("frmPass",new FacesMessage( "new password and re-password are diference"));
 			flag = false;
 		}
 		if(!checkOld()){
@@ -101,6 +73,6 @@ public class UserBean {
 	public boolean checkSame(){
 		return newPass.equals(rePass);
 	}
-
-
+	
+	
 }

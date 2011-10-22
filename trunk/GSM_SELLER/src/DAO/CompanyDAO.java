@@ -5,6 +5,7 @@ import java.util.List;
 
 import POJO.*;
 import UTIL.MySqlDataAccessHelper;
+import UTIL.VuHong_MD5;
 
 public class CompanyDAO extends HibernateDAO{
 
@@ -88,4 +89,21 @@ public class CompanyDAO extends HibernateDAO{
     
     }
     
+    public boolean updateCompany(String companyName,String reprentation,String lang,String account){
+		boolean result = false;
+		MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
+		try {
+			helper.open();
+			String sql = "update company set CompanyName ='"+ companyName +"' " +
+					" , Representative='"+reprentation+"' where Account='"+account+"'";
+			int rs = helper.executeUpdate(sql);
+			helper.close();
+			if(rs > 0){
+				result = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
