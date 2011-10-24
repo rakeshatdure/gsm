@@ -10,35 +10,27 @@
 <body>
 	<ui:composition>
 		<rich:toolbar>
-			<rich:dropDownMenu>
-				<f:facet name="label">
-					<h:panelGroup>
-						<h:outputLabel value="Profile" />
-					</h:panelGroup>
-				</f:facet>
-
-
-				<rich:menuItem submitMode="none"
-					onclick="document.location.href='#{user.redirectAnswerSeller}'">
-					<h:outputLink value="#{user.redirectAnswerSeller}">
-						<h:outputLabel value="Seller's answer" />
-					</h:outputLink>
-				</rich:menuItem>
-
-				<rich:menuItem submitMode="none"
-					onclick="document.location.href='#{user.redirectProfileSeller}'">
-					<h:outputLink value="#{user.redirectProfileSeller}">
-						<h:outputLabel value="Seller Profile" />
-					</h:outputLink>
-				</rich:menuItem>
-
-				<rich:menuItem submitMode="none"
-					onclick="document.location.href='#{user.redirectTaskChangeProfileSeller}'">
-					<h:outputLink value="#{user.redirectTaskChangeProfileSeller}">
-						<h:outputLabel value="Task change account infor" />
-					</h:outputLink>
-				</rich:menuItem>
-			</rich:dropDownMenu>
+			
+			<rich:dropDownMenu mode="ajax">
+                <f:facet name="label">
+                    <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
+                        style="vertical-align:middle">
+                        <h:outputText value="Profile" />
+                    </h:panelGrid>
+                </f:facet>
+                <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{user.redirectAnswerSeller}'">
+                        <h:outputText value="Seller's answer" />
+                </rich:menuItem>
+                <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{user.redirectProfileSeller}'">
+                        <h:outputText value="Seller Profile" />
+                </rich:menuItem>
+                <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{user.redirectTaskChangeProfileSeller}'">
+                        <h:outputText value="Task change account infor" />
+                </rich:menuItem>
+            </rich:dropDownMenu>
 
 		</rich:toolbar>
 	</ui:composition>
