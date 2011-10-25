@@ -44,7 +44,7 @@ public class CompanyBean {
 		comp.setCompanyName(companyName);
 		comp.setRepresentative(reprentation);
 		
-		dao.updateCompany(companyName, reprentation, "MALL_EN",user.getAccount());
+		dao.updateCompany(companyName, reprentation, "MALL_LA",user.getAccount());
 	}
 	
 	

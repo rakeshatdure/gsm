@@ -264,7 +264,7 @@ public class Company  implements java.io.Serializable {
 
 	// get company infor by customer account
 	public Company getCompanyByUserAccount(){
-		return CompanyBUS.getCompanySell(user.getAccount(),"MALL_VN");
+		return CompanyBUS.getCompanySell(user.getAccount(),"MALL_LA");
 	}
 	
 	

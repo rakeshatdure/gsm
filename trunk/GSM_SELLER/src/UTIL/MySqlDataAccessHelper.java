@@ -28,12 +28,12 @@ public class MySqlDataAccessHelper {
             DriverManager.registerDriver(new org.gjt.mm.mysql.Driver());
             //Set language
             if(null==lang || lang.length()<=0 || lang.equals("MALL_EN")){
-            	 connectionString += "mallshoppingnewdesign_en";
+            	 connectionString += "gsm_en";
             }else{
              	if(lang.equals("MALL_VN")){
-             		connectionString += "mallshoppingnewdesign_vi";
+             		connectionString += "gsm_vi";
              	}else{
-             		connectionString += "mallshoppingnewdesign_kr";
+             		connectionString += "gsm_kr";
              	}
              }
 
@@ -55,7 +55,7 @@ public class MySqlDataAccessHelper {
             DriverManager.registerDriver(new org.gjt.mm.mysql.Driver());
             //Set language
            
-             		connectionString += "mallshoppingnewdesign_en";
+             		connectionString += "gsm_en";
             Properties pros = new Properties();
             pros.setProperty("characterEncoding", "utf8");
             //Set username & password 

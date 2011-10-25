@@ -44,7 +44,7 @@ public class BankBean {
 
 	// viet phuong thuc load tat ca bank name co trong database
 	public List<String> listBankName(){
-		return BankDAO.lstBankName("MALL_EN");
+		return BankDAO.lstBankName("MALL_LA");
 	}
 
 
@@ -53,7 +53,7 @@ public class BankBean {
 		HttpSession ses = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		User user = (User)ses.getAttribute("uselogin");
 		ses.setAttribute("uselogin", user);
-		return BankDAO.getBankName(user.getAccount(), "MALL_EN");
+		return BankDAO.getBankName(user.getAccount(), "MALL_LA");
 	}
 
 	// load accountNumber by accountName and bankName
@@ -61,9 +61,9 @@ public class BankBean {
 		HttpSession ses = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		User user = (User)ses.getAttribute("uselogin");
 		ses.setAttribute("uselogin", user);
-		Bank bk = BankBUS.getBank(user.getAccount(),"MALL_EN");
+		Bank bk = BankBUS.getBank(user.getAccount(),"MALL_LA");
 
-			return BankDAO.getAccountNumber(user.getAccount(),"MALL_EN");
+			return BankDAO.getAccountNumber(user.getAccount(),"MALL_LA");
 	}
 
 	// update bankName, AccountNumber
