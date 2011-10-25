@@ -4,6 +4,9 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 	<display-name>GSM_SELLER</display-name>
+	<welcome-file-list>
+		<welcome-file>welcome.xhtml</welcome-file>
+	</welcome-file-list>
 	<context-param>
 		<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
 		<param-value>/WEB-INF/app-tags.taglib.xml</param-value>

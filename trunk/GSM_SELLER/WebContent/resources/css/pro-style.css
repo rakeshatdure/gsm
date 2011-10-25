@@ -136,6 +136,12 @@ body
 	border-bottom: 1px solid #cfcfcf;
 }
 
+.bgPanel1
+{
+	background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p7.jpg') repeat-y;
+	border-bottom: 1px solid #cfcfcf;
+}
+
 .bgPanelHead
 {
 	border-bottom: 1px solid #cfcfcf;
