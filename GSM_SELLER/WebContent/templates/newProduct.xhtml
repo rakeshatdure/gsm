@@ -26,8 +26,10 @@
 	</h:outputStylesheet>
 </h:head>
 <h:body>
+	<!-- THE CHUA THONG TIN VE PHAN LOAI SAN PHAM -->
 	<div id="SelectCategory" style="margin-top: 10px;">
 		<h:outputLabel value="Cách thức thanh toán và chọn loại sản phẩm" styleClass="ttNewPro"/>
+		<!-- Category -->
 		<h:panelGrid columns="2" styleClass="bgPanelHead">
 			<h:panelGrid width="150px">
 				<h:panelGroup>
@@ -49,6 +51,7 @@
 				</h:panelGroup>
 			</h:panelGrid>
 		</h:panelGrid>
+		<!-- Phương thức bán -->
 		<h:panelGrid columns="2" styleClass="bgPanel">
 			<h:panelGrid width="150px">
 				<h:panelGroup>
@@ -73,6 +76,7 @@
 				</h:panelGrid>
 			</h:panelGrid>
 		</h:panelGrid>
+		<!-- Loại dịch vụ -->
 		<h:panelGrid columns="2" styleClass="bgPanel">
 			<h:panelGrid width="150px">
 				<h:panelGroup>
@@ -92,8 +96,10 @@
 			</h:panelGrid>
 		</h:panelGrid>
 	</div>
+	<!-- THE CHUA THONG TIN CO BAN CUA SAN PHAM -->
 	<div id="ttcoban" style="margin-top: 10px;">
 		<h:outputLabel value="Mục thông tin cơ bản" styleClass="ttNewPro"/>
+		<!-- Nha san xuat -->
 		<h:panelGrid columns="4" styleClass="bgPanelHead" style="background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p7.jpg') repeat-y;">
 			<h:panelGrid width="150px">
 				<h:panelGroup>
@@ -119,41 +125,296 @@
 				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
 			</h:panelGrid>
 		</h:panelGrid>
+		<!-- Ten san pham -->
 		<h:panelGrid columns="2" styleClass="bgPanel">
 			<h:panelGrid width="150px">
 				<h:panelGroup>
-					<h:outputText value="Loại dịch vụ"/>
+					<h:outputText value="Tên sản phẩm"/>
 					<h:outputText value="*" style="color: red"/>
 				</h:panelGroup>
 			</h:panelGrid>
 			<h:panelGrid style="text-align: left; width: 800px">
-				<h:panelGrid columns="3">
-					<h:selectOneRadio value="">
-					  <f:selectItem itemLabel="label 1" itemValue="1" />
-					  <f:selectItem itemLabel="label 2" itemValue="2" />
-					</h:selectOneRadio>
-					<a4j:commandLink value="e쿠폰이란? >" styleClass="cmd1" style="color: black;"/>
-					<a4j:commandLink value=" e쿠폰매뉴얼 >" styleClass="cmd1" style="color: black;"/>
+				<h:panelGrid columns="2">
+					<h:inputText style="width: 500px" maxlength="100"/>
+					<h:outputText value="0 byte/100 byte" style="font-weight: bold; margin-left:10px;"/>
 				</h:panelGrid>
 			</h:panelGrid>
 		</h:panelGrid>
-		<h:panelGrid columns="2" styleClass="bgPanel">
+		<!-- Ten san pham tieng anh-->
+		<h:panelGrid columns="3" styleClass="bgPanel">
+			<h:panelGrid style="width:150px">
+				<h:panelGroup>
+					<h:outputText value="Tên SP tiếng Anh"/>
+					<h:selectBooleanCheckbox title="Tên sản phẩm"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 700px">
+				<h:inputText style="width: 300px"/>
+				<h:outputText value="* Thương hiệu đã nhập với các cửa hàng bằng tiếng Anh được tiếp xúc với tiếng Anh, được xuất khẩu sang 70 quốc gia trên toàn thế giới."/>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: right;width: 90px">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</h:panelGrid>
+		</h:panelGrid>
+		<!-- Model -->
+		<h:panelGrid columns="4" styleClass="bgPanel1">
 			<h:panelGrid width="150px">
 				<h:panelGroup>
-					<h:outputText value="Loại dịch vụ"/>
+					<h:outputText value="Model"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid columns="2" style="text-align: left; width: 305px">
+				<h:panelGrid columns="2">
+					<h:inputText style="width: 180px" maxlength="100"/>
+					<h:outputText value="0 byte/30 byte" style="font-weight: bold; margin-left:10px;"/>
+				</h:panelGrid>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 480px">
+				<h:outputText value="Lợi ích thành viên G" style="margin-left: 10px;"/>
+			</h:panelGrid>
+		</h:panelGrid>
+		<!-- Ma nguoi ban -->
+		<h:panelGrid columns="4" styleClass="bgPanel1">
+			<h:panelGrid width="150px">
+				<h:panelGroup>
+					<h:outputText value="Mã người bán"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid columns="2" style="width: 305px">
+				<h:panelGrid columns="2">
+					<h:inputText style="width: 100px; margin-right: 50px" maxlength="100"/>
+					<a4j:commandLink value="Mô tả >" styleClass="bt_header" style="margin-left:70px;"/>
+				</h:panelGrid>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 170px">
+				<h:outputText value="출시년월" style="margin-left: 10px;"/>
+			</h:panelGrid>
+			<h:panelGrid columns="2" style="text-align: left; width: 310px">
+				<h:inputText style="width: 200px" />
+				<h:outputText value="(Ví dụ: 200703)"/>
+			</h:panelGrid>
+		</h:panelGrid>
+		<!-- Ma vach san pham -->
+		<h:panelGrid columns="4" styleClass="bgPanel1">
+			<h:panelGrid width="150px">
+				<h:panelGroup>
+					<h:outputText value="Mã vạch sản phẩm"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid columns="2" style="width: 305px">
+				<h:inputText style="width: 100px; margin-right: 50px" maxlength="100"/>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 170px">
+				<h:outputText value="Nguyên liệu" style="margin-left: 10px;"/>
+			</h:panelGrid>
+			<h:panelGrid columns="2" style="text-align: left; width: 310px">
+				<a4j:commandButton value="Nguyên liệu đăng ký/Chỉnh sửa >" styleClass="bt_bassic" />
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header" style="margin-left: 30px;"/>
+			</h:panelGrid>
+		</h:panelGrid>
+		<!-- Ngày sản xuất -->
+		<h:panelGrid columns="4" styleClass="bgPanel1">
+			<h:panelGrid width="150px">
+				<h:panelGroup>
+					<h:outputText value="Ngày sản xuất"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid style="width: 305px">
+				<h:panelGroup>
+					<h:inputText style="width: 100px" />
+					<h:outputText value="(Ví dụ: 20100315)"/>
+				</h:panelGroup>
+				<h:outputText value="Thực phẩm, sản phẩm mỹ phẩm, hãy nhập ngày sản xuất được khuyến cáo khi bạn đăng ký."/>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 170px">
+				<h:outputText value="Ngày có hiệu lực" style="margin-left: 10px;"/>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 310px">
+				<h:panelGroup>
+					<h:inputText style="width: 100px" />
+					<h:outputText value="(Ví dụ: 20100315)"/>
+				</h:panelGroup>
+				<h:outputText value="Mặt hàng thực phẩm, nhập vào ngày hiệu lực của đăng ký được khuyến khích."/>
+			</h:panelGrid>
+		</h:panelGrid>
+		<!-- Xuat xu -->
+		<h:panelGrid columns="3" styleClass="bgPanel">
+			<h:panelGrid style="width:150px">
+				<h:panelGroup>
+					<h:outputText value="Xuất xứ"/>
+					<h:outputText value="*" style="color: red"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid columns="2" style="text-align: left; width: 700px">
+				<h:selectOneMenu style="width: 80px;">
+					 <f:selectItem itemValue="0" itemLabel="== Chọn ==" />
+				</h:selectOneMenu>
+				<h:outputText value="* Xin vui lòng nhập chính xác nguồn gốc. Cung cấp thông tin liên quan về nguồn gốc của người bán chịu trách nhiệm."/>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: right;width: 90px">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</h:panelGrid>
+		</h:panelGrid>
+		<!-- Loai san pham -->
+		<h:panelGrid columns="3" styleClass="bgPanel">
+			<h:panelGrid style="width:150px">
+				<h:panelGroup>
+					<h:outputText value="Loại sản phẩm"/>
+					<h:outputText value="*" style="color: red"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid columns="2" style="text-align: left; width: 700px">
+				<h:selectOneMenu style="width: 80px;">
+					 <f:selectItem itemValue="0" itemLabel="== Chọn ==" />
+				</h:selectOneMenu>
+				<h:outputText value="* Đăng ký hàng hóa đã qua sử dụng/hàng tồn kho/triển lãm/trả lại 'được sử dụng / thị trường chứng khoán'."/>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: right;width: 90px">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</h:panelGrid>
+		</h:panelGrid>
+		<!-- Thong tin vi tri -->
+		<h:panelGrid columns="3" styleClass="bgPanel">
+			<h:panelGrid style="width:150px">
+				<h:panelGroup>
+					<h:outputText value="Thông tin vị trí"/>
+					<h:selectBooleanCheckbox title="Vi tri"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 800px">
+				<h:panelGroup>
+					<h:outputText value="Nội dung: "/>
+					<h:inputText style="width: 150px"/>
+					<h:outputText value=" (Tối đa 15 ký tự được nhập)"/>
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:commandButton value="Sổ địa chỉ người bán"/>
+					Địa chỉ: <h:inputText style="width: 500px"/>
+				</h:panelGroup>
+			</h:panelGrid>
+		</h:panelGrid>
+		<!-- Thuế xuất cảng -->
+		<h:panelGrid columns="3" styleClass="bgPanel">
+			<h:panelGrid style="width:150px">
+				<h:panelGroup>
+					<h:outputText value="Thuế xuất cảng"/>
+					<h:outputText value="*" style="color: red"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 700px">
+				<h:selectOneRadio value="">
+				  	<f:selectItem itemLabel="Thuế hàng hóa" itemValue="1"/>
+				  	<f:selectItem itemLabel="Thuế được miễn các mặt hàng" itemValue="2" />
+				</h:selectOneRadio>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: right;width: 90px">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</h:panelGrid>
+		</h:panelGrid>
+		<!-- Sản phẩm cho người lớn -->
+		<h:panelGrid columns="3" styleClass="bgPanel">
+			<h:panelGrid style="width:150px">
+				<h:panelGroup>
+					<h:outputText value="Sản phẩm cho người lớn"/>
+					<h:outputText value="*" style="color: red"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 700px">
+				<h:selectOneRadio value="">
+				  	<f:selectItem itemLabel="Có" itemValue="1"/>
+				  	<f:selectItem itemLabel="Không" itemValue="2" />
+				</h:selectOneRadio>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: right;width: 90px">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</h:panelGrid>
+		</h:panelGrid>
+		<!-- Thông tin A/S -->
+		<h:panelGrid columns="4" styleClass="bgPanel1">
+			<h:panelGrid width="150px">
+				<h:panelGroup>
+					<h:outputText value="Thông tin A/S"/>
+					<h:outputText value="*" style="color: red"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid columns="2" style="width: 305px">
+				<h:panelGrid columns="2">
+					<h:panelGrid>
+						<h:selectOneMenu style="width: 180px;">
+							 <f:selectItem itemValue="0" itemLabel="Liên hệ với NSX hoặc người bán AS" />
+						</h:selectOneMenu>
+						<h:panelGroup>
+							Liên hệ: 
+							<h:inputText style="width: 130px" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<a4j:commandLink value="Mô tả >" styleClass="bt_header" style="margin-left:30px;" />
+				</h:panelGrid>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 170px">
+				<h:outputText value="Quà tặng" style="margin-left: 10px;"/>
+			</h:panelGrid>
+			<h:panelGrid columns="2" style="text-align: left; width: 310px">
+				<h:inputText style="width: 200px" />
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header" style="margin-left:36px;" />
+			</h:panelGrid>
+		</h:panelGrid>
+		<!-- San pham gioi han -->
+		<h:panelGrid columns="3" styleClass="bgPanel">
+			<h:panelGrid style="width:150px">
+				<h:panelGroup>
+					<h:outputText value="Sản phẩm giới hạn"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 700px">
+				<h:panelGroup>
+					<h:selectBooleanCheckbox title="Vi tri"/>
+					G Giá thị trường so sánh các trang web bên ngoài của mặt hàng triển lãm và giảm giá không áp dụng.
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:selectBooleanCheckbox title="Vi tri"/>
+					Chức năng G và G thị trường để thị trường thương lượng của tôi không cho phép đăng ký giải thưởng sự kiện.
+				</h:panelGroup>
+				<h:outputText value="(Hagiran mặc cả? Thị trường mua sắm mặc cả trên Internet để giới thiệu các khái niệm về thị trường trực tuyến là cách duy nhất G)"
+					style="color: #7d7d88"/>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: right;width: 90px">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</h:panelGrid>
+		</h:panelGrid>
+		<!-- Hướng dẫn đăng ký sp -->
+		<h:panelGrid columns="2" styleClass="bgPanel">
+			<h:panelGrid style="width:150px">
+				<h:panelGroup>
+					<h:outputText value="Hướng dẫn đăng ký SP"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 800px">
+				<h:commandButton value="Hướng dẫn tạo mô tả sản phẩm >" styleClass="bt_bassic"/>
+				<h:outputText value="Người tiêu dùng nên biết khi mua các mặt hàng được đưa ra các thông tin cần thiết. Đăng ký sản phẩm
+					Hãy đăng ký cho hàng hoá và thực hiện theo hướng dẫn của chúng tôi."/>
+			</h:panelGrid>
+		</h:panelGrid>
+		<!-- Mo ta -->
+		<h:panelGrid columns="2" styleClass="bgPanel">
+			<h:panelGrid style="width:150px">
+				<h:panelGroup>
+					<h:outputText value="Mô tả"/>
 					<h:outputText value="*" style="color: red"/>
 				</h:panelGroup>
 			</h:panelGrid>
 			<h:panelGrid style="text-align: left; width: 800px">
-				<h:panelGrid columns="3">
+				<h:panelGrid columns="2" style="text-align: left; width: 800px;border-bottom: 2px dotted #c2d5e3;">
 					<h:selectOneRadio value="">
-					  <f:selectItem itemLabel="label 1" itemValue="1" />
-					  <f:selectItem itemLabel="label 2" itemValue="2" />
+					  	<f:selectItem itemLabel="Viết với thẻ HTML" itemValue="1"/>
+					  	<f:selectItem itemLabel="Viết với định dạng chữ" itemValue="2" />
+					  	<f:selectItem itemLabel="Viết dạng danh sách" itemValue="1"/>
 					</h:selectOneRadio>
-					<a4j:commandLink value="e쿠폰이란? >" styleClass="cmd1" style="color: black;"/>
-					<a4j:commandLink value=" e쿠폰매뉴얼 >" styleClass="cmd1" style="color: black;"/>
+					<a4j:commandLink value="Mô tả >" styleClass="bt_header" style="margin-left: 300px"/>
 				</h:panelGrid>
+				
 			</h:panelGrid>
+			
 		</h:panelGrid>
 	</div>
 </h:body>
