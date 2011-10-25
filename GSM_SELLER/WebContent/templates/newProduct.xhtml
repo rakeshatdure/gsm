@@ -8,7 +8,7 @@
       xmlns:a4j="http://richfaces.org/a4j"
       xmlns:rich="http://richfaces.org/rich">
 <h:head>
-	<h:outputStylesheet name="/pro-style.css" library="/css" />
+	<h:outputStylesheet name="pro-style.css" library="css" />
 	<title>Notice Manage</title>
 	<h:outputStylesheet>
 		.even-row {
@@ -30,7 +30,10 @@
 		<h:outputLabel value="Cách thức thanh toán và chọn loại sản phẩm" styleClass="ttNewPro"/>
 		<h:panelGrid columns="2" styleClass="bgPanelHead">
 			<h:panelGrid width="150px">
-				<h:outputFormat value="Category"/>
+				<h:panelGroup>
+					<h:outputText value="Category"/>
+					<h:outputText value="*" style="color: red"/>
+				</h:panelGroup>
 			</h:panelGrid>
 			<h:panelGrid style="text-align: left; width: 800px">
 				<h:panelGroup>
@@ -48,7 +51,10 @@
 		</h:panelGrid>
 		<h:panelGrid columns="2" styleClass="bgPanel">
 			<h:panelGrid width="150px">
-				<h:outputFormat value="Phương thức bán"/>
+				<h:panelGroup>
+					<h:outputText value="Phương thức bán"/>
+					<h:outputText value="*" style="color: red"/>
+				</h:panelGroup>
 			</h:panelGrid>
 			<h:panelGrid style="text-align: left; width: 800px">
 				<h:panelGrid columns="2">
@@ -59,13 +65,20 @@
 					  <f:selectItem itemLabel="label 4" itemValue="4" />
 					  <f:selectItem itemLabel="label 5" itemValue="5" />
 					</h:selectOneRadio>
-					<a4j:commandLink value="lien ket hien thi" styleClass="cmd1"/>
+					<a4j:commandLink value="판매방식별 수수료율 전체보기" styleClass="cmd1"/>
+				</h:panelGrid>
+				<h:panelGrid style="color: #1575b0; width: 100%; border-top: 2px dotted #c2d5e3;">
+					<h:outputText value="오픈마켓: 상품등록비는 무료이며, 카테고리별 판매수수료는 6-12%"/>
+					<h:outputText value="특가마켓: 상품등록비는 2주/2,000캐시이며, 오픈마켓 대비 카테고리별 4-6% 수수료 할인 적용 "/>
 				</h:panelGrid>
 			</h:panelGrid>
 		</h:panelGrid>
 		<h:panelGrid columns="2" styleClass="bgPanel">
 			<h:panelGrid width="150px">
-				<h:outputFormat value="Phương thức bán"/>
+				<h:panelGroup>
+					<h:outputText value="Loại dịch vụ"/>
+					<h:outputText value="*" style="color: red"/>
+				</h:panelGroup>
 			</h:panelGrid>
 			<h:panelGrid style="text-align: left; width: 800px">
 				<h:panelGrid columns="3">
@@ -73,14 +86,58 @@
 					  <f:selectItem itemLabel="label 1" itemValue="1" />
 					  <f:selectItem itemLabel="label 2" itemValue="2" />
 					</h:selectOneRadio>
-					<a4j:commandLink value="lien ket hien thi" styleClass="cmd1"/>
-					<a4j:commandLink value="lien ket hien thi" styleClass="cmd1"/>
+					<a4j:commandLink value="e쿠폰이란? >" styleClass="cmd1" style="color: black;"/>
+					<a4j:commandLink value=" e쿠폰매뉴얼 >" styleClass="cmd1" style="color: black;"/>
 				</h:panelGrid>
 			</h:panelGrid>
 		</h:panelGrid>
 	</div>
-	
-
+	<div id="ttcoban" style="margin-top: 10px;">
+		<h:outputLabel value="Mục thông tin cơ bản" styleClass="ttNewPro"/>
+		<h:panelGrid columns="4" styleClass="bgPanelHead" style="background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p7.jpg') repeat-y;">
+			<h:panelGrid width="150px">
+				<h:panelGroup>
+					<h:outputText value="Nhà sản xuất"/>
+					<h:outputText value="*" style="color: red"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid columns="2" style="text-align: left; width: 305px">
+				<h:panelGroup>
+					<h:inputText style="width: 150px; margin-right: 10px;"/>
+					<a4j:commandLink value="Chọn" styleClass="bt_header"/>
+				</h:panelGroup>
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 170px">
+				<h:outputText value="Nhãn hiệu" style="margin-left: 10px;"/>
+			</h:panelGrid>
+			<h:panelGrid columns="2" style="text-align: left; width: 310px">
+				<h:panelGroup>
+					<h:inputText style="width: 150px; margin-right: 10px;"/>
+					<a4j:commandLink value="Chọn" styleClass="bt_header"/>
+				</h:panelGroup>
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</h:panelGrid>
+		</h:panelGrid>
+		<h:panelGrid columns="2" styleClass="bgPanel">
+			<h:panelGrid width="150px">
+				<h:panelGroup>
+					<h:outputText value="Loại dịch vụ"/>
+					<h:outputText value="*" style="color: red"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 800px">
+				<h:panelGrid columns="3">
+					<h:selectOneRadio value="">
+					  <f:selectItem itemLabel="label 1" itemValue="1" />
+					  <f:selectItem itemLabel="label 2" itemValue="2" />
+					</h:selectOneRadio>
+					<a4j:commandLink value="e쿠폰이란? >" styleClass="cmd1" style="color: black;"/>
+					<a4j:commandLink value=" e쿠폰매뉴얼 >" styleClass="cmd1" style="color: black;"/>
+				</h:panelGrid>
+			</h:panelGrid>
+		</h:panelGrid>
+	</div>
 </h:body>
 </html>
 	
