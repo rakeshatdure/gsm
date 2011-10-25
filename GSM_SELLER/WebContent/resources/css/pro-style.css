@@ -55,3 +55,98 @@
 	background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_btV1.jpg') repeat-x left top;
 	
 }
+.bg_list
+{
+	background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bt_list.png') no-repeat;
+	padding: 0px 0px 0px 15px;
+}
+
+.bt_bassic
+{
+	height: 25px;
+	padding: 5px 10px 6px;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #3698a8;
+	cursor: pointer;
+}
+.bt_select
+{
+	height: 25px;
+	padding: 3px 10px 3px;
+	color: #2293c4;
+	text-decoration: none;
+	font-weight: bold;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border: 1px solid #2293c4;
+	cursor: pointer;
+}
+
+.button_tabs
+{
+	font-size: 14px;
+	font-weight: bold;
+	width: 192px;
+	border: 2px solid #3157aa;
+	height: 34px;
+	background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_btp1.jpg');
+	color: white;
+	-moz-border-radius-topleft:5px;
+	-webkit-border-top-left-radius:5px;
+	-moz-border-radius-topright:5px;
+	-webkit-border-top-right-radius:5px;
+	cursor:pointer;
+}
+
+.button_editpro
+{
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+	width: 192px;
+	border: 2px solid #939393;
+	height: 34px;
+	background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_btp2.jpg');
+	color: #3157aa;
+	cursor:pointer;
+	margin-bottom:-2px;
+	padding:0px;
+}
+
+.ttNewPro
+{
+	background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p3.png') no-repeat;
+	padding: 3px 0px 3px 25px;
+	color: #2e4ec4;
+	font-size: 18px;
+}
+.bgPanel
+{
+	background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p6.jpg') repeat-y;
+	border-bottom: 1px solid #cfcfcf;
+}
+
+.bgPanelHead
+{
+	border-bottom: 1px solid #cfcfcf;
+	height: 35px;
+	border-top: 2px solid #b0cde9;
+	width: 960px;
+	background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p6.jpg') repeat-y;
+}
+
+.cmd1
+{
+	height: 20px;
+	padding: 3px 10px 3px;
+	color: red;
+	text-decoration: none;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #c7c7c7;
+	cursor: pointer;
+}

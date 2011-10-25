@@ -10,6 +10,20 @@
 	<h:head>
 		<h:outputStylesheet name="/pro-style.css" library="/css" />
 		<title>Notice Manage</title>
+		<h:outputStylesheet>
+			.even-row {
+			    background-color: #FCFFFE;
+			}
+			 
+			.odd-row {
+			    background-color: #ECF3FE;
+			}
+			 
+			.active-row {
+			    background-color: #FFEBDA !important;
+			    cursor: pointer;
+			}
+		</h:outputStylesheet>
 	</h:head>
 	<h:body>
 		<!-- Header page Manage Product -->
@@ -22,7 +36,7 @@
 			</h:panelGrid>
 			</div>
 			<h:panelGrid style="width:960px; height: 40px; border: 2px solid #67a8f1;" columns="4">
-				<h:panelGrid style="width: 600px;">
+				<h:panelGrid width="600px">
 					<h:outputLabel style="backgroud-color: #f2f4f2;padding-right: 30px;width: 500px;"
 					value="Trang quản lý tổng hợp sản phẩm có thể đăng ký sản phẩm mới hoặc biên tập hoặc chỉnh sửa lại thông tin sản phẩm"/>
 				</h:panelGrid>
@@ -36,12 +50,249 @@
 			<h:form>
 				<h:panelGrid columns="2">
 					<h:panelGrid style="padding: 28px 3px 28px 2px;">
-						<a4j:commandLink styleClass="bt_viewCus" value="Lượt xem sản phẩm" style="text-decoration: none;"/>
+						<a4j:commandLink styleClass="bt_viewCus" value="Lượt xem SP" style="text-decoration: none;"/>
 					</h:panelGrid>
-					<h:panelGrid>
-						
+					<h:panelGrid style="width: 800px">
+						<h:panelGroup>
+							<h:outputLabel value="Tổng số sản phẩm: " styleClass="bg_list"/>
+							<h:outputLabel value="0" style="color: #2985ad; font-weight: bold;"/>
+							<h:outputLabel value=" SP" />
+							<h:outputLabel value="Open Market ( Hàng tồn kho dưới 3 đơn vị: " style="margin: 0px 0px 0px 20px;"  styleClass="bg_list"/>
+							<h:outputLabel value="0" style="color: #2985ad; font-weight: bold;" />
+							<h:outputLabel value=" SP | Trong 30 ngày mãn hạn: " />
+							<h:outputLabel value="0" style="color: #2985ad; font-weight: bold;" />
+							<h:outputLabel value=" SP )" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<h:outputLabel value="Cung cấp thị trường ( Hàng tồn kho dưới 3 SP: "  styleClass="bg_list"/>
+							<h:outputLabel value="0" style="color: #2985ad; font-weight: bold;"/>
+							<h:outputLabel value=" SP | Trong 30 ngày mãn hạn: "/>
+							<h:outputLabel value="0" style="color: #2985ad; font-weight: bold;"/>
+							<h:outputLabel value=" SP )"/>
+						</h:panelGroup>
+						<h:panelGroup>
+							<h:outputLabel value="Trong 30 ngày mãn hạn: "  styleClass="bg_list"/>
+							<h:outputLabel value="0" style="color: #2985ad; font-weight: bold;" />
+							<h:outputLabel value=" SP | " />
+							<h:outputLabel value="Trong 30 ngày mãn hạn: " />
+							<h:outputLabel value="0" style="color: #2985ad; font-weight: bold;" />
+							<h:outputLabel value=" SP )" />
+						</h:panelGroup>
 					</h:panelGrid>
 				</h:panelGrid>
+			</h:form>
+		</div>
+		
+		<div style="width: 960px; float: left; margin-top: 5px">
+			<h:form>
+				<h:panelGrid columns="4">
+					<h:panelGrid style="width: 400px; padding: 0px 0px 0px 25px; background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p3.png') no-repeat;">
+						<h:outputText value="Tìm kiếm sản phẩm"/>
+					</h:panelGrid>
+					<h:panelGrid columns="2">
+						<h:selectBooleanCheckbox
+							 title="Lượt xem SP bị cảnh báo trên 6 tháng so với ngày mãn hạn"
+							  value="" >
+						</h:selectBooleanCheckbox>
+						<h:outputText
+		  					value="Lượt xem SP bị cảnh báo trên 6 tháng so với ngày mãn hạn"/>
+					</h:panelGrid>
+					<a4j:commandButton value="Tìm kiếm >" styleClass="bt_bassic"/>
+					<a4j:commandButton value="Excel >" styleClass="bt_bassic"/>
+				</h:panelGrid>
+				<h:panelGrid columns="4" style="border-bottom: 1px solid #cfcfcf; height: 35px;border-top: 2px solid #b0cde9;
+					width: 960px;background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p5.jpg') repeat-y;">
+					<h:outputText value="Tìm kiếm theo: " style="padding: 5px 20px 5px 3px;"/>
+					<h:panelGrid columns="3" style="width:390px;">
+						<h:selectOneMenu style="width: 150px;">
+							 <f:selectItem itemValue="0" itemLabel="== Loại lớn ==" />
+						</h:selectOneMenu>
+						<h:selectOneMenu style="width: 110px;">
+							 <f:selectItem itemValue="0" itemLabel="== Loại trung ==" />
+						</h:selectOneMenu>
+						<h:selectOneMenu style="width: 110px;">
+							 <f:selectItem itemValue="0" itemLabel="== Loại nhỏ ==" />
+						</h:selectOneMenu>
+					</h:panelGrid>
+					<h:selectOneMenu id="nguoiDK" value="người đăng ký" style="width: 80px;">
+						  <f:selectItem itemValue="0" itemLabel="Người DK" />
+					</h:selectOneMenu> 
+					<h:panelGroup style="width: 320px;padding: 0px 0px 0px 5px;">
+						<rich:calendar id="calendar" locale="US" popup="true"
+		                    datePattern="dd/MM/yyyy" showApplyButton="true" cellWidth="20px"
+		                    cellHeight="20px"/>
+		                 <h:outputText value=" ~ " />
+		                 <rich:calendar id="calendar2" locale="US" popup="true"
+		                    datePattern="dd/MM/yyyy" showApplyButton="true" cellWidth="20px"
+		                    cellHeight="20px"/>
+					</h:panelGroup>
+				</h:panelGrid>
+				<h:panelGrid columns="4" style="border-bottom: 1px solid #cfcfcf; height: 35px;
+					width: 960px;background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p4.jpg') repeat-y;">
+					<h:panelGrid width="120px">
+						<h:outputText value="TT Giao dịch: " style="padding: 5px 3px 5px 3px;"/>
+					</h:panelGrid>
+					
+					<h:panelGrid columns="4" width="390px">
+						<h:selectOneMenu style="width: 85px;">
+							 <f:selectItem itemValue="0" itemLabel="Khả năng giao dịch" />
+						</h:selectOneMenu>
+						<h:outputText value="Phương thức bán"/>
+						<h:selectOneMenu style="width: 70px;margin-left:10px;">
+							 <f:selectItem itemValue="0" itemLabel="Tất cả" />
+						</h:selectOneMenu> 
+						<h:selectOneMenu style="width: 70px;">
+							<f:selectItem itemValue="0" itemLabel="Tất cả" />
+						</h:selectOneMenu> 
+					</h:panelGrid>
+					<h:selectOneMenu id="soSP" value="người đăng ký" style="width: 80px;">
+						  <f:selectItem itemValue="0" itemLabel="Số SP" />
+					</h:selectOneMenu> 
+					<h:panelGrid style="width: 330px;padding: 0px 0px 0px 5px;">
+						<h:inputText width="200px"/>
+					</h:panelGrid>	
+				</h:panelGrid>
+				<rich:extendedDataTable id="table" value="" var=""
+	                 rowClasses="odd-row, even-row"  sortMode="single"
+	                frozenColumns="1" style="height:270px; width:960px;">
+					<rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="Lựa chọn" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="Số SP" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="MS người bán" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="Lựa chọn" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="PL lớn" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="PL trung" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="PL nhở" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="Tên sản phẩm" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="Nhà sx" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="Lựa chọn" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="Trạng thái" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="Thị trường giao dịch" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="Chưa rõ" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="Lựa chọn" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="Tồn kho" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="Số lượng" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="Ngày đầu" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+		            <rich:column style="text-align: center;">
+		                <f:facet name="header">
+                      			<h:outputText value="Chưa rõ" />
+		                </f:facet>
+		                <h:outputText value=""/>
+		            </rich:column>
+				</rich:extendedDataTable>
+				<h:panelGrid columns="5" style="margin: 5px;">
+					<h:outputText value="Lựa chọn mục"/>
+					<a4j:commandLink value="QL Đăng ký/Chỉnh sửa SP" styleClass="bt_select"></a4j:commandLink>
+					<a4j:commandLink value="Hết hàng/Gia hạn trọn gói trên Especially price market/Plus" styleClass="bt_select"></a4j:commandLink>
+					<a4j:commandLink value="Gia hạn/Đăng ký trọn gói trên focus/Plus" styleClass="bt_select"></a4j:commandLink>
+				</h:panelGrid>
+			</h:form>
+		</div>
+		
+		<div style="width: 960px; float: left; margin-top: 5px">
+			<h:form>
+				<div style="border-bottom: 3px solid #3157aa;">
+					<h:commandButton styleClass="button_editpro" value="Đăng ký sản phẩm mới"/>
+					<h:commandButton styleClass="button_editpro" value="Đăng ký sao chép SP"/>
+					<h:commandButton styleClass="button_editpro" value="Chọn lọc (Biên tập SP)"/>
+					<h:commandButton styleClass="button_editpro" value="Chỉnh sửa thông tin giá cả"/>
+					<h:commandButton styleClass="button_editpro" value="Chỉnh sửa TT tồn kho"/>
+				</div>
+				<h:panelGrid style="width: 960px; margin-top: 5px;border-bottom: 2px solid #3157aa;">
+					<h:panelGroup>
+						<h:outputText value="Mã sản phẩm "/>
+						<h:inputText style="width: 150px;"/>
+						<h:outputText value="Tên sản phẩm " style="margin-left: 15px"/>
+						<h:inputText style="width: 400px;"/>
+					</h:panelGroup>
+				</h:panelGrid>
+				<ui:insert>
+					<ui:include src="/templates/newProduct.xhtml"></ui:include>
+				</ui:insert>
 			</h:form>
 		</div>
 	</h:body>
