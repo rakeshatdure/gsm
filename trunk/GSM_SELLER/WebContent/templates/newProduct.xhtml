@@ -137,6 +137,24 @@
 				</h:panelGrid>
 			</h:panelGrid>
 		</h:panelGrid>
+		<h:panelGrid columns="2" styleClass="bgPanel">
+			<h:panelGrid width="150px">
+				<h:panelGroup>
+					<h:outputText value="Loại dịch vụ"/>
+					<h:outputText value="*" style="color: red"/>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 800px">
+				<h:panelGrid columns="3">
+					<h:selectOneRadio value="">
+					  <f:selectItem itemLabel="label 1" itemValue="1" />
+					  <f:selectItem itemLabel="label 2" itemValue="2" />
+					</h:selectOneRadio>
+					<a4j:commandLink value="e쿠폰이란? >" styleClass="cmd1" style="color: black;"/>
+					<a4j:commandLink value=" e쿠폰매뉴얼 >" styleClass="cmd1" style="color: black;"/>
+				</h:panelGrid>
+			</h:panelGrid>
+		</h:panelGrid>
 	</div>
 </h:body>
 </html>
