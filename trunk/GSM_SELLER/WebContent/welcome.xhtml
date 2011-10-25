@@ -26,20 +26,20 @@
 	<h:panelGrid  columns="2"
 			style="border-collapse: separate; border-spacing: 20px;">
 	<f:facet name="header">
-				<h:outputText value="Login"
+				<h:outputText value="#{initLang.login}"
 					style="color:red ;display: block;margin-left: 15px;margin-top: 15px;" />
 			</f:facet>
-			<h:outputText value="Username" />
+			<h:outputText value="#{initLang.username}" />
 			<h:inputText
 				style="border: 1px solid silver;height: 24px;width: 200px;"
 				value="#{user.account}" />
-			<h:outputText value="Password" />
+			<h:outputText value="#{initLang.password}" />
 			<h:inputSecret
 				style="border: 1px solid silver;height: 24px;width: 200px;"
 				value="#{user.pass}" />
 
 			<h:outputText value="" />
-				<h:commandButton value="Login"
+				<h:commandButton value="#{initLang.login}"
 				style="background:url('#{facesContext.externalContext.requestContextPath}/resources/images/loginbt.png');
 						color:white;width:90px;height:32px;border:0;cursor:pointer" 
 				action="#{user.canLogin}"></h:commandButton>

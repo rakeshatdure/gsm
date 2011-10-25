@@ -5,8 +5,12 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
-<body>
-	<ui:composition>
+<f:view>
+	<h:head>
+		<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
+		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
+	</h:head>
+	<h:body>
 		<h:panelGrid style=" width:250px;background-color:#7CA7C0;">
 			<h:outputLabel>Right </h:outputLabel>
 		</h:panelGrid>
@@ -18,7 +22,7 @@
 			</h:panelGroup>
 		</h:panelGrid>
 		<h:form style="width:250px;border: 3px solid #A7C7D8">
-			<h:panelGrid style="width:250px;" columns="2">
+			<h:panelGrid style="width:250px;" columns="2" styleClass="label">
 				<h:outputLabel value="title 1" style="float:left;"></h:outputLabel>
 				<h:panelGroup>
 					<h:commandLink>
@@ -67,7 +71,7 @@
 			</h:panelGroup>
 		</h:panelGrid>
 		<h:form style="width:250px;border: 3px solid #A7C7D8">
-			<h:panelGrid style="width:250px;" columns="2">
+			<h:panelGrid style="width:250px;" columns="2" styleClass="label">
 				<h:outputLabel value="title 1" style="float:left;"></h:outputLabel>
 				<h:panelGroup>
 					<h:graphicImage url="/resources/images/icon.jpg"
@@ -100,7 +104,7 @@
 			</h:panelGroup>
 		</h:panelGrid>
 		<h:form style="width:250px;border: 3px solid #A7C7D8">
-			<h:panelGrid style="width:250px;" columns="2">
+			<h:panelGrid style="width:250px;" columns="2" styleClass="label">
 				<h:outputLabel value="title 1" style="float:left;"></h:outputLabel>
 				<h:panelGroup>
 					<h:graphicImage url="/resources/images/icon.jpg"
@@ -133,7 +137,7 @@
 			</h:panelGroup>
 		</h:panelGrid>
 		<h:form style="width:250px;border: 3px solid #A7C7D8">
-			<h:panelGrid style="width:250px;" columns="2">
+			<h:panelGrid style="width:250px;" columns="2" styleClass="label">
 				<h:outputLabel value="title 1" style="float:left;"></h:outputLabel>
 				<h:panelGroup>
 					<h:graphicImage url="/resources/images/icon.jpg"
@@ -161,7 +165,7 @@
 
 		</h:panelGrid>
 		<h:form style="width:250px;border: 3px solid #A7C7D8">
-			<h:panelGrid style="width:250px;" columns="2">
+			<h:panelGrid style="width:250px;" columns="2" styleClass="label">
 				<h:outputLabel value="title 1" style="float:left;"></h:outputLabel>
 				<h:panelGroup>
 					<h:graphicImage url="/resources/images/icon.jpg"
@@ -180,7 +184,7 @@
 			</h:panelGroup>
 		</h:panelGrid>
 		<h:form style="width:250px;border: 3px solid #A7C7D8">
-			<h:panelGrid style="width:250px;" columns="2">
+			<h:panelGrid style="width:250px;" columns="2" styleClass="label">
 				<h:outputLabel value="title 1" style="float:left;"></h:outputLabel>
 				<h:panelGroup>
 					<h:graphicImage url="/resources/images/icon.jpg"
@@ -200,7 +204,7 @@
 
 		<div style="height: 3px;"></div>
 		<h:form style="width:250px;border: 3px solid #A7C7D8">
-			<h:panelGrid style="width:250px;" columns="2">
+			<h:panelGrid style="width:250px;" columns="2" styleClass="label">
 				<h:outputLabel value="title 1" style="float:left;"></h:outputLabel>
 				<h:panelGroup>
 					<h:commandButton value="button 2" style="float:right;"></h:commandButton>
@@ -209,6 +213,6 @@
 				<h:selectOneListbox value="select 1" style="float:left;"></h:selectOneListbox>
 			</h:panelGrid>
 		</h:form>
-	</ui:composition>
-</body>
+	</h:body>
+</f:view>
 </html>

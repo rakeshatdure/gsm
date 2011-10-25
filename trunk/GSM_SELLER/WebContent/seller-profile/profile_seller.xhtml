@@ -10,7 +10,7 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <f:view>
 	<h:head>
-		<h:outputStylesheet name="common-style" library="css"></h:outputStylesheet>
+		<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
 		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
 	</h:head>
 	<h:body>
@@ -29,15 +29,15 @@
 				<div style="height: 5px" />
 
 				<div style="width: 960px; float: left;">
-					<h:panelGrid style=" width:960px;background-color:#FFC519;">
-						<h:outputLabel value="Thông tin của tôi" />
+					<h:panelGrid width="960px" style="background-color:#FFC519;">
+						<h:outputLabel value="#{initLang.sellerinfo}" />
 					</h:panelGrid>
 					<h:panelGrid style="width:960px" columns="2">
 						<h:panelGroup>
 							<h:graphicImage url="/resources/images/icon3.jpg"
 								style="float:left;margin-top:9px;" />
 							<h:outputLabel style="width:300px;font-size:20px;color:blue"
-								value="Thông tin cơ bản của seller" />
+								value="#{initLang.general}" />
 						</h:panelGroup>
 						<h:outputLabel
 							style="width:200px; float:right;text-align:right;color:red;"
@@ -52,8 +52,8 @@
 		<h:form id="frmPass" rendered="#{company.user.role.roleId == 4}">
 			<div style="width: 1224px">
 				<div style="width: 960px; float: left;">
-					<h:panelGrid style="width:960px;border: thin solid black"
-						columns="4" rules="all">
+					<h:panelGrid width="960px" style="border: thin solid black"
+						styleClass="label" columns="4" rules="all">
 						<h:outputLabel value="Tên đại lý" />
 						<h:inputText value="#{company.companyByUserAccount.companyName}" />
 						<h:outputLabel value="Ngày thành lập" />
@@ -143,10 +143,12 @@
 						<h:outputLabel value="fgdfg" />
 						<h:inputText value="" />
 					</h:panelGrid>
-					<h:panelGrid
+					<h:panelGrid styleClass="label"
 						style="width:960px;border-left:thin solid;border-right:thin solid"
 						columns="2" rules="all">
-						<h:outputLabel value="Thông tin mua bán bên ngoài" />
+						<h:panelGrid style="width:84px">
+							<h:outputLabel value="Thông tin mua bán bên ngoài" />
+						</h:panelGrid>
 						<h:panelGroup>
 							<h:outputLabel value="Tổng số tiền" />
 							<h:inputText value="" style="width:30px" />&nbsp;&nbsp;&nbsp;
@@ -159,15 +161,20 @@
 							<h:outputLabel value="VNĐ" />
 						</h:panelGroup>
 					</h:panelGrid>
-					<h:panelGrid style="width:960px;border:thin solid" columns="4"
-						rules="cols">
-						<h:outputLabel value="Giảm giá hay không" />
-						<h:inputText value="" style="width:30px" />
-						<h:panelGroup style="width:960px">
-							<input type="submit" value="Đồng ý" />
-							<input type="submit" value="Hủy" />
+
+					<h:panelGrid style="width:960px;border:thin solid" columns="2"
+						styleClass="label" rules="cols">
+						<h:panelGrid style="width:84px">
+							<h:outputLabel value="Giảm giá hay không" />
+						</h:panelGrid>
+
+						<h:panelGroup>
+							<h:inputText value="" style="width:30px" />
+							<h:commandButton value="Đồng ý" />
+							<h:commandButton value="Hủy" />
+							<h:commandButton style="float: right" value="Xem lại" />
 						</h:panelGroup>
-						<input type="submit" style="float: right" value="Xem lại" />
+
 					</h:panelGrid>
 					<div style="height: 30px"></div>
 
@@ -181,13 +188,21 @@
 						<input type="submit" value="Sửa" style="float: right"></input>
 					</h:panelGrid>
 					<div style="height: 10px"></div>
-					<h:form >
-						<h:panelGrid columns="4" style="width:960px;border:thin solid black" rules="all">
-							<h:outputLabel value="Bảo mật cố định và di động" />
-							<h:selectOneListbox value="" />
-							<h:outputLabel value="Tính năng bảo mật" />
-							<input type="submit" value="Thiết lập bảo mật" />
-
+					<h:form>
+						<h:panelGrid columns="4" width="960px" styleClass="label"
+							style="border:thin solid black" rules="all">
+							<h:panelGrid width="200px">
+								<h:outputLabel value="Bảo mật cố định và di động" />
+							</h:panelGrid>
+							<h:panelGrid width="200px">
+								<h:selectOneListbox value="" />
+							</h:panelGrid>
+							<h:panelGrid width="200px">
+								<h:outputLabel value="Tính năng bảo mật" />
+							</h:panelGrid>
+							<h:panelGrid width="200px">
+								<input type="submit" value="Thiết lập bảo mật" />
+							</h:panelGrid>
 							<h:outputLabel value="Chứng nhận ĐTDĐ" />
 							<h:selectOneListbox value="" />
 							<h:outputLabel value="Sử dụng IP cố định" />
@@ -196,7 +211,7 @@
 					</h:form>
 
 					<div style="height: 30px"></div>
-					<h:panelGrid style="width:960px" columns="2">
+					<h:panelGrid style="width:960px" columns="2" styleClass="label">
 						<h:panelGroup>
 							<h:graphicImage url="/resources/images/icon3.jpg"
 								style="float:left;margin-top:9px;" />
@@ -205,9 +220,11 @@
 						</h:panelGroup>
 						<input type="submit" value="Sửa" style="float: right" />
 					</h:panelGrid>
+
 					<div style="height: 15px"></div>
 					<h:form style="width:960px;border:thin solid black">
-						<h:panelGrid style="width:960px;" columns="2" rules="all">
+						<h:panelGrid style="width:960px;" columns="2" rules="all"
+							styleClass="label">
 							<h:outputLabel value="Cách thức cấp phát hóa đơn" />
 							<h:panelGroup>
 								<h:selectOneRadio value="">
@@ -218,8 +235,6 @@
 								<h:outputLabel value="Thời gian thay đổi gần nhất" />
 								<h:inputText value="" />
 							</h:panelGroup>
-							<h:outputLabel />
-							<h:outputLabel />
 
 							<h:outputLabel value="Tiền thuế ngày phát hành hóa đơn" />
 							<h:panelGroup>
@@ -230,6 +245,7 @@
 							</h:panelGroup>
 						</h:panelGrid>
 					</h:form>
+
 
 					<div style="height: 30px"></div>
 					<h:panelGrid style="width:960px" columns="3" rules="rows">
@@ -245,7 +261,8 @@
 					</h:panelGrid>
 					<div style="height: 15px"></div>
 					<h:form style="width:960px;border:thin solid black">
-						<h:panelGrid style="width:960px" columns="4" rules="all">
+						<h:panelGrid style="width:960px" columns="4" rules="all"
+							styleClass="label">
 
 							<h:outputLabel value="Người phụ trách DN" />
 							<h:panelGroup>
@@ -302,33 +319,38 @@
 							<h:outputLabel value=""></h:outputLabel>
 						</h:panelGrid>
 
-						<h:panelGrid
+						<h:panelGrid styleClass="label"
 							style="width:960px;border-bottom:thin solid;border-top:thin solid;"
 							columns="2" rules="cols">
-							<h:outputLabel value="Địa chỉ chính khi đổi trả hàng"></h:outputLabel>
-							<h:panelGroup style="width:760px;">
+							<h:panelGrid style="width:198px">
+								<h:outputLabel value="Địa chỉ chính khi đổi trả hàng"></h:outputLabel>
+							</h:panelGrid>
+							<h:panelGroup>
 								<h:inputText value="" style="width:50px"></h:inputText>
 								<h:inputText value="" style="width:350px"></h:inputText>
 								<h:commandButton value="Quản lí địa chỉ liên hệ của seller"></h:commandButton>
 							</h:panelGroup>
 						</h:panelGrid>
 						<h:panelGrid style="width:960px;border-bottom:thin solid;"
-							columns="2" rules="cols">
-							<h:outputLabel value="Địa chỉ chính khi xuất hàng"></h:outputLabel>
+							styleClass="label" columns="2" rules="cols">
+							<h:panelGrid style="width:198px">
+								<h:outputLabel value="Địa chỉ chính khi xuất hàng"></h:outputLabel>
+							</h:panelGrid>
 							<h:panelGroup style="width:760px;">
 								<h:inputText value="" style="width:50px"></h:inputText>
 								<h:inputText value="" style="width:350px"></h:inputText>
 								<h:commandButton value="Quản lí địa chỉ liên hệ của seller"></h:commandButton>
 							</h:panelGroup>
 						</h:panelGrid>
-						<h:panelGrid style="width:960px" columns="1">
+						<h:panelGrid style="width:960px" columns="1" styleClass="label">
 							<h:outputLabel value="+ Note 1"></h:outputLabel>
 							<h:outputLabel value="+ Note 2"></h:outputLabel>
 						</h:panelGrid>
 					</h:form>
 
 					<div style="height: 30px"></div>
-					<h:panelGrid style="width:960px" columns="2" rules="rows">
+					<h:panelGrid style="width:960px" columns="2" rules="rows"
+						styleClass="label">
 						<h:panelGroup>
 							<h:graphicImage url="/my-image/icon3.jpg"
 								style="float:left;margin-top:9px;"></h:graphicImage>
@@ -339,7 +361,8 @@
 					</h:panelGrid>
 					<div style="height: 15px"></div>
 					<h:form style="width:960px;border:thin solid black">
-						<h:panelGrid style="width:960px" columns="4" rules="all">
+						<h:panelGrid style="width:960px" columns="4" rules="all"
+							styleClass="label">
 							<h:outputLabel value="Tên công ty"></h:outputLabel>
 							<h:inputText value=""></h:inputText>
 							<h:outputLabel value="Tên người đại diện"></h:outputLabel>
@@ -483,7 +506,7 @@
 						</h:panelGrid>
 					</h:form>
 					<div style="height: 30px"></div>
-					<h:panelGrid style="width:960px" columns="2">
+					<h:panelGrid style="width:960px" columns="2" styleClass="label">
 						<h:panelGroup>
 							<h:graphicImage url="/my-image/icon3.jpg"
 								style="float:left;margin-top:9px;"></h:graphicImage>
@@ -494,7 +517,8 @@
 					</h:panelGrid>
 					<div style="height: 15px"></div>
 					<h:form style="width:960px;border:thin solid black">
-						<h:panelGrid style="width:960px;" columns="4" rules="all">
+						<h:panelGrid style="width:960px;" columns="4" rules="all"
+							styleClass="label">
 							<h:outputLabel value="CM đảm trách"></h:outputLabel>
 							<h:inputText value=""></h:inputText>
 							<h:outputLabel value="Địa chỉ"></h:outputLabel>
@@ -514,7 +538,8 @@
 					</h:form>
 
 					<div style="height: 30px"></div>
-					<h:panelGrid style="width:960px" columns="2" rules="rows">
+					<h:panelGrid style="width:960px" columns="2" rules="rows"
+						styleClass="label">
 						<h:panelGroup>
 							<h:graphicImage url="/my-image/icon3.jpg"
 								style="float:left;margin-top:9px;"></h:graphicImage>
@@ -525,7 +550,8 @@
 					</h:panelGrid>
 					<div style="height: 15px"></div>
 					<h:form style="width:960px;border:thin solid black">
-						<h:panelGrid style="width:960px" columns="4" rules="all">
+						<h:panelGrid style="width:960px" columns="4" rules="all"
+							styleClass="label">
 							<h:outputLabel value="Tên của người bán sỉ"></h:outputLabel>
 							<h:inputText value=""></h:inputText>
 							<h:outputLabel></h:outputLabel>
@@ -538,7 +564,7 @@
 						</h:panelGrid>
 
 						<h:panelGrid style="width:960px;border-top:thin solid "
-							columns="2" rules="all">
+							styleClass="label" columns="2" rules="all">
 							<h:outputLabel value="Địa chỉ để tiếp khách hàng"></h:outputLabel>
 							<h:dataTable width="100%" border="1" style="height:300px">
 								<h:column>
