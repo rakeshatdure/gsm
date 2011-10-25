@@ -75,7 +75,7 @@ public class UserDAO extends HibernateDAO{
 		boolean result = false;
 		MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
 		try {
-			helper.open();
+			helper.open("MALL_LA");
 			String sql = "update user set Pass ='"+VuHong_MD5.encrypt(newPass)+"' where account='"+account+"'";
 			int rs = helper.executeUpdate(sql);
 			helper.close();
