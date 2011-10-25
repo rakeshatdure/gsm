@@ -293,7 +293,7 @@ public class User  implements java.io.Serializable {
 	public String canLogin(){
 		try {
 			MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
-			helper.open();
+			helper.open("MALL_LA");
 			FacesContext face = FacesContext.getCurrentInstance();
 			String query = "select * from user";
 			ResultSet rs = helper.executeQuery(query);
@@ -303,7 +303,7 @@ public class User  implements java.io.Serializable {
 			
 			while(rs.next()){
 				User user = new User(rs.getString("Account"),rs.getString("Pass"),rs.getString("Address"),rs.getString("Email"),rs.getString("FullName"));
-				Role role =RoleBUS.getRole(Integer.parseInt(rs.getString("RoleId")), "MALL_EN");
+				Role role =RoleBUS.getRole(Integer.parseInt(rs.getString("RoleId")), "MALL_LA");
 				user.setRole(role);
 				list.add(user);
 				System.out.println("Rolessss :" + user.getRole().getRoleId()) ;

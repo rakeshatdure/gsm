@@ -20,7 +20,7 @@ public class BankGSMBean {
 	}
 	// viet phuong thuc load tat ca cac bankName co trong database
 	public List<String> loadAllBankName(){
-		return BankGSMDAO.lstAllBankName("MALL_EN");
+		return BankGSMDAO.lstAllBankName("MALL_LA");
 	}
 
 }
