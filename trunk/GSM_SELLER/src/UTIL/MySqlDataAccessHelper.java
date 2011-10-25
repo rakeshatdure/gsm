@@ -23,7 +23,7 @@ public class MySqlDataAccessHelper {
     }
 
     public void open(String lang) {
-    	String connectionString = "jdbc:mysql://localhost:3306/";
+    	String connectionString = "jdbc:mysql://192.168.1.203:3306/";
         try {
             DriverManager.registerDriver(new org.gjt.mm.mysql.Driver());
             //Set language
@@ -40,8 +40,8 @@ public class MySqlDataAccessHelper {
             Properties pros = new Properties();
             pros.setProperty("characterEncoding", "utf8");
             //Set username & password 
-            pros.setProperty("user", "root");
-            //pros.setProperty("password", "5678");
+            pros.setProperty("user", "cam");
+            pros.setProperty("password", "5678");
             this.connection = DriverManager.getConnection(connectionString, pros);
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -50,7 +50,7 @@ public class MySqlDataAccessHelper {
     
     
     public void open() {
-    	String connectionString = "jdbc:mysql://localhost:3306/";
+    	String connectionString = "jdbc:mysql://192.168.1.203:3306/";
         try {
             DriverManager.registerDriver(new org.gjt.mm.mysql.Driver());
             //Set language
@@ -59,8 +59,8 @@ public class MySqlDataAccessHelper {
             Properties pros = new Properties();
             pros.setProperty("characterEncoding", "utf8");
             //Set username & password 
-            pros.setProperty("user", "root");
-            //pros.setProperty("password", "5678");
+            pros.setProperty("user", "cam");
+            pros.setProperty("password", "5678");
             this.connection = DriverManager.getConnection(connectionString, pros);
             System.out.println("Ket noi thanh cong");
         } catch (SQLException ex) {

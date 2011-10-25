@@ -102,8 +102,10 @@
 				</h:panelGrid>
 				<h:panelGrid columns="4" style="border-bottom: 1px solid #cfcfcf; height: 35px;border-top: 2px solid #b0cde9;
 					width: 960px;background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p5.jpg') repeat-y;">
-					<h:outputText value="Tìm kiếm theo: " style="padding: 5px 20px 5px 3px;"/>
-					<h:panelGrid columns="3" style="width:390px;">
+					<h:panelGrid width="120px">
+						<h:outputText value="Tìm kiếm theo: "/>
+					</h:panelGrid>
+					<h:panelGrid columns="3" style="width:380px;">
 						<h:selectOneMenu style="width: 150px;">
 							 <f:selectItem itemValue="0" itemLabel="== Loại lớn ==" />
 						</h:selectOneMenu>
@@ -117,7 +119,7 @@
 					<h:selectOneMenu id="nguoiDK" value="người đăng ký" style="width: 80px;">
 						  <f:selectItem itemValue="0" itemLabel="Người DK" />
 					</h:selectOneMenu> 
-					<h:panelGroup style="width: 320px;padding: 0px 0px 0px 5px;">
+					<h:panelGroup width="320px" style="padding: 0px 0px 0px 5px;">
 						<rich:calendar id="calendar" locale="US" popup="true"
 		                    datePattern="dd/MM/yyyy" showApplyButton="true" cellWidth="20px"
 		                    cellHeight="20px"/>
