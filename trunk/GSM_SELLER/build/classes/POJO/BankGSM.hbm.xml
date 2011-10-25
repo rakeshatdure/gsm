@@ -5,7 +5,7 @@
 <hibernate-mapping>
     <class name="POJO.BankGSM" table="bankgsm" >
         <id name="banking" type="string">
-			<column name="BankName" length="100" />
+			<column name="BankName" length="255" />
 			<generator class="assigned" />
 		</id>
     </class>
