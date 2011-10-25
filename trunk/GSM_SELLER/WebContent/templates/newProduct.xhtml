@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<h:outputStylesheet name="/pro-style.css" library="/css" />
+	<title>Notice Manage</title>
+	<h:outputStylesheet>
+		.even-row {
+		    background-color: #FCFFFE;
+		}
+		 
+		.odd-row {
+		    background-color: #ECF3FE;
+		}
+		 
+		.active-row {
+		    background-color: #FFEBDA !important;
+		    cursor: pointer;
+		}
+	</h:outputStylesheet>
+</h:head>
+<h:body>
+	<div id="SelectCategory" style="margin-top: 10px;">
+		<h:outputLabel value="Cách thức thanh toán và chọn loại sản phẩm" styleClass="ttNewPro"/>
+		<h:panelGrid columns="2" styleClass="bgPanelHead">
+			<h:panelGrid width="150px">
+				<h:outputFormat value="Category"/>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 800px">
+				<h:panelGroup>
+					<h:selectOneMenu style="width: 150px; margin-left: 10px">
+						 <f:selectItem itemValue="0" itemLabel="== Loại lớn ==" />
+					</h:selectOneMenu>
+					<h:selectOneMenu style="width: 110px; margin-left: 10px">
+						 <f:selectItem itemValue="0" itemLabel="== Loại trung ==" />
+					</h:selectOneMenu>
+					<h:selectOneMenu style="width: 110px; margin-left: 10px">
+						 <f:selectItem itemValue="0" itemLabel="== Loại nhỏ ==" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+			</h:panelGrid>
+		</h:panelGrid>
+		<h:panelGrid columns="2" styleClass="bgPanel">
+			<h:panelGrid width="150px">
+				<h:outputFormat value="Phương thức bán"/>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 800px">
+				<h:panelGrid columns="2">
+					<h:selectOneRadio value="">
+					  <f:selectItem itemLabel="label 1" itemValue="1" />
+					  <f:selectItem itemLabel="label 2" itemValue="2" />
+					  <f:selectItem itemLabel="label 3" itemValue="3" />
+					  <f:selectItem itemLabel="label 4" itemValue="4" />
+					  <f:selectItem itemLabel="label 5" itemValue="5" />
+					</h:selectOneRadio>
+					<a4j:commandLink value="lien ket hien thi" styleClass="cmd1"/>
+				</h:panelGrid>
+			</h:panelGrid>
+		</h:panelGrid>
+		<h:panelGrid columns="2" styleClass="bgPanel">
+			<h:panelGrid width="150px">
+				<h:outputFormat value="Phương thức bán"/>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 800px">
+				<h:panelGrid columns="3">
+					<h:selectOneRadio value="">
+					  <f:selectItem itemLabel="label 1" itemValue="1" />
+					  <f:selectItem itemLabel="label 2" itemValue="2" />
+					</h:selectOneRadio>
+					<a4j:commandLink value="lien ket hien thi" styleClass="cmd1"/>
+					<a4j:commandLink value="lien ket hien thi" styleClass="cmd1"/>
+				</h:panelGrid>
+			</h:panelGrid>
+		</h:panelGrid>
+	</div>
+	
+
+</h:body>
+</html>
+	
