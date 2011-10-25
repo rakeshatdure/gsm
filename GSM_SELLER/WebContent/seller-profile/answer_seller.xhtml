@@ -10,7 +10,8 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <f:view>
 	<h:head>
-		<h:outputStylesheet name="common-style" library="css"></h:outputStylesheet>
+		<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
+		<h:outputStylesheet name="answer.css" library="css"></h:outputStylesheet>
 		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
 	</h:head>
 
@@ -34,41 +35,225 @@
 
 					<h:panelGrid style="width:960px" columns="2">
 						<h:panelGroup>
-							<h:graphicImage url="/resources/images/button-cycle.jpg"
-								style="float:left;margin-top:5px;" />
-							<h:outputLabel style="width:300px;font-size:20px;color:blue"
-								value="Mục cần giải đáp thắc mắc" />
+							<h:graphicImage url="/resources/images/button1.jpg"
+								style="float:left;margin-top:5px;margin-right:3px;" />
+							<h:outputLabel style="width:300px;font-size:20px;color:#336fbf;"
+								value="Liên lạc với GMarket" />
 						</h:panelGroup>
 						<h:panelGroup>
-							<h:commandButton value="Button 1">
-							</h:commandButton>
-							<h:commandButton value="Button 2">
-							</h:commandButton>
+							<h:commandButton value="Xem mini FAQ"/>
+							<h:commandButton value="Xem|Đóng Giải thích thêm"/>
 						</h:panelGroup>
 					</h:panelGrid>
 					<div style="border: 1px solid #57AAD6;" />
 					<div style="height: 10px;" />
-					<h:outputLabel value="Notice 1" />
+					<h:outputLabel styleClass="label" value="Menu liên lạc với Gmarket, chứa những nội dung mà seller thắc mắc về sử dụng Gmarket,
+					đây là chỗ xác nhận lại phản hồi(những câu trả lời) của Gmarket về những thắc mắc đó." />
 					<div style="height: 10px;" />
 					<div style="border: 1px solid #89C3E2;" />
 
 					<div style="height: 3px" />
-					<h:panelGrid style="border:1px solid #AACCD9;width:920px;">
+					<h:panelGrid style="border:1px solid #AACCD9;width:920px;" styleClass="label">
 						<h:panelGroup>
 							<h:graphicImage url="/resources/images/button2.jpg"
-								style="float:left;margin-top:5px;" />
-							<h:outputLabel style="width:300px;font-size:20px;color:blue"
-								value="Label 1" />
+								style="float:left;margin-top:2px;margin-right:3px;" />
+							<h:outputLabel value="Hướng dẫn sử dụng tìm nhanh" />
 						</h:panelGroup>
-						
+
+						<h:panelGrid columns="5"
+							style="background: url('#{facesContext.externalContext.requestContextPath}/resources/images/3.jpg'); width: 900px; height: 39px;
+							-moz-border-radius: 5px; -webkit-border-radius: 5px; border: 1px solid #CCCCCC;">
+							<h:panelGroup>
+								<h:outputLabel value="Label 1"
+									style="position:relative;top:-14px;" />
+								<h:graphicImage url="/resources/images/2.png"
+									style="margin-left:70px;top:-3px;position:relative;" />
+								<h:graphicImage url="/resources/images/1.png"
+									style="height:39px;margin-left:14px;" />
+							</h:panelGroup>
+
+							<h:panelGroup>
+								<h:outputLabel value="Label 2"
+									style="position:relative;top:-14px;" />
+								<h:graphicImage url="/resources/images/2.png"
+									style="margin-left:70px;top:-3px;position:relative;" />
+								<h:graphicImage url="/resources/images/1.png"
+									style="height:39px;margin-left:14px;" />
+							</h:panelGroup>
+
+							<h:panelGroup>
+								<h:outputLabel value="Label 3"
+									style="position:relative;top:-14px;" />
+								<h:graphicImage url="/resources/images/2.png"
+									style="margin-left:70px;top:-3px;position:relative;" />
+								<h:graphicImage url="/resources/images/1.png"
+									style="height:39px;margin-left:14px;" />
+							</h:panelGroup>
+
+							<h:panelGroup>
+								<h:outputLabel value="Label 4"
+									style="position:relative;top:-14px;" />
+								<h:graphicImage url="/resources/images/2.png"
+									style="margin-left:70px;top:-3px;position:relative;" />
+								<h:graphicImage url="/resources/images/1.png"
+									style="height:39px;margin-left:14px;" />
+							</h:panelGroup>
+
+							<h:panelGroup>
+								<h:outputLabel value="Label 5"
+									style="position:relative;top:-7px;" />
+								<h:graphicImage url="/resources/images/2.png"
+									style="margin-left:70px;top:3px;position:relative;" />
+							</h:panelGroup>
+						</h:panelGrid>
+
+
 						<h:panelGroup>
 							<h:graphicImage url="/resources/images/button2.jpg"
-								style="float:left;margin-top:5px;" />
-							<h:outputLabel style="width:300px;font-size:20px;color:blue"
-								value="Label 2" />
-							<h:commandButton value="Button 3"/>
+								style="float:left;margin-top:7px;margin-right:3px;" />
+							<h:outputLabel value="Nếu muốn đưa bài viết lên nhấn nút 'Soạn bài' rồi đăng" style="margin-top:-32px;" />
+							<h:commandButton value="Soạn bài viết" style="height:28px;" />
 						</h:panelGroup>
 					</h:panelGrid>
+					<div style="height: 3px" />
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/button2.jpg"
+							style="float:left;margin-top:2px;margin-right:3px;" />
+						<h:outputLabel value="Số lần xem nội dung thắc mắc của tôi" styleClass="label"/>
+					</h:panelGroup>
+					<div style="height: 3px" />
+					<h:panelGrid style="width:920px;border:1px solid #d3d3d3" styleClass="label"
+						columns="4">
+						<h:panelGrid width="370px">
+							<h:column>
+								<h:panelGroup>
+									<h:commandButton value="Hiện tại ~ 1 tuần trước" />
+									<h:commandButton value="1 tuần trước ~ 2 tuần trước" />
+									<h:commandButton value="2 tuần trước ~ 3 tuần trước" />
+									<h:commandButton value="3 tuần trước ~ 4 tuần trước" />
+								</h:panelGroup>
+								<div style="height: 2px;" />
+								<h:panelGroup>
+									<h:outputLabel value="Ngày nhận" />
+									<h:inputText value="" style="width:80px"/>
+									<h:outputLabel value="từ" />
+									<h:inputText value=""  style="width:80px"/>
+									<h:outputLabel value="đến" />
+								</h:panelGroup>
+							</h:column>
+						</h:panelGrid>
+
+						<h:panelGrid width="170px">
+							<h:column>
+								<h:outputLabel value="Hình thức liên hệ" />
+								<div style="height: 2px;" />
+								<h:selectOneListbox value="dgsdfgsdf" size="1"
+									title="select one option" width="50px">
+									<f:selectItems value="sdfgsdf" />
+								</h:selectOneListbox>
+							</h:column>
+						</h:panelGrid>
+						<h:panelGrid width="300px">
+							<h:column>
+								<h:outputLabel value="Search thêm" />
+								<div style="height: 2px;" />
+								<h:panelGroup>
+									<h:selectOneListbox value="sdfgsdfg" size="1"
+										title="select one option">
+										<f:selectItems value="sdfgsdfg" />
+									</h:selectOneListbox>
+									<h:inputText value="" />
+								</h:panelGroup>
+							</h:column>
+						</h:panelGrid>
+
+						<h:panelGrid width="45px">
+							<h:column>
+								<h:commandButton value="Số lần xem" />
+							</h:column>
+						</h:panelGrid>
+					</h:panelGrid>
+
+					<div style="width: 920px; float: left; margin: 20px 0px 10px 0px;">
+
+						<rich:extendedDataTable style="height:200px; width:920px;"
+							selectionMode="single" styleClass="label">
+
+							<rich:column style="text-align: center;" width="100px">
+								<f:facet name="header">
+									<h:outputLabel value="Mã bài viết" />
+								</f:facet>
+								<h:outputText value="Label 1" />
+							</rich:column>
+
+							<rich:column width="100px">
+								<f:facet name="header">
+									<h:outputText value="Hình thức liên hệ" />
+								</f:facet>
+								<h:outputText value="lable 2" />
+							</rich:column>
+
+							<rich:column width="300px">
+								<f:facet name="header">
+									<h:outputText value="Đề mục" />
+								</f:facet>
+								<h:outputText value="lable 3" />
+							</rich:column>
+
+							<rich:column width="100px">
+								<f:facet name="header">
+									<h:outputText value="Ngày soạn" />
+								</f:facet>
+								<h:outputText value="Label 4" />
+							</rich:column>
+
+							<rich:column width="100px">
+								<f:facet name="header">
+									<h:outputText value="Trạng thái xử lí" />
+								</f:facet>
+								<h:outputText value="Label 5" />
+							</rich:column>
+						</rich:extendedDataTable>
+
+						<div style="height: 3px" />
+						<h:panelGrid style="width:920px" columns="2"  styleClass="label">
+							<h:panelGroup>
+								<h:graphicImage url="/resources/images/button2.jpg"
+									style="float:left;margin-top:2px;margin-right:3px;" />
+								<h:outputLabel value="Label 1" />
+							</h:panelGroup>
+
+							<h:panelGroup>
+								<h:graphicImage url="/resources/images/button2.jpg"
+									style="float:left;margin-top:2px;margin-right:3px;" />
+								<h:outputLabel value="Label 2" />
+							</h:panelGroup>
+						</h:panelGrid>
+
+						<div style="width: 920px;">
+							<h:panelGrid style="width:450px; border: 1px solid gray;"
+								columns="2" styleClass="label">
+								<h:outputLabel value="Label 1" />
+								<h:selectOneListbox value="" />
+								<h:outputLabel value="Label 2" />
+								<h:inputText value="" />
+								<h:outputLabel value="label 3" />
+								<h:inputTextarea cols="20" rows="5" />
+							</h:panelGrid>
+
+							<h:panelGrid styleClass="label"
+								style="width:450px; border: 1px solid gray;float:right;margin-top:-137px;"
+								columns="2">
+								<h:outputLabel value="Label 1" />
+								<h:inputText value="" />
+								<h:outputLabel value="Label 2" />
+								<h:inputText value="" />
+								<h:outputLabel value="label 3" />
+								<h:inputTextarea cols="20" rows="5" />
+							</h:panelGrid>
+						</div>
+
+					</div>
 				</div>
 			</div>
 		</h:form>

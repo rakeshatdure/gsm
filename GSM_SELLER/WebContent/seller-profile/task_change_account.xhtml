@@ -10,7 +10,7 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <f:view>
 	<h:head>
-		<h:outputStylesheet name="common-style" library="css"></h:outputStylesheet>
+		<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
 		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
 	</h:head>
 
@@ -36,33 +36,33 @@
 					</h:panelGrid>
 
 					<h:panelGrid style="width:960px">
-						<h:outputLabel value="*Note 1" />
-						<h:outputLabel value="*Note 2" />
-						<h:outputLabel value="*Note 3" />
-						<h:outputLabel value="*Note 4" />
+						<h:outputLabel value="*Note 1" styleClass="label"/>
+						<h:outputLabel value="*Note 2" styleClass="label"/>
+						<h:outputLabel value="*Note 3" styleClass="label"/>
+						<h:outputLabel value="*Note 4" styleClass="label"/>
 					</h:panelGrid>
 					<div style="height: 15px" />
 					<h:panelGrid style="width:960px;border:thin solid black;"
 						columns="4" rules="all">
-						<h:outputText value="ID của seller" style="text-align:center" />
+						<h:outputText value="ID của seller" styleClass="label" />
 						<h:inputText value="#{company.companyByUserAccount.companyId}"
 							readonly="true" />
 
-						<h:outputLabel value="Tên của seller" style="text-align:center" />
+						<h:outputLabel value="Tên của seller" styleClass="label"/>
 						<h:inputText value="#{company.companyByUserAccount.user.fullName}"
 							readonly="true" />
 						<f:facet name="footer">
-							<h:outputText style="margin-left:310px"
+							<h:outputText style="margin-left:310px" styleClass="label"
 								value="Xin vui lòng nhập các thông tin về đăng ký kinh doanh." />
 						</f:facet>
 					</h:panelGrid>
-					<h:panelGrid
+					<h:panelGrid width="960px"
 						style="border-left:thin solid black;border-right:thin solid black;border-bottom:thin solid black;"
 						columns="2" rules="all">
-						<h:outputText value="Xac nhan so dang ki kinh doanh"
+						<h:outputText value="Xac nhan so dang ki kinh doanh" styleClass="label"
 							style="width:200px" />
-						<h:panelGrid style="width:760px;border:thin solid black;"
-							columns="2" rules="all">
+						<h:panelGrid style="width:788px;border:thin solid black;"
+							columns="2" rules="all" styleClass="label">
 							<h:outputText value="Số đăng kí giấy phép kinh doanh" />
 							<h:form style="width:500px;">
 								<h:panelGroup>
@@ -124,17 +124,17 @@
 						</h:panelGrid>
 						<h:panelGrid>
 							<f:facet name="footer">
-								<h:outputLabel value="* Note 1" />
+								<h:outputLabel value="* Note 1" styleClass="label"/>
 							</f:facet>
 						</h:panelGrid>
 					</h:panelGrid>
 					<div style="height: 4px" />
-					<h:panelGrid style="border:thin solid black;" columns="2"
-						rules="all">
+					<h:panelGrid style="border:thin solid black;" columns="2" width="960px"
+						rules="all" styleClass="label">
 						<h:outputLabel value="Xác nhận thông tin người đại diện" />
 
 						<h:form>
-							<h:panelGrid style="width:760px;;border:thin solid black;"
+							<h:panelGrid style="width:788px;;border:thin solid black;"
 								columns="2" rules="all">
 								<h:outputLabel value="Tên người đại diện" />
 								<h:inputText
@@ -185,10 +185,10 @@
 
 					<div style="height: 5px" />
 					<h:panelGrid style="width:960px;border:thin solid black;"
-						columns="2" rules="all">
+						columns="2" rules="all" styleClass="label">
 						<h:outputLabel value="Địa điểm nơi đăng kí kinh doanh" />
 
-						<h:form style="width:760px;">
+						<h:form style="width:788px;">
 							<h:panelGroup>
 								<h:inputText value="" style="width:50px" />
 								<h:outputLabel value="_" />
@@ -273,7 +273,7 @@
 						<h:commandButton value="Yeu cau chuyen doi" />
 					</div>
 					<div style="height: 15px" />
-					<h:panelGrid columns="3">
+					<h:panelGrid columns="3" styleClass="label">
 						<h:form>
 							<rich:dataTable iterationStatusVar="" value="" rows="2"
 								columnClasses="center" selectionMode="single"
