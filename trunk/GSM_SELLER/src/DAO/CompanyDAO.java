@@ -93,7 +93,7 @@ public class CompanyDAO extends HibernateDAO{
 		boolean result = false;
 		MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
 		try {
-			helper.open();
+			helper.open(lang);
 			String sql = "update company set CompanyName ='"+ companyName +"' " +
 					" , Representative='"+reprentation+"' where Account='"+account+"'";
 			int rs = helper.executeUpdate(sql);
