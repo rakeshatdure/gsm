@@ -1,0 +1,105 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+	<h:head>
+		<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
+		<h:outputStylesheet name="/pro-style.css" library="/css" />
+		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
+	</h:head>
+	<h:body>
+		<h:form rendered="#{company.user.role.roleId != 4}">
+			<div style="text-align: center; padding: 50px">
+				<h3>
+					<h:outputText value="You don't have permission" />
+				</h3>
+			</div>
+		</h:form>
+		<h:form rendered="#{company.user.role.roleId == 4}">
+			<div style="width: 1224px">
+				<ui:insert>
+					<ui:include src="/WEB-INF/menu/sub-menu-profile.xhtml"></ui:include>
+				</ui:insert>
+				<div style="height: 5px" />
+
+				<div style="width: 960px; float: left;">
+					<h:panelGrid
+						style="width:960px;background-color:#3859b0;height:38px;">
+						<h:outputLabel
+							value="Quản lý trang mua chung (cộng đồng) giữa giá cả, số lượng"
+							style="color:white;" />
+					</h:panelGrid>
+
+					<div style="height: 3px" />
+					<h:panelGrid
+						style="width:960px; border: 2px solid #c2d5e3;"
+						columns="2">
+						<h:panelGrid style="width:550px;">
+							<h:outputLabel
+								style="backgroud-color: #f2f4f2;padding-right: 30px;width: 500px;"
+								value="Menu chính là ........... của open market" />
+						</h:panelGrid>
+						<a4j:commandLink styleClass="bt_header" value="Xem/Đóng" />
+
+							<h:panelGrid
+								style="width:450px; border: 1px solid #c2d5e3;background-color:#eff4f8;margin-left:-629px;margin-top:167px;"
+								columns="1" styleClass="label">
+								<h:outputLabel
+									value="Nếu đăng kí trang Gmarket thì sẽ được lợi ích sau:" />
+								<h:outputLabel value="1. Lọi ích 1" />
+								<h:outputLabel value="2. Lợi ích 2" />
+								<h:outputLabel value="3. Lợi ích 3" />
+							</h:panelGrid>
+
+							<h:panelGrid styleClass="label"
+								style="width:450px; border: 1px solid gray;float:right;margin-top:156px;margin-left:-138px;"
+								columns="1">
+								<h:outputLabel
+									value="Nếu mua sản phẩm của Plus thì sẽ được lợi ích sau:" />
+								<h:outputLabel value="1. Lọi ích 1" />
+								<h:outputLabel value="2. Lợi ích 2" />
+								<h:panelGroup>
+									<h:outputLabel value="3. Lợi ích 3" />
+									<h:commandButton value="Xem chi tiết" />
+								</h:panelGroup>
+							</h:panelGrid>
+
+						<h:panelGrid columns="2">
+							<h:outputLabel value="Label 1" />
+							<h:outputLabel value="Content 1" />
+
+							<h:outputLabel value="Label 2" />
+							<h:outputLabel value="Content 2" />
+
+							<h:outputLabel value="Label 3" />
+							<h:outputLabel value="Content 3" />
+
+							<h:outputLabel value="Label 4" />
+							<h:outputLabel value="Content 4" />
+
+							<h:outputLabel value="Label 5" />
+							<h:outputLabel value="Content 5" />
+						</h:panelGrid>
+					</h:panelGrid>
+
+				</div>
+
+				<div style="width: 252px; float: right; margin-top: 0px">
+					<ui:insert>
+						<ui:include src="/WEB-INF/right/right.xhtml"></ui:include>
+					</ui:insert>
+				</div>
+			</div>
+		</h:form>
+
+
+	</h:body>
+</f:view>
+</html>

@@ -31,6 +31,23 @@
                         <h:outputText value="Task change account infor" />
                 </rich:menuItem>
             </rich:dropDownMenu>
+            
+             <rich:dropDownMenu mode="ajax">
+                <f:facet name="label">
+                    <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
+                        style="vertical-align:middle">
+                        <h:outputText value="ManagePriceAndQuantity" />
+                    </h:panelGrid>
+                </f:facet>
+                <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{user.redirectManagePriceAndQuantity}'">
+                        <h:outputText value="Manage price and quantity" />
+                </rich:menuItem>
+                <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{user.redirectManageCommunityPurchase}'">
+                        <h:outputText value="Manage Community purchase" />
+                </rich:menuItem>
+            </rich:dropDownMenu>
 
 		</rich:toolbar>
 	</ui:composition>

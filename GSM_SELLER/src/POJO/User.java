@@ -57,6 +57,10 @@ public class User  implements java.io.Serializable {
 	private String redirectTaskChangeProfileSeller;
 	@SuppressWarnings("unused")
 	private String redirectAnswerSeller;
+	@SuppressWarnings("unused")
+	private String redirectManagePriceAndQuantity;
+	@SuppressWarnings("unused")
+	private String redirectManageCommunityPurchase;
 
 
 	public User(String account,String pass){
@@ -289,6 +293,23 @@ public class User  implements java.io.Serializable {
 	public void setRedirectAnswerSeller(String redirectAnswerSeller) {
 		this.redirectAnswerSeller = redirectAnswerSeller;
 	}
+	public String getRedirectManagePriceAndQuantity() {
+		return managePriceAndQuantity();
+	}
+	
+	public void setRedirectManagePriceAndQuantity(
+			String redirectManagePriceAndQuantity) {
+		this.redirectManagePriceAndQuantity = redirectManagePriceAndQuantity;
+	}
+	
+	public String getRedirectManageCommunityPurchase() {
+		return manageCommunityPurchase();
+	}
+	
+	public void setRedirectManageCommunityPurchase(
+			String redirectManageCommunityPurchase) {
+		this.redirectManageCommunityPurchase = redirectManageCommunityPurchase;
+	}
 
 	public String canLogin(){
 		try {
@@ -353,7 +374,13 @@ public class User  implements java.io.Serializable {
 		return "seller-profile/answer_seller.xhtml";
 	}
 	
+	public String managePriceAndQuantity(){
+		return "price-quantity/manage-price-quantity.xhtml";
+	}
 	
+	public String manageCommunityPurchase(){
+		return "price-quantity/manage-community-purchase.xhtml";
+	}
 }
 
 
