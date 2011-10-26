@@ -10,7 +10,7 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <f:view>
 	<h:head>
-		<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
+		<h:outputStylesheet name="/common-style.css" library="/css"></h:outputStylesheet>
 		<h:outputStylesheet name="/pro-style.css" library="/css" />
 		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
 	</h:head>
@@ -25,15 +25,19 @@
 		<h:form rendered="#{company.user.role.roleId == 4}">
 			<div style="width: 1224px">
 				<ui:insert>
-					<ui:include src="/WEB-INF/menu/sub-menu-profile.xhtml"></ui:include>
+					<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
 				</ui:insert>
 				<div style="height: 5px" />
 
 				<div style="width: 960px; float: left;">
 					<h:panelGrid
 						style="width:960px;background-color:#3859b0;height:38px;">
-						<h:outputLabel value="Quản lý giá cả, số lượng"
-							style="color:white;" />
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/icon_tt.png"
+								style="float:left;margin-top:-7px;margin-right:6px;" />
+							<h:outputLabel value="Quản lý giá cả, số lượng"
+								style="color:white;font-weight:bold;font-size:14px;" />
+						</h:panelGroup>
 					</h:panelGrid>
 
 					<div style="height: 3px" />
@@ -54,10 +58,14 @@
 					<h:panelGrid style="width:960px">
 						<h:panelGroup>
 							<h:graphicImage url="/resources/images/bg_p3.png"
-								style="margin-top:-5px;float:left;" />
+								style="margin-top:-1px;float:left;" />
 							<h:outputLabel value="Sản phẩm của tôi đang được giao dịch" />
-							<h:commandButton value="Xem sản phẩm đang để bán" />
+							<a4j:commandButton value="Xem sản phẩm đang để bán"
+								styleClass="bt_bassic" />
 						</h:panelGroup>
+					</h:panelGrid>
+					<h:panelGrid style="width:960px; background:#e1eaf2;">
+						<h:outputLabel value=" Label 1" />
 					</h:panelGrid>
 					<div style="height: 30px" />
 
@@ -69,9 +77,9 @@
 								value="Quản lí giá cả, số lượng" />
 						</h:panelGroup>
 						<h:panelGroup style="width:200px; float:right;">
-							<h:commandButton value="Tìm" />
-							<h:commandButton value="Excel" />
-							<h:commandButton value="Chọn tất cả" />
+							<a4j:commandButton value="Tìm" styleClass="bt_bassic" />
+							<a4j:commandButton value="Excel" styleClass="bt_bassic" />
+							<a4j:commandButton value="Chọn tất cả" styleClass="bt_bassic" />
 						</h:panelGroup>
 					</h:panelGrid>
 
@@ -80,14 +88,16 @@
 							<rich:dataTable iterationStatusVar="" value="" rows="2"
 								columnClasses="center" selectionMode="single"
 								style="width:960px;border:thin solid black;">
-								<rich:column>
+								<rich:column style="width:350px;">
 									<f:facet name="header">
 										<h:outputLabel value="Category" />
 									</f:facet>
 									<h:panelGroup>
-										<h:selectOneListbox value="" style="width:50px" />
-										<h:selectOneListbox value="" style="width:50px" />
-										<h:selectOneListbox value="" style="width:50px" />
+										<h:selectOneListbox style="width:110px" size="1">
+											<f:selectItems value="#{categoryBean.allCategory}" />
+										</h:selectOneListbox>
+										<h:selectOneListbox value="" style="width:110px" />
+										<h:selectOneListbox value="" style="width:110px" />
 									</h:panelGroup>
 								</rich:column>
 								<rich:column>
@@ -199,7 +209,7 @@
 						</rich:column>
 					</rich:extendedDataTable>
 
-					<h:panelGrid columns="2" style="margin: 5px;">
+					<h:panelGrid columns="2" style="margin: 5px;width:960px;">
 						<h:panelGroup style="float:left;">
 							<h:outputText
 								value="Từ ngày kết thúc thời hạn đặt hàng có hiệu lực của SP đã chọn" />
@@ -207,7 +217,8 @@
 							<a4j:commandLink value="Gia hạn thời hạn" styleClass="bt_header"></a4j:commandLink>
 						</h:panelGroup>
 						<h:panelGroup style="float:right;">
-							<h:graphicImage url="/resources/images/bt_list.png" />
+							<h:graphicImage url="/resources/images/bt_list.png"
+								style="margin-bottom:-7px;" />
 							<h:outputLabel value="Sản phẩm được chọn" />
 							<a4j:commandLink value="Xóa gọi đặt hàng" styleClass="bt_header"></a4j:commandLink>
 						</h:panelGroup>
@@ -219,7 +230,7 @@
 					<h:panelGrid style="width:960px">
 						<h:panelGroup>
 							<h:graphicImage url="/resources/images/bg_p3.png"
-								style="margin-top:-5px;float:left;" />
+								style="margin-top:-7px;float:left;" />
 							<h:outputLabel
 								value="Quản lí giá cả, số lượng theo từng sản phẩm" />
 						</h:panelGroup>
@@ -268,13 +279,14 @@
 					<div style="height: 25px" />
 
 					<h:panelGroup style="width: 960px;margin-left:150px">
-						<h:commandButton value="Khởi tạo" />
-						<h:commandButton value="Chỉnh sửa giá cả, số lượng" />
-						<h:commandButton value="Xóa đặt hàng" />
+						<a4j:commandButton value="Khởi tạo" styleClass="bt_bassic" />
+						<a4j:commandButton value="Chỉnh sửa giá cả, số lượng"
+							styleClass="bt_bassic" />
+						<a4j:commandButton value="Xóa đặt hàng" styleClass="bt_bassic" />
 					</h:panelGroup>
 					<div style="height: 25px" />
 				</div>
-				
+
 				<div style="width: 252px; float: right; margin-top: 0px">
 					<ui:insert>
 						<ui:include src="/WEB-INF/right/right.xhtml"></ui:include>

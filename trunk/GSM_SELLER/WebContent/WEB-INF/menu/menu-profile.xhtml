@@ -10,7 +10,6 @@
 <body>
 	<ui:composition>
 		<rich:toolbar>
-			
 			<rich:dropDownMenu mode="ajax">
                 <f:facet name="label">
                     <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
@@ -19,20 +18,20 @@
                     </h:panelGrid>
                 </f:facet>
                 <rich:menuItem submitMode="client"
-                    onclick="document.location.href='#{user.redirectAnswerSeller}'">
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/seller-profile/answer_seller.xhtml'">
                         <h:outputText value="Seller's answer" />
                 </rich:menuItem>
                 <rich:menuItem submitMode="client"
-                    onclick="document.location.href='#{user.redirectProfileSeller}'">
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/seller-profile/profile_seller.xhtml'">
                         <h:outputText value="Seller Profile" />
                 </rich:menuItem>
                 <rich:menuItem submitMode="client"
-                    onclick="document.location.href='#{user.redirectTaskChangeProfileSeller}'">
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/seller-profile/task_change_account.xhtml'">
                         <h:outputText value="Task change account infor" />
                 </rich:menuItem>
             </rich:dropDownMenu>
             
-             <rich:dropDownMenu mode="ajax">
+            <rich:dropDownMenu mode="ajax">
                 <f:facet name="label">
                     <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
                         style="vertical-align:middle">
@@ -40,15 +39,22 @@
                     </h:panelGrid>
                 </f:facet>
                 <rich:menuItem submitMode="client"
-                    onclick="document.location.href='#{user.redirectManagePriceAndQuantity}'">
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/price-quantity/manage-price-quantity.xhtml'">
                         <h:outputText value="Manage price and quantity" />
                 </rich:menuItem>
                 <rich:menuItem submitMode="client"
-                    onclick="document.location.href='#{user.redirectManageCommunityPurchase}'">
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/price-quantity/manage-community-purchase.xhtml'">
                         <h:outputText value="Manage Community purchase" />
                 </rich:menuItem>
+                <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/price-quantity/setting-inventory.xhtml'">
+                        <h:outputText value="Setting Inventory" />
+                </rich:menuItem>
+                <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/price-quantity/service-hosting-image.xhtml'">
+                        <h:outputText value="Service hosting image" />
+                </rich:menuItem>
             </rich:dropDownMenu>
-
 		</rich:toolbar>
 	</ui:composition>
 </body>

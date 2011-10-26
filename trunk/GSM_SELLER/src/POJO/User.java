@@ -13,11 +13,7 @@ import java.util.Set;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
-import javax.faces.event.ActionListener;
 import javax.servlet.http.HttpSession;
-
-import com.mysql.jdbc.PreparedStatement;
 
 import BUS.RoleBUS;
 import UTIL.MySqlDataAccessHelper;
@@ -42,27 +38,22 @@ public class User  implements java.io.Serializable {
 	private String phone;
 	private String email;
 	private String state;
+	@SuppressWarnings("rawtypes")
 	private Set productorders = new HashSet(0);
+	@SuppressWarnings("rawtypes")
 	private Set products = new HashSet(0);
+	@SuppressWarnings("rawtypes")
 	private Set notices = new HashSet(0);
+	@SuppressWarnings("rawtypes")
 	private Set companys = new HashSet(0);
+	@SuppressWarnings("rawtypes")
 	private Set banks = new HashSet(0);
+	@SuppressWarnings("rawtypes")
 	private Set deliverCosts = new HashSet(0);
+	@SuppressWarnings("rawtypes")
 	private Set shippingcompanys=new HashSet(0);
 	
 	
-	@SuppressWarnings("unused")
-	private String redirectProfileSeller;
-	@SuppressWarnings("unused")
-	private String redirectTaskChangeProfileSeller;
-	@SuppressWarnings("unused")
-	private String redirectAnswerSeller;
-	@SuppressWarnings("unused")
-	private String redirectManagePriceAndQuantity;
-	@SuppressWarnings("unused")
-	private String redirectManageCommunityPurchase;
-
-
 	public User(String account,String pass){
 		this.account = account;
 		this.pass = pass;
@@ -103,6 +94,7 @@ public class User  implements java.io.Serializable {
 		this.state = state;
 		this.registerDate = registerDate;
 	}
+	@SuppressWarnings("rawtypes")
 	public User(String account, Role role, String pass, String fullName, Date birthday, String sex,Date registerDate, String address, String phone, String email,String state, Set productorders, Set products, Set notices, Set companys, Set banks,Set shippingcompanys) {
 		this.account = account;
 		this.role = role;
@@ -206,110 +198,85 @@ public class User  implements java.io.Serializable {
 		this.state = state;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Set getProductorders() {
 		return this.productorders;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void setProductorders(Set productorders) {
 		this.productorders = productorders;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Set getProducts() {
 		return this.products;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void setProducts(Set products) {
 		this.products = products;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Set getNotices() {
 		return notices;
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	public void setNotices(Set notices) {
 		this.notices = notices;
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	public Set getCompanys() {
 		return companys;
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	public void setCompanys(Set companys) {
 		this.companys = companys;
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	public Set getBanks() {
 		return banks;
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	public void setBanks(Set banks) {
 		this.banks = banks;
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	public Set getDeliverCosts() {
 		return deliverCosts;
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	public void setDeliverCosts(Set deliverCosts) {
 		this.deliverCosts = deliverCosts;
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	public Set getShippingcompanys() {
 		return shippingcompanys;
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	public void setShippingcompanys(Set shippingcompanys) {
 		this.shippingcompanys = shippingcompanys;
 	}
 
-	public String getRedirectProfileSeller() {
-		return profileSeller();
-	}
-
-	public void setRedirectProfileSeller(String redirectProfileSeller) {
-		this.redirectProfileSeller = redirectProfileSeller;
-	}
-
-	public String getRedirectTaskChangeProfileSeller() {
-		return taskChangeProfileSeller();
-	}
-
-	public void setRedirectTaskChangeProfileSeller(
-			String redirectTaskChangeProfileSeller) {
-		this.redirectTaskChangeProfileSeller = redirectTaskChangeProfileSeller;
-	}
-	public String getRedirectAnswerSeller() {
-		return answerSeller();
-	}
-	public void setRedirectAnswerSeller(String redirectAnswerSeller) {
-		this.redirectAnswerSeller = redirectAnswerSeller;
-	}
-	public String getRedirectManagePriceAndQuantity() {
-		return managePriceAndQuantity();
-	}
-	
-	public void setRedirectManagePriceAndQuantity(
-			String redirectManagePriceAndQuantity) {
-		this.redirectManagePriceAndQuantity = redirectManagePriceAndQuantity;
-	}
-	
-	public String getRedirectManageCommunityPurchase() {
-		return manageCommunityPurchase();
-	}
-	
-	public void setRedirectManageCommunityPurchase(
-			String redirectManageCommunityPurchase) {
-		this.redirectManageCommunityPurchase = redirectManageCommunityPurchase;
-	}
 
 	public String canLogin(){
 		try {
@@ -362,25 +329,7 @@ public class User  implements java.io.Serializable {
 		return null;
 	}
 	
-	public String profileSeller(){
-		return "seller-profile/profile_seller.xhtml";
-	}
-	
-	public String taskChangeProfileSeller() {
-		return "seller-profile/task_change_account.xhtml";
-	}
-	
-	public String answerSeller(){
-		return "seller-profile/answer_seller.xhtml";
-	}
-	
-	public String managePriceAndQuantity(){
-		return "price-quantity/manage-price-quantity.xhtml";
-	}
-	
-	public String manageCommunityPurchase(){
-		return "price-quantity/manage-community-purchase.xhtml";
-	}
+
 }
 
 

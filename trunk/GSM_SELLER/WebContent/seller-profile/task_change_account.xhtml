@@ -25,7 +25,7 @@
 		<h:form rendered="#{company.user.role.roleId == 4}">
 			<div style="width: 1224px">
 				<ui:insert>
-					<ui:include src="/WEB-INF/menu/sub-menu-profile.xhtml"></ui:include>
+					<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
 				</ui:insert>
 				<div style="height: 5px" />
 
@@ -36,10 +36,10 @@
 					</h:panelGrid>
 
 					<h:panelGrid style="width:960px">
-						<h:outputLabel value="*Note 1" styleClass="label"/>
-						<h:outputLabel value="*Note 2" styleClass="label"/>
-						<h:outputLabel value="*Note 3" styleClass="label"/>
-						<h:outputLabel value="*Note 4" styleClass="label"/>
+						<h:outputLabel value="*Note 1" styleClass="label" />
+						<h:outputLabel value="*Note 2" styleClass="label" />
+						<h:outputLabel value="*Note 3" styleClass="label" />
+						<h:outputLabel value="*Note 4" styleClass="label" />
 					</h:panelGrid>
 					<div style="height: 15px" />
 					<h:panelGrid style="width:960px;border:thin solid black;"
@@ -48,7 +48,7 @@
 						<h:inputText value="#{company.companyByUserAccount.companyId}"
 							readonly="true" />
 
-						<h:outputLabel value="Tên của seller" styleClass="label"/>
+						<h:outputLabel value="Tên của seller" styleClass="label" />
 						<h:inputText value="#{company.companyByUserAccount.user.fullName}"
 							readonly="true" />
 						<f:facet name="footer">
@@ -59,8 +59,8 @@
 					<h:panelGrid width="960px"
 						style="border-left:thin solid black;border-right:thin solid black;border-bottom:thin solid black;"
 						columns="2" rules="all">
-						<h:outputText value="Xac nhan so dang ki kinh doanh" styleClass="label"
-							style="width:200px" />
+						<h:outputText value="Xac nhan so dang ki kinh doanh"
+							styleClass="label" style="width:200px" />
 						<h:panelGrid style="width:788px;border:thin solid black;"
 							columns="2" rules="all" styleClass="label">
 							<h:outputText value="Số đăng kí giấy phép kinh doanh" />
@@ -124,13 +124,13 @@
 						</h:panelGrid>
 						<h:panelGrid>
 							<f:facet name="footer">
-								<h:outputLabel value="* Note 1" styleClass="label"/>
+								<h:outputLabel value="* Note 1" styleClass="label" />
 							</f:facet>
 						</h:panelGrid>
 					</h:panelGrid>
 					<div style="height: 4px" />
-					<h:panelGrid style="border:thin solid black;" columns="2" width="960px"
-						rules="all" styleClass="label">
+					<h:panelGrid style="border:thin solid black;" columns="2"
+						width="960px" rules="all" styleClass="label">
 						<h:outputLabel value="Xác nhận thông tin người đại diện" />
 
 						<h:form>
@@ -143,14 +143,15 @@
 								<h:form style="width:500px;">
 									<h:panelGroup>
 										<h:selectOneRadio value="">
-											<f:selectItem  itemLabel="Trong nước" />
-											<f:selectItem  itemLabel="Nước ngoài" />
+											<f:selectItem itemLabel="Trong nước" />
+											<f:selectItem itemLabel="Nước ngoài" />
 										</h:selectOneRadio>
 									</h:panelGroup>
 
 									<div style="height: 2px" />
 									<h:panelGroup>
-										<h:inputText value="#{company.companyByUserAccount.identityCard}" />
+										<h:inputText
+											value="#{company.companyByUserAccount.identityCard}" />
 										<h:outputLabel>-</h:outputLabel>
 										<h:inputText value="" />
 										<h:commandButton value="Xác minh" />
@@ -193,7 +194,41 @@
 								<h:inputText value="" style="width:50px" />
 								<h:outputLabel value="_" />
 								<h:inputText value="" style="width:50px" />
-								<h:commandButton value="Tim dia chi" />
+								<h:commandButton value="Tìm địa chỉ">
+									<rich:componentControl target="popupSearchAddress"
+										operation="show" />
+								</h:commandButton>
+								<rich:popupPanel id="popupSearchAddress" modal="true"
+									resizeable="true" domElementAttachment="form"
+									onmaskclick="#{rich:component('popupSearchAddress')}.hide()"
+									style="600px">
+									<f:facet name="header">
+										<h:outputText value="Phần tìm kiếm địa chỉ của bạn" />
+									</f:facet>
+									<f:facet name="controls">
+										<h:outputLink value="#"
+											onclick="#{rich:component('popupSearchAddress')}.hide(); return false;">
+											<font color="red">X</font>
+										</h:outputLink>
+									</f:facet>
+
+									<h:outputText
+										value="Chào #{user.account} bạn có muốn tìm kiếm địa chỉ không?" />
+									<div style="height: 15px" />
+									<h:panelGrid columns="2">
+
+										<h:panelGroup>
+											<div style="height: 5px" />
+											<a4j:commandButton value="Đồng ý"
+												execute="popupSearchAddress"
+												oncomplete="#{rich:component('popupSearchAddress')}.hide();refresh();closeWindow();" />
+											<a4j:commandButton value="Hủy"
+												onclick="#{rich:component('popupSearchAddress')}.hide(); return false;" />
+										</h:panelGroup>
+
+
+									</h:panelGrid>
+								</rich:popupPanel>
 							</h:panelGroup>
 							<div style="height: 2px" />
 							<h:inputText value="" style="width:300px" />
@@ -202,9 +237,9 @@
 						</h:form>
 
 						<h:panelGroup>
-							<h:selectOneRadio  value="" >
-							<f:selectItem itemLabel="So tai khoan thanh toan" />
-							</h:selectOneRadio >
+							<h:selectOneRadio value="">
+								<f:selectItem itemLabel="So tai khoan thanh toan" />
+							</h:selectOneRadio>
 						</h:panelGroup>
 						<h:form>
 							<h:panelGroup>
@@ -254,8 +289,7 @@
 											<div style="height: 5px" />
 											<a4j:commandButton value="Đồng ý"
 												action="#{bankBean.changeBankAccount}" execute="popupBank"
-												oncomplete="#{rich:component('popupBank')}.hide();refresh();closeWindow();"
-												 />
+												oncomplete="#{rich:component('popupBank')}.hide();refresh();closeWindow();" />
 											<a4j:commandButton value="Hủy"
 												onclick="#{rich:component('popupBank')}.hide(); return false;" />
 										</h:panelGroup>
