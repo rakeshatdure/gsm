@@ -25,7 +25,7 @@
 		<h:form rendered="#{company.user.role.roleId == 4}">
 			<div style="width: 1224px">
 				<ui:insert>
-					<ui:include src="/WEB-INF/menu/sub-menu-profile.xhtml"></ui:include>
+					<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
 				</ui:insert>
 				<div style="height: 5px" />
 
@@ -38,38 +38,38 @@
 					</h:panelGrid>
 
 					<div style="height: 3px" />
-					<h:panelGrid
-						style="width:960px; border: 2px solid #c2d5e3;"
+					<h:panelGrid style="width:960px; border: 2px solid #c2d5e3;"
 						columns="2">
 						<h:panelGrid style="width:550px;">
 							<h:outputLabel
 								style="backgroud-color: #f2f4f2;padding-right: 30px;width: 500px;"
-								value="Menu chính là ........... của open market" />
+								value="Là menu ........... của open market" />
 						</h:panelGrid>
-						<a4j:commandLink styleClass="bt_header" value="Xem/Đóng" />
+						<a4j:commandLink styleClass="bt_header" value="Xem/Đóng"
+							style="float:right;height:20px;" />
 
-							<h:panelGrid
-								style="width:450px; border: 1px solid #c2d5e3;background-color:#eff4f8;margin-left:-629px;margin-top:167px;"
-								columns="1" styleClass="label">
-								<h:outputLabel
-									value="Nếu đăng kí trang Gmarket thì sẽ được lợi ích sau:" />
-								<h:outputLabel value="1. Lọi ích 1" />
-								<h:outputLabel value="2. Lợi ích 2" />
+						<h:panelGrid styleClass="label"
+							style="width:450px; border: 1px solid #c2d5e3;background-color:#eff4f8;margin-top:30px;"
+							columns="1">
+							<h:outputLabel
+								value="Nếu đăng kí trang Gmarket thì sẽ được lợi ích sau:" />
+							<h:outputLabel value="1. Lọi ích 1" />
+							<h:outputLabel value="2. Lợi ích 2" />
+							<h:outputLabel value="3. Lợi ích 3" />
+						</h:panelGrid>
+
+						<h:panelGrid styleClass="label"
+							style="width:450px; border: 1px solid #d7cfb4;float:right;margin-top:28px;margin-left:-138px;background-color:#f9f8f2;"
+							columns="1">
+							<h:outputLabel
+								value="Nếu mua sản phẩm của Plus thì sẽ được lợi ích sau:" />
+							<h:outputLabel value="1. Lọi ích 1" />
+							<h:outputLabel value="2. Lợi ích 2" />
+							<h:panelGroup>
 								<h:outputLabel value="3. Lợi ích 3" />
-							</h:panelGrid>
-
-							<h:panelGrid styleClass="label"
-								style="width:450px; border: 1px solid gray;float:right;margin-top:156px;margin-left:-138px;"
-								columns="1">
-								<h:outputLabel
-									value="Nếu mua sản phẩm của Plus thì sẽ được lợi ích sau:" />
-								<h:outputLabel value="1. Lọi ích 1" />
-								<h:outputLabel value="2. Lợi ích 2" />
-								<h:panelGroup>
-									<h:outputLabel value="3. Lợi ích 3" />
-									<h:commandButton value="Xem chi tiết" />
-								</h:panelGroup>
-							</h:panelGrid>
+								<a4j:commandButton value="Xem chi tiết" styleClass="bt_bassic"/>
+							</h:panelGroup>
+						</h:panelGrid>
 
 						<h:panelGrid columns="2">
 							<h:outputLabel value="Label 1" />
@@ -88,6 +88,292 @@
 							<h:outputLabel value="Content 5" />
 						</h:panelGrid>
 					</h:panelGrid>
+
+					<div style="hight: 15px;" />
+					<h:panelGrid style="width:960px" columns="2">
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/bg_p3.png"
+								style="float:left;margin-top:-2px;" />
+							<h:outputLabel style="width:300px;font-size:20px;color:blue"
+								value="Quản lý số lượng, giá cả" />
+						</h:panelGroup>
+						<h:panelGroup style="width:200px; float:right;">
+							<a4j:commandButton value="Tìm" styleClass="bt_bassic"/>
+							<a4j:commandButton value="Excel" styleClass="bt_bassic"/>
+							<a4j:commandButton value="Chọn tất cả" styleClass="bt_bassic"/>
+						</h:panelGroup>
+					</h:panelGrid>
+
+					<div style="height: 10px" />
+					<h:panelGrid columns="5" styleClass="label">
+						<h:form>
+							<rich:dataTable iterationStatusVar="" value="" rows="2"
+								columnClasses="center" selectionMode="single"
+								style="width:960px;border:thin solid black;">
+								<rich:column>
+									<f:facet name="header">
+										<h:outputLabel value="Category" />
+									</f:facet>
+									<h:panelGroup>
+										<h:selectOneListbox value="" style="width:80px" />
+										<h:selectOneListbox value="" style="width:80px" />
+										<h:selectOneListbox value="" style="width:80px" />
+									</h:panelGroup>
+								</rich:column>
+								<rich:column>
+									<f:facet name="header">
+										<h:outputLabel value="Thị trường giao dịch" />
+									</f:facet>
+									<h:selectOneListbox value="" style="width:50px" />
+								</rich:column>
+								<rich:column>
+									<f:facet name="header">
+										<h:outputLabel value="Trạng thái hiển thị" />
+									</f:facet>
+									<h:selectOneListbox value="" style="width:50px" />
+								</rich:column>
+								<rich:column>
+									<f:facet name="header">
+										<h:outputLabel value="Plus" />
+									</f:facet>
+									<h:selectOneListbox value="" style="width:50px" />
+								</rich:column>
+								<rich:column>
+									<f:facet name="header">
+										<h:selectOneListbox value="" style="width:50px" />
+									</f:facet>
+									<h:panelGroup>
+										<h:inputText value="" style="width:70px" />
+									</h:panelGroup>
+								</rich:column>
+							</rich:dataTable>
+						</h:form>
+					</h:panelGrid>
+
+					<rich:extendedDataTable id="table" value="" var=""
+						rowClasses="odd-row, even-row" sortMode="single" frozenColumns="1"
+						style="height:270px; width:960px;">
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Lựa chọn" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Số SP" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Thị trường giao dịch" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Tên SP" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Mã SP" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Label 1" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Label 2" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Label 3" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Giá thanh toán" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Tiền lời" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Số lượng" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Ngày kết thúc bán SP" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Phân loại lớn" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Phân loại trung bình" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Phân loại nhỏ" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Mã số quản lý hàng tồn kho" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+					</rich:extendedDataTable>
+
+					<h:panelGrid columns="2" style="margin: 5px;width:960px;">
+						<h:panelGroup style="float:left;">
+							<h:graphicImage url="/resources/images/bg_p3.png"
+								style="float:left;margin-top:-6px;" />
+							<h:outputText value="Quản lý mở rộng/đăng kí trọn gói" />
+							<h:outputLabel value=" * Lable 1" />
+						</h:panelGroup>
+						<h:panelGroup style="float:right;">
+							<a4j:commandLink value="Nạp tiền khi thiếu Gcash"
+								styleClass="bt_header"></a4j:commandLink>
+						</h:panelGroup>
+					</h:panelGrid>
+
+					<div style="height: 3px;" />
+					<div style="width: 960px; border: 2px solid #b0cde9;" />
+					<h:panelGrid style="width:960px;" columns="2" rules="rows">
+						<h:outputLabel value="Gia hạn/đăng kí trọn gói market" />
+						<h:panelGroup>
+							<h:selectOneListbox value="" style="width:30px" />
+							<h:inputText value="" style="width:30px" readonly="true" />
+							<h:outputLabel value="ngày" />
+							<h:inputText value="" style="width:70px" readonly="true" />
+							<h:outputLabel value="cash" />
+							<h:outputLabel value="Tổng Gcash được khấu trừ" />
+							<h:inputText value="" style="width:70px" readonly="true" />
+							<h:outputLabel value="Cash được chi trả" />
+							<a4j:commandButton value="Gia hạn đặt hàng trọn gói" styleClass="bt_bassic"/>
+							<a4j:commandLink value="Xóa đặt hàng trọn gói"
+								styleClass="bt_header"></a4j:commandLink>
+						</h:panelGroup>
+
+
+						<h:outputLabel value="Gia hạn/đăng kí trọn gói plus" />
+						<h:panelGroup>
+							<h:selectOneListbox value="" style="width:50px" />
+							<h:inputText value="" style="width:30px" readonly="true" />
+							<h:outputLabel value="ngày" />
+							<h:inputText value="" style="width:70px" readonly="true" />
+							<h:outputLabel value="cash" />
+							<h:outputLabel value="Tổng cash được khấu trừ" />
+							<h:inputText value="" style="width:70px" readonly="true" />
+							<h:outputLabel value="Cash được chi trả" />
+							<a4j:commandButton value="Gia hạn/đăng kí trọn gói" styleClass="bt_bassic"/>
+						</h:panelGroup>
+
+					</h:panelGrid>
+					<div style="height: 25px" />
+
+					<h:panelGrid columns="2" style="margin: 5px;width:960px;">
+						<h:panelGroup style="float:left;">
+							<h:graphicImage url="/resources/images/bg_p3.png"
+								style="float:left;margin-top:-6px;" />
+							<h:outputText value="Quản lý sản phẩm theo từng cái" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<div style="width: 960px; border: 2px solid #b0cde9;" />
+					<h:panelGrid style="width:960px;" columns="2" rules="rows">
+						<h:outputLabel value="Mã SP/Tên SP" />
+						<h:panelGroup>
+							<h:inputText value="" style="width:50px" readonly="true" />
+							<h:inputText value="" style="width:90px" readonly="true" />
+							<h:outputLabel value="Thị trường giao dịch" />
+							<h:selectOneListbox value="" style="width:50px;" />
+						</h:panelGroup>
+
+
+						<h:outputLabel value="Giá bán" />
+						<h:panelGroup>
+							<h:inputText value="" style="width:30px" />
+							<h:outputLabel value="VND()" />
+							<h:outputLabel value="(số tiền dự tính thanh toán:)" />
+							<h:inputText value="" style="width:50px" readonly="true" />
+							<h:outputLabel value="VND)" />
+							<h:selectBooleanCheckbox value="" />
+							<h:outputLabel value="Nhập trực tiếp" />
+						</h:panelGroup>
+
+
+						<h:outputLabel value="Số lượng sản phẩm" />
+						<h:panelGroup>
+							<h:inputText value="" style="width:50px" />
+							<h:outputLabel
+								value="cái(nếu được bán bằng số lượng thì được xem như là hết hàng tồn kho)" />
+						</h:panelGroup>
+
+						<h:outputLabel value="Thời hạn trưng bày" />
+						<h:panelGroup>
+							<h:selectOneListbox value="" style="width:30px" />
+							<h:inputText value="" readonly="true" style="width:30px" />
+							<h:outputLabel value="cash" />
+							<h:outputLabel value="Thời hạn trưng bày" />
+							<h:inputText value="" readonly="true" style="width:30px" />
+							<h:outputLabel value="~" />
+							<h:inputText value="" readonly="true" style="width:30px" />
+							<a4j:commandButton value="Gia hạn thời hạn" styleClass="bt_bassic"/>
+						</h:panelGroup>
+
+						<h:panelGroup>
+							<h:outputLabel value="Plus" />
+							<h:selectBooleanCheckbox value="" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/button1.jpg" />
+							<h:outputLabel value="label 1" />
+							<h:graphicImage url="/resources/images/plus.jpg"/>
+							<div style="height: 3px;" />
+							<h:graphicImage url="/resources/images/button1.jpg" />
+							<h:outputLabel value="label 2" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<h:panelGrid style="width:960px;">
+						<h:outputLabel value=" * label 1" />
+					</h:panelGrid>
+
+					<div style="height: 15px;" />
+					<h:panelGroup style="width: 960px;margin-left:150px">
+						<a4j:commandButton value="Đăng kí sp với market" styleClass="bt_bassic"/>
+						<a4j:commandButton value="Chỉnh sửa giá cả, số lượng của market" styleClass="bt_bassic"/>
+						<a4j:commandButton value="Giải quyết hết hàng(xóa đặt hàng)" styleClass="bt_bassic"/>
+						<a4j:commandButton value="Xóa(đổi sang open market)" styleClass="bt_bassic"/>
+					</h:panelGroup>
+					<div style="height: 25px" />
 
 				</div>
 

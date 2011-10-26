@@ -12,6 +12,7 @@
 	<h:head>
 		<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
 		<h:outputStylesheet name="answer.css" library="css"></h:outputStylesheet>
+		<h:outputStylesheet name="/pro-style.css" library="css"></h:outputStylesheet>
 		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
 	</h:head>
 
@@ -27,7 +28,7 @@
 		<h:form rendered="#{company.user.role.roleId == 4}">
 			<div style="width: 1224px">
 				<ui:insert>
-					<ui:include src="/WEB-INF/menu/sub-menu-profile.xhtml"></ui:include>
+					<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
 				</ui:insert>
 				<div style="height: 5px" />
 
@@ -41,8 +42,8 @@
 								value="Liên lạc với GMarket" />
 						</h:panelGroup>
 						<h:panelGroup>
-							<h:commandButton value="Xem mini FAQ"/>
-							<h:commandButton value="Xem|Đóng Giải thích thêm"/>
+							<a4j:commandButton value="Xem mini FAQ" styleClass="bt_bassic"/>
+							<a4j:commandButton value="Xem|Đóng Giải thích thêm" styleClass="bt_bassic"/>
 						</h:panelGroup>
 					</h:panelGrid>
 					<div style="border: 1px solid #57AAD6;" />
@@ -112,7 +113,7 @@
 							<h:graphicImage url="/resources/images/button2.jpg"
 								style="float:left;margin-top:7px;margin-right:3px;" />
 							<h:outputLabel value="Nếu muốn đưa bài viết lên nhấn nút 'Soạn bài' rồi đăng" style="margin-top:-32px;" />
-							<h:commandButton value="Soạn bài viết" style="height:28px;" />
+							<a4j:commandButton value="Soạn bài viết" style="height:28px;" styleClass="bt_bassic"/>
 						</h:panelGroup>
 					</h:panelGrid>
 					<div style="height: 3px" />
@@ -169,7 +170,7 @@
 
 						<h:panelGrid width="45px">
 							<h:column>
-								<h:commandButton value="Số lần xem" />
+								<a4j:commandButton value="Số lần xem" styleClass="bt_bassic"/>
 							</h:column>
 						</h:panelGrid>
 					</h:panelGrid>

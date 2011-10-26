@@ -60,8 +60,9 @@ public class Category  implements java.io.Serializable {
 		this.priorities = priorities;
 	}
 
-
-
+	public String toString(){
+		return categoryName;
+	}
 
 }
 
