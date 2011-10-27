@@ -26,20 +26,20 @@
 \* ---------------------------------------------------------------------- */
 
 // Images Directory
-imagesDir = "icons/";
+imagesDir = "resources/wysiwyg/icons/";
 
 // CSS Directory
-cssDir = "styles/";
+cssDir = "resources/wysiwyg/styles/";
 
 // Popups Directory
-popupsDir = "popups/";
+popupsDir = "resources/wysiwyg/popups/";
 
 // WYSIWYG Width and Height
-wysiwygWidth = 500;
-wysiwygHeight = 150;
+wysiwygWidth = 960;
+wysiwygHeight = 400;
 
 // Include Style Sheet
-document.write('<link rel="stylesheet" type="text/css" href="' +cssDir+ 'styles.css">\n');
+document.write('<h:outputStylesheet name="styles.css" library="css" />\n');
 
 
 /* ---------------------------------------------------------------------- *\
@@ -50,7 +50,7 @@ document.write('<link rel="stylesheet" type="text/css" href="' +cssDir+ 'styles.
 
 // List of available font types
   var Fonts = new Array();
-  Fonts[0] = "Arial";
+  /*Fonts[0] = "Arial";
   Fonts[1] = "Sans Serif";
   Fonts[2] = "Tahoma";
 	Fonts[3] = "Verdana";
@@ -58,7 +58,7 @@ document.write('<link rel="stylesheet" type="text/css" href="' +cssDir+ 'styles.
 	Fonts[5] = "Georgia";
 	Fonts[6] = "Times New Roman";
 	Fonts[7] = "Impact";
-  Fonts[8] = "Comic Sans MS";
+  Fonts[8] = "Comic Sans MS";*/
 
 // List of available block formats (not in use)
 var BlockFormats = new Array();
@@ -80,13 +80,13 @@ var BlockFormats = new Array();
 
 // List of available font sizes
 var FontSizes = new Array();
-  FontSizes[0]  = "1";
+ /* FontSizes[0]  = "1";
   FontSizes[1]  = "2";
   FontSizes[2]  = "3";
 	FontSizes[3]  = "4";
 	FontSizes[4]  = "5";
 	FontSizes[5]  = "6";
-	FontSizes[6]  = "7";
+	FontSizes[6]  = "7";*/
 
 // Order of available commands in toolbar one
 var buttonName = new Array();

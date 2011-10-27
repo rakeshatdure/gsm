@@ -1,11 +1,14 @@
 package BUS.VANHIEP;
 
+
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
+
+import UTIL.HtmlStringUtils;
 
 import BUS.LanguegeBUS;
 
@@ -373,6 +376,13 @@ public class InitLang implements Serializable{
 	public void setLevel_cs_seller(String level_cs_seller) {
 		this.level_cs_seller = level_cs_seller;
 	}
-	
+	public String getContent() {
+		System.out.println("adfasdf");
+		HtmlStringUtils u = new HtmlStringUtils(getmNotice1());
+		String content = new HtmlStringUtils(getmNotice1()).subStringHtmlString(
+				u.parseHtmlToTextNoEntity().length()).getPrimeContent();
+		System.out.println(content);
+		return content;
+	}
 	
 }

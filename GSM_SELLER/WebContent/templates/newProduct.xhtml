@@ -9,6 +9,7 @@
       xmlns:rich="http://richfaces.org/rich">
 <h:head>
 	<h:outputStylesheet name="pro-style.css" library="css" />
+	<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
 	<title>Notice Manage</title>
 	<h:outputStylesheet>
 		.even-row {
@@ -23,11 +24,22 @@
 		    background-color: #FFEBDA !important;
 		    cursor: pointer;
 		}
+		.headerTab
+		{
+			border:0px;
+			background:#fff;
+		}
+		.panelGr
+		{
+			width: 160px;
+			background: #fff;
+			text-align: right;
+		}
 	</h:outputStylesheet>
 </h:head>
 <h:body>
 	<!-- THE CHUA THONG TIN VE PHAN LOAI SAN PHAM -->
-	<div id="SelectCategory" style="margin-top: 10px;">
+	<div id="SelectCategory" style="margin-top: 20px;">
 		<h:outputLabel value="Cách thức thanh toán và chọn loại sản phẩm" styleClass="ttNewPro"/>
 		<!-- Category -->
 		<h:panelGrid columns="2" styleClass="bgPanelHead">
@@ -97,7 +109,7 @@
 		</h:panelGrid>
 	</div>
 	<!-- THE CHUA THONG TIN CO BAN CUA SAN PHAM -->
-	<div id="ttcoban" style="margin-top: 10px;">
+	<div id="ttcoban" style="margin-top: 20px;">
 		<h:outputLabel value="Mục thông tin cơ bản" styleClass="ttNewPro"/>
 		<!-- Nha san xuat -->
 		<h:panelGrid columns="4" styleClass="bgPanelHead" style="background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p7.jpg') repeat-y;">
@@ -412,10 +424,602 @@
 					</h:selectOneRadio>
 					<a4j:commandLink value="Mô tả >" styleClass="bt_header" style="margin-left: 300px"/>
 				</h:panelGrid>
-				
+				<h:outputText value="Tạo và chỉnh sửa thông tin mô tả: HTML bạn phải đăng ký với chỉnh sửa." style="font-weight: bold;"/>
+				<h:commandButton value="Xem trước bài viết bằng HTML" styleClass="bt_bassic"/>
+				<h:outputText value="- Nếu bạn đăng ký chương trình được viết bằng weppyeonjip HTML, HTML và chỉnh sửa nội dung được đăng ký tại HTML có thể được thể hiện khác nhau."/>
+				<h:outputText value="- Mô tả hình ảnh chiều rộng (chiều rộng) và chiều cao (chiều cao) phải xác định đúng trang được hiển thị bình thường."/>
+				<h:outputText value=" * Chiều rộng (chiều rộng) và chiều cao (chiều cao) giá trị khó khăn để xác định xem một 
+					phần của những thẻ xin vui lòng sakjehaeju." style="padding-left:10px"/>
+				<h:outputText value="- Mô tả công suất lên đến 1M văn bản, hình ảnh tổng 60M (khung nội tuyến có chứa hình ảnh của tôi, hình ảnh cá nhân, 400KB) có sẵn từ:"/>
+				<h:outputText value=" * Làm thế nào để xác định số lượng 'số lượng tính toán' nút> kiểm tra mô tả sử dụng hiện tại" style="padding-left:10px"/>
 			</h:panelGrid>
-			
 		</h:panelGrid>
+		<textarea id="textarea2" name="test2"/>
+		<script language="javascript1.2">
+		  generate_wysiwyg('textarea2');
+		</script>
+		<!-- Hinh anh san pham -->
+		<h:form>
+		<h:panelGrid columns="2" styleClass="bgPanel">
+			<h:panelGrid style="width:150px">
+				<h:panelGroup>
+					<h:outputText value="Hình ảnh sản phẩm"/>
+					<h:outputText value="*" style="color: red"/>
+				</h:panelGroup>
+				<rich:panel style="color: blue;width: 100px;height: 35px" styleClass="cmd1">
+					Hướng dẫn >>
+					<rich:tooltip for="" id="tt1" layout="block">
+		                <h:graphicImage url="/resources/images/hdhinh.jpg"/>
+		            </rich:tooltip>
+				</rich:panel>
+			</h:panelGrid>
+			<h:panelGrid style="text-align: left; width: 800px; margin-top: 10px;">
+				<h:panelGroup>
+					<a4j:commandLink value="Chưa rõ thông tin" styleClass="cmd1" style="color: black;"/>
+					<a4j:commandLink value="Chưa rõ thông tin" styleClass="cmd1" style="color: black;margin: 0px 10px 0px 10px;"/>
+					<a4j:commandLink value="Chưa rõ thông tin" styleClass="cmd1"/>
+				</h:panelGroup>
+				<h:panelGrid columns="4" width="800px" style="text-align: center; margin-top: 10px;">
+					<h:outputText value="1. Danh sách hình ảnh (80 * 80) [yêu cầu]" style="color:red"/>
+					<h:outputText value="2. Hình ảnh mặc định (280 * 280) [yêu cầu]" style="color:red"/>
+					<h:outputText value="3. Hình ảnh lớn hơn (280 * 280 hoặc cao hơn)" style="color: #444444"/>
+					<h:outputText value="4. Hình ảnh tĩnh (jpg 280 * 280 hoặc cao hơn) [yêu cầu]" style="color:red"/>
+					<rich:panel style="width: 150px;border: 0px; background: #fff;">
+						<h:graphicImage url="/resources/images/cr.jpg" style="cursor: pointer;width: 150px;"/> 
+					</rich:panel>
+					<rich:panel style="width: 150px;border: 0px; background: #fff;">
+						<h:graphicImage url="/resources/images/cr.jpg" style="cursor: pointer;width: 150px;"/> 
+					</rich:panel>
+					<rich:panel style="width: 150px;border: 0px; background: #fff;">
+						<h:graphicImage url="/resources/images/cr.jpg" style="cursor: pointer;width: 150px;"/> 
+					</rich:panel>
+					<rich:panel style="width: 150px;border: 0px; background: #fff;">
+						<h:graphicImage url="/resources/images/cr.jpg" style="cursor: pointer;width: 150px;"/> 
+					</rich:panel> 
+				</h:panelGrid>
+				<rich:panel style="border: 0px; text-align: center;background: white; margin-top: 15px;">
+					<a4j:commandLink value="Xem trước" style="background: #a3a3a3; padding: 10px;border: 1px inset #6a6a6a;
+						color: white; font-weight: bold;text-decoration: none;"/>
+					<a4j:commandLink value="Hướng dẫn zoom ảnh"  style="background: #599dc9; padding: 10px;
+						border: 1px inset #2d698f; color: white; font-weight: bold;text-decoration: none;margin-left: 20px"/>
+				</rich:panel>
+				<rich:panel style="background: #f3f3f3; margin-top: 10px;">
+					Chọn tùy chọn thông tin / đăng ký sản phẩm và thông tin giá cả nếu bạn có một hình ảnh của các thông tin cơ bản lựa chọn sản phẩm / tùy chọn để phù hợp với,
+					<br/>Thời gian tiếp xúc của cơ sở là sản phẩm trong kho phải được duy trì.
+				</rich:panel>
+			</h:panelGrid>
+		</h:panelGrid>
+		</h:form>
+	</div>
+	<!-- GIA/LUA CHON THONG TIN THIET LAP -->
+	<div id="ttluachontt" style="margin-top: 20px;">
+		<h:outputLabel value="Giá/Thiết lập thông tin" styleClass="ttNewPro"/>
+		<!-- Giá lưu ý -->
+		<h:panelGrid columns="3" styleClass="bgPanelHead">
+			<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="Giá lưu ý"/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 700px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:inputText/>
+				<h:outputText value=" VNĐ"/>
+			</rich:panel>
+			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</rich:panel>
+		</h:panelGrid>
+		<!-- Gia ban -->
+		<h:panelGrid columns="3" styleClass="bgPanel">
+			<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="Giá bán"/>
+				<h:outputText value="*" style="color: red"/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 710px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:inputText />
+				<h:outputText value=" VNĐ () (Nhập trực tiếp:"/>
+				<h:inputText style="width: 50px;"/>
+				<h:outputText value=")"/>
+				<h:selectBooleanCheckbox title="Tên sản phẩm"/>
+				<h:outputText value="Nhập trực tiếp số tiền trực tiếp."/>
+			</rich:panel>
+			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</rich:panel>
+		</h:panelGrid>
+		<!-- Số lượng sản phẩm -->
+		<h:panelGrid columns="3" styleClass="bgPanel">
+			<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="Số lượng sản phẩm"/>
+				<h:outputText value="*" style="color: red"/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 710px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:inputText />
+				<h:outputText value=" sản phẩm"/>
+			</rich:panel>
+			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</rich:panel>
+		</h:panelGrid>
+		<!-- Tính hợp lệ -->
+		<h:panelGrid columns="3" styleClass="bgPanel">
+			<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="Tính hợp lệ"/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 800px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:selectOneMenu style="width: 150px;">
+					 <f:selectItem itemValue="0" itemLabel="== Loại lớn ==" />
+				</h:selectOneMenu>
+			</rich:panel>
+		</h:panelGrid>
+		<!--Chọn Thông tin khác -->
+		<h:panelGrid columns="4" styleClass="bgPanel">
+			<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="Thông tin khác"/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 200px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:commandButton value="Thông tin đăng ký/Chỉnh sửa >" styleClass="bt_bassic"/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 500px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:outputText value="Chọn mức giá mà bạn có thể thiết lập đơn đặt hàng."/><br/>
+				<h:outputText value="Thiết lập tính năng sử dụng một sự kết hợp của khách hàng thuận tiện nếu bạn có thể mua."/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 100px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header" style="margin-left: 12px;"/>
+			</rich:panel>
+		</h:panelGrid>
+		<!-- Tùy chọn Thông tin khác -->
+		<h:panelGrid columns="4" styleClass="bgPanel">
+			<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="Chọn Thông tin khác"/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 200px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:commandButton value="Thông tin đăng ký/Biên tập >" styleClass="bt_bassic"/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 500px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:outputText value="Tùy thuộc vào lựa chọn của bạn thay đổi giá theo thứ tự mà bạn có thể thiết lập một lựa chọn."/><br/>
+				<h:outputText value="Nói cách khác, vòng tròn giá cho thêm vào hoặc trừ vào giá mà bạn có thể thiết lập một lựa chọn."/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 100px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header" style="margin-left: 12px;"/>
+			</rich:panel>
+		</h:panelGrid>
+		<!-- Sản phẩm liên quan -->
+		<h:panelGrid columns="5" styleClass="bgPanel">
+			<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="Sản phẩm liên quan"/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 200px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:commandButton value="Liên quan SP đăng ký/Đăng ký >" styleClass="bt_bassic"/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 310px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:outputText value="Giúp đỡ Liên quan đến việc mua các mặt hàng khác của người bán mua tại cùng một thời điểm."/><br/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 190px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Kết hơp với đăng ký SP >" styleClass="bt_header" style="margin-left: 12px;"/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 100px;padding: 0px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header" style="margin-left: 8px;"/>
+			</rich:panel>
+		</h:panelGrid>
+	</div>
+	<!-- PHUONG THUC VAN CHUYEN -->
+	<div id="ttcoban" style="margin-top: 20px;">
+		<h:outputLabel value="Phương thức vận chuyển" styleClass="ttNewPro"/>
+		<!-- Phương thức vận chuyển -->
+		<h:panelGrid columns="5" styleClass="bgPanel" style="margin-bottom: 15px;">
+			<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="Phương thức vận chuyển"/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 800px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:outputText value="Vận chuyển bằng: "/>
+				<h:selectOneMenu style="width: 150px;">
+					 <f:selectItem itemValue="0" itemLabel="Phương thức vận chuyển" />
+				</h:selectOneMenu>
+				<h:outputText value=" sản phẩm được chuyển trực tiếp tới người dùng. "/>
+			</rich:panel>
+		</h:panelGrid>
+		<!-- Tab  -->
+		<rich:tabPanel switchType="ajax">
+	        <rich:tab id="tab1" header="Cài đặt chi tiết vận chuyển" tabClass="headerTab">
+	            Here is tab #1
+	        </rich:tab>
+	        <rich:tab id="tab2" header="Tạo tài khoản giao hàng">
+	            Here is tab #3
+	        </rich:tab>
+	    </rich:tabPanel>
+	</div>
+	<!-- MUC TAP TRUNG -->
+	<div id="ttMucTapTrung" style="margin-top: 20px;">
+		<h:outputLabel value="Các mục tập trung" styleClass="ttNewPro"/>
+		<p style="padding: 10px;"><h:commandLink value="Cài đặt hiển thị quảng cáo" styleClass="bt_focus"/></p>
+		<!-- Trien lam tap trung -->
+		<h:panelGrid columns="4" styleClass="bgPanelHead">
+			<rich:panel style="width:110px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="Triển lãm tập trung"/>
+			</rich:panel>
+			<rich:panel style="width:30px; border: 0px;" bodyClass="bodyPanel">
+				<h:selectBooleanCheckbox/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 700px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:selectOneMenu style="width: 120px;">
+					 <f:selectItem itemValue="0" itemLabel="== Chọn ==" />
+				</h:selectOneMenu>
+				<h:inputText/>
+				<h:outputText value=" Cache"/>
+				<h:outputText value="Thời gian:" style="margin-left: 20px"/>
+				<h:inputText/>
+				<h:outputText value="~"/>
+				<h:inputText/>
+			</rich:panel>
+			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</rich:panel>
+		</h:panelGrid>
+		<!-- Them hien thi focus -->
+		<h:panelGrid columns="4" styleClass="bgPanelHead">
+			<rich:panel style="width:110px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="Thêm hiện thị focus"/>
+			</rich:panel>
+			<rich:panel style="width:30px; border: 0px;" bodyClass="bodyPanel">
+				<h:selectBooleanCheckbox/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 700px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:selectOneMenu style="width: 120px;">
+					 <f:selectItem itemValue="0" itemLabel="== Chọn ==" />
+				</h:selectOneMenu>
+				<h:inputText/>
+				<h:outputText value=" Cache"/>
+				<h:outputText value="Thời gian:" style="margin-left: 20px"/>
+				<h:inputText/>
+				<h:outputText value="~"/>
+				<h:inputText/>
+				<br/>
+				<h:outputText value="▶ sangpumman mua quyền để hiển thị tập trung có thể được đăng ký."/>
+				<br/>
+				<h:outputText value="▶ Tập trung Thêm Triển lãm Khối lượng mua, một cuộc triển lãm các sản phẩm sẽ tăng số điểm 20%, cao hơn các ưu tiên tiếp xúc"/>
+			</rich:panel>
+			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</rich:panel>
+		</h:panelGrid>
+		<p style="padding-left: 10px;"><h:commandLink value="Cài đặt quảng cáo đấu giá" styleClass="bt_focus"/></p>
+		<!-- Cài đặt quảng cáo đấu giá -->
+		<rich:panel style="width:960px;">
+			<h:graphicImage url="/resources/images/ad_info.gif" style="width: 940px;"/>
+		</rich:panel>
+		
+		<p style="padding-left: 10px;"><h:commandLink value="스페셜샵 설정 " styleClass="bt_focus"/></p>
+		
+		<!-- 그녀의 옷장  -->
+		<h:panelGrid columns="4" styleClass="bgPanelHead">
+			<rich:panel style="width:110px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="그녀의 옷장"/>
+			</rich:panel>
+			<rich:panel style="width:30px; border: 0px;" bodyClass="bodyPanel">
+				<h:selectBooleanCheckbox/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 700px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:outputText id="out1" value="▶ 그녀의 옷장은 승인된 판매자에 한해서, 여성 패션관련 카테고리내 상품만 등록가능합니다"/>
+			</rich:panel>
+			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</rich:panel>
+		</h:panelGrid>
+		
+		<!-- Nhà tài trợ cho sản phẩm  -->
+		<h:panelGrid columns="4" styleClass="bgPanel">
+			<rich:panel style="width:110px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="Nhà tài trợ cho SP"/>
+			</rich:panel>
+			<rich:panel style="width:30px; border: 0px;" bodyClass="bodyPanel">
+				<h:selectBooleanCheckbox/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 700px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:outputText id="out2" value="▶ Tài trợ mua sắm tài trợ khu vực trong thời gian bạn đã thiết lập
+					các tiếp xúc và các nhóm cộng đồng bất cứ khi nào các sản phẩm bán ra sẽ được tặng cho số tiền tài trợ."/>
+				<h:panelGrid columns="2" width="650" bodyClass="bodyPanel">
+					<rich:panel style="width: 120px; height:43px"  bodyClass="bodyPanel">
+						Thời gian
+					</rich:panel>
+					<rich:panel style="width: 530px;background: white; height:43px" bodyClass="bodyPanel">
+						<h:inputText value="" style="width: 150px;"/>~
+						<rich:calendar id="calendar" locale="US" popup="true"
+		                    datePattern="MM/dd/yyyy" showApplyButton="false" cellWidth="20px"
+		                    cellHeight="20px" style="width:100px"/>
+					</rich:panel>
+					<rich:panel style="width: 120px; height:43px" bodyClass="bodyPanel" >
+						후원액
+					</rich:panel>
+					<rich:panel style="width: 530px;background: white; height:43px" bodyClass="bodyPanel" >
+						<h:inputText value="" style="width: 100px;"/>
+						VNĐ. 
+						<h:outputText value="Tối thiểu: Nhiều hơn 100$ ~ tối đa: ít hơn 80% doanh thu có thể đạt được." style="color: #009999"/>
+					</rich:panel>
+					<rich:panel style="width: 120px; height:43px" bodyClass="bodyPanel" >
+						Giới hạn tích lũy
+					</rich:panel>
+					<rich:panel style="width: 530px;background: white; height:43px" bodyClass="bodyPanel" >
+						<h:inputText value="" style="width: 100px;"/>
+						VNĐ. 
+						<h:outputText value="Tối thiểu: 10.000$ ~ tối đa: Không giới hạn." style="color: #009999"/>
+					</rich:panel>
+					<rich:panel style="width: 120px; height:43px" bodyClass="bodyPanel" >
+						Khu vực tài trợ
+					</rich:panel>
+					<rich:panel style="width: 530px;background: white; height:43px" bodyClass="bodyPanel" >
+						<rich:select enableManualInput="true" defaultLabel="start typing for select">
+                			<f:selectItem itemValue="0" itemLabel="Option 1" />
+                		</rich:select>
+					</rich:panel>
+				</h:panelGrid>
+			</rich:panel>
+			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</rich:panel>
+		</h:panelGrid>
+		<!-- 패션선착순반값할인  -->
+		<h:panelGrid columns="4" styleClass="bgPanel">
+			<rich:panel style="width:110px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="패션선착순반값할인"/>
+			</rich:panel>
+			<rich:panel style="width:30px; border: 0px;" bodyClass="bodyPanel">
+				<h:selectBooleanCheckbox/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 700px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:outputText value="▶ 패션선착순 반값 할인은 패션 카테고리 상품에 한해서만 가능 합니다."/>
+			</rich:panel>
+			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</rich:panel>
+		</h:panelGrid>
+		<!-- BRAND ON 전시  -->
+		<h:panelGrid columns="4" styleClass="bgPanel">
+			<rich:panel style="width:110px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="BRAND ON 전시"/>
+			</rich:panel>
+			<rich:panel style="width:30px; border: 0px;" bodyClass="bodyPanel">
+				<h:selectBooleanCheckbox/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 700px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:outputText value="▶ BRAND ON은 승인된 판매자에 한해, 패션 관련 카테고리 내 브랜드 상품만 등록 가능합니다 "/>
+			</rich:panel>
+			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</rich:panel>
+		</h:panelGrid>
+		<!-- G SOHO # 전시  -->
+		<h:panelGrid columns="4" styleClass="bgPanel">
+			<rich:panel style="width:110px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="G SOHO # 전시"/>
+			</rich:panel>
+			<rich:panel style="width:30px; border: 0px;" bodyClass="bodyPanel">
+				<h:selectBooleanCheckbox/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 700px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:outputText value="▶ G SOHO #은 승인된 판매자에 한해, 패션 카테고리 상품만 등록 가능합니다."/>
+			</rich:panel>
+			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</rich:panel>
+		</h:panelGrid>
+		
+		<!-- Loi ich khach hang/Cai dat giai thuong -->
+		<p style="padding-left: 10px;"><h:commandLink value="Lợi ích khách hàng/Cài đặt giải thưởng" styleClass="bt_focus"/></p>
+		
+		<!-- Giảm giá -->
+		<h:panelGrid columns="4" styleClass="bgPanelHead">
+			<rich:panel style="width:110px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="Giảm giá"/>
+			</rich:panel>
+			<rich:panel style="width:30px; border: 0px;" bodyClass="bodyPanel">
+				<h:selectBooleanCheckbox/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 700px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:outputText value="Nhập vào số tiền (In)"/>
+				<h:inputText style="width: 60px;margin-left: 5px"/>
+				<h:selectOneMenu style="width: 50px;margin-left: 5px">
+					<f:selectItem itemValue="0" itemLabel="VNĐ" />
+					<f:selectItem itemValue="1" itemLabel="%" />
+				</h:selectOneMenu>
+				<h:outputText value="Thời gian" style="margin: 0px 10px 0px 10px;"/>
+				<rich:calendar id="calendarad" locale="US" popup="true"
+		                    datePattern="MM/dd/yyyy" showApplyButton="false" cellWidth="20px"
+		                    cellHeight="20px" style="width:100px"/>~
+		        <rich:calendar id="calendarad1" locale="US" popup="true"
+		                    datePattern="MM/dd/yyyy" showApplyButton="false" cellWidth="20px"
+		                    cellHeight="20px" style="width:100px"/>
+			</rich:panel>
+			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</rich:panel>
+		</h:panelGrid>
+		<!-- Stamp G cung cấp -->
+		<h:panelGrid columns="4" styleClass="bgPanel">
+			<rich:panel style="width:110px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="Stamp G cung cấp"/>
+			</rich:panel>
+			<rich:panel style="width:30px; border: 0px;" bodyClass="bodyPanel">
+				<h:selectBooleanCheckbox/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 700px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:outputText value="Mỗi sản phẩm"/>
+				<h:inputText style="width: 60px;margin-left: 5px"/>
+				<h:outputText value="Bảng phát hành.  Thời gian" style="margin: 0px 10px 0px 10px;"/>
+				<rich:calendar id="cal" locale="US" popup="true"
+		                    datePattern="MM/dd/yyyy" showApplyButton="false" cellWidth="20px"
+		                    cellHeight="20px" style="width:100px"/>~
+		        <rich:calendar id="cal2" locale="US" popup="true"
+		                    datePattern="MM/dd/yyyy" showApplyButton="false" cellWidth="20px"
+		                    cellHeight="20px" style="width:100px"/>
+		        <h:outputText value="(판매가 3,000원당 1당(최대 10장) 설정 가능)" style="margin: 0px 10px 0px 10px;"/>
+			</rich:panel>
+			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</rich:panel>
+		</h:panelGrid>
+		<!-- G mileage thanh toán -->
+		<h:panelGrid columns="4" styleClass="bgPanel">
+			<rich:panel style="width:110px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="G mileage thanh toán"/>
+			</rich:panel>
+			<rich:panel style="width:30px; border: 0px;" bodyClass="bodyPanel">
+				<h:selectBooleanCheckbox/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 700px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:outputText value="Trong giá hàng hóa"/>
+				<h:inputText style="width: 40px;margin-left: 5px"/>
+				<h:outputText value="%" style="margin: 0px 10px 0px 10px;"/>
+			</rich:panel>
+			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
+				<a4j:commandLink value="Mô tả >" styleClass="bt_header"/>
+			</rich:panel>
+		</h:panelGrid>
+		<!-- Nhiều giảm giá -->
+		<h:panelGrid columns="4" styleClass="bgPanel">
+			<rich:panel style="width:110px; border: 0px;" bodyClass="bodyPanel">
+				<h:outputText value="Nhiều giảm giá"/>
+			</rich:panel>
+			<rich:panel style="width:30px; border: 0px;" bodyClass="bodyPanel">
+				<h:selectBooleanCheckbox/>
+			</rich:panel>
+			<rich:panel style="text-align: left; width: 800px;" styleClass="panel" bodyClass="bodyPanel">
+				<h:outputText value="Đăng ký sản phẩm giảm giá nhiều có thể được thiết lập trong trang sản phẩm sau khi chỉnh sửa."/>
+			</rich:panel>
+		</h:panelGrid>
+		
+		<h:panelGrid columns="2" style="width: 960px">
+			<rich:panel style="width: 470px; background: white; margin-top: 10px;" bodyClass="bodyPanel">
+				<h:panelGrid columns="2" style="width: 470px; height: 355px">
+					<rich:panel bodyClass="bodyPanel" style="width: 100px; height: 336px; background: #eff5fc;vertical-align: middle;">
+						Điều Chỉnh
+					</rich:panel>
+					<h:panelGrid columns="2">
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="background: #eff5fc; text-align: left;">
+							Bán
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr"  style="background: #eff5fc;">
+							<h:outputText value="0"/>VNĐ (
+							<h:outputText value="0"/>% )
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="text-align: left;">
+							Hoa hồng bán hàng
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr">
+							<h:outputText value="0"/>VNĐ
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="text-align: left;">
+							Huwonaek
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr">
+							<h:outputText value="0"/>VNĐ (
+							<h:outputText value="0"/>% )
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="text-align: left;">
+							Huwonaek
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr">
+							<h:outputText value="0"/>VNĐ (
+							<h:outputText value="0"/>Chương )
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="text-align: left;">
+							G Stamp
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr">
+							<h:outputText value="0"/>VNĐ (
+							<h:outputText value="0"/>% )
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="text-align: left;">
+							Miles G
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr">
+							<h:outputText value="0"/>VNĐ (
+							<h:outputText value="0"/>% )
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="text-align: left;">
+							Nhiều giảm giá
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr">
+							<h:outputText value="0"/>VNĐ (
+							<h:outputText value="0"/>% )
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="background: #bfd9f6;text-align: left;">
+							Tổng số tiền
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="background: #bfd9f6;">
+							<h:outputText value="0"/>VNĐ
+						</rich:panel>
+						
+					</h:panelGrid>
+				</h:panelGrid>
+			</rich:panel>
+			<rich:panel style="width: 470px; background: white; margin-top: 10px;" bodyClass="bodyPanel">
+				<h:panelGrid columns="2" style="width: 470px; height: 355px">
+					<rich:panel bodyClass="bodyPanel" style="width: 100px; height: 336px; background: #eff5fc;vertical-align: middle;">
+						G캐시
+					</rich:panel>
+					<h:panelGrid columns="2">
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="background: #eff5fc; text-align: left;">
+							현재 보유 G캐시
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr"  style="background: #eff5fc;">
+							<h:outputText value="0"/>G캐시
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="text-align: left;">
+							상품등록비 - 오픈마켓
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr">
+							<h:outputText value="0"/>G캐시
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="text-align: left;">
+							포커스 전시
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr">
+							<h:outputText value="0"/>G캐시
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="text-align: left;">
+							포커스 플러스 전시
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr">
+							<h:outputText value="0"/>G캐시
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="text-align: left;">
+							마트inG 전시
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr">
+							<h:outputText value="0"/>G캐시
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="text-align: left;">
+							Miles G
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr">
+							<h:outputText value="0"/>G캐시
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr" style="text-align: left;">
+							등록 후 남는 G캐시
+						</rich:panel>
+						<rich:panel bodyClass="bodyPanel" styleClass="panelGr">
+							<h:outputText value="0"/>G캐시
+						</rich:panel>
+						
+					</h:panelGrid>
+				</h:panelGrid>
+			</rich:panel> 
+		</h:panelGrid>
+		
+		<rich:panel bodyClass="bodyPanel" styleClass="panel">
+			<p><font color="red">*</font> 실제 정산 금액은 설정 기간, 옵션상품, 배송비, 무이자 할부 설정, 복수구매여부 등에 의해 정산예정금액과 다를 수 있습니다. 
+  			상품 등록 후 정산 관련 내용이 수정될 경우 실제 정산 금액도 함께 변경됩니다 </p>
+		</rich:panel>
+		<rich:panel bodyClass="bodyPanel" styleClass="panel" style="text-align: center">
+			<h:commandLink styleClass="bt_submit" value="Đăng ký sản phẩm"/>
+			<span style="margin: 0px 10px 0px 10px;" />
+			<h:commandLink styleClass="bt_submit" value="Làm lại"/>
+		</rich:panel>
+		<rich:panel bodyClass="bodyPanel" styleClass="panel">
+			<p style="font-weight: bold;">▶ 상품 등록시 상품정보(이미지, 텍스트 및 첨부파일 등을 포함)로 인한 문제로 발생하는 저작권 및 상표권,</p>
+			<p style="color: #ff4e00; font-weight: bold;"><u>19세 이상 판매가능한 성인물품 등의 각종 민,형사상 책임은 모두 판매자에게 있으며,
+				</u> G마켓은 이에 대해 책임이 없습니다.</p>
+			<p style="font-weight: bold;">만약, 이로 인해 G마켓에 피해가 발생할 경우, 판매자는 자신의 비용으로 G마켓을 면책시켜야 합니다.</p>
+		</rich:panel>
 	</div>
 </h:body>
 </html>
