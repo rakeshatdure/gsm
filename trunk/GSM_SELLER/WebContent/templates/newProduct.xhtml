@@ -35,6 +35,10 @@
 			background: #fff;
 			text-align: right;
 		}
+		.head
+		{
+			background: ##e9e9e9;
+		}
 	</h:outputStylesheet>
 </h:head>
 <h:body>
@@ -605,7 +609,7 @@
 	<div id="ttcoban" style="margin-top: 20px;">
 		<h:outputLabel value="Phương thức vận chuyển" styleClass="ttNewPro"/>
 		<!-- Phương thức vận chuyển -->
-		<h:panelGrid columns="5" styleClass="bgPanel" style="margin-bottom: 15px;">
+		<h:panelGrid columns="2" styleClass="bgPanel" style="margin-bottom: 15px;">
 			<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
 				<h:outputText value="Phương thức vận chuyển"/>
 			</rich:panel>
@@ -620,10 +624,341 @@
 		<!-- Tab  -->
 		<rich:tabPanel switchType="ajax">
 	        <rich:tab id="tab1" header="Cài đặt chi tiết vận chuyển" tabClass="headerTab">
-	            Here is tab #1
+	            <rich:panel style="border-top: 3px solid #b0cde9;">
+	            	<h:panelGrid columns="2">
+	            		<rich:panel style="border: 0px; width: 150px; text-align: right;" bodyClass="bodyPanel">
+	            			출하지명 :
+	            		</rich:panel>
+	            		<rich:panel style="border: 0px; width: 700px;" bodyClass="bodyPanel">
+		            			<h:outputText value="상품출하 주소를 입력하여 주세요" style="padding-right: 10px"/>
+		            			<h:commandLink value="Địa chỉ vận chuyển >" styleClass="cmd1" />
+	            		</rich:panel>
+	            		<rich:panel style="border: 0px; width: 150px; text-align: right;" bodyClass="bodyPanel">
+	            			반품주소 :
+	            		</rich:panel>
+	            		<rich:panel style="border: 0px; width: 700px;" bodyClass="bodyPanel">	
+		            			<h:commandLink value="Địa chỉ vận chuyển >" styleClass="cmd1" />
+		            			<h:outputText value="상품출하 주소를 입력하여 주세요" style="padding:0px 10px 0px 10px;"/>
+		            			<h:selectBooleanCheckbox/>
+		            			<h:outputText value="Nhập danh sách địa chỉ giao hàng" style="padding:0px 10px 0px 10px; color: blue"/>
+	            		</rich:panel>
+	            		<rich:panel style="border: 0px; width: 150px; text-align: right;" bodyClass="bodyPanel">
+	            			교환재배송출하주소 :
+	            		</rich:panel>	
+	            		<rich:panel style="border: 0px; width: 700px;" bodyClass="bodyPanel">
+	            				<h:inputText style="width: 80px;"/>
+	            				<h:inputText style="width: 200px; margin: 0px 10px 0 6px;"/>
+	            				<h:commandLink value="Liên hệ/Thay đổi địa chỉ >" styleClass="cmd1" />
+	            		</rich:panel>
+	            		<rich:panel style="border: 0px; width: 150px; text-align: right;" bodyClass="bodyPanel">
+	            			교환상품수거주소 :
+	            		</rich:panel>
+	            		<rich:panel style="border: 0px; width: 700px;" bodyClass="bodyPanel">
+	            				<h:inputText style="width: 80px;"/>
+	            				<h:inputText style="width: 200px; margin: 0px 10px 0 6px;"/>
+	            				<h:commandLink value="Liên hệ/Thay đổi địa chỉ >" styleClass="cmd1" />
+	            		</rich:panel>
+	            	</h:panelGrid>
+	            </rich:panel>
+	            <!-- Thiết lập vận chuyển -->
+				<h:panelGrid columns="2" styleClass="bgPanel" style="margin-bottom: 15px;">
+					<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
+						<h:outputText value="Thiết lập vận chuyển"/>
+						<h:outputText value="*" style="color: red;"/>
+					</rich:panel>
+					<rich:panel style="text-align: left; width: 785px;" styleClass="panel" bodyClass="bodyPanel">
+						- 장바구니 배송비 계산방식: 동일 출하지의 다른 배송비 상품등을 같이 구매할 경우 
+						<h:commandLink value="[가장 작은 배송비] 부과 " style="color: #336699;font-weight: bold;"/><br/>
+						- 도서산간비 : [제주,도서산간 : <b style="color: #336699;">3000</b>원 ] 의 배송비 추가<br/>
+						<b>
+							<h:selectOneRadio>
+								<f:selectItem itemValue="0" itemLabel="Thiết lập vận chuyển mặc định"/>
+								<f:selectItem itemValue="0" itemLabel="Lựa chọn trong danh sách vận chuyển"/>	
+							</h:selectOneRadio>
+						</b>
+						<rich:panel styleClass="panel" bodyClass="bodyPanel" style="width: 775px;">
+							<rich:dataTable id="table" value="" var=""
+				                 rowClasses="odd-row, even-row">
+					            <rich:column style="text-align: center;">
+					                <f:facet name="header">
+			                      			<h:outputText value="Mã số vận chuyển" />
+					                </f:facet>
+					                <h:outputText value=""/>
+					            </rich:column>
+					            <rich:column style="text-align: center; width: 270px;">
+					                <f:facet name="header">
+			                      			<h:outputText value="Vận chuyển chỉ định" />
+					                </f:facet>
+					                <h:outputText value=""/>
+					            </rich:column>
+					            <rich:column style="text-align: center;">
+					                <f:facet name="header">
+			                      			<h:outputText value="Kiểu vận chuyển" />
+					                </f:facet>
+					                <h:outputText value=""/>
+					            </rich:column>
+					            <rich:column style="text-align: center;">
+					                <f:facet name="header">
+			                      			<h:outputText value="Vận chuyển" />
+					                </f:facet>
+					                <h:outputText value=""/>
+					            </rich:column>
+					            <rich:column style="text-align: center;">
+					                <f:facet name="header">
+			                      			<h:outputText value="ĐK miễn phí VC" />
+					                </f:facet>
+					                <h:outputText value=""/>
+					            </rich:column>
+					            <rich:column style="text-align: center;">
+					                <f:facet name="header">
+			                      			<h:outputText value="Các vận chuyển" />
+					                </f:facet>
+					                <h:outputText value=""/>
+					            </rich:column>
+							</rich:dataTable>
+						</rich:panel>
+					</rich:panel>
+				</h:panelGrid>
+				<!-- Các phương pháp vận chuyển -->
+				<h:panelGrid columns="2" styleClass="bgPanel" style="margin-bottom: 15px;">
+					<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
+						<h:outputText value="Phương pháp vận chuyển"/>
+					</rich:panel>
+					<rich:panel style="text-align: left; width: 785px;" styleClass="panel" bodyClass="bodyPanel">
+						<h:panelGrid columns="2" width="780px">
+							<rich:panel style="width: 130px;" styleClass="panel" bodyClass="bodyPanel">
+								<h:selectBooleanCheckbox/>
+								<b><u>Bộ sưu tập:</u></b>
+							</rich:panel>
+							<rich:panel  styleClass="panel" bodyClass="bodyPanel" style="width: 630px;">
+								<h:panelGrid columns="2">
+									<h:outputText value="Chọn dịch vụ: "/>
+									<h:selectOneRadio>
+										<f:selectItem itemValue="0" itemLabel="Giảm giá"/>
+										<f:selectItem itemValue="0" itemLabel="Bán chạy"/>	
+									</h:selectOneRadio>
+								</h:panelGrid>
+								<p>
+									Giảm giá 
+									<h:inputText style="width: 100px"/>
+									VNĐ
+									<h:outputText value="Lợi ích: " style="margin-left: 20px;"/>
+									<h:inputText style="width: 140px"/>
+								</p>
+								<p>
+									Địa chỉ truy cập: 
+									<h:inputText style="width: 300px; margin: 0px 10px 0px 10px;"/>
+									<h:commandLink value="Liên hệ/Thay đổi địa chỉ" styleClass="cmd1"/>
+								</p>
+								<p>
+									<b>매장 방문시 요청사항 :</b>
+									<h:inputText style="width: 250px; margin: 0px 10px 0px 10px;"/>
+								</p>
+							</rich:panel>
+						</h:panelGrid>
+					</rich:panel>
+				</h:panelGrid>
+				<!-- Các phương pháp vận chuyển -->
+				<h:panelGrid columns="2" styleClass="bgPanel" style="margin-bottom: 15px;">
+					<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
+						<h:outputText value="Return/Thay đổi thiết lập"/>
+					</rich:panel>
+					<rich:panel style="text-align: left; width: 785px;" styleClass="panel" bodyClass="bodyPanel">
+						<h:selectOneRadio>
+							<f:selectItem itemValue="0" itemLabel="Thiết lập mặc định/Chuyển đổi"/>
+							<f:selectItem itemValue="1" itemLabel="Áp dụng cho sản phẩm trả lại/Thiết lập giá vận chuyển mới"/>	
+						</h:selectOneRadio>
+						<p>
+							1) Thiết lập lại thời gian vận chuyển
+							<h:selectOneMenu style="width: 70px;margin: 0px 10px 0px 10px;">
+								 <f:selectItem itemValue="0" itemLabel="chọn" />
+							</h:selectOneMenu>
+							<h:selectOneMenu style="width: 70px;">
+								 <f:selectItem itemValue="0" itemLabel="chọn" />
+							</h:selectOneMenu>
+							<h:inputText style="margin: 0px 10px 0px 10px;"/>
+							<h:outputText value="VNĐ"/>
+						</p>
+						<p>
+							2) Trao đổi vận chuyển: Vận chuyển khứ hồi: 
+							<h:inputText style="margin: 0px 10px 0px 10px;"/>
+							<h:outputText value="VNĐ"/>
+						</p>
+						<p>
+							<h:outputText value=" ※ 반품/교환배송비를 설정하지 않으시면 지마켓 지정택배의 경우 2,400원, 
+								일반택배의 경우 2,500원으로 청구됩니다." style="color: blue;"/>
+						</p>
+					</rich:panel>
+				</h:panelGrid>
 	        </rich:tab>
 	        <rich:tab id="tab2" header="Tạo tài khoản giao hàng">
-	            Here is tab #3
+	            <rich:panel style="border-top: 3px solid #b0cde9;">
+	            	<h:panelGrid columns="2">
+	            		<rich:panel style="border: 0px; width: 150px; text-align: right;" bodyClass="bodyPanel">
+	            			출하지명 :
+	            		</rich:panel>
+	            		<rich:panel style="border: 0px; width: 700px;" bodyClass="bodyPanel">
+		            			<h:outputText value="Xin vui lòng nhập địa chỉ của bạn đến địa chỉ mặc định" style="padding-right: 10px"/>
+		            			<h:commandLink value="Liên hệ/Thay đổi địa chỉ >" styleClass="cmd1" />
+	            		</rich:panel>
+	            		<rich:panel style="border: 0px; width: 150px; text-align: right;" bodyClass="bodyPanel">
+	            			반품주소 :
+	            		</rich:panel>
+	            		<rich:panel style="border: 0px; width: 700px;" bodyClass="bodyPanel">	
+		            			<h:commandLink value="Địa chỉ vận chuyển >" styleClass="cmd1" />
+		            			<h:outputText value="상품출하 주소를 입력하여 주세요" style="padding:0px 10px 0px 10px;"/>
+		            			<h:selectBooleanCheckbox/>
+		            			<h:outputText value="Nhập danh sách địa chỉ giao hàng" style="padding:0px 10px 0px 10px; color: blue"/>
+	            		</rich:panel>
+	            		<rich:panel style="border: 0px; width: 150px; text-align: right;" bodyClass="bodyPanel">
+	            			교환재배송출하주소 :
+	            		</rich:panel>	
+	            		<rich:panel style="border: 0px; width: 700px;" bodyClass="bodyPanel">
+	            				<h:inputText style="width: 80px;"/>
+	            				<h:inputText style="width: 200px; margin: 0px 10px 0 6px;"/>
+	            				<h:commandLink value="Liên hệ/Thay đổi địa chỉ >" styleClass="cmd1" />
+	            		</rich:panel>
+	            		<rich:panel style="border: 0px; width: 150px; text-align: right;" bodyClass="bodyPanel">
+	            			교환상품수거주소 :
+	            		</rich:panel>
+	            		<rich:panel style="border: 0px; width: 700px;" bodyClass="bodyPanel">
+	            				<h:inputText style="width: 80px;"/>
+	            				<h:inputText style="width: 200px; margin: 0px 10px 0 6px;"/>
+	            				<h:commandLink value="Liên hệ/Thay đổi địa chỉ >" styleClass="cmd1" />
+	            		</rich:panel>
+	            	</h:panelGrid>
+	            </rich:panel>
+	            <!-- Thiết lập vận chuyển -->
+				<h:panelGrid columns="2" styleClass="bgPanel" style="margin-bottom: 15px;">
+					<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
+						<h:outputText value="Thiết lập vận chuyển"/>
+						<h:outputText value="*" style="color: red;"/>
+					</rich:panel>
+					<rich:panel style="text-align: left; width: 785px;" styleClass="panel" bodyClass="bodyPanel">
+						※상품별 배송비 부과의 경우 장바구니에 담는 상품의 종류에 따라 배송비가 부여<br/>
+ 						(예 : 2종류의 상품을 함께 구매 시 두 개 상품의 배송비가 각각 부여) 
+						<b>
+							<h:selectOneRadio>
+								<f:selectItem itemValue="0" itemLabel="Phí vận chuyển"/>
+								<f:selectItem itemValue="0" itemLabel="Điều kiện vận chuyển miễn phí"/>
+								<f:selectItem itemValue="0" itemLabel="직접 전달 방문수령만"/>
+								<f:selectItem itemValue="0" itemLabel="가능 퀵서비스만 가능 "/>
+							</h:selectOneRadio>
+						</b>
+						<rich:panel styleClass="panel" bodyClass="bodyPanel" style="width: 775px;">
+							<rich:dataTable id="table5" value="" var=""
+				                 rowClasses="odd-row, even-row">
+					            <rich:column style="text-align: center;">
+					                <f:facet name="header">
+			                      			<h:outputText value="Mã số vận chuyển" />
+					                </f:facet>
+					                <h:outputText value=""/>
+					            </rich:column>
+					            <rich:column style="text-align: center; width: 270px;">
+					                <f:facet name="header">
+			                      			<h:outputText value="Vận chuyển chỉ định" />
+					                </f:facet>
+					                <h:outputText value=""/>
+					            </rich:column>
+					            <rich:column style="text-align: center;">
+					                <f:facet name="header">
+			                      			<h:outputText value="Kiểu vận chuyển" />
+					                </f:facet>
+					                <h:outputText value=""/>
+					            </rich:column>
+					            <rich:column style="text-align: center;">
+					                <f:facet name="header">
+			                      			<h:outputText value="Vận chuyển" />
+					                </f:facet>
+					                <h:outputText value=""/>
+					            </rich:column>
+					            <rich:column style="text-align: center;">
+					                <f:facet name="header">
+			                      			<h:outputText value="ĐK miễn phí VC" />
+					                </f:facet>
+					                <h:outputText value=""/>
+					            </rich:column>
+					            <rich:column style="text-align: center;">
+					                <f:facet name="header">
+			                      			<h:outputText value="Các vận chuyển" />
+					                </f:facet>
+					                <h:outputText value=""/>
+					            </rich:column>
+							</rich:dataTable>
+						</rich:panel>
+					</rich:panel>
+				</h:panelGrid>
+				<!-- Các phương pháp vận chuyển -->
+				<h:panelGrid columns="2" styleClass="bgPanel" style="margin-bottom: 15px;">
+					<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
+						<h:outputText value="Phương pháp vận chuyển"/>
+					</rich:panel>
+					<rich:panel style="text-align: left; width: 785px;" styleClass="panel" bodyClass="bodyPanel">
+						<h:panelGrid columns="2" width="780px">
+							<rich:panel style="width: 130px;" styleClass="panel" bodyClass="bodyPanel">
+								<h:selectBooleanCheckbox/>
+								<b><u>Bộ sưu tập:</u></b>
+							</rich:panel>
+							<rich:panel  styleClass="panel" bodyClass="bodyPanel" style="width: 630px;">
+								<h:panelGrid columns="2">
+									<h:outputText value="Chọn dịch vụ: "/>
+									<h:selectOneRadio>
+										<f:selectItem itemValue="0" itemLabel="Giảm giá"/>
+										<f:selectItem itemValue="0" itemLabel="Bán chạy"/>	
+									</h:selectOneRadio>
+								</h:panelGrid>
+								<p>
+									Giảm giá 
+									<h:inputText style="width: 100px"/>
+									VNĐ
+									<h:outputText value="Lợi ích: " style="margin-left: 20px;"/>
+									<h:inputText style="width: 140px"/>
+								</p>
+								<p>
+									Địa chỉ truy cập: 
+									<h:inputText style="width: 300px; margin: 0px 10px 0px 10px;"/>
+									<h:commandLink value="Liên hệ/Thay đổi địa chỉ" styleClass="cmd1"/>
+								</p>
+								<p>
+									<b>매장 방문시 요청사항 :</b>
+									<h:inputText style="width: 250px; margin: 0px 10px 0px 10px;"/>
+								</p>
+							</rich:panel>
+						</h:panelGrid>
+					</rich:panel>
+				</h:panelGrid>
+				<!-- Các phương pháp vận chuyển -->
+				<h:panelGrid columns="2" styleClass="bgPanel" style="margin-bottom: 15px;">
+					<rich:panel style="width:140px; border: 0px;" bodyClass="bodyPanel">
+						<h:outputText value="Return/Thay đổi thiết lập"/>
+					</rich:panel>
+					<rich:panel style="text-align: left; width: 785px;" styleClass="panel" bodyClass="bodyPanel">
+						<h:selectOneRadio>
+							<f:selectItem itemValue="0" itemLabel="Thiết lập mặc định/Chuyển đổi"/>
+							<f:selectItem itemValue="1" itemLabel="Áp dụng cho sản phẩm trả lại/Thiết lập giá vận chuyển mới"/>	
+						</h:selectOneRadio>
+						<p>
+							1) Thiết lập lại thời gian vận chuyển
+							<h:selectOneMenu style="width: 70px;margin: 0px 10px 0px 10px;">
+								 <f:selectItem itemValue="0" itemLabel="chọn" />
+							</h:selectOneMenu>
+							<h:selectOneMenu style="width: 70px;">
+								 <f:selectItem itemValue="0" itemLabel="chọn" />
+							</h:selectOneMenu>
+							<h:inputText style="margin: 0px 10px 0px 10px;"/>
+							<h:outputText value="VNĐ"/>
+						</p>
+						<p>
+							2) Trao đổi vận chuyển: Vận chuyển khứ hồi: 
+							<h:inputText style="margin: 0px 10px 0px 10px;"/>
+							<h:outputText value="VNĐ"/>
+						</p>
+						<p>
+							<h:outputText value=" ※ 반품/교환배송비를 설정하지 않으시면 지마켓 지정택배의 경우 2,400원, 
+								일반택배의 경우 2,500원으로 청구됩니다." style="color: blue;"/>
+						</p>
+					</rich:panel>
+				</h:panelGrid>
 	        </rich:tab>
 	    </rich:tabPanel>
 	</div>
@@ -663,16 +998,6 @@
 				<h:selectBooleanCheckbox/>
 			</rich:panel>
 			<rich:panel style="text-align: left; width: 700px;" styleClass="panel" bodyClass="bodyPanel">
-				<h:selectOneMenu style="width: 120px;">
-					 <f:selectItem itemValue="0" itemLabel="== Chọn ==" />
-				</h:selectOneMenu>
-				<h:inputText/>
-				<h:outputText value=" Cache"/>
-				<h:outputText value="Thời gian:" style="margin-left: 20px"/>
-				<h:inputText/>
-				<h:outputText value="~"/>
-				<h:inputText/>
-				<br/>
 				<h:outputText value="▶ sangpumman mua quyền để hiển thị tập trung có thể được đăng ký."/>
 				<br/>
 				<h:outputText value="▶ Tập trung Thêm Triển lãm Khối lượng mua, một cuộc triển lãm các sản phẩm sẽ tăng số điểm 20%, cao hơn các ưu tiên tiếp xúc"/>
