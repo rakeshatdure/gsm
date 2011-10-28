@@ -18,6 +18,10 @@
                     </h:panelGrid>
                 </f:facet>
                 <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/Notice.jsf'">
+                        <h:outputText value="Notice manage" />
+                </rich:menuItem>
+                <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/seller-profile/answer_seller.xhtml'">
                         <h:outputText value="Seller's answer" />
                 </rich:menuItem>
@@ -49,6 +53,10 @@
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/price-quantity/setting-inventory.xhtml'">
                         <h:outputText value="Setting Inventory" />
+                </rich:menuItem>
+                <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/mProduct.jsf'">
+                        <h:outputText value="Manage Product" />
                 </rich:menuItem>
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/price-quantity/service-hosting-image.xhtml'">
