@@ -12,16 +12,30 @@
 	</h:head>
 	<h:body>
 		<div style="width: 1224px">
-			<div style="width: 960px; float: left;">
-				<ui:insert>
-					<ui:include src="/templates/contentNotice.xhtml"></ui:include>
-				</ui:insert>
-			</div>
-			<div style="width: 252px; float: right;">
-				<ui:insert>
-					<ui:include src="/WEB-INF/right/right.xhtml"></ui:include>
-				</ui:insert>
-			</div>
+			<h:form rendered="#{company.user.role.roleId != 4}">
+				<div style="text-align: center; padding: 50px">
+					<h3>
+						<h:outputText value="You don't have permission" />
+					</h3>
+				</div>
+			</h:form>
+			<h:form rendered="#{company.user.role.roleId == 4}">
+				<div style="position: fixed;z-index: 100;top:0px; width: 1224px;">
+					<ui:insert>
+						<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
+					</ui:insert>
+				</div>
+				<div style="width: 960px; float: left;margin-top: 15px;">
+					<ui:insert>
+						<ui:include src="/templates/contentNotice.xhtml"></ui:include>
+					</ui:insert>
+				</div>
+				<div style="width: 252px; float: right;position: fixed;z-index: 100;right:370px;margin-top: 15px;">
+					<ui:insert>
+						<ui:include src="/WEB-INF/right/right.xhtml"></ui:include>
+					</ui:insert>
+				</div>
+			</h:form>
 		</div>
 	</h:body>
 </html>
