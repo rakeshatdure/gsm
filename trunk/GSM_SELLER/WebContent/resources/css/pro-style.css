@@ -8,7 +8,7 @@ body
 {
 	height: 25px;
 	padding: 2px 10px 2px;
-	color: white;
+	color: #fff;
 	text-decoration: none;
 	font-weight: bold;
 	-moz-border-radius: 5px;
@@ -196,4 +196,13 @@ body
 	cursor: pointer;
 	background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bt_submit.PNG') no-repeat;
 }
-
+.modelPanelStyle
+{
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #999999;
+	background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_pp1.png') no-repeat #fff;
+	width: 944px;
+	height: 85px;
+	margin: 10px 5px 10px 5px;
+}
