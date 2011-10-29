@@ -55,15 +55,24 @@
 			</h:panelGrid>
 			<h:panelGrid style="text-align: left; width: 800px">
 				<h:panelGroup>
-					<h:selectOneMenu style="width: 150px; margin-left: 10px">
-						 <f:selectItem itemValue="0" itemLabel="== Loại lớn ==" />
-					</h:selectOneMenu>
-					<h:selectOneMenu style="width: 110px; margin-left: 10px">
-						 <f:selectItem itemValue="0" itemLabel="== Loại trung ==" />
-					</h:selectOneMenu>
-					<h:selectOneMenu style="width: 110px; margin-left: 10px">
-						 <f:selectItem itemValue="0" itemLabel="== Loại nhỏ ==" />
-					</h:selectOneMenu>
+					<h:form>
+							<h:selectOneMenu style="width: 140px;" value="#{categoryBean.categoryId}" id="category1">
+								<f:selectItem itemLabel="-- Chọn Category -- " itemValue="0"/> 
+								<f:selectItems value="#{categoryBean.lCat}" var="cat" itemValue="#{cat.categoryId}" itemLabel="#{cat.categoryName}"/>
+								<f:ajax event="change" render="categoryChild1" execute="@form"/>
+							</h:selectOneMenu>
+							
+							<h:selectOneMenu style="width: 100px; margin: 0px 5px 0px 5px;" value="#{categoryBean.categoryChildId}" id="categoryChild1">
+								<f:selectItem itemLabel="-- Chọn CategoryChild-- " itemValue="0"/>
+								<f:selectItems value="#{categoryBean.lCatChil}"  var="catC" itemValue="#{catC.categoryChildId}" itemLabel="#{catC.categoryChildName}"/>
+								<f:ajax event="change" render="categorySub1" />
+							</h:selectOneMenu>
+							
+							<h:selectOneMenu style="width: 100px;" value="#{categoryBean.categorySubId}" id="categorySub1">
+								 <f:selectItem itemValue="0" itemLabel="-- Chọn CategorySub --" />
+								 <f:selectItems value="#{categoryBean.lCatSub}" var="catS" itemValue="#{catS.categorySubId}" itemLabel="#{catS.categorySubName}"/>
+							</h:selectOneMenu>
+						</h:form>
 				</h:panelGroup>
 			</h:panelGrid>
 		</h:panelGrid>
