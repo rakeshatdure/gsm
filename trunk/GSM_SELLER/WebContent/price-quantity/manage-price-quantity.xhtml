@@ -14,6 +14,9 @@
 		<h:outputStylesheet name="/pro-style.css" library="/css" />
 		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
 	</h:head>
+	<script>
+		
+	</script>
 	<h:body>
 		<h:form rendered="#{company.user.role.roleId != 4}">
 			<div style="text-align: center; padding: 50px">
@@ -24,12 +27,12 @@
 		</h:form>
 		<h:form rendered="#{company.user.role.roleId == 4}">
 			<div style="width: 1224px">
-				<div style="position: fixed;z-index: 100;top:0px; width: 1224px;">
-					<ui:insert>
-						<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
-					</ui:insert>
-				</div>
-				<div style="width: 960px; float: left;margin-top: 15px">
+				<ui:insert>
+					<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
+				</ui:insert>
+				<div style="height: 5px" />
+
+				<div style="width: 960px; float: left;">
 					<h:panelGrid
 						style="width:960px;background-color:#3859b0;height:38px;">
 						<h:panelGroup>
@@ -44,15 +47,49 @@
 					<h:panelGrid
 						style="width:960px; height: 40px; border: 2px solid #c2d5e3;"
 						columns="4">
-						<h:panelGrid width="550px">
+						<h:panelGrid width="500px">
 							<h:outputLabel
 								style="backgroud-color: #f2f4f2;padding-right: 30px;width: 500px;"
 								value="Menu chính là trang chỉnh sửa, thiết lập thời hạn hiển thị số lượng giá của sản phẩm của open market" />
 						</h:panelGrid>
-						<a4j:commandLink value="HDQL tồn kho=ĐTDĐ" styleClass="bt_header" />
+						<h:commandButton value="HDQL tồn kho=ĐTDĐ" styleClass="bt_header">
+							<rich:componentControl target="popupGuideInventory"
+								operation="show" />
+							<ui:insert>
+								<ui:include
+									src="/price-quantity/popup/guide-invetory-by-tel.xhtml"></ui:include>
+							</ui:insert>
+						</h:commandButton>
+
 						<a4j:commandLink styleClass="bt_header" value="Xem FAQ mini" />
-						<a4j:commandLink styleClass="bt_header" value="Xem/Đóng" />
+						<a4j:commandLink styleClass="bt_header" value="Xem/Đóng"
+							render="out" action="#{beantest.eventClick}" />
+						<a4j:outputPanel id="out">
+							<c:if test="#{beantest.on==true}">
+								<h:panelGrid columns="1" width="500px">
+									<div style="border: 1px dotted gray" />
+									<h:outputLabel
+										value="(등록하신 모든 상품을 보시려면 상품/가격/수량관리>>상품등록/관리에서 확인해주시기 바랍니다.)" />
+									<div style="height: 3px;" />
+									<h:outputLabel
+										value="1. 거래중인 나의 상품: 현재 판매자님의 거래가능한 상품이 속한 대분류 카테고리를 보여드립니다.
+     - '판매중인 상품조회' 클릭시 판매중인 상품수를 보여드립니다." />
+									<h:outputLabel
+										value="2. 일괄 유효기간 연장: 최대 상품 50건씩 설정한 유효기간에 따라 판매종료일을 연장할 수 있습니다." />
+									<h:outputLabel
+										value="3. 일괄 주문삭제: 최대 상품 50건씩 주문을 삭제(품절처리) 할 수 있습니다." />
+									<h:outputLabel
+										value="4. 가격 및 수량의 수정은 개별 상품을 리스트에서 선택하신 후에 수정하실 수 있습니다." />
+									<div style="height: 3px" />
+									<h:outputLabel
+										value="5. 예약/견적상품은 GSM >> 경매/흥정/예약/여행 >> 여행/견적/흥정/상담/설문관리에서 확인해주시기 바랍니다." />
+									<h:outputLabel
+										value="6. 각 상품에서 설정하신 선택정보들의 재고(수량) 관리는 GSM>>상품/가격/수량관리>>선택정보별 재고설정에서 확인해주시기 바랍니다. " />
+								</h:panelGrid>
+							</c:if>
+						</a4j:outputPanel>
 					</h:panelGrid>
+
 
 					<div style="height: 15px" />
 					<h:panelGrid style="width:960px">
@@ -61,7 +98,7 @@
 								style="margin-top:-1px;float:left;" />
 							<h:outputLabel value="Sản phẩm của tôi đang được giao dịch" />
 							<a4j:commandButton value="Xem sản phẩm đang để bán"
-								styleClass="bt_bassic" />
+								styleClass="bt_bassic" style="margin-left:5px;" />
 						</h:panelGroup>
 					</h:panelGrid>
 					<h:panelGrid style="width:960px; background:#e1eaf2;">
@@ -82,6 +119,8 @@
 							<a4j:commandButton value="Chọn tất cả" styleClass="bt_bassic" />
 						</h:panelGroup>
 					</h:panelGrid>
+					<h:outputLabel value="" />
+					<h:outputLabel value="Category : #{categoryBean.allCateogryByAccount}" />
 
 					<h:panelGrid columns="3" styleClass="label">
 						<h:form>
@@ -94,7 +133,7 @@
 									</f:facet>
 									<h:panelGroup>
 										<h:selectOneListbox style="width:110px" size="1">
-											<f:selectItems value="#{categoryBean.allCategory}" />
+											<f:selectItems value="#{categoryBean.allCateogryByAccount}" />
 										</h:selectOneListbox>
 										<h:selectOneListbox value="" style="width:110px" />
 										<h:selectOneListbox value="" style="width:110px" />
@@ -284,10 +323,12 @@
 							styleClass="bt_bassic" />
 						<a4j:commandButton value="Xóa đặt hàng" styleClass="bt_bassic" />
 					</h:panelGroup>
+
+
 					<div style="height: 25px" />
 				</div>
 
-				<div style="width: 252px; float: right; position: fixed;z-index: 100;right:350px;margin-top: 15px;">
+				<div style="width: 252px; float: right; margin-top: 0px">
 					<ui:insert>
 						<ui:include src="/WEB-INF/right/right.xhtml"></ui:include>
 					</ui:insert>
