@@ -1,0 +1,479 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+	<h:outputStylesheet>
+        .everyThirdDay {
+            background-color: gray;
+        }
+ 
+        .weekendBold {
+            font-weight: bold;
+            font-style: italic;
+        }
+    </h:outputStylesheet>
+	<h:outputScript>
+        var curDt = new Date();
+        function disablementFunction(day){
+            if (day.isWeekend) return false;
+            if (curDt==undefined){
+                curDt = day.date.getDate();
+            }
+            if (curDt.getTime() - day.date.getTime() &lt; 0) return true; else return false; 
+        }
+        function disabledClassesProv(day){
+            if (curDt.getTime() - day.date.getTime() &gt;= 0) return 'rf-cal-boundary-day';
+            var res = '';
+            if (day.isWeekend) res+='weekendBold ';
+            if (day.day%3==0) res+='everyThirdDay';
+            return res;
+        }
+    </h:outputScript>
+	<h:head>
+		<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
+		<h:outputStylesheet name="/pro-style.css" library="/css" />
+		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
+	</h:head>
+	<h:body>
+		<h:form rendered="#{company.user.role.roleId != 4}">
+			<div style="text-align: center; padding: 50px">
+				<h3>
+					<h:outputText value="You don't have permission" />
+				</h3>
+			</div>
+		</h:form>
+		<h:form rendered="#{company.user.role.roleId == 4}">
+			<div style="width: 1224px">
+				<ui:insert>
+					<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
+				</ui:insert>
+				<div style="height: 5px" />
+
+				<div style="width: 960px; float: left;">
+					<h:panelGrid style="width:960px;" columns="2">
+						<h:outputLabel />
+						<h:outputLink id="link1" value="" style="float:right;">
+							<h:outputText value="[di chuyển mục quản lý giao hàng mới]" />
+						</h:outputLink>
+					</h:panelGrid>
+					<div style="height: 3px;" />
+					<div style="border: 2px solid #89c3e2;" />
+					<h:panelGrid style="width:960px; border:1px solid #cfcfcf"
+						columns="5" rules="all">
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/hinh8.jpg"
+								style="float:left;margin-top:1px;" />
+							<h:outputLabel value="Các đối tượng quản lý" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<h:outputLabel value="Mục khai báo chưa nhận hàng" />
+							<h:inputText value="" style="width:20px" />
+							<h:outputLabel value="Label 1" />
+							<a4j:commandLink value="Quản lý" styleClass="bt_select"
+								style="padding-bottom:0;padding-top:0;" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<h:outputLabel value="Số hóa đơn" />
+							<h:inputText value="" style="width:20px" />
+							<h:outputLabel value="Label 1" />
+							<a4j:commandLink value="Quản lý" styleClass="bt_select"
+								style="padding-bottom:0;padding-top:0;" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<h:outputLabel value="Những vấn đề phát sinh khi giao hàng" />
+							<h:inputText value="" style="width:20px" />
+							<h:outputLabel value="Label 1" />
+							<a4j:commandLink value="Quản lý" styleClass="bt_select"
+								style="padding-bottom:0;padding-top:0;" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<h:outputLabel value="Những yêu cầu gửi đổi hàng" />
+							<h:inputText value="" style="width:20px" />
+							<h:outputLabel value="Label 1" />
+							<a4j:commandLink value="Quản lý" styleClass="bt_select"
+								style="padding-bottom:0;padding-top:0;" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<div style="height: 5px;" />
+					<h:panelGrid style="width:960px;" columns="1">
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/hinh8.jpg"
+								style="float:left;margin-top:1px;margin-right:5px" />
+							<h:outputLabel value="Tổng hợp yêu cầu đặt hàng" />
+							<a4j:commandLink value="Mục thanh toán" styleClass="bt_select"
+								style="margin-left:5px;" />
+							<a4j:commandLink value="Xem mục hủy/thay đổi"
+								styleClass="bt_select" style="margin-left:5px;" />
+							<a4j:commandLink value="Xem mục đóng gói hàng"
+								styleClass="bt_select" style="margin-left:5px;" />
+						</h:panelGroup>
+					</h:panelGrid>
+
+					<div style="height: 3px;" />
+					<div style="border: 2px solid #89c3e2;" />
+					<h:panelGrid
+						style="width:960px; border:1px solid #cfcfcf;text-align:center;"
+						columns="5" rules="all">
+						<h:outputLabel value="Dịch vụ giao hàng tận nhà" />
+						<h:panelGroup>
+							<h:outputLabel value="Đặt hàng mới" />
+							<h:inputText value="" style="width:20px" />
+							<h:outputLabel value="Label 1" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<h:outputLabel value="Chuẩn bị giao hàng" />
+							<h:inputText value="" style="width:20px" />
+							<h:outputLabel value="Label 1" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<h:outputLabel value="Hoãn việc gửi hàng" />
+							<h:inputText value="" style="width:20px" />
+							<h:outputLabel value="Label 1" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<h:selectOneListbox value="" style="width:100px;" />
+							<a4j:commandLink value="Xem đơn giản" styleClass="bt_select"
+								style="padding-bottom:0;padding-top:0;" />
+							<a4j:commandLink value="Xem chi tiết" styleClass="bt_select"
+								style="padding-bottom:0;padding-top:0;" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<div style="height: 5px;" />
+					<h:panelGrid style="width:960px;" columns="2">
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/hinh8.jpg"
+								style="float:left;margin-top:5px;margin-right:5px" />
+							<h:outputLabel value="Xem chi tiết quản lý gửi hàng" />
+							<h:selectBooleanCheckbox />
+							<h:outputLabel value="Xem" />
+							<h:selectBooleanCheckbox />
+							<h:outputLabel value="Xem từng phân loại" />
+							<h:selectBooleanCheckbox />
+							<h:outputLabel value="Xem trực tiếp" />
+						</h:panelGroup>
+
+						<h:panelGroup style="float:right;">
+							<h:selectOneListbox value="" style="width:70px;" />
+							<a4j:commandLink value="Lập quản lý giao hàng"
+								styleClass="bt_select" style="padding-top:0;padding-bottom:0;" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<div style="height: 3px;" />
+					<div style="border: 2px solid #89c3e2;" />
+					<h:panelGrid style="width:960px;border:1px solid" columns="5"
+						rules="all">
+						<h:outputLabel value="Phân công việc vận chuyển" />
+						<h:panelGroup>
+							<h:selectOneListbox value="" style="width:60px;" />
+							<h:outputLabel value="Trạng thái giao hàng" />
+							<h:selectOneListbox value="" style="width:60px;" />
+							<h:selectOneListbox value="" style="width:40px;" />
+						</h:panelGroup>
+						<h:outputLabel />
+						<h:panelGroup>
+							<h:outputLabel value="Total view" />
+							<h:selectBooleanCheckbox />
+						</h:panelGroup>
+						<a4j:commandLink value="View" styleClass="bt_select"
+							style="height:16px;padding-top:0;padding-bottom:0;" />
+
+						<h:outputLabel value="Lựa chọn thời gian" />
+						<h:panelGroup>
+							<h:selectOneListbox value="" style="width:60px;" />
+							<rich:calendar dayDisableFunction="disablementFunction"
+								dayClassFunction="disabledClassesProv"
+								boundaryDatesMode="scroll" />
+							<h:selectOneListbox value="" style="width:30px;" />
+							<h:outputLabel value="giờ" />
+							<h:outputLabel value="~" />
+							<rich:calendar dayDisableFunction="disablementFunction"
+								dayClassFunction="disabledClassesProv"
+								boundaryDatesMode="scroll" />
+							<h:selectOneListbox value="" style="width:30px;" />
+							<h:outputLabel value="giờ" />
+						</h:panelGroup>
+						<h:outputLabel value="Xem lựa chọn" />
+						<h:selectOneListbox value="" style="width:50px;" />
+						<h:inputText value="" style="width:50px;" />
+					</h:panelGrid>
+
+					<rich:extendedDataTable id="table" value="" var=""
+						rowClasses="odd-row, even-row" sortMode="single" frozenColumns="3"
+						style="height:270px; width:960px;">
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Số" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Lựa chọn" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="PL chuyển hàng" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Số kí kết" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Tên người nhận" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Tình trạng giao hàng" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Tình trạng chi tiết" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="PL đối với nước ngoài" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Công ty vận chuyển giao hàng" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Số hóa đơn" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Số SP" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Tên SP" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Thông tin lựa chọn" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Số lượng" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Hàng khuyến mại" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Xác nhận việc nhập tiền gửi" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Ngày cấp đơn đặt hàng" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Label 7" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Label 8" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Label 9" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Label 10" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Label 11" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Label 12" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Label 13" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+					</rich:extendedDataTable>
+					<div style="height: 15px" />
+					<h:panelGrid style="width:960px;" columns="2">
+						<h:panelGroup>
+							<h:selectOneListbox value="" style="width:50px;" />
+							<h:outputLabel value="Page" />
+						</h:panelGroup>
+						<h:panelGroup style="float:right;margin-right:2px;">
+							<h:selectBooleanCheckbox />
+							<h:outputLabel value="label 1" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<div style="height: 15px;" />
+					<h:panelGrid style="width:960px;" columns="2">
+						<h:panelGroup>
+							<a4j:commandLink value="Lựa chọn toàn bộ" styleClass="bt_select" />
+							<a4j:commandLink value="Thay đổi nội dung excel"
+								styleClass="bt_select" />
+							<a4j:commandLink value="Nhập ngày dự định sẽ giao hàng"
+								styleClass="bt_select" />
+							<div style="height: 2px;" />
+							<h:outputLabel
+								value="Sau khi nhập ngày gửi đi sẽ nhận được biên lai" />
+						</h:panelGroup>
+						<h:panelGroup style="float:right;margin-right:2px;">
+							<h:outputLabel value="Danh sách chọn lọc" />
+							<div style="height: 2px;" />
+							<a4j:commandLink value="Button 1" styleClass="bt_select" />
+							<a4j:commandLink value="Button 2" styleClass="bt_select" />
+							<a4j:commandLink value="Button 3" styleClass="bt_select" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<div style="height: 15px;" />
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/hinh8.jpg"
+							style="float:left;margin-top:1px;" />
+						<h:outputLabel value="Sửa đổi thông tin" />
+					</h:panelGroup>
+					<h:panelGrid style="width:960px" columns="2">
+						<h:panelGroup>
+							<h:outputLabel value="Label 1" />
+							<h:inputText value="" style="width:50px" />
+							<h:outputLabel value="Label 1" />
+							<h:inputText value="" style="width:200px" />
+						</h:panelGroup>
+						<h:panelGroup style="float:right;margin-right:2px;">
+							<a4j:commandLink value="Button 1" styleClass="bt_select" />
+							<a4j:commandLink value="Button 1" styleClass="bt_select" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<div style="border: 2px solid #89c3e2;" />
+					<div style="height: 15px;" />
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/hinh8.jpg"
+							style="float:left;margin-top:1px;" />
+						<h:outputLabel value="Xác nhận giao hàng trong nước" />
+					</h:panelGroup>
+					<h:panelGrid style="width:960px;border:1px solid" columns="8"
+						rules="all">
+						<h:outputLabel value="Giao từng cái" />
+						<h:outputLabel value="Ngày gửi" />
+						<h:panelGroup>
+							<h:inputText value="" style="width:50px" />
+							<h:outputLabel value="8.." />
+						</h:panelGroup>
+						<h:outputLabel value="Công ty giao hàng" />
+						<h:panelGroup>
+							<h:selectOneListbox value="" style="width:70px" />
+							<h:inputText value="" style="width:60px" />
+						</h:panelGroup>
+						<h:outputLabel value="Mã số hóa đơn gửi đi" />
+						<h:inputText value="" style="width:70px" />
+						<h:panelGroup>
+							<a4j:commandLink value="Xác nhận gửi" styleClass="bt_select"
+								style="padding-top:0;padding-bottom:0;" />
+							<a4j:commandLink value="Sửa đổi" styleClass="bt_select"
+								style="padding-top:0;padding-bottom:0;" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<h:panelGrid
+						style="width:960px;border-bottom:1px solid black;border-left:1px solid black;
+							border-right:1px solid black;"
+						columns="2" rule="cols">
+						<h:outputLabel value="Giao hàng số lượng lớn" />
+						<h:panelGroup>
+							<a4j:commandLink value="Xác nhận giao hàng số lượng lớn"
+								styleClass="bt_select"
+								style="padding-top:0;padding-bottom:0;margin-right:5px;" />
+							<a4j:commandLink value="Help" styleClass="bt_select"
+								style="padding-top:0;padding-bottom:0;margin-right:13px;" />
+							<a4j:commandLink value="Xác nhận bằng excel"
+								styleClass="bt_select"
+								style="padding-top:0;padding-bottom:0;margin-right:5px;" />
+							<a4j:commandLink value="Help" styleClass="bt_select"
+								style="padding-top:0;padding-bottom:0;margin-right:13px;" />
+							<a4j:commandLink value="Button 1" styleClass="bt_select"
+								style="padding-top:0;padding-bottom:0;margin-right:5px;" />
+							<a4j:commandLink value="Help" styleClass="bt_select"
+								style="padding-top:0;padding-bottom:0;" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<div style="height: 15px;" />
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/hinh8.jpg"
+							style="float:left;margin-top:1px;" />
+						<h:outputLabel value="Xác nhận giao hàng trong nước" />
+					</h:panelGroup>
+					<div style="border: 2px solid #89c3e2;" />
+					<div style="height: 15px;" />
+					
+					<div style="height: 25px" />
+
+				</div>
+
+				<div style="width: 252px; float: right; margin-top: 0px">
+					<ui:insert>
+						<ui:include src="/WEB-INF/right/right.xhtml"></ui:include>
+					</ui:insert>
+				</div>
+			</div>
+		</h:form>
+
+
+	</h:body>
+</f:view>
+</html>
