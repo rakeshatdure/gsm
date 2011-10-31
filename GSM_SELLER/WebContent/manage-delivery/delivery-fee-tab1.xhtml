@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
+	<h:outputStylesheet name="/pro-style.css" library="/css" />
+	<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
+</h:head>
+<body>
+	<ui:composition>
+		<div style="width: 960px;">
+			<h:panelGrid style="width:960px;" columns="2">
+				<h:outputLabel />
+				<a4j:commandLink value="Xem chi tiết" styleClass="bt_header"
+					style="float:right;margin-right:13px;height:16px;" />
+			</h:panelGrid>
+			<div style="height: 10px;" />
+			<div style="border: 2px solid #b0cde9; width: 940px;" />
+			<h:panelGrid style="width:940px;background:#e9eef3;" columns="2">
+				<h:panelGroup>
+					<h:outputLabel
+						value="Sau khi đăng kí địa điểm xuất hàng hãy lưu phí vận chuyển lại" />
+					<a4j:commandLink value="Địa chỉ xuất/gửi đi" styleClass="bt_select"
+						style="margin-left:5px;" />
+				</h:panelGroup>
+				<a4j:commandButton value="Thêm khu vực/địa điểm sẽ gửi đi"
+					styleClass="bt_bassic" style="float:right;margin-right:1px;" />
+			</h:panelGrid>
+			<div style="width: 940px; border: 1px solid #cfcfcf;" />
+			<h:panelGrid style="width:940px" columns="2">
+				<h:outputLabel value="Giỏ hàng, vận chuyển, cách tính" />
+				<h:form style="width:850px;border: 1px solid gray">
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/button33.jpg"
+							style="float:left;margin-top:2px;" />
+						<h:outputLabel value="tiếng tây, ứ biết" />
+						<h:inputText value="" style="" />
+					</h:panelGroup>
+					<div style="height: 5px;" />
+					<h:panelGroup>
+						<h:selectOneRadio value="">
+							<f:selectItem itemLabel="Radio 1" />
+						</h:selectOneRadio>	
+						
+					</h:panelGroup>
+				</h:form>
+			</h:panelGrid>
+
+		</div>
+	</ui:composition>
+</body>
+</html>
