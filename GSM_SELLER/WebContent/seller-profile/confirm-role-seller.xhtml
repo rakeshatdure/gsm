@@ -1,0 +1,471 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+	<h:head>
+		<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
+		<h:outputStylesheet name="/pro-style.css" library="/css" />
+		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
+	</h:head>
+	<h:body>
+		<h:form rendered="#{company.user.role.roleId != 4}">
+			<div style="text-align: center; padding: 50px">
+				<h3>
+					<h:outputText value="You don't have permission" />
+				</h3>
+			</div>
+		</h:form>
+		<h:form rendered="#{company.user.role.roleId == 4}">
+			<div style="width: 1224px">
+				<ui:insert>
+					<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
+				</ui:insert>
+				<div style="height: 25px" />
+
+				<div style="width: 960px; float: left;">
+					<h:panelGrid style="width:960px;" columns="2">
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/hinh5.PNG"
+								style="float:left;margin-top:2px;" />
+							<h:outputLabel value="Xác nhận quyền của seller" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<a4j:commandLink value="Xem FAQ mini" styleClass="bt_select"
+								style="float:right;margin-right:2px;height:16px;" />
+							<a4j:commandLink value="Xem/Đóng" styleClass="bt_select"
+								style="float:right;margin-right:2px;height:16px;" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<div style="height: 15px" />
+					<div style="border: 1px solid #647ce7;" />
+					<h:panelGrid style="width:960px;" columns="1">
+						<h:outputLabel value="content 1" />
+						<h:outputLabel />
+						<h:outputLabel value="content 2" />
+						<h:outputLabel value="content 3" />
+					</h:panelGrid>
+					<div style="height: 5px" />
+					<div style="border: 1px solid #647ce7;" />
+					<div style="height: 10px" />
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/button35.jpg"
+							style="float:left;margin-top:-4px;margin-right:5px;" />
+						<h:outputLabel value="Label 1" />
+						<a4j:commandLink value="Button 1" styleClass="bt_select"
+							style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+
+					<h:panelGrid style="width:960px;border: 1px solid" columns="2"
+						rules="all">
+						<h:outputLabel value="Trạng thái" />
+						<h:selectOneListbox value="" style="width:150px" />
+						<h:outputLabel value="Ngày yêu cầu" />
+						<h:panelGrid style="width:700px;" columns="3">
+							<h:inputText value="" style="width:150px" />
+							<h:outputLabel value="Ngày hoàn thành các xử lí" />
+							<h:inputText value="" style="width:150px" />
+						</h:panelGrid>
+						<h:outputLabel value="Ghi chú" />
+						<h:inputText value="" style="width:450px" />
+						<h:outputLabel value="Lý do yêu cầu" />
+						<h:inputText value="" style="width:450px" />
+					</h:panelGrid>
+					<div style="height: 5px" />
+					<h:panelGroup style="margin-left:150px;">
+						<a4j:commandLink value="Button 1" styleClass="bt_select"
+							style="height:16px;" />
+						<a4j:commandLink value="Button 2" styleClass="bt_select"
+							style="height:16px;" />
+						<a4j:commandLink value="Button 3" styleClass="bt_select"
+							style="height:16px;" />
+					</h:panelGroup>
+
+					<div style="height: 10px" />
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/button35.jpg"
+							style="float:left;margin-top:-4px;margin-right:5px;" />
+						<h:outputLabel value="Label 2" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+
+					<h:panelGrid style="width:960px;border: 1px solid" columns="2"
+						rules="all">
+						<h:outputLabel value="Trạng thái" />
+						<h:selectOneListbox value="" style="width:150px" />
+						<h:outputLabel value="Ngày yêu cầu" />
+						<h:panelGrid style="width:700px;" columns="3">
+							<h:inputText value="" style="width:150px" />
+							<h:outputLabel value="Ngày hoàn thành các xử lí" />
+							<h:inputText value="" style="width:150px" />
+						</h:panelGrid>
+						<h:outputLabel value="Ghi chú" />
+						<h:inputText value="" style="width:450px" />
+						<h:outputLabel value="Lý do yêu cầu" />
+						<h:inputText value="" style="width:450px" />
+						<h:outputLabel value="Thông tin người nhận" />
+						<h:panelGroup>
+							<h:inputText value="" style="width:250px" />
+							<a4j:commandLink value="Button 1" styleClass="bt_select"
+								style="height:16px;margin-left:5px;margin-right:5px;" />
+							<h:outputLabel value="( notice )" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<div style="height: 5px" />
+					<h:panelGroup style="margin-left:150px;">
+						<a4j:commandLink value="Yêu cầu" styleClass="bt_select"
+							style="height:16px;margin-right:5px;" />
+						<a4j:commandLink value="download bảng" styleClass="bt_header"
+							style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 15px" />
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/button35.jpg"
+							style="float:left;margin-top:-4px;margin-right:5px;" />
+						<h:outputLabel
+							value="Đăng kí quyền bán sp phone miễn phí/xác nhận trình duyệt" />
+						<a4j:commandLink value="Button 1" styleClass="bt_select"
+							style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+
+					<h:panelGrid style="width:960px;border: 1px solid" columns="2"
+						rules="all">
+						<h:outputLabel value="Trạng thái" />
+						<h:selectOneListbox value="" style="width:150px" />
+						<h:outputLabel value="Ngày yêu cầu" />
+						<h:panelGrid style="width:700px;" columns="3">
+							<h:inputText value="" style="width:150px" />
+							<h:outputLabel value="Ngày hoàn thành các xử lí" />
+							<h:inputText value="" style="width:150px" />
+						</h:panelGrid>
+						<h:outputLabel value="Ghi chú" />
+						<h:inputText value="" style="width:450px" />
+						<h:outputLabel value="Lý do yêu cầu" />
+						<h:inputText value="" style="width:450px" />
+						<h:outputLabel value="Thông tin tài khoản" />
+						<h:panelGrid columns="3" style="width:750px">
+							<h:panelGroup>
+								<h:outputLabel value="Ngân hàng" />
+								<h:selectOneListbox value="" style="width:100px" />
+							</h:panelGroup>
+							<h:panelGroup>
+								<h:outputLabel value="Tên chủ tài khoản" />
+								<h:inputText value="" style="width:100px" />
+							</h:panelGroup>
+							<h:panelGroup>
+								<h:outputLabel value="Số tài khoản" />
+								<h:inputText value="" style="width:100px" />
+							</h:panelGroup>
+						</h:panelGrid>
+					</h:panelGrid>
+					<div style="height: 5px" />
+					<h:panelGroup style="margin-left:150px;">
+						<a4j:commandLink value="Yêu cầu" styleClass="bt_select"
+							style="height:16px;" />
+					</h:panelGroup>
+
+					<div style="height: 15px" />
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/button35.jpg"
+							style="float:left;margin-top:-4px;margin-right:5px;" />
+						<h:outputLabel
+							value="Yêu cầu quyền đăng kí sp theo phạm trù/xác nhận trình duyệt" />
+						<a4j:commandLink value="Search" styleClass="bt_select"
+							style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+					<rich:extendedDataTable id="table" value="" var=""
+						rowClasses="odd-row, even-row" sortMode="single"
+						style="height:170px; width:960px;">
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Loại lớn" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Loại vừa " />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Loại nhỏ" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Trạng thái" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Ngày yêu cầu" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Ngày hoàn thành xử lí" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Lí do yêu cầu" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+					</rich:extendedDataTable>
+					<div style="height: 10px" />
+
+					<h:panelGrid style="width:960px;border: 1px solid" columns="2"
+						rules="all">
+						<h:outputLabel value="Trạng thái" />
+						<h:panelGroup>
+							<h:selectOneListbox value="" style="width:50px" />
+							<h:selectOneListbox value="" style="width:150px" />
+							<h:selectOneListbox value="" style="width:100px" />
+							<h:selectOneListbox value="" style="width:100px" />
+						</h:panelGroup>
+						<h:outputLabel value="Ngày yêu cầu" />
+						<h:panelGrid style="width:700px;" columns="3">
+							<h:inputText value="" style="width:150px" />
+							<h:outputLabel value="Ngày hoàn thành các xử lí" />
+							<h:inputText value="" style="width:150px" />
+						</h:panelGrid>
+						<h:outputLabel value="Ghi chú" />
+						<h:inputText value="" style="width:450px" />
+						<h:outputLabel value="Lý do yêu cầu" />
+						<h:inputText value="" style="width:450px" />
+					</h:panelGrid>
+					<div style="height: 5px" />
+					<h:panelGroup style="margin-left:150px;">
+						<a4j:commandLink value="Yêu cầu" styleClass="bt_select"
+							style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 15px" />
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/button35.jpg"
+							style="float:left;margin-top:-4px;margin-right:5px;" />
+						<h:outputLabel
+							value="Yêu cầu thanh toán thẻ chợ đầu mối/ xác nhận trình duyệt" />
+						<a4j:commandLink value="Xem thông tin chi tiết"
+							styleClass="bt_select" style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+
+					<h:panelGrid style="width:960px;border: 1px solid" columns="2"
+						rules="all">
+						<h:outputLabel value="Trạng thái" />
+						<h:selectOneListbox value="" style="width:150px" />
+						<h:outputLabel value="Ngày yêu cầu" />
+						<h:panelGrid style="width:700px;" columns="3">
+							<h:inputText value="" style="width:150px" />
+							<h:outputLabel value="Ngày hoàn thành các xử lí" />
+							<h:inputText value="" style="width:150px" />
+						</h:panelGrid>
+						<h:outputLabel value="Ghi chú" />
+						<h:inputText value="" style="width:450px" />
+						<h:outputLabel value="Lý do yêu cầu" />
+						<h:inputText value="" style="width:450px" />
+					</h:panelGrid>
+					<div style="height: 5px" />
+					<h:panelGroup style="margin-left:150px;">
+						<a4j:commandLink value="Yêu cầu" styleClass="bt_select"
+							style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/button35.jpg"
+							style="float:left;margin-top:-4px;margin-right:5px;" />
+						<h:outputLabel
+							value="Xác nhận trình duyệt, yêu cầu thông tin sản phẩm của seller" />
+						<a4j:commandLink value="Xem thông tin chi tiết"
+							styleClass="bt_select" style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+
+					<h:panelGrid style="width:960px;border: 1px solid" columns="2"
+						rules="all">
+						<h:outputLabel value="Trạng thái" />
+						<h:selectOneListbox value="" style="width:150px" />
+						<h:outputLabel value="Ngày yêu cầu" />
+						<h:panelGrid style="width:700px;" columns="3">
+							<h:inputText value="" style="width:150px" />
+							<h:outputLabel value="Ngày hoàn thành các xử lí" />
+							<h:inputText value="" style="width:150px" />
+						</h:panelGrid>
+						<h:outputLabel value="Ghi chú" />
+						<h:inputText value="" style="width:450px" />
+						<h:outputLabel value="Lý do yêu cầu" />
+						<h:inputText value="" style="width:450px" />
+					</h:panelGrid>
+					<div style="height: 5px" />
+					<h:panelGroup style="margin-left:150px;">
+						<a4j:commandLink value="Button 1" styleClass="bt_select"
+							style="height:16px;" />
+						<a4j:commandLink value="Button 2" styleClass="bt_select"
+							style="height:16px;" />
+						<a4j:commandLink value="Button 3" styleClass="bt_select"
+							style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/button35.jpg"
+							style="float:left;margin-top:-4px;margin-right:5px;" />
+						<h:outputLabel
+							value="Yêu cầu quyền tiếp xúc với mục đích đánh giá sản phẩm" />
+						<a4j:commandLink value="Xem thông tin chi tiết"
+							styleClass="bt_select" style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+
+					<h:panelGrid style="width:960px;border: 1px solid" columns="2"
+						rules="all">
+						<h:outputLabel value="Trạng thái" />
+						<h:selectOneListbox value="" style="width:150px" />
+						<h:outputLabel value="Ngày yêu cầu" />
+						<h:panelGrid style="width:700px;" columns="3">
+							<h:inputText value="" style="width:150px" />
+							<h:outputLabel value="Ngày hoàn thành các xử lí" />
+							<h:inputText value="" style="width:150px" />
+						</h:panelGrid>
+						<h:outputLabel value="Ghi chú" />
+						<h:inputText value="" style="width:450px" />
+						<h:outputLabel value="Lý do yêu cầu" />
+						<h:inputText value="" style="width:450px" />
+					</h:panelGrid>
+					<div style="height: 5px" />
+					<h:panelGroup style="margin-left:150px;">
+						<a4j:commandLink value="Yêu cầu" styleClass="bt_select"
+							style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/button35.jpg"
+							style="float:left;margin-top:-4px;margin-right:5px;" />
+						<h:outputLabel value="Yêu cầu quyền đăng kí sản phẩm" />
+						<a4j:commandLink value="Xem thông tin chi tiết"
+							styleClass="bt_select" style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+
+					<h:panelGrid style="width:960px;border: 1px solid" columns="2"
+						rules="all">
+						<h:outputLabel value="Trạng thái" />
+						<h:selectOneListbox value="" style="width:150px" />
+						<h:outputLabel value="Ngày yêu cầu" />
+						<h:panelGrid style="width:700px;" columns="3">
+							<h:inputText value="" style="width:150px" />
+							<h:outputLabel value="Ngày hoàn thành các xử lí" />
+							<h:inputText value="" style="width:150px" />
+						</h:panelGrid>
+						<h:outputLabel value="Ghi chú" />
+						<h:inputText value="" style="width:450px" />
+						<h:outputLabel value="Lý do yêu cầu" />
+						<h:inputText value="" style="width:450px" />
+					</h:panelGrid>
+					<div style="height: 5px" />
+					<h:panelGroup style="margin-left:150px;">
+						<a4j:commandLink value="Yêu cầu" styleClass="bt_select"
+							style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/button35.jpg"
+							style="float:left;margin-top:-4px;margin-right:5px;" />
+						<h:outputLabel
+							value="Xác nhận trình duyệt/yêu cầu sản phẩm thương hiệu của seller" />
+						<a4j:commandLink value="Xem thông tin chi tiết"
+							styleClass="bt_select" style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+
+					<h:panelGrid style="width:960px;border: 1px solid" columns="2"
+						rules="all">
+						<h:outputLabel value="Trạng thái" />
+						<h:selectOneListbox value="" style="width:150px" />
+						<h:outputLabel value="Ngày yêu cầu" />
+						<h:panelGrid style="width:700px;" columns="3">
+							<h:inputText value="" style="width:150px" />
+							<h:outputLabel value="Ngày hoàn thành các xử lí" />
+							<h:inputText value="" style="width:150px" />
+						</h:panelGrid>
+						<h:outputLabel value="Ghi chú" />
+						<h:inputText value="" style="width:450px" />
+						<h:outputLabel value="Lý do yêu cầu" />
+						<h:inputText value="" style="width:450px" />
+						<h:outputLabel value="Điều khoản trở thành hội viên của BRAND ON" />
+						<h:panelGrid styleClass="label"
+							style="width:700px; border: 1px solid gray;float:left;height:205px;overflow: auto;display:block;"
+							columns="1">
+
+						</h:panelGrid>
+					</h:panelGrid>
+					<div style="height: 5px" />
+					<h:panelGroup style="margin-left:150px;">
+						<a4j:commandLink value="Yêu cầu" styleClass="bt_select"
+							style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+					<h:panelGroup>
+						<h:graphicImage url="/resources/images/button35.jpg"
+							style="float:left;margin-top:-4px;margin-right:5px;" />
+						<h:outputLabel
+							value="Trong mục lí do yêu cầu, cho địa chỉ hình ảnh cũng nhu địa chỉ site shopping
+						 để xác nhận thông tin sản phẩm và danh mục sản phẩm chủ yếu" />
+						<a4j:commandLink value="Button 1" styleClass="bt_select"
+							style="height:16px;" />
+					</h:panelGroup>
+					<div style="height: 10px" />
+
+					<h:panelGrid style="width:960px;border: 1px solid" columns="2"
+						rules="all">
+						<h:outputLabel value="Trạng thái" />
+						<h:selectOneListbox value="" style="width:150px" />
+						<h:outputLabel value="Ngày yêu cầu" />
+						<h:panelGrid style="width:700px;" columns="3">
+							<h:inputText value="" style="width:150px" />
+							<h:outputLabel value="Ngày hoàn thành các xử lí" />
+							<h:inputText value="" style="width:150px" />
+						</h:panelGrid>
+						<h:outputLabel value="Ghi chú" />
+						<h:inputText value="" style="width:450px" />
+						<h:outputLabel value="Lý do yêu cầu" />
+						<h:inputText value="" style="width:450px" />
+						<h:outputLabel value="Đăng kí các loại tiêu biểu" />
+						<h:panelGroup>
+							<h:selectOneListbox value="" style="width:150px" />
+							<h:selectOneListbox value="" style="width:150px" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<div style="height: 5px" />
+					<h:panelGroup style="margin-left:150px;">
+						<a4j:commandLink value="Yêu cầu" styleClass="bt_select"
+							style="height:16px;" />
+					</h:panelGroup>
+
+					<div style="height: 10px" />
+					<div style="height: 25px" />
+
+				</div>
+
+			</div>
+		</h:form>
+
+
+	</h:body>
+</f:view>
+</html>

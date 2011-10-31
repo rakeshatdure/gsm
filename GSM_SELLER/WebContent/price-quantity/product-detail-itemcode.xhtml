@@ -1,0 +1,399 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+	<h:head>
+		<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
+		<h:outputStylesheet name="/pro-style.css" library="/css" />
+		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
+	</h:head>
+	<h:body>
+		<h:form rendered="#{company.user.role.roleId != 4}">
+			<div style="text-align: center; padding: 50px">
+				<h3>
+					<h:outputText value="You don't have permission" />
+				</h3>
+			</div>
+		</h:form>
+		<h:form rendered="#{company.user.role.roleId == 4}">
+			<div style="width: 1224px">
+				<ui:insert>
+					<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
+				</ui:insert>
+				<div style="height: 5px" />
+
+				<div style="width: 960px; float: left;">
+					<h:panelGrid
+						style="width:960px;background-color:#3859b0;height:38px;-webkit-border-radius: 10px;
+     					 -moz-border-radius: 10px; border-radius: 10px;"
+						columns="11">
+						<h:outputLabel value="Giới thiệu về Itemcodi"
+							style="font-weight: bold;font-size:14px;color:white" />
+						<h:outputLabel value="|" />
+						<h:outputLabel value="Thủ tục sử dụng dịch vụ"
+							style="font-weight: bold;font-size:14px;color:white" />
+						<h:outputLabel value="|" />
+						<h:outputLabel value="Thử nghiệm dịch vụ"
+							style="font-weight: bold;font-size:14px;color:white" />
+						<h:outputLabel value="|" />
+						<h:outputLabel value="Phí dịch vụ và yêu cầu"
+							style="font-weight: bold;font-size:14px;color:white" />
+						<h:outputLabel value="|" />
+						<h:outputLabel value="Trung tâm khách hàng"
+							style="font-weight: bold;font-size:14px;color:white" />
+						<a4j:commandButton value="CODI của tôi" styleClass="bt_header"
+							style="font-weight: bold;font-size:12px;color:white" />
+					</h:panelGrid>
+					<div style="height: 3px" />
+					<h:panelGrid style="width: 960px; border: 3px solid #e7e7e7;">
+						<h:panelGrid style="width: 960px;" columns="2">
+							<h:panelGrid style="width:650px">
+								<h:panelGroup>
+									<h:graphicImage url="/resources/images/hinh11.jpg"
+										style="float:left;margin-right:10px;margin-left:60px;" />
+									<h:outputLabel value="ItemCODI là?"
+										style="font-weight: bold;font-size:20px;color:#3b6eca;" />
+									<div style="height: 5px;" />
+									<h:outputLabel value="content 1" />
+									<div style="height: 60px;" />
+									<div style="border: 1px solid #cccccc;" />
+									<div style="height: 20px;" />
+									<h:panelGroup>
+										<h:graphicImage url="/resources/images/hinh12.jpg"
+											style="float:left;margin-right:13px;margin-top:4px;" />
+										<h:outputLabel value="Label 1"
+											style="font-weight: bold;font-size:20px;color:black;" />
+									</h:panelGroup>
+									<h:panelGrid columns="1"
+										style="width:500px;border: 1px solid #f2f2f2;margin-left:47px;">
+										<h:outputLabel value="Label 2"
+											style="font-weight: bold;font-size:18px;color:black;" />
+										<h:panelGroup>
+											<h:graphicImage url="/resources/images/hinh13.jpg"
+												style="float:left;margin-right:10px;" />
+											<h:outputLabel value="content 1" />
+											<div style="height: 3px" />
+											<h:outputLabel value="content 1" />
+											<a4j:commandLink value="Xem chi tiết" styleClass="bt_select" style="margin-left:7px;"/>
+										</h:panelGroup>
+									</h:panelGrid>
+								</h:panelGroup>
+							</h:panelGrid>
+							<h:panelGrid style="width:300px;float:right;">
+								<h:panelGrid style="width:250px;border:2px solid #e7e7e7;">
+									<h:panelGroup>
+										<h:graphicImage url="/resources/images/hinh5.png"
+											style="float:left;margin-top:-2px;" />
+										<h:outputLabel value="Label 1" />
+									</h:panelGroup>
+									<div style="width: 240px; border: 1px solid #e7e7e7;" />
+									<a4j:commandButton value="CODI CỦA TÔI" styleClass="bt_header"
+										style="font-weight: bold;font-size:12px;color:white;margin-left:50px;" />
+								</h:panelGrid>
+								<h:panelGrid style="width:250px;border:2px solid #e7e7e7;">
+									<h:panelGroup>
+										<h:outputLabel value="CUSTOMER CENTER"
+											style="font-weight: bold;font-size:12px;color:#4a78d0;" />
+										<div style="height: 3px;" />
+										<h:outputLabel value=" * Note 1" />
+									</h:panelGroup>
+									<div style="width: 240px; border: 1px solid #e7e7e7;" />
+									<h:panelGroup>
+										<h:graphicImage url="/resources/images/hinh14.jpg"
+											style="float:left;" />
+										<h:outputLabel value="02.2015.3665" />
+									</h:panelGroup>
+									<div style="width: 240px; border: 1px solid #e7e7e7;" />
+									<div style="height: 3px;" />
+									<h:panelGroup>
+										<h:outputLabel value="Thắc mắc online" />
+										<a4j:commandLink value="Thắc mắc" styleClass="bt_select" style="margin-left:7px;"/>
+										<div style="height: 3px;" />
+									</h:panelGroup>
+								</h:panelGrid>
+								<h:panelGrid style="width:250px;border:2px solid #e7e7e7;">
+									<h:panelGroup>
+										<h:outputLabel value="Đăng kí COUPON"
+											style="font-weight: bold;font-size:12px;color:#4a78d0;" />
+										<div style="height: 3px;" />
+										<h:outputLabel
+											value=" Đăng kí phiếu giảm giá được phát hành online và offline" />
+									</h:panelGroup>
+									<div style="width: 240px; border: 1px solid #e7e7e7;" />
+									<div style="height: 3px;" />
+									<a4j:commandLink value="Đăng kí" styleClass="bt_select"
+										style="margin-left:90px;" />
+									<div style="height: 3px;" />
+								</h:panelGrid>
+							</h:panelGrid>
+							<a4j:commandButton value="Thử nghiệm dịch vụ"
+								styleClass="bt_bassic" style="margin-left:150px;" />
+							<h:outputLabel />
+							<h:panelGroup>
+								<div style="height: 20px" />
+								<div style="width: 500px; border: 1px solid #f2f2f2;" />
+								<div style="height: 20px" />
+							</h:panelGroup>
+						</h:panelGrid>
+						<h:panelGrid style="width:960px;">
+							<h:panelGrid style="width:960px;" columns="2">
+								<h:panelGroup>
+									<h:graphicImage url="/resources/images/hinh12.jpg"
+										style="float:left; margin-right:5px;" />
+									<h:outputLabel value="ItemCodi Skin"
+										style="font-weight: bold;font-size:14px;color:black;" />
+								</h:panelGroup>
+								<a4j:commandLink styleClass="bt_select" value="Xem thêm skin"
+									style="float:right;height:17px;margin-right:50px;" />
+							</h:panelGrid>
+
+							<div id="tabsNotice" style="width: 960px;">
+								<h:form id="form">
+									<h:panelGrid columns="2" style="width:960px">
+										<rich:tabPanel switchType="client" style="width:960px;">
+											<rich:tab header="Trang sản phẩm mới">
+												<h:form>
+													<rich:dataGrid value="" var="car" width="960px" border="0">
+														<rich:panel bodyClass="pbody">
+															<h:panelGrid columns="5">
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh15.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="black label" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh16.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="Mens room" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh17.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="물방울" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh18.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="Gradation" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh19.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="MUJI5" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+																
+															</h:panelGrid>
+														</rich:panel>
+														<f:facet name="footer">
+															<rich:dataScroller />
+														</f:facet>
+													</rich:dataGrid>
+												</h:form>
+											</rich:tab>
+											<rich:tab header="Trang sản phẩm được yêu thích">
+												<h:form>
+													<rich:dataGrid value="" var="car" width="900px" border="0">
+														<rich:panel bodyClass="pbody">
+															<h:panelGrid columns="5">
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh20.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="MUJI1" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh21.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="Health Food" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh22.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="nemo nemo" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh23.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="Modern kitchen" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh24.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="Memories FashionShop" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+															</h:panelGrid>
+														</rich:panel>
+														<f:facet name="footer">
+															<rich:dataScroller />
+														</f:facet>
+													</rich:dataGrid>
+												</h:form>
+											</rich:tab>
+											<rich:tab header="Trang sản phẩm người bán làm">
+												<h:form>
+													<rich:dataGrid value="" var="car" width="900px" border="0">
+														<rich:panel bodyClass="pbody">
+															<h:panelGrid columns="5">
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh25.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="STYLE SHOES" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh26.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="블랙리본" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh27.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="BEAUTY MAKE UP" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh28.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="City Woman" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+																<h:panelGroup>
+																	<h:graphicImage url="/resources/images/hinh29.jpg" />
+																	<div style="height: 2px;" />
+																	<h:outputLabel value="Mens room" />
+																	<div style="height: 5px;" />
+																	<a4j:commandLink value="Xem trước"
+																		styleClass="bt_select" />
+																</h:panelGroup>
+															</h:panelGrid>
+														</rich:panel>
+														<f:facet name="footer">
+															<rich:dataScroller />
+														</f:facet>
+													</rich:dataGrid>
+												</h:form>
+											</rich:tab>
+										</rich:tabPanel>
+
+									</h:panelGrid>
+								</h:form>
+							</div>
+
+						</h:panelGrid>
+						<h:panelGrid style="width:960px;">
+							<h:panelGroup>
+								<h:graphicImage url="/resources/images/hinh12.jpg"
+									style="float:left; margin-right:5px;" />
+								<h:outputLabel value="Yêu cầu và phí dịch vụ ItemCodi" />
+							</h:panelGroup>
+							<h:panelGroup>
+								<h:graphicImage url="/resources/images/hinh30.PNG"
+									style="float:left; margin-right:5px;margin-top:-2px;" />
+								<h:outputLabel value="Sản phẩm" />
+							</h:panelGroup>
+
+							<h:panelGroup>
+								<h:graphicImage url="/resources/images/hinh31.PNG"
+									style="float:left; margin-right:5px;margin-top:-2px;" />
+								<h:outputLabel value="Sản phẩm được thanh toán theo từng cái" />
+							</h:panelGroup>
+							<h:panelGrid columns="6" style="width:960px;">
+								<rich:extendedDataTable value="" var="car" id="table"
+									style="width:960px;">
+
+									<rich:column width="100px">
+										<f:facet name="header">
+											<h:outputText value="Sản phẩm" />
+										</f:facet>
+										<h:outputText value="light" />
+									</rich:column>
+									<rich:column width="100px">
+										<f:facet name="header">
+											<h:outputText value="Số lượng trang sp" />
+										</f:facet>
+										<h:outputText value="1 cái" />
+									</rich:column>
+									<rich:column width="100px">
+										<f:facet name="header">
+											<h:outputText value="Thời hạn sử dụng" />
+										</f:facet>
+										<h:outputText value="30 ngày" />
+									</rich:column>
+									<rich:column width="100px">
+										<f:facet name="header">
+											<h:outputText value="Giá sử dụng" />
+										</f:facet>
+										<h:outputText value="3500 cash" />
+									</rich:column>
+									<rich:column width="450px">
+										<f:facet name="header">
+											<h:outputText value="Khác" />
+										</f:facet>
+											<h:outputLabel
+												value="Khi tạo trang sp thì sp đã được thanh toán tương ứng với mỗi cái" />
+											<h:outputLabel
+												value="Trong thời gian sử dụng dịch vụ thì không được thanh toán 
+										thêm trong phần chỉnh sửa kiểm tra và hình ảnh" />
+									</rich:column>
+									<rich:column width="100px">
+										<f:facet name="header">
+											<h:outputText value="Yêu cầu sp" />
+										</f:facet>
+										<h:commandButton value="Yêu càu dịch vụ" />
+									</rich:column>
+								</rich:extendedDataTable>
+							</h:panelGrid>
+						</h:panelGrid>
+					</h:panelGrid>
+					<div style="height: 30px;" />
+				</div>
+			</div>
+		</h:form>
+	</h:body>
+</f:view>
+</html>

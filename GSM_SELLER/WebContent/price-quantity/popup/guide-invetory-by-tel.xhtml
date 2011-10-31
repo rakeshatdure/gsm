@@ -1,0 +1,65 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+	<h:head>
+		<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
+		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
+	</h:head>
+	<h:body>
+		<rich:popupPanel id="popupGuideInventory" modal="false"
+			autosized="true" resizeable="false" domElementAttachment="form"
+			onmaskclick="#{rich:component('popupGuideInventory')}.hide()"
+			style="width:800px">
+			<f:facet name="header">
+				<h:outputText
+					value="Phần hướng dẫn quản lý hàng tồn kho bằng điện thoại di động" />
+			</f:facet>
+			<f:facet name="controls">
+				<h:outputLink value="#"
+					onclick="#{rich:component('popupGuideInventory')}.hide(); return false;"><font color="red"> X </font></h:outputLink>
+			</f:facet>
+
+			<h:panelGrid
+				style="width:800px; border: 2px solid #c4c4c4;-webkit-border-radius: 10px; -moz-border-radius: 10px;
+					border-radius: 10px; ">
+				<h:panelGrid
+					style="width:780px;text-align:center;background:#f0f0f0;border: 1px solid #dbdada;-webkit-border-radius: 10px; -moz-border-radius: 10px;
+					border-radius: 10px; ">
+					<h:outputLabel value="sdj  sahd  askjdf  asdfhas" />
+				</h:panelGrid>
+				<h:panelGrid styleClass="label"
+					style="width:780px;float:right;height:405px;overflow: auto;display:block;"
+					columns="1">
+					<h:outputLabel value="Content 1" />
+					<div style="height: 2px;" />
+					<h:outputLabel value="Content 2" />
+					<div style="height: 5px;" />
+					<h:graphicImage url="/resources/images/img-popup1.PNG"
+						style="margin-left:84px;" />
+					<h:panelGrid columns="2" style="width:780px;">
+						<h:outputLabel />
+						<h:outputLabel value="Tiếng tây ứ dịch được"
+							style="float:right;margin-right:125px;" />
+					</h:panelGrid>
+					<div style="height: 5px;" />
+					<div style="border: 1px dotted gray" />
+					<div style="height: 5px;" />
+					<h:graphicImage url="/resources/images/img-popup2.PNG"
+						style="margin-left:120px" />
+					<div style="height: 5px;" />
+					<h:graphicImage url="/resources/images/img-popup3.PNG"
+						style="margin-left:130px" />
+				</h:panelGrid>
+			</h:panelGrid>
+		</rich:popupPanel>
+	</h:body>
+</f:view>
+</html>
