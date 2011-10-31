@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<body>
+	<ui:composition>
+		<div style="width: 960px;">
+			<h:panelGrid style="width:957px;margin-left:-10px;" columns="2">
+				<h:outputLabel
+					value="Sau 24h, sản phẩm không được hoàn tiền thì sẽ được giải quyết hoàn tiền tự động, khi giải quyết hoàn tiền
+				với những sản phẩm có vấn đề phát sinh, vui lòng lập mục hoàn tiền có đặt trước(những sản phẩm được thiết lập mục hoàn tiền
+				 có đặt trước thì không được giải quyết hoàn tiền tự động). Phí giữa trả hàng lại khi chưa được phê duyệt thì sẽ là âm(-)" />
+				<a4j:commandLink value="Button 1" styleClass="bt_header"
+					style="float:right;margin-top:-10px;height:16px;width:45px;" />
+			</h:panelGrid>
+			<div style="width: 960px">
+				<h:panelGrid style="width:957px;margin-left:-13px">
+					<h:form>
+						<rich:extendedDataTable id="table" value="" var=""
+							rowClasses="odd-row, even-row" sortMode="single"
+							frozenColumns="2" style="height:270px; width:957px;">
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Trạng thái gửi" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Số Kí kết" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Đặt trước hay không" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Ngày hoàn tất giải quyết đổi trả hàng" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Ngày hoàn tiền lại" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Ngày yêu cầu đổi(trả) hàng" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Ngày kí kết" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Số SP" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Tên SP" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Tùy chọn" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Số lượng" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 1" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 2" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 3" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 4" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 5" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 6" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 7" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 8" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 9" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 10" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 11" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 12" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 13" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+						</rich:extendedDataTable>
+					</h:form>
+				</h:panelGrid>
+			</div>
+
+			<div style="height: 5px" />
+			<h:panelGrid style="width:960px;">
+				<h:panelGroup>
+					<h:graphicImage url="/resources/images/hinh8.jpg"
+						style="float:left;" />
+					<h:outputLabel
+						value="Thông tin cart được kí kết tương ứng(số cart :)" />
+				</h:panelGroup>
+			</h:panelGrid>
+			<div style="height: 5px" />
+			<div style="width: 960px">
+				<h:panelGrid styleClass="label" style="width:957px;margin-left:-13px;">
+					<h:form>
+						<rich:extendedDataTable id="tableCart"
+							rowClasses="odd-row, even-row" sortMode="single"
+							frozenColumns="2" style="height:270px; width:957px;">
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Số kí kết" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Tên sản phẩm" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Số lượng" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Số tiền thanh toán" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Hình thức phí vận chuyển" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Phí vận chuyển trả cho khách" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Số hóa đơn(Công ty vận chuyển)" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Hình thức vận chuyển" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 1" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 2" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 3" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 4" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+							<rich:column style="text-align: center;">
+								<f:facet name="header">
+									<h:outputText value="Label 5" />
+								</f:facet>
+								<h:outputText value="" />
+							</rich:column>
+						</rich:extendedDataTable>
+					</h:form>
+				</h:panelGrid>
+			</div>
+			<div style="height: 15px;" />
+			<h:panelGrid>
+				<h:panelGroup>
+					<h:graphicImage url="/resources/images/hinh8.jpg"
+						style="float:left;" />
+					<h:outputLabel value="Thông tin giao dịch" />
+				</h:panelGroup>
+			</h:panelGrid>
+
+			<h:panelGrid style="width:957px;margin-left:-10px; border: 1px solid gray;" columns="4"
+				rules="all">
+				<h:outputLabel value="Tên Sp" />
+				<h:inputText value="" style="width:300px;" />
+				<h:outputLabel value="Tên người mua" />
+				<h:inputText value="" style="width:150px;" />
+
+				<h:outputLabel value="Thông tin lựa chọn" />
+				<h:inputText value="" style="width:300px;" />
+				<h:outputLabel value="Tên người nhận" />
+				<h:inputText value="" style="width:150px;" />
+
+				<h:outputLabel value="Ngày kí" />
+				<h:panelGrid columns="3">
+					<h:inputText value="" style="width:100px;" />
+					<h:outputLabel value="Số kí kết" />
+					<h:inputText value="" style="width:100px;" />
+				</h:panelGrid>
+				<h:outputLabel value="Số giỏ hàng"/>
+				<h:inputText value="" style="width:160px;"/>
+				
+				<h:outputLabel value="Ngày gửi hàng" />
+				<h:panelGrid columns="3" >
+					<h:inputText value="" style="width:100px;" />
+					<h:outputLabel value="Dịch vụ giao hàng tận nơi" />
+					<h:inputText value="" style="width:100px;" />
+				</h:panelGrid>
+				<h:outputLabel value="Số hóa đơn"/>
+				<h:inputText value="" style="width:160px;"/>
+				
+			</h:panelGrid>
+		</div>
+	</ui:composition>
+</body>
+</html>
