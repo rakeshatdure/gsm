@@ -22,6 +22,10 @@
                         <h:outputText value="Contact with Gmarket" />
                 </rich:menuItem>
                 <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/Notice.xhtml'">
+                        <h:outputText value="Notice" />
+                </rich:menuItem>
+                <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/seller-profile/profile_seller.xhtml'">
                         <h:outputText value="Seller Profile" />
                 </rich:menuItem>
@@ -42,6 +46,10 @@
                         <h:outputText value="ManagePriceAndAmount" />
                     </h:panelGrid>
                 </f:facet>
+                <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/mProduct.xhtml'">
+                        <h:outputText value="Manage Product" />
+                </rich:menuItem>
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/price-quantity/manage-price-quantity.xhtml'">
                         <h:outputText value="Manage price and amount" />

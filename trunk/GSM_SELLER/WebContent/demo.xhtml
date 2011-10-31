@@ -12,24 +12,12 @@
 		<title>demo Manage</title>
 	</h:head>
 	<h:body>
-		<h:commandButton value="Call the popup">
-	        <rich:componentControl target="popup" operation="show" />
-	    </h:commandButton>
-	    <rich:popupPanel id="popup" modal="true" resizeable="true"
-	        onmaskclick="#{rich:component('popup')}.hide()">
-	        <f:facet name="header">
-	            <h:outputText value="Simple popup panel" />
-	        </f:facet>
-	        <f:facet name="controls">
-	            <h:outputLink value="#"
-	                onclick="#{rich:component('popup')}.hide(); return false;">
-	                    X
-	                </h:outputLink>
-	        </f:facet>
-	        <p>You can also check and trigger events if the use clicks outside of the
-	        panel.</p>
-	        <p>In this example clicking outside closes the panel.</p>
-	    </rich:popupPanel>
+		 <h:form>
+	        <h:inputText value="#{textBean.text}">
+	            <a4j:ajax event="keyup" render="out" />
+	        </h:inputText>
+	        <h:outputText value="#{textBean.size}" id="out" />
+	    </h:form>	
 		
 	</h:body>
 </html>

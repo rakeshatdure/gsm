@@ -12,10 +12,10 @@ import POJO.Category;
 import POJO.CategoryChild;
 import POJO.CategorySub;
 
-@ManagedBean (name="categoryBeanH")
+@ManagedBean (name="registryProduct")
 @SessionScoped
-public class CategoryBean extends HibernateDAO {
-	
+public class RegistryProductBean extends HibernateDAO{
+
 	private List<Category> lCat;
 	private List<CategoryChild> lCatChil;
 	private List<CategorySub> lCatSub; 
@@ -23,6 +23,7 @@ public class CategoryBean extends HibernateDAO {
 	private String categoryChildId;
 	private String categorySubId;
 	private String lang;
+	private String SellingModeId;
 
 	public void setlCat(List<Category> lCat) {
 		this.lCat = lCat;
@@ -89,6 +90,13 @@ public class CategoryBean extends HibernateDAO {
 	public void setCategorySubId(String categorySubId) {
 		this.categorySubId = categorySubId;
 	}
-	
+
+	public void setSellingModeId(String sellingModeId) {
+		SellingModeId = sellingModeId;
+	}
+
+	public String getSellingModeId() {
+		return SellingModeId;
+	}
 	
 }

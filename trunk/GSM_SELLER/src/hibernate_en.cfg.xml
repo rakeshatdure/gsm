@@ -53,5 +53,6 @@
 		<mapping resource="POJO/Template.hbm.xml"/>
 		<mapping resource="POJO/Nganluong.hbm.xml"/>
 		<mapping resource="POJO/NLPayment.hbm.xml"/>
+		<mapping resource="POJO/SellingMode.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>
