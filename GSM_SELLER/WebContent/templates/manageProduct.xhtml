@@ -59,10 +59,10 @@
 						value="Trang quản lý tổng hợp sản phẩm có thể đăng ký sản phẩm mới hoặc biên tập hoặc chỉnh sửa lại thông tin sản phẩm"/>
 					</h:panelGrid>
 					<a4j:commandLink styleClass="bt_header" style="color:white"
-						onclick="window.open('http://localhost:8080/GSM_SELLER/templates/popup/hd-qly-ton-kho.jsf', 
+						onclick="window.open('#{facesContext.externalContext.requestContextPath}/templates/popup/hd-qly-ton-kho.jsf', 
 								'Hướng dẫn quản lý tồn kho', 'width=820,height=900', 'menubar=no, toolbar=no'); return false;" value="HD QL Tồn kho"/>
 					<a4j:commandLink styleClass="bt_header" value="Thông tin SP tồn kho" style="color:white"
-						onclick="window.open('http://localhost:8080/GSM_SELLER/templates/popup/hd-qly-ton-kho.jsf', 
+						onclick="window.open('#{facesContext.externalContext.requestContextPath}/templates/popup/hd-qly-ton-kho.jsf', 
 								'Thông tin về sản phẩm tồn kho', 'width=820,height=900', 'menubar=no, toolbar=no'); return false;"/>
 					<h:panelGroup>
 						<a class="bt_link" style="color:white" href="#">Chi tiết</a>
@@ -182,21 +182,21 @@
 					
 					<rich:panel style="width:370px;" styleClass="panel" bodyClass="bodyPanel" id="catPanel1">
 						<h:form>
-							<h:selectOneMenu style="width: 140px;" value="#{categoryBean.categoryId}" id="category1">
+							<h:selectOneMenu style="width: 140px;" value="#{categoryBeanH.categoryId}" id="category1">
 								<f:selectItem itemLabel="-- Chọn Category -- " itemValue="0"/> 
-								<f:selectItems value="#{categoryBean.lCat}" var="cat" itemValue="#{cat.categoryId}" itemLabel="#{cat.categoryName}"/>
+								<f:selectItems value="#{categoryBeanH.lCat}" var="cat" itemValue="#{cat.categoryId}" itemLabel="#{cat.categoryName}"/>
 								<f:ajax event="change" render="categoryChild1" execute="@form"/>
 							</h:selectOneMenu>
 							
-							<h:selectOneMenu style="width: 100px; margin: 0px 5px 0px 5px;" value="#{categoryBean.categoryChildId}" id="categoryChild1">
+							<h:selectOneMenu style="width: 100px; margin: 0px 5px 0px 5px;" value="#{categoryBeanH.categoryChildId}" id="categoryChild1">
 								<f:selectItem itemLabel="-- Chọn CategoryChild-- " itemValue="0"/>
-								<f:selectItems value="#{categoryBean.lCatChil}"  var="catC" itemValue="#{catC.categoryChildId}" itemLabel="#{catC.categoryChildName}"/>
+								<f:selectItems value="#{categoryBeanH.lCatChil}"  var="catC" itemValue="#{catC.categoryChildId}" itemLabel="#{catC.categoryChildName}"/>
 								<f:ajax event="change" render="categorySub1" />
 							</h:selectOneMenu>
 							
-							<h:selectOneMenu style="width: 100px;" value="#{categoryBean.categorySubId}" id="categorySub1">
+							<h:selectOneMenu style="width: 100px;" value="#{categoryBeanH.categorySubId}" id="categorySub1">
 								 <f:selectItem itemValue="0" itemLabel="-- Chọn CategorySub --" />
-								 <f:selectItems value="#{categoryBean.lCatSub}" var="catS" itemValue="#{catS.categorySubId}" itemLabel="#{catS.categorySubName}"/>
+								 <f:selectItems value="#{categoryBeanH.lCatSub}" var="catS" itemValue="#{catS.categorySubId}" itemLabel="#{catS.categorySubName}"/>
 							</h:selectOneMenu>
 						</h:form>
 					</rich:panel>

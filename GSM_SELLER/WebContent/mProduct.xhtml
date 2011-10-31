@@ -13,14 +13,15 @@
 	<h:body>
 		<div style="width: 1224px">
 			
-			<h:form rendered="#{company.user.role.roleId != 4}">
+			<!-- <h:form rendered="#{company.user.role.roleId != 4}">
 				<div style="text-align: center; padding: 50px">
 					<h3>
 						<h:outputText value="You don't have permission" />
 					</h3>
 				</div>
-			</h:form>
-			<h:form rendered="#{company.user.role.roleId == 4}">
+			</h:form> 
+			<h:form rendered="#{company.user.role.roleId == 4}">-->
+			<h:form>
 				<div style="position: fixed;z-index: 100;top:0px; width: 1224px;">
 					<ui:insert>
 						<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
