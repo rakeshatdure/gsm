@@ -1,0 +1,55 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+	<h:head>
+		<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
+		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
+		<h:outputStylesheet name="/pro-style.css" library="/css" />
+		<title>Hướng dẫn chi tiết mua sản phẩm của Plus</title>
+	</h:head>
+	<h:body>
+		<div style="overflow: auto; width: 810px; height: 770px;">
+			<h:panelGrid>
+				<h:graphicImage value="/resources/images/popup/banner.PNG"
+					style="width: 643px;height:66px;" />
+				<h:panelGroup>
+					<h:graphicImage value="/resources/images/popup/col1.PNG"
+						style="float:left;margin-top:-4px;width:11px;height:422px;" />
+					<h:panelGrid columns="1"
+						style="width:620px;background: #ececec;height:38px;font-size:16px;font-weight:bold;">
+						<h:outputLabel value="특가플러스 " />
+						<h:panelGrid style="width:612px;height:385px;overflow: auto;display:block;">
+							<h:graphicImage value="/resources/images/popup/content1.PNG"
+								style="width:610px;" />
+							<h:graphicImage value="/resources/images/popup/content2.PNG"
+								style="width:610px;" />
+							<h:graphicImage value="/resources/images/popup/content3.PNG"
+								style="width:610px;" />
+							<h:graphicImage value="/resources/images/popup/content4.PNG"
+								style="width:610px;" />
+						</h:panelGrid>
+					</h:panelGrid>
+					<h:graphicImage value="/resources/images/popup/col1.PNG"
+						style="float:right;margin-top:-420px;margin-right:3px;width:11px;height:422px;" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:graphicImage value="/resources/images/popup/cont.PNG" />
+					<h:graphicImage value="/resources/images/popup/cont2.PNG"
+						style="margin-left:0px;height:78px;width:251px;" />
+				</h:panelGroup>
+				<h:graphicImage value="/resources/images/popup/footer.PNG" />
+			</h:panelGrid>
+		</div>
+
+	</h:body>
+
+</f:view>
+</html>
