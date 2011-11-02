@@ -10,6 +10,7 @@ import DAO.HibernateDAO;
 import POJO.SellingMode;
 
 @ManagedBean (name="sellmodeBean")
+@SuppressWarnings("unchecked")
 public class SellModeBean extends HibernateDAO{
 	
 	List<SellingMode> lSellMode;
@@ -17,11 +18,9 @@ public class SellModeBean extends HibernateDAO{
 	
 	public SellModeBean() {
 	}
-
-	@SuppressWarnings("unchecked")
+	
 	public List<SellingMode> getlSellMode() {
-		lSellMode = HibernateDAO.getList("select sm.SellingModeId, sm.SellingMode from SellingMode sm", lang);
-		System.out.println("[[[[[[[[[[[[[[[[ So luong trong list: " + lSellMode.size());
+		lSellMode = HibernateDAO.getList("from SellingMode sm", lang);
 		return lSellMode;
 	}
 

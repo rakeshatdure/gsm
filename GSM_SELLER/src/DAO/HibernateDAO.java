@@ -28,9 +28,9 @@ public abstract class HibernateDAO {
         if(null==lang || lang.length()<=0 || lang.equals("MALL_VN")){
         	se =  HibernateUtil.getSessionFactoryVN().openSession();
         }else{
-        	if(lang.equals("MALL_EN")){
+        	if(lang.equals("MALL_EN")) {
         		se =  HibernateUtil.getSessionFactoryEN().openSession();
-        	}else{
+        	} else {
         		se =  HibernateUtil.getSessionFactoryKR().openSession();
         	}
         }

@@ -7,14 +7,6 @@
 		<pattern> /error </pattern>
 		<view-id> /error.xhtml </view-id>
 	</url-mapping>
-	<url-mapping id="Notice">
-		<pattern> /Notice.html </pattern>
-		<view-id> /Notice.xhtml </view-id>
-	</url-mapping>
-	<url-mapping id="ManageProduct">
-		<pattern> /mProduct.html </pattern>
-		<view-id> /mProduct.xhtml </view-id>
-	</url-mapping>
 	<url-mapping id="login1">
 		<pattern> /#{name}/erp </pattern>
 		<view-id> /checkDatabase.jsp </view-id>

@@ -88,7 +88,7 @@
 			<h:panelGrid style="text-align: left; width: 800px">
 				<h:panelGrid columns="2">
 					<h:selectOneRadio value="#{registryProduct.categorySubId}">
-						<f:selectItems value="#{sellmodeBean.lSellMode}" var="sm" itemLabel="#{sm.SellingMode}" itemValue="#{sm.SellingModeId}" />
+						<f:selectItems value="#{sellmodeBean.lSellMode}" var="sm" itemLabel="#{sm.sellingMode}" itemValue="#{sm.sellingModeId}" />
 					</h:selectOneRadio>
 					<a4j:commandLink value="판매방식별 수수료율 전체보기" styleClass="cmd1"/>
 				</h:panelGrid>
