@@ -72,6 +72,8 @@ public class RegistryProductBean extends HibernateDAO{
 	}
 
 	public void setCategoryId(String categoryId) {
+		categoryChildId = "";
+		categorySubId = "";
 		this.categoryId = categoryId;
 	}
 
@@ -80,6 +82,7 @@ public class RegistryProductBean extends HibernateDAO{
 	}
 
 	public void setCategoryChildId(String categoryChildId) {
+		categorySubId = "";
 		this.categoryChildId = categoryChildId;
 	}
 

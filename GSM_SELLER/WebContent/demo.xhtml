@@ -13,11 +13,9 @@
 	</h:head>
 	<h:body>
 		 <h:form>
-	        <h:inputText value="#{textBean.text}">
-	            <a4j:ajax event="keyup" render="out" />
-	        </h:inputText>
-	        <h:outputText value="#{textBean.size}" id="out" />
-	    </h:form>	
-		
+			<h:inputText value="#{demo.demo}" valueChangeListener="#{demo.getText}"/>
+			<h:commandButton value="action" render="out" execute="@form"/>
+			<h:outputText value="#{demo.demo}" id="out"/>
+		</h:form>
 	</h:body>
 </html>

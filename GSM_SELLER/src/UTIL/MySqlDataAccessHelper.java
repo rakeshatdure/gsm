@@ -4,6 +4,7 @@
  */
 package UTIL;
 
+import java.io.Serializable;
 import java.sql.*;
 import java.util.*;
 import java.util.logging.Level;
@@ -12,10 +13,14 @@ import java.util.logging.Logger;
  *
  * @author LyHao
  */
-public class MySqlDataAccessHelper {
+public class MySqlDataAccessHelper implements Serializable {
 
     
-    private Connection connection;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -609804387810613342L;
+	private Connection connection;
 
    
     public Connection getConnection() {
