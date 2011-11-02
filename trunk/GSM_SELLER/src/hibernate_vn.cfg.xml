@@ -58,5 +58,6 @@
   <mapping resource="POJO/market.hbm.xml"/>
   <mapping resource="POJO/Focus.hbm.xml"/>
   <mapping resource="POJO/FocusOn.hbm.xml"/>
+  <mapping resource="POJO/TransactionInfo.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>

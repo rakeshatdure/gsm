@@ -60,7 +60,7 @@
 							<h:selectOneMenu style="width: 140px;" value="#{registryProduct.categoryId}" id="category1">
 								<f:selectItem itemLabel="-- Chọn Category -- " itemValue="0"/> 
 								<f:selectItems value="#{registryProduct.lCat}" var="cat" itemValue="#{cat.categoryId}" itemLabel="#{cat.categoryName}"/>
-								<f:ajax event="change" render="categoryChild1" execute="@form"/>
+								<a4j:ajax event="change" render="categoryChild1,categorySub1"/>
 							</h:selectOneMenu>
 							
 							<h:selectOneMenu style="width: 100px; margin: 0px 5px 0px 5px;" value="#{registryProduct.categoryChildId}" id="categoryChild1">

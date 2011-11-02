@@ -132,31 +132,49 @@
 							<h:outputLabel value="Tổng số sản phẩm: " styleClass="bg_list"/>
 							<h:outputLabel value="#{searchpro.sizeListAllProduct}" style="color: #2985ad; font-weight: bold;"/>
 							<h:outputLabel value=" SP" />
-							<h:outputLabel value="Open Market ( Hàng tồn kho dưới 3 đơn vị: " style="margin: 0px 0px 0px 20px;"  styleClass="bg_list"/>
-							<h:outputLabel value="#{searchpro.sizeListProduct1}" style="color: #2985ad; font-weight: bold;" />
-							<h:outputLabel value=" SP | Trong 30 ngày mãn hạn: " />
-							<h:outputLabel value="#{searchpro.sizeListProduct2}" style="color: #2985ad; font-weight: bold;" />
+							<h:outputLabel value="Open Market ( Hàng tồn kho dưới 3 đơn vị: " style="margin: 0px 0px 0px 20px; cursor: pointer;"  styleClass="bg_list"/>
+							<a4j:commandLink value="#{searchpro.sizeListProduct1}" style="color: #2985ad; font-weight: bold;">
+								<a4j:param value="1" assignTo="#{searchpro.showTable}" />
+								<a4j:ajax event="click" render="tableProSearch"/>
+							</a4j:commandLink>
+							<h:outputLabel value=" SP | Trong 30 ngày mãn hạn: " style="cursor: pointer;"/>
+							<a4j:commandLink value="#{searchpro.sizeListProduct2}" style="color: #2985ad; font-weight: bold;">
+								<a4j:param value="2" assignTo="#{searchpro.showTable}" />
+								<a4j:ajax event="click" render="tableProSearch"/>
+							</a4j:commandLink>
 							<h:outputLabel value=" SP )" />
 							</h:form>
 						</h:panelGroup>
 						<h:panelGroup>
 							<h:outputLabel value="Cung cấp thị trường ( Hàng tồn kho dưới 3 SP: "  styleClass="bg_list"/>
-							<h:outputLabel value="#{searchpro.sizeListProduct3}" style="color: #2985ad; font-weight: bold;"/>
+							<a4j:commandLink value="#{searchpro.sizeListProduct3}" style="color: #2985ad; font-weight: bold;">
+								<a4j:param value="3" assignTo="#{searchpro.showTable}" />
+								<a4j:ajax event="click" render="tableProSearch"/>
+							</a4j:commandLink>
 							<h:outputLabel value=" SP | Trong 30 ngày mãn hạn: "/>
-							<h:outputLabel value="#{searchpro.sizeListProduct4}" style="color: #2985ad; font-weight: bold;"/>
+							<a4j:commandLink value="#{searchpro.sizeListProduct4}" style="color: #2985ad; font-weight: bold;">
+								<a4j:param value="4" assignTo="#{searchpro.showTable}" />
+								<a4j:ajax event="click" render="tableProSearch"/>
+							</a4j:commandLink>
 							<h:outputLabel value=" SP )"/>
 						</h:panelGroup>
 						<h:panelGrid columns="4">
 							<h:graphicImage id="focus" alt="jsf-sun" url="/resources/images/icon_17.gif"/> 
 							<h:panelGroup>
 								<h:outputLabel value="Trong 30 ngày mãn hạn: "  styleClass="bg_list"/>
-								<h:outputLabel value="#{searchpro.sizeListProduct5}" style="color: #2985ad; font-weight: bold;" />
+								<a4j:commandLink value="#{searchpro.sizeListProduct5}" style="color: #2985ad; font-weight: bold;">
+									<a4j:param value="5" assignTo="#{searchpro.showTable}" />
+									<a4j:ajax event="click" render="tableProSearch"/>
+								</a4j:commandLink>
 								<h:outputLabel value=" SP | " />
 							</h:panelGroup>
 							<h:graphicImage id="focuson" alt="jsf-sun" url="/resources/images/icon_21.gif" style="margin-left: 5px;"/> 
 							<h:panelGroup>
 								<h:outputLabel value="Trong 30 ngày mãn hạn: " />
-								<h:outputLabel value="#{searchpro.sizeListProduct6}" style="color: #2985ad; font-weight: bold;" />
+								<a4j:commandLink value="#{searchpro.sizeListProduct6}" style="color: #2985ad; font-weight: bold;">
+									<a4j:param value="6" assignTo="#{searchpro.showTable}" />
+									<a4j:ajax event="click" render="tableProSearch"/>
+								</a4j:commandLink>
 								<h:outputLabel value=" SP )" />
 							</h:panelGroup>
 						</h:panelGrid>
@@ -174,7 +192,7 @@
 					<h:panelGrid columns="2">
 						<h:selectBooleanCheckbox title="Lượt xem SP bị cảnh báo trên 6 tháng so với ngày mãn hạn"
 							  value="#{searchpro.onCheck}">
-							  <a4j:ajax event="click" render="ttgd, ptb1, ptb2 @this" />
+							  <a4j:ajax event="click" render="ttgd, ptb1, ptb2" />
 						</h:selectBooleanCheckbox>
 						<h:outputText
 		  					value="Lượt xem SP bị cảnh báo trên 6 tháng so với ngày mãn hạn"/>
@@ -191,19 +209,20 @@
 					<rich:panel style="width:370px;" styleClass="panel" bodyClass="bodyPanel" id="catPanel1">
 						<h:form>
 							<h:selectOneMenu style="width: 140px;" value="#{categoryBeanH.categoryId}" id="category1">
-								<f:selectItem itemLabel="-- Chọn Category -- " itemValue="0"/> 
+								<f:selectItem itemLabel="-- Chọn Category -- " itemValue="-1"/> 
 								<f:selectItems value="#{categoryBeanH.lCat}" var="cat" itemValue="#{cat.categoryId}" itemLabel="#{cat.categoryName}"/>
-								<f:ajax event="change" render="categoryChild1" execute="@form"/>
+								<a4j:ajax event="change" render="categoryChild1,categorySub1"/>
 							</h:selectOneMenu>
 							
-							<h:selectOneMenu style="width: 100px; margin: 0px 5px 0px 5px;" value="#{categoryBeanH.categoryChildId}" id="categoryChild1">
-								<f:selectItem itemLabel="-- Chọn CategoryChild-- " itemValue="0"/>
+							<h:selectOneMenu style="width: 100px; margin: 0px 5px 0px 5px;" value="#{categoryBeanH.categoryChildId}"
+								 id="categoryChild1" disabled="#{categoryBeanH.onCC}">
+								<f:selectItem itemLabel="-- Chọn CategoryChild-- " itemValue="-1"/>
 								<f:selectItems value="#{categoryBeanH.lCatChil}"  var="catC" itemValue="#{catC.categoryChildId}" itemLabel="#{catC.categoryChildName}"/>
 								<f:ajax event="change" render="categorySub1" />
 							</h:selectOneMenu>
 							
-							<h:selectOneMenu style="width: 100px;" value="#{categoryBeanH.categorySubId}" id="categorySub1">
-								 <f:selectItem itemValue="0" itemLabel="-- Chọn CategorySub --" />
+							<h:selectOneMenu style="width: 100px;" value="#{categoryBeanH.categorySubId}" id="categorySub1" disabled="#{categoryBeanH.onCS}">
+								 <f:selectItem itemValue="-1" itemLabel="-- Chọn CategorySub --" />
 								 <f:selectItems value="#{categoryBeanH.lCatSub}" var="catS" itemValue="#{catS.categorySubId}" itemLabel="#{catS.categorySubName}"/>
 							</h:selectOneMenu>
 						</h:form>
@@ -234,19 +253,20 @@
 					</rich:panel>
 					
 					<h:panelGrid columns="4" width="390px">
-						<h:selectOneMenu style="width: 85px;" id="ttgd" readonly="">
-							 <f:selectItem itemValue="0" itemLabel="Khả năng giao dịch"/>
-							 <f:selectItem itemValue="0" itemLabel="Có thể giao dịch"/>
-							 <f:selectItem itemValue="0" itemLabel="Ngừng kinh doanh"/>
-							 <f:selectItem itemValue="0" itemLabel="Xóa bỏ thương mại"/>
-							 <f:selectItem itemValue="0" itemLabel="Hạn chế các mặt hàng"/>
+						<h:selectOneMenu style="width: 80px;" id="ttgd" disabled="#{searchpro.checkTTGD}" value="#{searchpro.ttgiaodich}">
+							 <f:selectItems value="#{searchpro.listTransInfo}" var="trans" itemValue="#{trans.transactionInfoId}" 
+							 	itemLabel="#{trans.transactionInfo}"/>
 						</h:selectOneMenu>
 						<h:outputText value="Phương thức bán"/>
-						<h:selectOneMenu style="width: 70px;margin-left:10px;" id="ptb1">
-							 <f:selectItem itemValue="0" itemLabel="Tất cả"/>
+						<h:selectOneMenu style="width: 70px;margin-left:10px;" id="ptb1" value="#{searchpro.sellMode}">
+							 <f:selectItem itemValue="-1" itemLabel="Tất cả"/>
+							 <f:selectItems value="#{sellmodeBean.lSellMode}" var="sm" itemLabel="#{sm.sellingMode}" itemValue="#{sm.sellingModeId}" />
+							 <f:ajax event="change" render="ptb2" execute="@form"/>
 						</h:selectOneMenu> 
-						<h:selectOneMenu style="width: 70px;" id="ptb2">
-							<f:selectItem itemValue="0" itemLabel="Tất cả"/>
+						<h:selectOneMenu style="width: 70px;" id="ptb2" disabled="#{searchpro.checkPTB2}" value="#{searchpro.tinhTrang}">
+							<f:selectItem itemValue="-1" itemLabel="Tất cả"/>
+							<f:selectItem itemValue="1" itemLabel="Tồn kho"/>
+							<f:selectItem itemValue="2" itemLabel="Hết hàng"/>
 						</h:selectOneMenu> 
 					</h:panelGrid>
 					<h:selectOneMenu id="soSP" value="" style="width: 80px;">
@@ -259,118 +279,118 @@
 					</h:panelGrid>	
 				</h:panelGrid>
 				<!-- hien thi table tim kiem -->
-				<rich:extendedDataTable id="table" value="" var=""
-	                 rowClasses="odd-row, even-row"  sortMode="single"
-	                frozenColumns="2" style="height:250px; width:960px;">
-					<rich:column style="text-align: center;" headerClass="abc">
+				<rich:extendedDataTable id="tableProSearch" value="#{searchpro.listProductSearch}" var="lpro" iterationStatusVar="it"
+	                 rowClasses="odd-row, even-row" frozenColumns="2" style="height:250px; width:960px;">
+					<rich:column style="text-align: center" width="40px" headerClass="abc">
 		                <f:facet name="header">
-                      			<h:outputText value="Lựa chọn"/>
+                      			<h:outputText value="STT"/>
 		                </f:facet>
-		                <h:outputText value=""/>
+		                #{it.index}
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
-                      			<h:outputText value="Số SP" />
+                      			<h:outputText value="Mã SP" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.productId}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
-                      			<h:outputText value="MS người bán" />
+                      			<h:outputText value="Seller" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.account}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
-                      			<h:outputText value="Lựa chọn" />
+                      			<h:outputText value="Danh mục lớn" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.category}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
-                      			<h:outputText value="PL lớn" />
+                      			<h:outputText value="Danh mục trung" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.categoryChild}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
-                      			<h:outputText value="PL trung" />
+                      			<h:outputText value="Danh mục nhỏ" />
 		                </f:facet>
-		                <h:outputText value=""/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="PL nhở" />
-		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.categorySub}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
                       			<h:outputText value="Tên sản phẩm" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.productName}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
-                      			<h:outputText value="Nhà sx" />
+                      			<h:outputText value="Nhà sản xuất" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.manufacturerId}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
-                      			<h:outputText value="Lựa chọn" />
+                      			<h:outputText value="Đơn vị" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.unit}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
                       			<h:outputText value="Trạng thái" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.productType}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
                       			<h:outputText value="Thị trường giao dịch" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.market}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
-                      			<h:outputText value="Chưa rõ" />
+                      			<h:outputText value="Focus" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.focus}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
-                      			<h:outputText value="Lựa chọn" />
+                      			<h:outputText value="Focus+" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.focusOn}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
-                      			<h:outputText value="Tồn kho" />
+                      			<h:outputText value="Ngày cập nhập" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.uploadDate}"/>
+		            </rich:column>
+		            <rich:column style="text-align: center;" headerClass="abc">
+		                <f:facet name="header">
+                      			<h:outputText value="Nguồn gốc" />
+		                </f:facet>
+		                <h:outputText value="#{lpro.origin}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
                       			<h:outputText value="Số lượng" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.amount}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
-                      			<h:outputText value="Ngày đầu" />
+                      			<h:outputText value="Giá cả" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.price}"/>
 		            </rich:column>
 		            <rich:column style="text-align: center;" headerClass="abc">
 		                <f:facet name="header">
-                      			<h:outputText value="Chưa rõ" />
+                      			<h:outputText value="Trạng thái giao dịch" />
 		                </f:facet>
-		                <h:outputText value=""/>
+		                <h:outputText value="#{lpro.transactionInfo}"/>
 		            </rich:column>
 				</rich:extendedDataTable>
+				
 				<h:panelGrid columns="5" style="margin: 5px;" >
 					<h:outputText value="Lựa chọn mục"/>
 					

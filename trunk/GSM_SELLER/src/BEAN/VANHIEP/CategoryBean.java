@@ -23,6 +23,9 @@ public class CategoryBean extends HibernateDAO {
 	private String categoryChildId;
 	private String categorySubId;
 	private String lang;
+	
+	private boolean onCC = true;
+	private boolean onCS = true;
 
 	public void setlCat(List<Category> lCat) {
 		this.lCat = lCat;
@@ -71,6 +74,10 @@ public class CategoryBean extends HibernateDAO {
 	}
 
 	public void setCategoryId(String categoryId) {
+		categoryChildId = "";
+		categorySubId = "";
+		setOnCC(false);
+		setOnCS(true);
 		this.categoryId = categoryId;
 	}
 
@@ -79,6 +86,8 @@ public class CategoryBean extends HibernateDAO {
 	}
 
 	public void setCategoryChildId(String categoryChildId) {
+		categorySubId = "";
+		setOnCS(false);
 		this.categoryChildId = categoryChildId;
 	}
 
@@ -89,6 +98,22 @@ public class CategoryBean extends HibernateDAO {
 	public void setCategorySubId(String categorySubId) {
 		this.categorySubId = categorySubId;
 	}
-	
+
+	public void setOnCC(boolean onCC) {
+		this.onCC = onCC;
+	}
+
+	public boolean isOnCC() {
+		return onCC;
+	}
+
+	public void setOnCS(boolean onCS) {
+		this.onCS = onCS;
+	}
+
+	public boolean isOnCS() {
+		return onCS;
+	}
+
 	
 }
