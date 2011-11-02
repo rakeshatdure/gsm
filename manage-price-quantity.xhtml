@@ -1,0 +1,437 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+	<h:head>
+		<h:outputStylesheet name="/common-style.css" library="/css"></h:outputStylesheet>
+		<h:outputStylesheet name="/pro-style.css" library="/css" />
+		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
+	</h:head>
+	
+	<h:body>
+		<h:form rendered="#{company.user.role.roleId != 4}">
+			<div style="text-align: center; padding: 50px">
+				<h3>
+					<h:outputText value="You don't have permission" />
+				</h3>
+			</div>
+		</h:form>
+		<h:form rendered="#{company.user.role.roleId == 4}">
+			<div style="width: 1224px">
+				<ui:insert>
+					<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
+				</ui:insert>
+				<div style="height: 5px" />
+
+				<div style="width: 960px; float: left;">
+					<h:panelGrid
+						style="width:960px;background-color:#3859b0;height:38px;">
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/icon_tt.png"
+								style="float:left;margin-top:-7px;margin-right:6px;" />
+							<h:outputLabel value="Quản lý giá cả, số lượng"
+								style="color:white;font-weight:bold;font-size:14px;" />
+						</h:panelGroup>
+					</h:panelGrid>
+
+					<div style="height: 3px" />
+					<h:panelGrid
+						style="width:960px; height: 40px; border: 2px solid #c2d5e3;"
+						columns="4">
+						<h:panelGrid width="500px">
+							<h:outputLabel
+								style="backgroud-color: #f2f4f2;padding-right: 30px;width: 500px;"
+								value="Menu chính là trang chỉnh sửa, thiết lập thời hạn hiển thị số lượng giá của sản phẩm của open market" />
+						</h:panelGrid>
+						<a4j:commandLink value="HDQL tồn kho=ĐTDĐ" styleClass="bt_header"
+							onclick="window.open('http://localhost:8080/GSM_SELLER/price-quantity/popup/guide-invetory-by-tel.xhtml', 
+								'Hướng dẫn quản lý tồn kho bằng điện thoại di động', 'width=820,height=900', 'menubar=no, toolbar=no'); return false;">
+						</a4j:commandLink>
+
+						<a4j:commandLink styleClass="bt_header" value="Xem FAQ mini" />
+						<a4j:commandLink styleClass="bt_header" value="Xem/Đóng"
+							render="out" action="#{beantest.eventClick}" />
+						<a4j:outputPanel id="out">
+							<c:if test="#{beantest.on==true}">
+								<h:panelGrid columns="1" width="500px">
+									<div style="border: 1px dotted gray" />
+									<h:outputLabel
+										value="(등록하신 모든 상품을 보시려면 상품/가격/수량관리>>상품등록/관리에서 확인해주시기 바랍니다.)" />
+									<div style="height: 3px;" />
+									<h:outputLabel
+										value="1. 거래중인 나의 상품: 현재 판매자님의 거래가능한 상품이 속한 대분류 카테고리를 보여드립니다.
+     - '판매중인 상품조회' 클릭시 판매중인 상품수를 보여드립니다." />
+									<h:outputLabel
+										value="2. 일괄 유효기간 연장: 최대 상품 50건씩 설정한 유효기간에 따라 판매종료일을 연장할 수 있습니다." />
+									<h:outputLabel
+										value="3. 일괄 주문삭제: 최대 상품 50건씩 주문을 삭제(품절처리) 할 수 있습니다." />
+									<h:outputLabel
+										value="4. 가격 및 수량의 수정은 개별 상품을 리스트에서 선택하신 후에 수정하실 수 있습니다." />
+									<div style="height: 3px" />
+									<h:outputLabel
+										value="5. 예약/견적상품은 GSM >> 경매/흥정/예약/여행 >> 여행/견적/흥정/상담/설문관리에서 확인해주시기 바랍니다." />
+									<h:outputLabel
+										value="6. 각 상품에서 설정하신 선택정보들의 재고(수량) 관리는 GSM>>상품/가격/수량관리>>선택정보별 재고설정에서 확인해주시기 바랍니다. " />
+								</h:panelGrid>
+							</c:if>
+						</a4j:outputPanel>
+					</h:panelGrid>
+
+
+					<div style="height: 15px" />
+					<h:panelGrid style="width:960px">
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/bg_p3.png"
+								style="margin-top:-1px;float:left;" />
+							<h:outputLabel value="Sản phẩm của tôi đang được giao dịch" />
+							<a4j:commandButton value="Xem sản phẩm đang để bán"
+								styleClass="bt_bassic" style="margin-left:5px;" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<h:panelGrid style="width:960px; background:#e1eaf2;">
+						<h:outputLabel value=" Label 1" />
+					</h:panelGrid>
+					<div style="height: 30px" />
+
+					<h:panelGrid style="width:960px" columns="2">
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/bg_p3.png"
+								style="float:left;margin-top:-2px;" />
+							<h:outputLabel style="width:300px;font-size:20px;color:blue"
+								value="Quản lí giá cả, số lượng" />
+						</h:panelGroup>
+						<h:panelGroup style="width:200px; float:right;">
+							<a4j:commandButton value="Tìm" styleClass="bt_bassic"
+								action="#{productBeanM.search}" render="table" />
+							<a4j:commandButton value="Excel" styleClass="bt_bassic" />
+							<a4j:commandButton value="Chọn tất cả" styleClass="bt_bassic" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<h:outputLabel value="" />
+					<h:panelGrid columns="3" styleClass="label">
+						<h:form>
+							<rich:dataTable iterationStatusVar="" value="" rows="2"
+								columnClasses="center" selectionMode="single"
+								style="width:960px;border:thin solid black;">
+								<rich:column style="width:450px;">
+									<f:facet name="header">
+										<h:outputLabel value="Category" />
+									</f:facet>
+									<h:panelGroup>
+										<rich:panel style="width:440px;" styleClass="panel"
+											bodyClass="bodyPanel" id="catPanel1">
+											<h:form>
+												<h:selectOneMenu style="width: 140px;"
+													value="#{categoryBeanM.categoryId}" id="category1">
+													<f:selectItem itemLabel="-- Chọn Category -- "
+														itemValue="0" />
+													<f:selectItems
+														value="#{categoryBeanM.allCateogryByAccount}" var="cat"
+														itemValue="#{cat.categoryId}"
+														itemLabel="#{cat.categoryName}" />
+													<f:ajax event="change" render="categoryChild1"
+														execute="@form" />
+												</h:selectOneMenu>
+
+												<h:selectOneMenu
+													style="width: 140px; margin: 0px 5px 0px 5px;"
+													value="#{categoryBeanM.categoryChildId}"
+													id="categoryChild1">
+													<f:selectItem itemLabel="-- Chọn CategoryChild-- "
+														itemValue="0" />
+													<f:selectItems value="#{categoryBeanM.allCategoryChild}"
+														var="catC" itemValue="#{catC.categoryChildId}"
+														itemLabel="#{catC.categoryChildName}" />
+													<f:ajax event="change" render="categorySub1" />
+												</h:selectOneMenu>
+
+												<h:selectOneMenu style="width: 120px;"
+													value="#{categoryBean.categorySubId}" id="categorySub1">
+													<f:selectItem itemValue="0"
+														itemLabel="-- Chọn CategorySub --" />
+													<f:selectItems value="#{categoryBeanM.allCategorySub}"
+														var="catS" itemValue="#{catS.categorySubId}"
+														itemLabel="#{catS.categorySubName}" />
+												</h:selectOneMenu>
+											</h:form>
+										</rich:panel>
+									</h:panelGroup>
+								</rich:column>
+								<rich:column style="width:200px;">
+									<f:facet name="header">
+										<h:selectOneListbox value="" style="width:150px" size="1">
+											<f:selectItem itemLabel="Tên sản phẩm" />
+											<f:selectItem itemLabel="Số sản phẩm" />
+										</h:selectOneListbox>
+									</f:facet>
+									<h:inputText value="" style="width:150px;margin-left:26px;" />
+								</rich:column>
+								<rich:column style="width:305px;">
+									<f:facet name="header">
+										<h:outputLabel value="Điều kiện xem" />
+									</f:facet>
+									<h:panelGroup>
+										<h:selectOneListbox value="" style="width:90px" size="1">
+											<f:selectItem itemLabel="Có hàng tồn" />
+											<f:selectItem itemLabel="Không có tồn kho" />
+										</h:selectOneListbox>
+										<h:selectOneListbox value="" style="width:90px" size="1">
+											<f:selectItem itemLabel="Toàn bộ" />
+											<f:selectItem itemLabel="3 ngày hết hạn" />
+											<f:selectItem itemLabel="7 ngày hết hạn" />
+										</h:selectOneListbox>
+										<h:selectOneListbox value="" style="width:90px" size="1">
+											<f:selectItem itemLabel="Toàn bộ" />
+											<f:selectItem itemLabel="3 ngày hết hạn" />
+											<f:selectItem itemLabel="7 ngày hết hạn" />
+										</h:selectOneListbox>
+									</h:panelGroup>
+								</rich:column>
+							</rich:dataTable>
+
+						</h:form>
+					</h:panelGrid>
+					<rich:extendedDataTable id="table"
+						value="#{productBeanM.allProduct}" var="pros"
+						selection="#{productBeanM.selection}"
+						rowClasses="odd-row, even-row" sortMode="single" frozenColumns="1"
+						style="height:270px; width:960px;">
+						<a4j:ajax execute="@form" event="selectionchange"
+							listener="#{productBeanM.selectionListener}"
+							render=":res" />
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Lưa chon" />
+							</f:facet>
+							<h:outputText value="#{pros.productId}" />
+						</rich:column>
+
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Mã SP" />
+							</f:facet>
+							<h:outputText value="#{pros.productId}" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Tên SP" />
+							</f:facet>
+							<h:outputText value="#{pros.productName}" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Giá bán" />
+							</f:facet>
+							<h:outputText value="#{pros.price}" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Giá thanh toán" />
+							</f:facet>
+							<h:outputText value="#{pros.totalPrice}" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Tiền lời" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Số lượng" />
+							</f:facet>
+							<h:outputText value="#{pros.amount}" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Ngày kết thúc bán SP" />
+							</f:facet>
+							<h:outputText value="#{pros.expiredDate}" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Phân loại lớn" />
+							</f:facet>
+							<h:outputText value="#{pros.detail}" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Phân loại trung bình" />
+							</f:facet>
+							<h:outputText value="#{pros.categoryChildId}" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Phân loại nhỏ" />
+							</f:facet>
+							<h:outputText value="#{pros.categorySubId}" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Mã số quản lý hàng tồn kho" />
+							</f:facet>
+							<h:outputText value="#{pros.originId}" />
+						</rich:column>
+					</rich:extendedDataTable>
+
+					<h:panelGrid columns="2" style="margin: 5px;width:960px;">
+						<h:panelGroup style="float:left;">
+							<h:outputText
+								value="Từ ngày kết thúc thời hạn đặt hàng có hiệu lực của SP đã chọn" />
+							<h:selectOneListbox value="" style="width:50px" />
+							<a4j:commandLink value="Gia hạn thời hạn" styleClass="bt_header"></a4j:commandLink>
+						</h:panelGroup>
+						<h:panelGroup style="float:right;">
+							<h:graphicImage url="/resources/images/bt_list.png"
+								style="margin-bottom:-7px;" />
+							<h:outputLabel value="Sản phẩm được chọn" />
+							<a4j:commandLink value="Xóa gói đặt hàng" styleClass="bt_header"></a4j:commandLink>
+						</h:panelGroup>
+					</h:panelGrid>
+
+					<div style="height: 5px;" />
+					<div style="width: 960px; border: 2px solid #cc8e9e;" />
+					<div style="height: 20px;" />
+					<h:panelGrid style="width:960px">
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/bg_p3.png"
+								style="margin-top:-7px;float:left;" />
+							<h:outputLabel
+								value="Quản lí giá cả, số lượng theo từng sản phẩm" />
+						</h:panelGroup>
+					</h:panelGrid>
+					<div style="height: 3px;" />
+					<div style="width: 960px; border: 2px solid #b0cde9;" />
+					<a4j:outputPanel id="res">
+						<rich:panel
+							rendered="#{not empty productBeanM.selectionItems}"
+							style="width:960px; margin-top: 10px;">
+							<rich:list type="definitions" style="padding-left: 0px"
+								value="#{productBeanM.selectionItems}" var="sel">
+								<f:attribute name="partObject" value="#{sel}"></f:attribute>
+								<h:panelGrid style="width:850px;" columns="2" >
+									<h:outputLabel value="Số SP/Tên SP" />
+									<h:panelGroup>
+										<h:inputText value="#{sel.productId}" style="width:50px;background:#e6e6e6;"
+											readonly="true" />
+										<h:inputText value="#{sel.productName}" style="width:150px;background:#e6e6e6;"
+											readonly="true" />
+									</h:panelGroup>
+
+									<h:outputLabel value="Giá bán" />
+									<h:panelGroup>
+										<h:inputText value="#{sel.price}" style="width:30px" valueChangeListener="#{sel.change}"/>
+										<h:outputLabel value="VND()" />
+										<h:outputLabel value="(số tiền dự tính thanh toán:)" />
+										<h:inputText value="" style="width:50px;background:#e6e6e6;" readonly="true" />
+										<h:outputLabel value="VND)" />
+										<h:selectBooleanCheckbox value="" />
+										<h:outputLabel value="Nhập trực tiếp" />
+									</h:panelGroup>
+
+									<h:outputLabel value="Số lượng sản phẩm" />
+									<h:panelGroup>
+										<h:inputText value="#{sel.amount}" style="width:50px" />
+										<h:outputLabel
+											value="cái(nếu được bán bằng số lượng thì được xem như là hết hàng tồn kho)" />
+									</h:panelGroup>
+
+									<h:outputLabel value="Thời hạn có hiệu lực" />
+									<h:panelGroup>
+										<h:selectOneListbox value="" style="width:100px" size="1">
+											<f:selectItem itemLabel="--Chọn ngày--" />
+											<f:selectItem itemLabel="1" />
+											<f:selectItem itemLabel="3" />
+											<f:selectItem itemLabel="5" />
+											<f:selectItem itemLabel="7" />
+											<f:selectItem itemLabel="10" />
+											<f:selectItem itemLabel="15" />
+											<f:selectItem itemLabel="30" />
+											<f:selectItem itemLabel="60" />
+											<f:selectItem itemLabel="90" />
+										</h:selectOneListbox>
+										<h:outputLabel value="Ngày" />
+										<h:inputText value="" readonly="true" style="width:100px;background:#e6e6e6;" />
+									</h:panelGroup>
+
+									<h:outputLabel value="Thiết lập hàng tồn kho" />
+									<h:outputLabel
+										value=" GSM>> Quản lí sản phẩm chung >> Vui lòng nhập hàng tồn kho theo từng thông tin lựa chọn" />
+								</h:panelGrid>
+
+							</rich:list>
+						</rich:panel>
+					</a4j:outputPanel>
+
+
+
+					<div style="height: 25px" />
+
+					<h:panelGroup style="width: 960px;margin-left:150px">
+						<a4j:commandButton value="Khởi tạo" styleClass="bt_bassic" />
+						<h:commandButton value="Chỉnh sửa giá cả, số lượng"
+							styleClass="bt_bassic">
+							<rich:componentControl target="editPriceAmount" operation="show" />
+						</h:commandButton>
+						<a4j:commandButton value="Xóa đặt hàng" styleClass="bt_bassic" />
+					</h:panelGroup>
+					<rich:popupPanel id="editPriceAmount" modal="true"
+						resizeable="true" domElementAttachment="form"
+						onmaskclick="#{rich:component('editPriceAmount')}.hide()"
+						style="600px">
+						<f:facet name="header">
+							<h:outputText value="Phần cập nhật lại thay đổi giá cả, số lượng" />
+						</f:facet>
+						<f:facet name="controls">
+							<h:outputLink value="#"
+								onclick="#{rich:component('editPriceAmount')}.hide(); return false;">
+								<font color="red">X</font>
+							</h:outputLink>
+						</f:facet>
+
+						<h:outputText value="Bạn có muốn lưu lại thay đổi này không" />
+						<div style="height: 15px" />
+						<h:panelGrid columns="2">
+							
+								<h:outputText value="Gia " style="display:none"/>
+								<h:inputText value="#{productBeanM.price}"
+									style="width:184px;display:none" />
+								<h:outputText value="So luong" style="display:none"/>
+								<h:inputText value="#{productBeanM.amount}"
+									style="width:184px;display:none" />						
+
+							<h:outputLabel />
+							<h:panelGroup>
+								<div style="height: 5px" />
+								<a4j:commandButton value="Đồng ý"
+									action="#{productBeanM.editPriceAndAmount}"
+									execute="editPriceAmount"
+									oncomplete="if (#{facesContext.maximumSeverity==null}) {#{rich:component('editPriceAmount')}.hide();}" />
+								<a4j:commandButton value="Hủy"
+									onclick="#{rich:component('editPriceAmount')}.hide(); return false;" />
+							</h:panelGroup>
+						</h:panelGrid>
+					</rich:popupPanel>
+
+					<div style="height: 25px" />
+				</div>
+
+				<div style="width: 252px; float: right; margin-top: 0px">
+					<ui:insert>
+						<ui:include src="/WEB-INF/right/right.xhtml"></ui:include>
+					</ui:insert>
+				</div>
+			</div>
+		</h:form>
+
+
+	</h:body>
+</f:view>
+</html>

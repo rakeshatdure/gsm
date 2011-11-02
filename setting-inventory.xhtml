@@ -1,0 +1,218 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+	<h:head>
+		<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
+		<h:outputStylesheet name="/pro-style.css" library="/css" />
+		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
+	</h:head>
+	<h:body>
+		<h:form rendered="#{company.user.role.roleId != 4}">
+			<div style="text-align: center; padding: 50px">
+				<h3>
+					<h:outputText value="You don't have permission" />
+				</h3>
+			</div>
+		</h:form>
+		<h:form rendered="#{company.user.role.roleId == 4}">
+			<div style="width: 1224px">
+				<ui:insert>
+					<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
+				</ui:insert>
+				<div style="height: 5px" />
+
+				<div style="width: 960px; float: left;">
+					<h:panelGrid
+						style="width:960px;background-color:#52a34c;height:38px;">
+						<h:outputLabel
+							value="Thiết lập tồn kho theo từng thông tin lựa chọn"
+							style="color:white;font-weight:bold;font-size:14px;" />
+					</h:panelGrid>
+
+					<div style="height: 3px" />
+					<h:panelGrid
+						style="width:960px; border: 2px solid #c2d5e3;float: left;"
+						columns="1">
+						<h:outputLabel
+							style="backgroud-color: #eceded;padding-right: 30px;float:left;"
+							value="Là menu ........... của open market" />
+						<h:outputLabel
+							style="backgroud-color: #eceded;padding-right: 30px;float:left;"
+							value="Là menu ........... của open market" />
+						<h:panelGrid style="width:960px;" columns="2">
+							<h:outputLabel value="" />
+							<h:commandLink
+								value="Xem hướng dẫn sử dụng chi tiết về quản lí tồn kho"
+								style="float:right;" />
+						</h:panelGrid>
+					</h:panelGrid>
+					<h:panelGrid style="width:960px;">
+						<h:panelGroup>
+							<h:graphicImage url="/resources/images/icon3.jpg"
+								style="float:left;margin-top:4px;" />
+							<h:outputLabel value="Thiết lập quản lý sản phẩm tồn kho" />
+						</h:panelGroup>
+					</h:panelGrid>
+
+					<div style="hight: 5px;" />
+
+					<h:panelGrid columns="5" styleClass="label">
+						<h:form>
+							<rich:dataTable iterationStatusVar="" value="" rows="2"
+								columnClasses="center" selectionMode="single"
+								style="width:960px;border:thin solid black;">
+								<rich:column>
+									<f:facet name="header">
+										<h:selectOneListbox value="" style="width:80px" />
+									</f:facet>
+								</rich:column>
+								<rich:column>
+									<f:facet name="header">
+										<h:panelGroup>
+											<h:outputLabel value="Chọn ..." />
+											<h:selectOneListbox value="" style="width:50px" />
+											<h:inputText value="" style="width:50px;" />
+										</h:panelGroup>
+									</f:facet>
+								</rich:column>
+								<rich:column>
+									<f:facet name="header">
+										<h:panelGroup>
+											<h:commandButton value="Tìm" />
+											<h:commandButton value="Đổi Excel" />
+										</h:panelGroup>
+									</f:facet>
+								</rich:column>
+							</rich:dataTable>
+						</h:form>
+					</h:panelGrid>
+
+					<rich:extendedDataTable value="#{productBeanM.allProductInventory}"
+						var="pros" selection="#{productInvetorySelectionBeanM.selection}"
+						rowClasses="odd-row, even-row" sortMode="single" frozenColumns="1"
+						style="height:270px; width:960px;">
+						<a4j:ajax execute="@form" event="selectionchange"
+							listener="#{productInvetorySelectionBeanM.selectionListener}"
+							render=":res" />
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Số sản phẩm" />
+							</f:facet>
+							<h:outputText value="" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Mã SP" />
+							</f:facet>
+							<h:outputText value="#{pros.productCode}" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Tên SP" />
+							</f:facet>
+							<h:outputText value="#{pros.productName}" />
+						</rich:column>
+
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Nhà sản xuất" />
+							</f:facet>
+							<h:outputText value="#{pros.producer}" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Số lượng đặt hàng" />
+							</f:facet>
+							<h:outputText value="#{pros.amount}" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Số quản lí tồn kho" />
+							</f:facet>
+							<h:outputText value="#{pros.invetoryCode}" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Ngày hết hạn" />
+							</f:facet>
+							<h:outputText value="#{pros.expired}" />
+						</rich:column>
+						<rich:column style="text-align: center;">
+							<f:facet name="header">
+								<h:outputText value="Tình trạng hết hàng tồn kho" />
+							</f:facet>
+							<h:outputText value="#{pros.stateIventory}" />
+						</rich:column>
+					</rich:extendedDataTable>
+					<h:outputLabel value=" * label 1" />
+					<div style="height: 3px;" />
+					<h:graphicImage url="/resources/images/hh.jpg" />
+					<div style="height: 25px" />
+
+					<div style="height: 3px;" />
+					<div style="width: 960px; border: 2px solid #b0cde9;" />
+					<a4j:outputPanel id="res">
+						<rich:panel
+							rendered="#{not empty productInvetorySelectionBeanM.selectionItems}"
+							style="width:960px; margin-top: 10px;">
+							<rich:list type="definitions" style="padding-left: 0px"
+								value="#{productInvetorySelectionBeanM.selectionItems}"
+								var="sel">
+								<h:panelGrid style="width:850px;" columns="2">
+									<h:outputLabel value="Số SP/Tên SP" />
+									<h:panelGroup>
+										<h:inputText value="#{sel.productCode}"
+											style="width:50px;background:#e6e6e6;" readonly="true" />
+										<h:inputText value="#{sel.productName}"
+											style="width:150px;background:#e6e6e6;" readonly="true" />
+									</h:panelGroup>
+
+									<h:outputLabel value="Mã tồn kho" />
+									<h:inputText value="#{sel.invetoryCode}"
+										style="width:30px;background:#e6e6e6;" readonly="true" />
+
+									<h:outputLabel value="Ngày hết hạn" />
+									<h:inputText value="#{sel.expired}"
+										style="width:100px;background:#e6e6e6;" readonly="true" />
+
+									<h:outputLabel value="Thời hạn có hiệu lực" />
+									<h:panelGroup>
+										<h:selectOneMenu style="width:100px" size="1" value="#{productBeanM.dayId}">
+											<f:selectItem itemLabel="--Chọn ngày--" />
+											<f:selectItems value="#{productBeanM.allDay}" var="ald" itemLabel="#{ald.time}" itemValue="#{ald.dayId}"/>
+											<f:ajax event="change" render="out"/>
+										</h:selectOneMenu>
+										<h:outputLabel value="Ngày" />
+										<h:inputText value="#{productBeanM.calend}" readonly="true" id="out"
+											style="width:100px;background:#e6e6e6;" />
+									</h:panelGroup>
+								</h:panelGrid>
+							</rich:list>
+						</rich:panel>
+					</a4j:outputPanel>
+					<div style="height: 15px;" />
+					<h:panelGroup style="width: 960px;margin-left:300px">
+						<a4j:commandButton value="Chỉnh sửa" styleClass="bt_bassic"
+							style="margin-left:112px"/>
+					</h:panelGroup>
+					<div style="height: 25px" />
+				</div>
+
+				<div style="width: 252px; float: right; margin-top: 0px">
+					<ui:insert>
+						<ui:include src="/WEB-INF/right/right.xhtml"></ui:include>
+					</ui:insert>
+				</div>
+			</div>
+		</h:form>
+	</h:body>
+</f:view>
+</html>
