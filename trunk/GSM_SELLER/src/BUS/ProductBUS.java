@@ -153,7 +153,6 @@ public class ProductBUS {
 		p.setColor("d");
 		p.setDetail("d");
 		p.setUnit("df");
-		p.setUser(UserBUS.getUser("sell01", "MALL_EN"));
 		p.setUploadDate(new Date());
 		insertProducts(p, "MALL_EN");
 	}

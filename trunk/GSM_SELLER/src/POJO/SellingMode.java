@@ -12,28 +12,27 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean
 public class SellingMode  implements java.io.Serializable {
 
-	private Integer SellingModeId;
-    private User SellingMode;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6172474281535638539L;
+	private int sellingModeId;
+    private String sellingMode;
+    
+	public int getSellingModeId() {
+		return sellingModeId;
+	}
+	public void setSellingModeId(int sellingModeId) {
+		this.sellingModeId = sellingModeId;
+	}
+	public String getSellingMode() {
+		return sellingMode;
+	}
+	public void setSellingMode(String sellingMode) {
+		this.sellingMode = sellingMode;
+	}
+    
      
-	public SellingMode() {
-	}
-
-	public Integer getSellingModeId() {
-		return SellingModeId;
-	}
-
-	public void setSellingModeId(Integer sellingModeId) {
-		SellingModeId = sellingModeId;
-	}
-
-	public User getSellingMode() {
-		return SellingMode;
-	}
-
-	public void setSellingMode(User sellingMode) {
-		SellingMode = sellingMode;
-	}
-
 
 }
 

@@ -4,7 +4,7 @@
 <!-- Generated Aug 2, 2011 4:30:57 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="POJO.SellingMode" table="sellingmode" >
-        <id name="sellingModeId" type="java.lang.Integer">
+        <id name="sellingModeId" type="int">
             <column name="SellingModeId" />
             <generator class="identity" />
         </id>

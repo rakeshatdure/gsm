@@ -112,7 +112,7 @@
 						</rich:panel>
 						<rich:panel styleClass="modelPanelStyle"  bodyClass="bodyPanel" style="width:930px;">
 							<div style="padding-left: 80px">
-								ằerqwerqwer
+								Các nút thao tác
 							</div>
 						</rich:panel>
 					</div>
@@ -128,30 +128,38 @@
 					</h:panelGrid>
 					<h:panelGrid style="width: 800px">
 						<h:panelGroup>
+							<h:form>
 							<h:outputLabel value="Tổng số sản phẩm: " styleClass="bg_list"/>
-							<h:outputLabel value="0" style="color: #2985ad; font-weight: bold;"/>
+							<h:outputLabel value="#{searchpro.sizeListAllProduct}" style="color: #2985ad; font-weight: bold;"/>
 							<h:outputLabel value=" SP" />
 							<h:outputLabel value="Open Market ( Hàng tồn kho dưới 3 đơn vị: " style="margin: 0px 0px 0px 20px;"  styleClass="bg_list"/>
-							<h:outputLabel value="0" style="color: #2985ad; font-weight: bold;" />
+							<h:outputLabel value="#{searchpro.sizeListProduct1}" style="color: #2985ad; font-weight: bold;" />
 							<h:outputLabel value=" SP | Trong 30 ngày mãn hạn: " />
-							<h:outputLabel value="0" style="color: #2985ad; font-weight: bold;" />
+							<h:outputLabel value="#{searchpro.sizeListProduct2}" style="color: #2985ad; font-weight: bold;" />
 							<h:outputLabel value=" SP )" />
+							</h:form>
 						</h:panelGroup>
 						<h:panelGroup>
 							<h:outputLabel value="Cung cấp thị trường ( Hàng tồn kho dưới 3 SP: "  styleClass="bg_list"/>
-							<h:outputLabel value="0" style="color: #2985ad; font-weight: bold;"/>
+							<h:outputLabel value="#{searchpro.sizeListProduct3}" style="color: #2985ad; font-weight: bold;"/>
 							<h:outputLabel value=" SP | Trong 30 ngày mãn hạn: "/>
-							<h:outputLabel value="0" style="color: #2985ad; font-weight: bold;"/>
+							<h:outputLabel value="#{searchpro.sizeListProduct4}" style="color: #2985ad; font-weight: bold;"/>
 							<h:outputLabel value=" SP )"/>
 						</h:panelGroup>
-						<h:panelGroup>
-							<h:outputLabel value="Trong 30 ngày mãn hạn: "  styleClass="bg_list"/>
-							<h:outputLabel value="0" style="color: #2985ad; font-weight: bold;" />
-							<h:outputLabel value=" SP | " />
-							<h:outputLabel value="Trong 30 ngày mãn hạn: " />
-							<h:outputLabel value="0" style="color: #2985ad; font-weight: bold;" />
-							<h:outputLabel value=" SP )" />
-						</h:panelGroup>
+						<h:panelGrid columns="4">
+							<h:graphicImage id="focus" alt="jsf-sun" url="/resources/images/icon_17.gif"/> 
+							<h:panelGroup>
+								<h:outputLabel value="Trong 30 ngày mãn hạn: "  styleClass="bg_list"/>
+								<h:outputLabel value="#{searchpro.sizeListProduct5}" style="color: #2985ad; font-weight: bold;" />
+								<h:outputLabel value=" SP | " />
+							</h:panelGroup>
+							<h:graphicImage id="focuson" alt="jsf-sun" url="/resources/images/icon_21.gif" style="margin-left: 5px;"/> 
+							<h:panelGroup>
+								<h:outputLabel value="Trong 30 ngày mãn hạn: " />
+								<h:outputLabel value="#{searchpro.sizeListProduct6}" style="color: #2985ad; font-weight: bold;" />
+								<h:outputLabel value=" SP )" />
+							</h:panelGroup>
+						</h:panelGrid>
 					</h:panelGrid>
 				</h:panelGrid>
 			</h:form>
@@ -164,9 +172,9 @@
 						<h:outputText value="Tìm kiếm sản phẩm" styleClass="ttNewPro"/>
 					</rich:panel>	
 					<h:panelGrid columns="2">
-						<h:selectBooleanCheckbox
-							 title="Lượt xem SP bị cảnh báo trên 6 tháng so với ngày mãn hạn"
-							  value="" >
+						<h:selectBooleanCheckbox title="Lượt xem SP bị cảnh báo trên 6 tháng so với ngày mãn hạn"
+							  value="#{searchpro.onCheck}">
+							  <a4j:ajax event="click" render="ttgd, ptb1, ptb2 @this" />
 						</h:selectBooleanCheckbox>
 						<h:outputText
 		  					value="Lượt xem SP bị cảnh báo trên 6 tháng so với ngày mãn hạn"/>
@@ -226,7 +234,7 @@
 					</rich:panel>
 					
 					<h:panelGrid columns="4" width="390px">
-						<h:selectOneMenu style="width: 85px;">
+						<h:selectOneMenu style="width: 85px;" id="ttgd" readonly="">
 							 <f:selectItem itemValue="0" itemLabel="Khả năng giao dịch"/>
 							 <f:selectItem itemValue="0" itemLabel="Có thể giao dịch"/>
 							 <f:selectItem itemValue="0" itemLabel="Ngừng kinh doanh"/>
@@ -234,10 +242,10 @@
 							 <f:selectItem itemValue="0" itemLabel="Hạn chế các mặt hàng"/>
 						</h:selectOneMenu>
 						<h:outputText value="Phương thức bán"/>
-						<h:selectOneMenu style="width: 70px;margin-left:10px;">
+						<h:selectOneMenu style="width: 70px;margin-left:10px;" id="ptb1">
 							 <f:selectItem itemValue="0" itemLabel="Tất cả"/>
 						</h:selectOneMenu> 
-						<h:selectOneMenu style="width: 70px;">
+						<h:selectOneMenu style="width: 70px;" id="ptb2">
 							<f:selectItem itemValue="0" itemLabel="Tất cả"/>
 						</h:selectOneMenu> 
 					</h:panelGrid>
