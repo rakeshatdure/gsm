@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:a4j="http://richfaces.org/a4j"
-      xmlns:rich="http://richfaces.org/rich">
-	<h:head>
-		<h:outputStylesheet name="/pro-style.css" library="/css" />
-		<title>Notice Manage</title>
-		<h:outputStylesheet>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<h:outputStylesheet name="/pro-style.css" library="/css" />
+	<title>Notice Manage</title>
+	<h:outputStylesheet>
 			.even-row {
 			    background-color: #FCFFFE;
 			}
@@ -32,7 +32,7 @@
 				
 			}
 		</h:outputStylesheet>
-		<script>
+	<script>
 			$('document').ready(function(){
 				$(".slidingDiv").hide();
 			    $(".bt_link").show();
@@ -41,407 +41,720 @@
 				});
 			});
 		</script>
-	</h:head>
-	<h:body>
-		<!-- Header page Manage Product -->
-		<div id="title_mPro" style="width: 960px; float: left;">
-			<div style="width: 100%;height: 40px;background:url(resources/images/bg_thongtin.jpg) repeat-x left top;">
-			<h:panelGrid style="font-family: cambria;font-size: 18px;font-weight: bold;color: white;" columns="2">
+</h:head>
+<h:body>
+	<!-- Header page Manage Product -->
+	<div id="title_mPro" style="width: 960px; float: left;">
+		<div
+			style="width: 100%; height: 40px; background: url(resources/images/bg_thongtin.jpg) repeat-x left top;">
+			<h:panelGrid
+				style="font-family: cambria;font-size: 18px;font-weight: bold;color: white;"
+				columns="2">
 				<h:graphicImage url="/resources/images/icon_tt.png"
 					style="margin: 0px 5px 0px 5px; padding: 0px;"></h:graphicImage>
-				<h:outputLabel value="Trang quản lý tổng hợp các sản phẩm" style="margin: 0px; padding: 0px;"/>
+				<h:outputLabel value="Trang quản lý tổng hợp các sản phẩm"
+					style="margin: 0px; padding: 0px;" />
 			</h:panelGrid>
-			</div>
-			<div style="width:960px;border: 2px solid #67a8f1;">
-				<h:panelGrid columns="4">
-					<h:panelGrid width="600px">
-						<h:outputLabel style="backgroud-color: #f2f4f2;padding-right: 30px;width: 500px;"
-						value="Trang quản lý tổng hợp sản phẩm có thể đăng ký sản phẩm mới hoặc biên tập hoặc chỉnh sửa lại thông tin sản phẩm"/>
-					</h:panelGrid>
-					<a4j:commandLink styleClass="bt_header" style="color:white"
-						onclick="window.open('#{facesContext.externalContext.requestContextPath}/templates/popup/hd-qly-ton-kho.jsf', 
-								'Hướng dẫn quản lý tồn kho', 'width=820,height=900', 'menubar=no, toolbar=no'); return false;" value="HD QL Tồn kho"/>
-					<a4j:commandLink styleClass="bt_header" value="Thông tin SP tồn kho" style="color:white"
-						onclick="window.open('#{facesContext.externalContext.requestContextPath}/templates/popup/hd-qly-ton-kho.jsf', 
-								'Thông tin về sản phẩm tồn kho', 'width=820,height=900', 'menubar=no, toolbar=no'); return false;"/>
-					<h:panelGroup>
-						<a class="bt_link" style="color:white" href="#">Chi tiết</a>
-					</h:panelGroup>
-					
-				</h:panelGrid>
-				<h:panelGrid styleClass="slidingDiv">
-					<rich:panel bodyClass="bodyPanel" style="width:940px;">
-						<b style="color: #375e92" class="abc">+ Hướng dẫn chi tiết</b> 
-					</rich:panel>
-					<div style="width:940px;">
-						<rich:panel style="background: white;width:930px;">
-							<p class="abc">
-								등록을 원하시는 제품이 G마켓의 판매제한된 목록에 키워드로써 등록이 되어있는 경우에는 상품이 등록되지 않습니다.
-								제한 키워드 목록은 특정 브랜드나 그 상표권자의 요청에 따라 설정된 것으로 G마켓은 그 제품의 판매를 금합니다.
-								이 경우 G마켓은 제출하신 등록요청을 확인하고 심사를 거쳐 판매를 허가해드립니다.
-							  	<h:commandLink value="* 판매부적합 물품이란?"/>
-							</p>
-							<p class="abc">
-								상품 등록시 상품정보(이미지, 텍스트 및 첨부파일 등을 포함)로 인한 문제로 발생하는 저작권 및 상표권, 
-								19세 이상 판매가능한 성인물품 등의 각종 민·형사상 책임은 모두 판매자에게 있으며, G마켓을 운영하는 (주)
-								이베이코리아는 이에 대해 책임이 없습니다. 만약, 이로 인해 (주)이베이코리아에 피해가 발생할 경우, 
-								판매자는 자신의 비용으로 (주)이베이코리아를 면책시켜야 합니다.
-							</p>
-							<p class="abc">
-								판매시장을 오픈마켓으로 한 동일상품이 중복 등록되어 있다면, 사전 예고없이 상품이 삭제될 수 있습니다. 
-								컴퓨터/전자 등 모델명이 있는 상품은 정확한 모델명을 기입하여야 가격비교 등 제휴사 노출이 가능합니다.
-							</p>
-							<h:outputText value="※ 통합상품관리 메뉴 사용방법" style="font-weight: bold; font-size: 12px;"/>
-							<p class="abc">
-								① 새로 정보를 넣고 상품을 등록하실 경우에는 <b>신상품등록 클릭</b>
-			   					<br/> 상품정보는 정확하고 객관적인 정보를 입력해주시기 바랍니다.</p>
-							<p class="abc">
-								② 상품을 복사해서 등록하실 경우에는 <b>상품복사등록 클릭</b> <br/>
-			    				상품을 조건에 따라 검색하고, 검색결과에서 복사하시고자 하는 상품셀을 더블 클릭하면 선택하신 상품의 복사가 가능합니다.</p>
-							<p class="abc">
-								③ 상품정보를 수정하실 경우에는 <b>상품편집 클릭</b><br/>
-			    				상품을 조건에 따라 검색한 후, 검색결과에서 편집하시고자 하는 상품셀을 더블클릭하면 선택하신 상품 편집이 가능합니다.</p>
-							<p class="abc">
-								④ 상품주문의 가격 정보를 수정하실 경우에는 <b>가격정보수정 클릭</b><br/>
-			    				상품을 조건에 따라 검색한 후, 검색결과에서 가격을 수정하고자 하는 상품셀을 더블클릭하면 선택하신 상품의 가격수정이 가능합니다.</p>
-			    			<p class="abc">
-			    				⑤ 상품 선택정보에 대한 재고정보를 수정하실 경우에는 <b>재고정보수정 클릭</b><br/>
-			    				상품을 조건에 따라 검색한 후, 검색결과에서 재고정보를 수정하고자 하는 상품셀을 더블클릭하면 선택하신 상품의 정보수정이 가능합니다.
-								<br/>
-							</p>
-						</rich:panel>
-						<rich:panel styleClass="modelPanelStyle"  bodyClass="bodyPanel" style="width:930px;">
-							<div style="padding-left: 80px">
-								Các nút thao tác
-							</div>
-						</rich:panel>
-					</div>
-				</h:panelGrid>
-			</div>
 		</div>
-		
-		<div style="width: 960px; float: left; height: 80px; background-color: #f0f8fc; border: 1px solid #d7ebf3; margin-top: 35px">
-			<h:form>
-				<h:panelGrid columns="2">
-					<h:panelGrid style="padding: 28px 3px 28px 2px;">
-						<a4j:commandLink styleClass="bt_viewCus" value="Lượt xem SP" style="text-decoration: none;color: #fff"/>
-					</h:panelGrid>
-					<h:panelGrid style="width: 800px">
-						<h:panelGroup>
-							<h:form>
-							<h:outputLabel value="Tổng số sản phẩm: " styleClass="bg_list"/>
-							<h:outputLabel value="#{searchpro.sizeListAllProduct}" style="color: #2985ad; font-weight: bold;"/>
+		<div style="width: 960px; border: 2px solid #67a8f1;">
+			<h:panelGrid columns="4">
+				<h:panelGrid width="600px">
+					<h:outputLabel
+						style="backgroud-color: #f2f4f2;padding-right: 30px;width: 500px;"
+						value="Trang quản lý tổng hợp sản phẩm có thể đăng ký sản phẩm mới hoặc biên tập hoặc chỉnh sửa lại thông tin sản phẩm" />
+				</h:panelGrid>
+				<a4j:commandLink styleClass="bt_header" style="color:white"
+					onclick="window.open('#{facesContext.externalContext.requestContextPath}/templates/popup/hd-qly-ton-kho.jsf', 
+								'Hướng dẫn quản lý tồn kho', 'width=820,height=900', 'menubar=no, toolbar=no'); return false;"
+					value="HD QL Tồn kho" />
+				<a4j:commandLink styleClass="bt_header" value="Thông tin SP tồn kho"
+					style="color:white"
+					onclick="window.open('#{facesContext.externalContext.requestContextPath}/templates/popup/hd-qly-ton-kho.jsf', 
+								'Thông tin về sản phẩm tồn kho', 'width=820,height=900', 'menubar=no, toolbar=no'); return false;" />
+				<h:panelGroup>
+					<a class="bt_link" style="color: white" href="#">Chi tiết</a>
+				</h:panelGroup>
+
+			</h:panelGrid>
+			<h:panelGrid styleClass="slidingDiv">
+				<rich:panel bodyClass="bodyPanel" style="width:940px;">
+					<b style="color: #375e92" class="abc">+ Hướng dẫn chi tiết</b>
+				</rich:panel>
+				<div style="width: 940px;">
+					<rich:panel style="background: white;width:930px;">
+						<p class="abc">
+							등록을 원하시는 제품이 G마켓의 판매제한된 목록에 키워드로써 등록이 되어있는 경우에는 상품이 등록되지 않습니다. 제한
+							키워드 목록은 특정 브랜드나 그 상표권자의 요청에 따라 설정된 것으로 G마켓은 그 제품의 판매를 금합니다. 이 경우
+							G마켓은 제출하신 등록요청을 확인하고 심사를 거쳐 판매를 허가해드립니다.
+							<h:commandLink value="* 판매부적합 물품이란?" />
+						</p>
+						<p class="abc">상품 등록시 상품정보(이미지, 텍스트 및 첨부파일 등을 포함)로 인한 문제로 발생하는
+							저작권 및 상표권, 19세 이상 판매가능한 성인물품 등의 각종 민·형사상 책임은 모두 판매자에게 있으며, G마켓을
+							운영하는 (주) 이베이코리아는 이에 대해 책임이 없습니다. 만약, 이로 인해 (주)이베이코리아에 피해가 발생할 경우,
+							판매자는 자신의 비용으로 (주)이베이코리아를 면책시켜야 합니다.</p>
+						<p class="abc">판매시장을 오픈마켓으로 한 동일상품이 중복 등록되어 있다면, 사전 예고없이 상품이
+							삭제될 수 있습니다. 컴퓨터/전자 등 모델명이 있는 상품은 정확한 모델명을 기입하여야 가격비교 등 제휴사 노출이
+							가능합니다.</p>
+						<h:outputText value="※ 통합상품관리 메뉴 사용방법"
+							style="font-weight: bold; font-size: 12px;" />
+						<p class="abc">
+							① 새로 정보를 넣고 상품을 등록하실 경우에는 <b>신상품등록 클릭</b> <br /> 상품정보는 정확하고 객관적인
+							정보를 입력해주시기 바랍니다.
+						</p>
+						<p class="abc">
+							② 상품을 복사해서 등록하실 경우에는 <b>상품복사등록 클릭</b> <br /> 상품을 조건에 따라 검색하고,
+							검색결과에서 복사하시고자 하는 상품셀을 더블 클릭하면 선택하신 상품의 복사가 가능합니다.
+						</p>
+						<p class="abc">
+							③ 상품정보를 수정하실 경우에는 <b>상품편집 클릭</b><br /> 상품을 조건에 따라 검색한 후, 검색결과에서
+							편집하시고자 하는 상품셀을 더블클릭하면 선택하신 상품 편집이 가능합니다.
+						</p>
+						<p class="abc">
+							④ 상품주문의 가격 정보를 수정하실 경우에는 <b>가격정보수정 클릭</b><br /> 상품을 조건에 따라 검색한
+							후, 검색결과에서 가격을 수정하고자 하는 상품셀을 더블클릭하면 선택하신 상품의 가격수정이 가능합니다.
+						</p>
+						<p class="abc">
+							⑤ 상품 선택정보에 대한 재고정보를 수정하실 경우에는 <b>재고정보수정 클릭</b><br /> 상품을 조건에 따라
+							검색한 후, 검색결과에서 재고정보를 수정하고자 하는 상품셀을 더블클릭하면 선택하신 상품의 정보수정이 가능합니다. <br />
+						</p>
+					</rich:panel>
+					<rich:panel styleClass="modelPanelStyle" bodyClass="bodyPanel"
+						style="width:930px;">
+						<div style="padding-left: 80px">Các nút thao tác</div>
+					</rich:panel>
+				</div>
+			</h:panelGrid>
+		</div>
+	</div>
+
+	<div style="width: 960px; float: left; height: 80px; background-color: #f0f8fc; border: 1px solid #d7ebf3; margin-top: 35px">
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:panelGrid style="padding: 28px 3px 28px 2px;">
+					<a4j:commandLink styleClass="bt_viewCus" value="Lượt xem SP"
+						style="text-decoration: none;color: #fff" />
+				</h:panelGrid>
+				<h:panelGrid style="width: 800px">
+					<h:panelGroup>
+						<h:form>
+							<h:outputLabel value="Tổng số sản phẩm: " styleClass="bg_list" />
+							<h:outputLabel value="#{searchpro.sizeListAllProduct}"
+								style="color: #2985ad; font-weight: bold;" />
 							<h:outputLabel value=" SP" />
-							<h:outputLabel value="Open Market ( Hàng tồn kho dưới 3 đơn vị: " style="margin: 0px 0px 0px 20px; cursor: pointer;"  styleClass="bg_list"/>
-							<a4j:commandLink value="#{searchpro.sizeListProduct1}" style="color: #2985ad; font-weight: bold;">
+							<h:outputLabel value="Open Market ( Hàng tồn kho dưới 3 đơn vị: "
+								style="margin: 0px 0px 0px 20px; cursor: pointer;"
+								styleClass="bg_list" />
+							<a4j:commandLink value="#{searchpro.sizeListProduct1}"
+								style="color: #2985ad; font-weight: bold;">
 								<a4j:param value="1" assignTo="#{searchpro.showTable}" />
-								<a4j:ajax event="click" render="tableProSearch"/>
+								<a4j:ajax event="click" render="tableProSearch" />
 							</a4j:commandLink>
-							<h:outputLabel value=" SP | Trong 30 ngày mãn hạn: " style="cursor: pointer;"/>
-							<a4j:commandLink value="#{searchpro.sizeListProduct2}" style="color: #2985ad; font-weight: bold;">
+							<h:outputLabel value=" SP | Trong 30 ngày mãn hạn: "
+								style="cursor: pointer;" />
+							<a4j:commandLink value="#{searchpro.sizeListProduct2}"
+								style="color: #2985ad; font-weight: bold;">
 								<a4j:param value="2" assignTo="#{searchpro.showTable}" />
-								<a4j:ajax event="click" render="tableProSearch"/>
+								<a4j:ajax event="click" render="tableProSearch" />
 							</a4j:commandLink>
 							<h:outputLabel value=" SP )" />
-							</h:form>
-						</h:panelGroup>
-						<h:panelGroup>
-							<h:outputLabel value="Cung cấp thị trường ( Hàng tồn kho dưới 3 SP: "  styleClass="bg_list"/>
-							<a4j:commandLink value="#{searchpro.sizeListProduct3}" style="color: #2985ad; font-weight: bold;">
-								<a4j:param value="3" assignTo="#{searchpro.showTable}" />
-								<a4j:ajax event="click" render="tableProSearch"/>
-							</a4j:commandLink>
-							<h:outputLabel value=" SP | Trong 30 ngày mãn hạn: "/>
-							<a4j:commandLink value="#{searchpro.sizeListProduct4}" style="color: #2985ad; font-weight: bold;">
-								<a4j:param value="4" assignTo="#{searchpro.showTable}" />
-								<a4j:ajax event="click" render="tableProSearch"/>
-							</a4j:commandLink>
-							<h:outputLabel value=" SP )"/>
-						</h:panelGroup>
-						<h:panelGrid columns="4">
-							<h:graphicImage id="focus" alt="jsf-sun" url="/resources/images/icon_17.gif"/> 
-							<h:panelGroup>
-								<h:outputLabel value="Trong 30 ngày mãn hạn: "  styleClass="bg_list"/>
-								<a4j:commandLink value="#{searchpro.sizeListProduct5}" style="color: #2985ad; font-weight: bold;">
-									<a4j:param value="5" assignTo="#{searchpro.showTable}" />
-									<a4j:ajax event="click" render="tableProSearch"/>
-								</a4j:commandLink>
-								<h:outputLabel value=" SP | " />
-							</h:panelGroup>
-							<h:graphicImage id="focuson" alt="jsf-sun" url="/resources/images/icon_21.gif" style="margin-left: 5px;"/> 
-							<h:panelGroup>
-								<h:outputLabel value="Trong 30 ngày mãn hạn: " />
-								<a4j:commandLink value="#{searchpro.sizeListProduct6}" style="color: #2985ad; font-weight: bold;">
-									<a4j:param value="6" assignTo="#{searchpro.showTable}" />
-									<a4j:ajax event="click" render="tableProSearch"/>
-								</a4j:commandLink>
-								<h:outputLabel value=" SP )" />
-							</h:panelGroup>
-						</h:panelGrid>
-					</h:panelGrid>
-				</h:panelGrid>
-			</h:form>
-		</div>
-		
-		<div style="width: 960px; float: left; margin-top: 5px">
-			<h:form>
-				<h:panelGrid columns="4">
-					<rich:panel style="width: 430px;background: white;border:0px" bodyClass="bodyPanel">
-						<h:outputText value="Tìm kiếm sản phẩm" styleClass="ttNewPro"/>
-					</rich:panel>	
-					<h:panelGrid columns="2">
-						<h:selectBooleanCheckbox title="Lượt xem SP bị cảnh báo trên 6 tháng so với ngày mãn hạn"
-							  value="#{searchpro.onCheck}">
-							  <a4j:ajax event="click" render="ttgd, ptb1, ptb2" />
-						</h:selectBooleanCheckbox>
-						<h:outputText
-		  					value="Lượt xem SP bị cảnh báo trên 6 tháng so với ngày mãn hạn"/>
-					</h:panelGrid>
-					<a4j:commandButton value="Tìm kiếm >" styleClass="bt_bassic"/>
-					<a4j:commandButton value="Excel >" styleClass="bt_bassic"/>
-				</h:panelGrid>
-				<h:panelGrid columns="4" style="border-bottom: 1px solid #cfcfcf; height: 35px;border-top: 2px solid #b0cde9;
-					width: 960px;background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p5.jpg') repeat-y;">
-					<rich:panel style="width: 110px; border: 0px;" bodyClass="bodyPanel">
-						<h:outputText value="Tìm kiếm theo: "/>
-					</rich:panel>
-					
-					<rich:panel style="width:370px;" styleClass="panel" bodyClass="bodyPanel" id="catPanel1">
-						<h:form>
-							<h:selectOneMenu style="width: 140px;" value="#{categoryBeanH.categoryId}" id="category1">
-								<f:selectItem itemLabel="-- Chọn Category -- " itemValue="-1"/> 
-								<f:selectItems value="#{categoryBeanH.lCat}" var="cat" itemValue="#{cat.categoryId}" itemLabel="#{cat.categoryName}"/>
-								<a4j:ajax event="change" render="categoryChild1,categorySub1"/>
-							</h:selectOneMenu>
-							
-							<h:selectOneMenu style="width: 100px; margin: 0px 5px 0px 5px;" value="#{categoryBeanH.categoryChildId}"
-								 id="categoryChild1" disabled="#{categoryBeanH.onCC}">
-								<f:selectItem itemLabel="-- Chọn CategoryChild-- " itemValue="-1"/>
-								<f:selectItems value="#{categoryBeanH.lCatChil}"  var="catC" itemValue="#{catC.categoryChildId}" itemLabel="#{catC.categoryChildName}"/>
-								<f:ajax event="change" render="categorySub1" />
-							</h:selectOneMenu>
-							
-							<h:selectOneMenu style="width: 100px;" value="#{categoryBeanH.categorySubId}" id="categorySub1" disabled="#{categoryBeanH.onCS}">
-								 <f:selectItem itemValue="-1" itemLabel="-- Chọn CategorySub --" />
-								 <f:selectItems value="#{categoryBeanH.lCatSub}" var="catS" itemValue="#{catS.categorySubId}" itemLabel="#{catS.categorySubName}"/>
-							</h:selectOneMenu>
 						</h:form>
-					</rich:panel>
-					
-					<rich:panel style="width: 100px; border: 0px" bodyClass="bodyPanel">
-						<h:selectOneMenu id="nguoiDK" style="width: 80px;">
-							<f:selectItem itemValue="0" itemLabel="Ngày" />
-							<f:selectItem itemValue="0" itemLabel="Sửa đổi ngày" />
-						</h:selectOneMenu>
-					</rich:panel>
-					 
-					<h:panelGroup width="320px" style="padding: 0px 0px 0px 5px;">
-						<rich:calendar id="calendar" locale="US" popup="true"
-		                    datePattern="dd/MM/yyyy" showApplyButton="false" cellWidth="20px"
-		                    cellHeight="20px" style="width: 70px;"/>
-		                 <h:outputText value=" ~ " />
-		                 <rich:calendar id="calendar2" locale="US" popup="true"
-		                    datePattern="dd/MM/yyyy" showApplyButton="false" cellWidth="20px"
-		                    cellHeight="20px"/>
 					</h:panelGroup>
-				</h:panelGrid>
-				<!-- Thong tin giao dich -->
-				<h:panelGrid columns="4" style="border-bottom: 1px solid #cfcfcf; height: 35px;
-					width: 960px;background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p4.jpg') repeat-y;">
-					<rich:panel style="width: 110px; border: 0px;" bodyClass="bodyPanel">
-						<h:outputText value="TT Giao dịch: "/>
-					</rich:panel>
-					
-					<h:panelGrid columns="4" width="390px">
-						<h:selectOneMenu style="width: 80px;" id="ttgd" disabled="#{searchpro.checkTTGD}" value="#{searchpro.ttgiaodich}">
-							 <f:selectItems value="#{searchpro.listTransInfo}" var="trans" itemValue="#{trans.transactionInfoId}" 
-							 	itemLabel="#{trans.transactionInfo}"/>
-						</h:selectOneMenu>
-						<h:outputText value="Phương thức bán"/>
-						<h:selectOneMenu style="width: 70px;margin-left:10px;" id="ptb1" value="#{searchpro.sellMode}">
-							 <f:selectItem itemValue="-1" itemLabel="Tất cả"/>
-							 <f:selectItems value="#{sellmodeBean.lSellMode}" var="sm" itemLabel="#{sm.sellingMode}" itemValue="#{sm.sellingModeId}" />
-							 <f:ajax event="change" render="ptb2" execute="@form"/>
-						</h:selectOneMenu> 
-						<h:selectOneMenu style="width: 70px;" id="ptb2" disabled="#{searchpro.checkPTB2}" value="#{searchpro.tinhTrang}">
-							<f:selectItem itemValue="-1" itemLabel="Tất cả"/>
-							<f:selectItem itemValue="1" itemLabel="Tồn kho"/>
-							<f:selectItem itemValue="2" itemLabel="Hết hàng"/>
-						</h:selectOneMenu> 
+					<h:panelGroup>
+						<h:outputLabel
+							value="Cung cấp thị trường ( Hàng tồn kho dưới 3 SP: "
+							styleClass="bg_list" />
+						<a4j:commandLink value="#{searchpro.sizeListProduct3}"
+							style="color: #2985ad; font-weight: bold;">
+							<a4j:param value="3" assignTo="#{searchpro.showTable}" />
+							<a4j:ajax event="click" render="tableProSearch" />
+						</a4j:commandLink>
+						<h:outputLabel value=" SP | Trong 30 ngày mãn hạn: " />
+						<a4j:commandLink value="#{searchpro.sizeListProduct4}"
+							style="color: #2985ad; font-weight: bold;">
+							<a4j:param value="4" assignTo="#{searchpro.showTable}" />
+							<a4j:ajax event="click" render="tableProSearch" />
+						</a4j:commandLink>
+						<h:outputLabel value=" SP )" />
+					</h:panelGroup>
+					<h:panelGrid columns="4">
+						<h:graphicImage id="focus" alt="jsf-sun"
+							url="/resources/images/icon_17.gif" />
+						<h:panelGroup>
+							<h:outputLabel value="Trong 30 ngày mãn hạn: "
+								styleClass="bg_list" />
+							<a4j:commandLink value="#{searchpro.sizeListProduct5}"
+								style="color: #2985ad; font-weight: bold;">
+								<a4j:param value="5" assignTo="#{searchpro.showTable}" />
+								<a4j:ajax event="click" render="tableProSearch" />
+							</a4j:commandLink>
+							<h:outputLabel value=" SP | " />
+						</h:panelGroup>
+						<h:graphicImage id="focuson" alt="jsf-sun"
+							url="/resources/images/icon_21.gif" style="margin-left: 5px;" />
+						<h:panelGroup>
+							<h:outputLabel value="Trong 30 ngày mãn hạn: " />
+							<a4j:commandLink value="#{searchpro.sizeListProduct6}"
+								style="color: #2985ad; font-weight: bold;">
+								<a4j:param value="6" assignTo="#{searchpro.showTable}" />
+								<a4j:ajax event="click" render="tableProSearch" />
+							</a4j:commandLink>
+							<h:outputLabel value=" SP )" />
+						</h:panelGroup>
 					</h:panelGrid>
-					<h:selectOneMenu id="soSP" value="" style="width: 80px;">
-						  <f:selectItem itemValue="0" itemLabel="Số lượng"/>
-						  <f:selectItem itemValue="0" itemLabel="Tên sản phẩm"/>
-						  <f:selectItem itemValue="0" itemLabel="Mã người bán"/>
-					</h:selectOneMenu> 
-					<h:panelGrid style="width: 330px;padding: 0px 0px 0px 15px;">
-						<h:inputText width="200px"/>
-					</h:panelGrid>	
 				</h:panelGrid>
-				<!-- hien thi table tim kiem -->
-				<rich:extendedDataTable id="tableProSearch" value="#{searchpro.listProductSearch}" var="lpro" iterationStatusVar="it"
-	                 rowClasses="odd-row, even-row" frozenColumns="2" style="height:250px; width:960px;">
-					<rich:column style="text-align: center" width="40px" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="STT"/>
-		                </f:facet>
+			</h:panelGrid>
+		</h:form>
+	</div>
+
+	<div style="width: 960px; float: left; margin-top: 5px">
+		<h:form>
+			<h:panelGrid columns="4">
+				<rich:panel style="width: 430px;background: white;border:0px"
+					bodyClass="bodyPanel">
+					<h:outputText value="Tìm kiếm sản phẩm" styleClass="ttNewPro" />
+				</rich:panel>
+				<h:panelGrid columns="2">
+					<h:selectBooleanCheckbox
+						title="Lượt xem SP bị cảnh báo trên 6 tháng so với ngày mãn hạn"
+						value="#{searchpro.onCheck}">
+						<a4j:ajax event="click" render="ttgd, ptb1, ptb2" />
+					</h:selectBooleanCheckbox>
+					<h:outputText
+						value="Lượt xem SP bị cảnh báo trên 6 tháng so với ngày mãn hạn" />
+				</h:panelGrid>
+				<a4j:commandButton value="Tìm kiếm >" styleClass="bt_bassic">
+					<a4j:param value="7" assignTo="#{searchpro.showTable}" />
+					<a4j:ajax event="click" render="tableProSearch" />
+				</a4j:commandButton>
+				<a4j:commandButton value="Excel >" styleClass="bt_bassic" />
+			</h:panelGrid>
+			<h:panelGrid columns="4"
+				style="border-bottom: 1px solid #cfcfcf; height: 35px;border-top: 2px solid #b0cde9;
+					width: 960px;background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p5.jpg') repeat-y;">
+				<rich:panel style="width: 110px; border: 0px;" bodyClass="bodyPanel">
+					<h:outputText value="Tìm kiếm theo: " />
+				</rich:panel>
+
+				<rich:panel style="width:370px;" styleClass="panel"
+					bodyClass="bodyPanel" id="catPanel1">
+					<h:form>
+						<h:selectOneMenu style="width: 140px;"
+							value="#{searchpro.categoryId}" id="category1">
+							<f:selectItem itemLabel="-- Chọn Category -- " itemValue="" />
+							<f:selectItems value="#{searchpro.lCat}" var="cat"
+								itemValue="#{cat.categoryId}" itemLabel="#{cat.categoryName}" />
+							<a4j:ajax event="change" render="categoryChild1,categorySub1" />
+						</h:selectOneMenu>
+
+						<h:selectOneMenu style="width: 100px; margin: 0px 5px 0px 5px;"
+							value="#{searchpro.categoryChildId}" id="categoryChild1"
+							disabled="#{searchpro.onCC}">
+							<f:selectItem itemLabel="-- Chọn CategoryChild-- " itemValue="" />
+							<f:selectItems value="#{searchpro.lCatChild}" var="catC"
+								itemValue="#{catC.categoryChildId}"
+								itemLabel="#{catC.categoryChildName}" />
+							<f:ajax event="change" render="categorySub1" />
+						</h:selectOneMenu>
+
+						<h:selectOneMenu style="width: 100px;"
+							value="#{searchpro.categorySubId}" id="categorySub1"
+							disabled="#{searchpro.onCS}">
+							<f:selectItem itemValue="" itemLabel="-- Chọn CategorySub --" />
+							<f:selectItems value="#{searchpro.lCatSub}" var="catS"
+								itemValue="#{catS.categorySubId}"
+								itemLabel="#{catS.categorySubName}" />
+						</h:selectOneMenu>
+					</h:form>
+				</rich:panel>
+
+				<rich:panel style="width: 100px; border: 0px" bodyClass="bodyPanel">
+					<h:selectOneMenu id="nguoiDK" style="width: 80px;">
+						<f:selectItem itemValue="0" itemLabel="Ngày" />
+						<f:selectItem itemValue="0" itemLabel="Sửa đổi ngày" />
+					</h:selectOneMenu>
+				</rich:panel>
+
+				<h:panelGroup width="320px" style="padding: 0px 0px 0px 5px;">
+					<rich:calendar id="calendar" locale="US" popup="true"
+						datePattern="dd/MM/yyyy" showApplyButton="false" cellWidth="20px"
+						cellHeight="20px" style="width: 70px;"
+						value="#{searchpro.fromDate}" />
+					<h:outputText value="~" />
+					<rich:calendar id="calendar2" locale="US" popup="true"
+						datePattern="dd/MM/yyyy" showApplyButton="false" cellWidth="20px"
+						cellHeight="20px" value="#{searchpro.toDate}" />
+				</h:panelGroup>
+			</h:panelGrid>
+			<!-- Thong tin giao dich -->
+			<h:panelGrid columns="4"
+				style="border-bottom: 1px solid #cfcfcf; height: 35px;
+					width: 960px;background:url('#{facesContext.externalContext.requestContextPath}/resources/images/bg_p4.jpg') repeat-y;">
+				<rich:panel style="width: 110px; border: 0px;" bodyClass="bodyPanel">
+					<h:outputText value="TT Giao dịch: " />
+				</rich:panel>
+
+				<h:panelGrid columns="4" width="390px">
+					<h:selectOneMenu style="width: 80px;" id="ttgd"
+						disabled="#{searchpro.checkTTGD}" value="#{searchpro.ttgiaodich}">
+						<f:selectItems value="#{searchpro.listTransInfo}" var="trans"
+							itemValue="#{trans.transactionInfoId}"
+							itemLabel="#{trans.transactionInfo}" />
+					</h:selectOneMenu>
+					<h:outputText value="Phương thức bán" />
+					<h:selectOneMenu style="width: 70px;margin-left:10px;" id="ptb1"
+						value="#{searchpro.sellMode}">
+						<f:selectItem itemValue="" itemLabel="Tất cả" />
+						<f:selectItems value="#{sellmodeBean.lSellMode}" var="sm"
+							itemLabel="#{sm.sellingMode}" itemValue="#{sm.sellingModeId}" />
+						<f:ajax event="change" render="ptb2" execute="@form" />
+					</h:selectOneMenu>
+					<h:selectOneMenu style="width: 70px;" id="ptb2"
+						disabled="#{searchpro.checkPTB2}" value="#{searchpro.tinhTrang}">
+						<f:selectItem itemValue="" itemLabel="Tất cả" />
+						<f:selectItem itemValue="0" itemLabel="Tồn kho" />
+						<f:selectItem itemValue="1" itemLabel="Hết hàng" />
+					</h:selectOneMenu>
+				</h:panelGrid>
+				<h:selectOneMenu id="soSP" value="#{searchpro.searchWith}"
+					style="width: 80px;">
+					<f:selectItem itemValue="1" itemLabel="Tên sản phẩm" />
+					<f:selectItem itemValue="2" itemLabel="Mã người bán" />
+				</h:selectOneMenu>
+				<h:panelGrid style="width: 330px;padding: 0px 0px 0px 15px;">
+					<h:inputText width="200px" value="#{searchpro.searchT}" />
+				</h:panelGrid>
+			</h:panelGrid>
+			<!-- hien thi table tim kiem -->
+			<rich:extendedDataTable id="tableProSearch"
+				value="#{searchpro.listProductSearch}" var="lpro"
+				iterationStatusVar="it" rowClasses="odd-row, even-row"
+				frozenColumns="2" style="height:250px; width:960px;">
+				<rich:column style="text-align: center" width="40px"
+					headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="STT" />
+					</f:facet>
 		                #{it.index}
 		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Mã SP" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.productId}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Seller" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.account}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Danh mục lớn" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.category}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Danh mục trung" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.categoryChild}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Danh mục nhỏ" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.categorySub}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Tên sản phẩm" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.productName}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Nhà sản xuất" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.manufacturerId}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Đơn vị" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.unit}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Trạng thái" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.productType}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Thị trường giao dịch" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.market}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Focus" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.focus}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Focus+" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.focusOn}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Ngày cập nhập" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.uploadDate}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Nguồn gốc" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.origin}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Số lượng" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.amount}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Giá cả" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.price}"/>
-		            </rich:column>
-		            <rich:column style="text-align: center;" headerClass="abc">
-		                <f:facet name="header">
-                      			<h:outputText value="Trạng thái giao dịch" />
-		                </f:facet>
-		                <h:outputText value="#{lpro.transactionInfo}"/>
-		            </rich:column>
-				</rich:extendedDataTable>
-				
-				<h:panelGrid columns="5" style="margin: 5px;" >
-					<h:outputText value="Lựa chọn mục"/>
-					
-					<h:commandButton value="QL Đăng ký/Chỉnh sửa SP" styleClass="bt_select">
-						<!-- <rich:componentControl target="popup" operation="show" /> -->
-					</h:commandButton>
-					<!-- <rich:popupPanel id="popup" modal="true" autosized="true"
-				        resizeable="false">
-				        <f:facet name="header">
-				            <h:outputText value="오픈마켓 일괄 관리 " />
-				        </f:facet>
-				        <f:facet name="controls">
-				            <h:outputLink value="#"
-				                onclick="#{rich:component('popup')}.hide(); return false;">
-			                    <h:graphicImage value="/resources/images/close.png"/>
-			                </h:outputLink>
-				        </f:facet>
-				        <p>Any content might be inside this panel.</p>
-				        <p>The popup panel is open and closed from the javascript function
-				        of component client side object. The following code <a href="#"
-				            onclick="#{rich:component('popup')}.hide()">hide this panel</a>: <f:verbatim>&#35;</f:verbatim>{rich:component('popup')}.hide()</p>
-				    </rich:popupPanel> -->
-				    
-					<a4j:commandButton value="Hết hàng/Gia hạn trọn gói trên Especially price market/Plus" styleClass="bt_select"></a4j:commandButton>
-					<a4j:commandButton value="Gia hạn/Đăng ký trọn gói trên focus/Plus" styleClass="bt_select"></a4j:commandButton>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Mã SP" />
+					</f:facet>
+					<h:outputText value="#{lpro.productId}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Seller" />
+					</f:facet>
+					<h:outputText value="#{lpro.account}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Danh mục lớn" />
+					</f:facet>
+					<h:outputText value="#{lpro.category}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Danh mục trung" />
+					</f:facet>
+					<h:outputText value="#{lpro.categoryChild}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Danh mục nhỏ" />
+					</f:facet>
+					<h:outputText value="#{lpro.categorySub}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Tên sản phẩm" />
+					</f:facet>
+					<h:outputText value="#{lpro.productName}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Nhà sản xuất" />
+					</f:facet>
+					<h:outputText value="#{lpro.manufacturerId}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Đơn vị" />
+					</f:facet>
+					<h:outputText value="#{lpro.unit}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Trạng thái" />
+					</f:facet>
+					<h:outputText value="#{lpro.productType}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Thị trường giao dịch" />
+					</f:facet>
+					<h:outputText value="#{lpro.market}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Focus" />
+					</f:facet>
+					<h:outputText value="#{lpro.focus}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Focus+" />
+					</f:facet>
+					<h:outputText value="#{lpro.focusOn}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Ngày cập nhập" />
+					</f:facet>
+					<h:outputText value="#{lpro.uploadDate}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Nguồn gốc" />
+					</f:facet>
+					<h:outputText value="#{lpro.origin}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Số lượng" />
+					</f:facet>
+					<h:outputText value="#{lpro.amount}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Giá cả" />
+					</f:facet>
+					<h:outputText value="#{lpro.price}" />
+				</rich:column>
+				<rich:column style="text-align: center;" headerClass="abc">
+					<f:facet name="header">
+						<h:outputText value="Trạng thái giao dịch" />
+					</f:facet>
+					<h:outputText value="#{lpro.transactionInfo}" />
+				</rich:column>
+			</rich:extendedDataTable>
+
+			<h:panelGrid columns="8" style="margin: 5px;">
+				<h:outputText value="Lựa chọn mục" />
+				<h:commandButton value="QL Đăng ký/Chỉnh sửa SP"
+					styleClass="bt_select">
+					<rich:componentControl target="popup" operation="show" />
+				</h:commandButton>
+				<rich:popupPanel id="popup" modal="true" autosized="true"
+					resizeable="false" style="background: white;"
+					domElementAttachment="form">
+					<f:facet name="header">
+						<h:outputText value="Quản lý mở cửa thị trường hàng loạt" />
+					</f:facet>
+					<f:facet name="controls">
+						<h:outputLink value="#"
+							onclick="#{rich:component('popup')}.hide(); return false;">
+							<h:graphicImage value="/resources/images/close.png" />
+						</h:outputLink>
+					</f:facet>
+					<p style="color: #1575b0; font-size: 13px; font-weight: bold;">Gia hạn hàng loạt</p>
+					<rich:panel style="width:650px; height: 60px;">
+						<rich:panel style="width:450px; float: left;"
+							bodyClass="bodyPanel" styleClass="panel">
+							<h:outputText
+								value="Lựa chọn các hàng hoá bán ra tính từ ngày hết hạn " />
+							<h:selectOneMenu style="width: 70px;margin-left:10px;"
+								id="select1">
+								<f:selectItem itemValue="0" itemLabel="Chọn" />
+								<f:selectItem itemValue="1" itemLabel="1 Ngày" />
+								<f:selectItem itemValue="3" itemLabel="3 Ngày" />
+								<f:selectItem itemValue="5" itemLabel="5 Ngày" />
+								<f:selectItem itemValue="7" itemLabel="7 Ngày" />
+								<f:selectItem itemValue="10" itemLabel="10 Ngày" />
+								<f:selectItem itemValue="20" itemLabel="20 Ngày" />
+								<f:selectItem itemValue="30" itemLabel="1 Tháng" />
+								<f:selectItem itemValue="60" itemLabel="2 Tháng" />
+								<f:selectItem itemValue="90" itemLabel="3 Tháng" />
+							</h:selectOneMenu>
+							<h:outputText value="để gia hạn." />
+						</rich:panel>
+						<rich:panel style="width:140px; border: 0px; float: right;"
+							bodyClass="bodyPanel">
+							<h:commandButton styleClass="bt_bassic" value="Gia hạn hàng loạt"
+								style="width: 120px" />
+						</rich:panel>
+					</rich:panel>
+					<rich:panel
+						style="width:650px; height: 40px; border: 0px; background: white; margin-bottom: 20px;">
+						<rich:panel
+							style="width:450px; float: left; border: 0px; background: white;"
+							bodyClass="bodyPanel">
+							<font style="color: #7b878a">- Nếu sản phẩm của bạn chưa
+								hết hạn thì bạn sẽ không thể gia hạn <br />- Thứ tự các mặt
+								hàng bị xóa sẽ không được tiếp xúc.</font>
+						</rich:panel>
+						<rich:panel
+							style="width:140px; border: 0px; float: right; background: white;"
+							bodyClass="bodyPanel">
+							<h:commandButton styleClass="bt_bassic" value="일괄주문삭제"
+								style="width: 120px" />
+						</rich:panel>
+					</rich:panel>
+				</rich:popupPanel>
+				<h:commandButton
+					value="Hết hàng/Gia hạn trọn gói trên Especially price market/Plus"
+					styleClass="bt_select">
+					<rich:componentControl target="popupEPM" operation="show" />
+				</h:commandButton>
+				<rich:popupPanel id="popupEPM" modal="true" autosized="true"
+					resizeable="false" style="background: white;"
+					domElementAttachment="form">
+					<f:facet name="header">
+						<h:outputText
+							value="Gia hạn trọn gói trên Especially price market" />
+					</f:facet>
+					<f:facet name="controls">
+						<h:outputLink value="#"
+							onclick="#{rich:component('popupEPM')}.hide(); return false;">
+							<h:graphicImage value="/resources/images/close.png" />
+						</h:outputLink>
+					</f:facet>
+					<rich:panel bodyClass="bodyPanel" style="background: #f0f8fc; border: 2px solid #d7ebf3;">
+						<font style="color: #2399cd;">지마켓이 판매자에게 수수료 </font><font style="color:#df5c05; font-weight: bold;">Down</font>
+						<font style="color: #2399cd;">, 판매자는 소비자에게 가격 </font>
+						<font style="color:#df5c05; font-weight: bold;">Down</font>
+						<font style="color: #2399cd;">해줄 수 있는 착한 서비스, 특가마켓 </font>
+					</rich:panel>
+					<p style="color: #1575b0; font-size: 13px; font-weight: bold;">특가마켓 일괄 연장/품절</p>
+					<rich:panel style="width:650px; height: 60px;">
+						<rich:panel style="width:450px; float: left;"
+							bodyClass="bodyPanel" styleClass="panel">
+							<h:outputText
+								value="Lựa chọn các hàng hoá bán ra tính từ ngày hết hạn " />
+							<h:selectOneMenu style="width: 70px;margin-left:10px;"
+								id="select3">
+								<f:selectItem itemValue="0" itemLabel="Chọn" />
+								<f:selectItem itemValue="1" itemLabel="1 Ngày" />
+								<f:selectItem itemValue="3" itemLabel="3 Ngày" />
+								<f:selectItem itemValue="5" itemLabel="5 Ngày" />
+							</h:selectOneMenu>
+							<h:outputText value="để gia hạn." />
+						</rich:panel>
+						<rich:panel style="width:140px; border: 0px; float: right;"
+							bodyClass="bodyPanel">
+							<h:commandButton styleClass="bt_bassic" value="Gia hạn hàng loạt"
+								style="width: 120px" />
+						</rich:panel>
+					</rich:panel>
+					<rich:panel
+						style="width:650px; height: 40px; border: 0px; background: white; margin-bottom: 20px;">
+						<rich:panel
+							style="width:450px; float: left; border: 0px; background: white;"
+							bodyClass="bodyPanel">
+							<font style="color: #7b878a">- 특가마켓은 최대 3달(84일)까지만 연장이
+								가능합니다.<br /> - 이미 종료되었거나 특가마켓 상품이 아닐 경우에는 연장이 되지 않습니다.<br /> 
+								- 주문이 삭제된 특가마켓상품은 노출이 되지 않습니다. </font>
+						</rich:panel>
+						<rich:panel
+							style="width:140px; border: 0px; float: right; background: white;"
+							bodyClass="bodyPanel">
+							<h:commandButton styleClass="bt_bassic" value="일괄주문삭제"
+								style="width: 120px" />
+						</rich:panel>
+					</rich:panel>
+					<p style="color: #1575b0; font-size: 13px; font-weight: bold; margin-top: 10px">특가플러스 일괄 연장</p>
+					<rich:panel style="width:650px; height: 60px;">
+						<rich:panel style="width:450px; float: left;"
+							bodyClass="bodyPanel" styleClass="panel">
+							<h:outputText
+								value="Lựa chọn các hàng hoá bán ra tính từ ngày hết hạn " />
+							<h:selectOneMenu style="width: 70px;margin-left:10px;"
+								id="select4">
+								<f:selectItem itemValue="0" itemLabel="Chọn" />
+								<f:selectItem itemValue="1" itemLabel="1 Ngày" />
+								<f:selectItem itemValue="3" itemLabel="3 Ngày" />
+								<f:selectItem itemValue="5" itemLabel="5 Ngày" />
+								<f:selectItem itemValue="7" itemLabel="7 Ngày" />
+							</h:selectOneMenu>
+							<h:outputText value="để gia hạn." />
+						</rich:panel>
+						<rich:panel style="width:140px; border: 0px; float: right;"
+							bodyClass="bodyPanel">
+							<h:commandButton styleClass="bt_bassic" value="Gia hạn hàng loạt"
+								style="width: 120px" />
+						</rich:panel>
+					</rich:panel>
+					<rich:panel
+						style="width:650px; height: 40px; border: 0px; background: white; margin-bottom: 20px;">
+						<rich:panel
+							style="width:450px; float: left; border: 0px; background: white;"
+							bodyClass="bodyPanel">
+							<font style="color: #7b878a">
+							- 특가플러스는 특가마켓 종료일을 초과해서 설정할 수 없습니다.</font>
+						</rich:panel>
+						<rich:panel
+							style="width:140px; border: 0px; float: right; background: white;"
+							bodyClass="bodyPanel">
+							<h:commandButton styleClass="bt_bassic" value="일괄주문삭제"
+								style="width: 120px" />
+						</rich:panel>
+						<rich:panel	style="border: 0px; float: right; background: white;"
+							bodyClass="bodyPanel">
+							판매자 보유 G캐시 
+							<h:inputText disabled="true" style="width: 80px"/>
+							<h:commandLink value="G캐시 충전하기→" style="text-decoration: underline; font-weight: bold; color: #666666;"/>
+						</rich:panel>
+					</rich:panel>
+				</rich:popupPanel>
+				<h:commandButton value="Gia hạn/Đăng ký trọn gói trên focus/Plus"
+					styleClass="bt_select">
+					<rich:componentControl target="popup3" operation="show" />
+				</h:commandButton>
+
+				<rich:popupPanel id="popup3" modal="true" autosized="true"
+					resizeable="false" style="background: white;">
+					<f:facet name="header">
+						<h:outputText value="Gia hạn/Đăng ký trọn gói trên focus" />
+					</f:facet>
+					<f:facet name="controls">
+						<h:outputLink value="#"
+							onclick="#{rich:component('popup3')}.hide(); return false;">
+							<h:graphicImage value="/resources/images/close.png" />
+						</h:outputLink>
+					</f:facet>
+					<rich:panel bodyClass="bodyPanel" style="background: #f0f8fc; border: 2px solid #d7ebf3;">
+						<font style="color: #2399cd;">지마켓이 판매자에게 수수료 </font><font style="color:#df5c05; font-weight: bold;">Down</font>
+						<font style="color: #2399cd;">, 판매자는 소비자에게 가격 </font>
+						<font style="color:#df5c05; font-weight: bold;">Down</font>
+						<font style="color: #2399cd;">해줄 수 있는 착한 서비스, 특가마켓 </font>
+					</rich:panel>
+					<p style="color: #1575b0; font-size: 13px; font-weight: bold;">특가마켓 일괄 연장/품절</p>
+					<rich:panel style="width:650px; height: 60px;">
+						<rich:panel style="width:450px; float: left;"
+							bodyClass="bodyPanel" styleClass="panel">
+							<h:outputText
+								value="Lựa chọn các hàng hoá bán ra tính từ ngày hết hạn " />
+							<h:selectOneMenu style="width: 70px;margin-left:10px;"
+								id="select6">
+								<f:selectItem itemValue="0" itemLabel="Chọn" />
+								<f:selectItem itemValue="1" itemLabel="1 Ngày" />
+								<f:selectItem itemValue="3" itemLabel="3 Ngày" />
+								<f:selectItem itemValue="5" itemLabel="5 Ngày" />
+							</h:selectOneMenu>
+							<h:outputText value="để gia hạn." />
+						</rich:panel>
+						<rich:panel style="width:140px; border: 0px; float: right;"
+							bodyClass="bodyPanel">
+							<h:commandButton styleClass="bt_bassic" value="Gia hạn hàng loạt"
+								style="width: 120px" />
+						</rich:panel>
+					</rich:panel>
+					<rich:panel
+						style="width:650px; height: 40px; border: 0px; background: white; margin-bottom: 20px;">
+						<rich:panel
+							style="width:450px; float: left; border: 0px; background: white;"
+							bodyClass="bodyPanel">
+							<font style="color: #7b878a">- 특가마켓은 최대 3달(84일)까지만 연장이
+								가능합니다.<br /> - 이미 종료되었거나 특가마켓 상품이 아닐 경우에는 연장이 되지 않습니다.<br /> 
+								- 주문이 삭제된 특가마켓상품은 노출이 되지 않습니다. </font>
+						</rich:panel>
+						<rich:panel
+							style="width:140px; border: 0px; float: right; background: white;"
+							bodyClass="bodyPanel">
+							<h:commandButton styleClass="bt_bassic" value="일괄주문삭제"
+								style="width: 120px" />
+						</rich:panel>
+					</rich:panel>
+					<p style="color: #1575b0; font-size: 13px; font-weight: bold; margin-top: 10px">특가플러스 일괄 연장</p>
+					<rich:panel style="width:650px; height: 60px;">
+						<rich:panel style="width:450px; float: left;"
+							bodyClass="bodyPanel" styleClass="panel">
+							<h:outputText
+								value="Lựa chọn các hàng hoá bán ra tính từ ngày hết hạn " />
+							<h:selectOneMenu style="width: 70px;margin-left:10px;"
+								id="select7">
+								<f:selectItem itemValue="0" itemLabel="Chọn" />
+								<f:selectItem itemValue="1" itemLabel="1 Ngày" />
+								<f:selectItem itemValue="3" itemLabel="3 Ngày" />
+								<f:selectItem itemValue="5" itemLabel="5 Ngày" />
+								<f:selectItem itemValue="7" itemLabel="7 Ngày" />
+							</h:selectOneMenu>
+							<h:outputText value="để gia hạn." />
+						</rich:panel>
+						<rich:panel style="width:140px; border: 0px; float: right;"
+							bodyClass="bodyPanel">
+							<h:commandButton styleClass="bt_bassic" value="Gia hạn hàng loạt"
+								style="width: 120px" />
+						</rich:panel>
+					</rich:panel>
+					<rich:panel
+						style="width:650px; height: 40px; border: 0px; background: white; margin-bottom: 20px;">
+						<rich:panel
+							style="width:450px; float: left; border: 0px; background: white;"
+							bodyClass="bodyPanel">
+							<font style="color: #7b878a">
+							- 특가플러스는 특가마켓 종료일을 초과해서 설정할 수 없습니다.</font>
+						</rich:panel>
+						<rich:panel
+							style="width:140px; border: 0px; float: right; background: white;"
+							bodyClass="bodyPanel">
+							<h:commandButton styleClass="bt_bassic" value="일괄주문삭제"
+								style="width: 120px" />
+						</rich:panel>
+						<rich:panel	style="border: 0px; float: right; background: white;"
+							bodyClass="bodyPanel">
+							판매자 보유 G캐시 
+							<h:inputText disabled="true" style="width: 80px"/>
+							<h:commandLink value="G캐시 충전하기→" style="text-decoration: underline; font-weight: bold; color: #666666;"/>
+						</rich:panel>
+					</rich:panel>
+
+				</rich:popupPanel>
+
+			</h:panelGrid>
+		</h:form>
+	</div>
+
+	<div style="width: 960px; float: left; margin-top: 5px">
+		<h:form>
+			<div style="border-bottom: 3px solid #3157aa;">
+				<h:commandButton styleClass="button_editpro"
+					value="Đăng ký sản phẩm mới" />
+				<h:commandButton styleClass="button_editpro"
+					value="Đăng ký sao chép SP" />
+				<h:commandButton styleClass="button_editpro"
+					value="Chọn lọc (Biên tập SP)" />
+				<h:commandButton styleClass="button_editpro"
+					value="Chỉnh sửa thông tin giá cả" />
+				<h:commandButton styleClass="button_editpro"
+					value="Chỉnh sửa TT tồn kho" />
+			</div>
+			<h:panelGrid
+				style="width: 960px; margin-top: 5px;border-bottom: 2px solid #3157aa;">
+				<h:panelGroup>
+					<h:outputText value="Mã sản phẩm " />
+					<h:inputText style="width: 150px;" readonly="true" />
+					<h:outputText value="Tên sản phẩm " style="margin-left: 15px" />
+					<h:inputText style="width: 400px;" readonly="true" />
+				</h:panelGroup>
+			</h:panelGrid>
+			<ui:insert>
+				<ui:include src="/templates/newProduct.xhtml"></ui:include>
+			</ui:insert>
+		</h:form>
+	</div>
+	<div style="position: fixed; z-index: 0; left: 400px; top: 400px;">
+		<a4j:status>
+			<f:facet name="start">
+				<h:panelGrid columns="2">
+					<h:graphicImage value="/resources/images/wait.gif" alt="ai" />
+					<h:outputText value="Now loading..."
+						style="font-style: italy; font-size: 15px; font-weight: bold;" />
 				</h:panelGrid>
-			</h:form>
-		</div>
-		
-		<div style="width: 960px; float: left; margin-top: 5px">
-			<h:form>
-				<div style="border-bottom: 3px solid #3157aa;">
-					<h:commandButton styleClass="button_editpro" value="Đăng ký sản phẩm mới"/>
-					<h:commandButton styleClass="button_editpro" value="Đăng ký sao chép SP"/>
-					<h:commandButton styleClass="button_editpro" value="Chọn lọc (Biên tập SP)"/>
-					<h:commandButton styleClass="button_editpro" value="Chỉnh sửa thông tin giá cả"/>
-					<h:commandButton styleClass="button_editpro" value="Chỉnh sửa TT tồn kho"/>
-				</div>
-				<h:panelGrid style="width: 960px; margin-top: 5px;border-bottom: 2px solid #3157aa;">
-					<h:panelGroup>
-						<h:outputText value="Mã sản phẩm "/>
-						<h:inputText style="width: 150px;"/>
-						<h:outputText value="Tên sản phẩm " style="margin-left: 15px"/>
-						<h:inputText style="width: 400px;"/>
-					</h:panelGroup>
-				</h:panelGrid>
-				<ui:insert>
-					<ui:include src="/templates/newProduct.xhtml"></ui:include>
-				</ui:insert>
-			</h:form>
-		</div>
-	</h:body>
+			</f:facet>
+		</a4j:status>
+	</div>
+</h:body>
 </html>
 
