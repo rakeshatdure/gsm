@@ -17,7 +17,7 @@ import POJO.CategorySub;
 public class CategoryBean extends HibernateDAO {
 	
 	private List<Category> lCat;
-	private List<CategoryChild> lCatChil;
+	private List<CategoryChild> lCatChild;
 	private List<CategorySub> lCatSub; 
 	private String categoryId;
 	private String categoryChildId;
@@ -50,13 +50,13 @@ public class CategoryBean extends HibernateDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<CategoryChild> getlCatChil() {
-		lCatChil = HibernateDAO.getList("from CategoryChild cc where cc.categoryId= '" + categoryId +"'", lang);
-		return lCatChil;
+	public List<CategoryChild> getlCatChild() {
+		lCatChild = HibernateDAO.getList("from CategoryChild cc where cc.categoryId= '" + categoryId +"'", lang);
+		return lCatChild;
 	}
 
-	public void setlCatChil(List<CategoryChild> lCatChil) {
-		this.lCatChil = lCatChil;
+	public void setlCatChil(List<CategoryChild> lCatChild) {
+		this.lCatChild = lCatChild;
 	}
 
 	@SuppressWarnings("unchecked")

@@ -12,10 +12,33 @@
 		<title>demo Manage</title>
 	</h:head>
 	<h:body>
-		 <h:form>
-			<h:inputText value="#{demo.demo}" valueChangeListener="#{demo.getText}"/>
-			<h:commandButton value="action" render="out" execute="@form"/>
-			<h:outputText value="#{demo.demo}" id="out"/>
-		</h:form>
-	</h:body>
+	<h:form>
+		<h:selectOneMenu style="width: 140px;" value="#{searchdetail.categoryId}"
+			id="category1">
+			<f:selectItem itemLabel="-- Chọn Category -- " itemValue="-1" />
+			<f:selectItems value="#{searchdetail.lCat}" var="cat"
+				itemValue="#{cat.categoryId}" itemLabel="#{cat.categoryName}" />
+			<a4j:ajax event="change" render="categoryChild1,categorySub1" />
+		</h:selectOneMenu>
+
+		<h:selectOneMenu style="width: 100px; margin: 0px 5px 0px 5px;"
+			value="#{searchdetail.categoryChildId}" id="categoryChild1"
+			disabled="#{searchdetail.onCC}">
+			<f:selectItem itemLabel="-- Chọn CategoryChild-- " itemValue="-1" />
+			<f:selectItems value="#{searchdetail.lCatChild}" var="catC"
+				itemValue="#{catC.categoryChildId}"
+				itemLabel="#{catC.categoryChildName}" />
+			<f:ajax event="change" render="categorySub1" />
+		</h:selectOneMenu>
+
+		<h:selectOneMenu style="width: 100px;"
+			value="#{searchdetail.categorySubId}" id="categorySub1"
+			disabled="#{searchdetail.onCS}">
+			<f:selectItem itemValue="-1" itemLabel="-- Chọn CategorySub --" />
+			<f:selectItems value="#{searchdetail.lCatSub}" var="catS"
+				itemValue="#{catS.categorySubId}"
+				itemLabel="#{catS.categorySubName}" />
+		</h:selectOneMenu>
+	</h:form>
+</h:body>
 </html>

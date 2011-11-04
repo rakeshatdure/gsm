@@ -63,13 +63,15 @@
 								<a4j:ajax event="change" render="categoryChild1,categorySub1"/>
 							</h:selectOneMenu>
 							
-							<h:selectOneMenu style="width: 100px; margin: 0px 5px 0px 5px;" value="#{registryProduct.categoryChildId}" id="categoryChild1">
+							<h:selectOneMenu style="width: 100px; margin: 0px 5px 0px 5px;" value="#{registryProduct.categoryChildId}"
+								 id="categoryChild1" disabled="#{registryProduct.onCC}">
 								<f:selectItem itemLabel="-- Chọn CategoryChild-- " itemValue="0"/>
-								<f:selectItems value="#{registryProduct.lCatChil}"  var="catC" itemValue="#{catC.categoryChildId}" itemLabel="#{catC.categoryChildName}"/>
+								<f:selectItems value="#{registryProduct.lCatChild}"  var="catC" itemValue="#{catC.categoryChildId}" itemLabel="#{catC.categoryChildName}"/>
 								<f:ajax event="change" render="categorySub1" />
 							</h:selectOneMenu>
 							
-							<h:selectOneMenu style="width: 100px;" value="#{registryProduct.categorySubId}" id="categorySub1">
+							<h:selectOneMenu style="width: 100px;" value="#{registryProduct.categorySubId}" id="categorySub1"
+								 disabled="#{registryProduct.onCS}">
 								 <f:selectItem itemValue="0" itemLabel="-- Chọn CategorySub --" />
 								 <f:selectItems value="#{registryProduct.lCatSub}" var="catS" itemValue="#{catS.categorySubId}" itemLabel="#{catS.categorySubName}"/>
 							</h:selectOneMenu>
@@ -131,7 +133,7 @@
 			</h:panelGrid>
 			<h:panelGrid columns="2" style="text-align: left; width: 305px">
 				<h:panelGroup>
-					<h:inputText style="width: 150px; margin-right: 10px;"/>
+					<h:inputText style="width: 150px; margin-right: 10px;" readonly="true"/>
 					<a4j:commandLink value="Chọn" styleClass="bt_header" style="color: white;"/>
 				</h:panelGroup>
 				<a4j:commandLink value="Mô tả >" styleClass="bt_header" style="color: white;"/>
@@ -141,7 +143,7 @@
 			</h:panelGrid>
 			<h:panelGrid columns="2" style="text-align: left; width: 310px">
 				<h:panelGroup>
-					<h:inputText style="width: 150px; margin-right: 10px;"/>
+					<h:inputText style="width: 150px; margin-right: 10px;" readonly="true"/>
 					<a4j:commandLink value="Chọn" styleClass="bt_header" style="color: white;"/>
 				</h:panelGroup>
 				<a4j:commandLink value="Mô tả >" styleClass="bt_header" style="color: white;"/>
@@ -326,19 +328,28 @@
 			<h:panelGrid style="width:150px">
 				<h:panelGroup>
 					<h:outputText value="Thông tin vị trí"/>
-					<h:selectBooleanCheckbox title="Vi tri"/>
+					<h:selectBooleanCheckbox title="Vi tri" value="#{registryProduct.on1}">
+						<a4j:ajax event="click" render="outPanel1"/>
+					</h:selectBooleanCheckbox>
 				</h:panelGroup>
 			</h:panelGrid>
 			<h:panelGrid style="text-align: left; width: 800px">
-				<h:panelGroup>
-					<h:outputText value="Nội dung: "/>
-					<h:inputText style="width: 150px"/>
-					<h:outputText value=" (Tối đa 15 ký tự được nhập)"/>
-				</h:panelGroup>
-				<h:panelGroup>
-					<h:commandButton value="Sổ địa chỉ người bán"/>
-					Địa chỉ: <h:inputText style="width: 500px"/>
-				</h:panelGroup>
+				<a4j:outputPanel id="outPanel1">
+					<c:if test="#{registryProduct.on1==true}">
+						<h:panelGroup>
+							<h:outputText value="Nội dung: "/>
+							<h:inputText style="width: 150px"/>
+							<h:outputText value=" (Tối đa 15 ký tự được nhập)"/>
+						</h:panelGroup><br/>
+						<h:panelGroup>
+							<h:commandButton value="Sổ địa chỉ người bán"/>
+							Địa chỉ: <h:inputText style="width: 500px"/>
+						</h:panelGroup>
+					</c:if>
+					<c:if test="#{registryProduct.on1==false}">
+						<h:outputText value="* 입력하신 위'치정보는' 지도로 노출됩니다" style="color: #1575b0;"/>
+					</c:if>
+				</a4j:outputPanel>	
 			</h:panelGrid>
 		</h:panelGrid>
 		<!-- Thuế xuất cảng -->
@@ -997,25 +1008,37 @@
 	<!-- MUC TAP TRUNG -->
 	<div id="ttMucTapTrung" style="margin-top: 20px;">
 		<h:outputLabel value="Các mục tập trung" styleClass="ttNewPro"/>
-		<p style="padding: 10px;"><h:commandLink value="Cài đặt hiển thị quảng cáo" styleClass="bt_focus"/></p>
+		<p style="padding: 10px;"><h:commandLink value="Cài đặt hiển thị quảng cáo" styleClass="bt_focus" style="color:white;"/></p>
 		<!-- Trien lam tap trung -->
 		<h:panelGrid columns="4" styleClass="bgPanelHead">
 			<rich:panel style="width:110px; border: 0px;" bodyClass="bodyPanel">
 				<h:outputText value="Triển lãm tập trung"/>
 			</rich:panel>
 			<rich:panel style="width:30px; border: 0px;" bodyClass="bodyPanel">
-				<h:selectBooleanCheckbox/>
+				<h:selectBooleanCheckbox value="#{registryProduct.on2}">
+					<a4j:ajax event="click" render="outPanel2"/>
+				</h:selectBooleanCheckbox>
 			</rich:panel>
-			<rich:panel style="text-align: left; width: 700px;" styleClass="panel" bodyClass="bodyPanel">
-				<h:selectOneMenu style="width: 120px;">
-					 <f:selectItem itemValue="0" itemLabel="== Chọn ==" />
-				</h:selectOneMenu>
-				<h:inputText/>
-				<h:outputText value=" Cache"/>
-				<h:outputText value="Thời gian:" style="margin-left: 20px"/>
-				<h:inputText/>
-				<h:outputText value="~"/>
-				<h:inputText/>
+			<rich:panel style="text-align: left; width: 700px;"
+				styleClass="panel" bodyClass="bodyPanel">
+				<a4j:outputPanel id="outPanel2">
+					<c:if test="#{registryProduct.on2==true}">
+						<h:selectOneMenu style="width: 120px;" value="#{registryProduct.idFocus}">
+							<f:selectItems value="#{registryProduct.lFocus}" var="lf" itemValue="lf.focusId" itemLabel="lf.nameFocus" />
+						</h:selectOneMenu>
+						<h:inputText disabled="true"/>
+						<h:outputText value=" Cache" />
+						<h:outputText value="Thời gian:" style="margin-left: 20px" />
+						<h:inputText disabled="true"/>
+						<h:outputText value="~" />
+						<h:inputText disabled="true"/>
+					</c:if>
+					<c:if test="#{registryProduct.on2==false}">
+						<h:outputText value="▶ 포커스 전시권을 구매하시면 동일 조건의 상품보다 우선 전시될 수 있습니다" />
+						<h:graphicImage id="focus" alt="jsf-sun"
+							url="/resources/images/icon_17.gif" />
+					</c:if>
+				</a4j:outputPanel>
 			</rich:panel>
 			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
 				<a4j:commandLink value="Mô tả >" styleClass="bt_header" style="color: white;"/>
@@ -1024,27 +1047,48 @@
 		<!-- Them hien thi focus -->
 		<h:panelGrid columns="4" styleClass="bgPanelHead">
 			<rich:panel style="width:110px; border: 0px;" bodyClass="bodyPanel">
-				<h:outputText value="Thêm hiện thị focus"/>
+				<h:outputText value="Thêm hiển thị focus"/>
 			</rich:panel>
 			<rich:panel style="width:30px; border: 0px;" bodyClass="bodyPanel">
-				<h:selectBooleanCheckbox/>
+				<h:selectBooleanCheckbox value="#{registryProduct.on3}">
+					<a4j:ajax event="click" render="outPanel3"/>
+				</h:selectBooleanCheckbox>
 			</rich:panel>
 			<rich:panel style="text-align: left; width: 700px;" styleClass="panel" bodyClass="bodyPanel">
-				<h:outputText value="▶ sangpumman mua quyền để hiển thị tập trung có thể được đăng ký."/>
-				<br/>
-				<h:outputText value="▶ Tập trung Thêm Triển lãm Khối lượng mua, một cuộc triển lãm các sản phẩm sẽ tăng số điểm 20%, cao hơn các ưu tiên tiếp xúc"/>
+				<a4j:outputPanel id="outPanel3">
+					<c:if test="#{registryProduct.on3==true}">
+						<h:selectOneMenu style="width: 120px;" value="#{registryProduct.idFocusOn}">
+							<f:selectItems value="#{registryProduct.lFocusOn}" var="lf" itemValue="lf.focusOnId" itemLabel="lf.nameFocusOn" />
+						</h:selectOneMenu>
+						<h:inputText disabled="true"/>
+						<h:outputText value=" Cache" />
+						<h:outputText value="Thời gian:" style="margin-left: 20px" />
+						<h:inputText  disabled="true"/>
+						<h:outputText value="~" />
+						<h:inputText  disabled="true"/>
+					</c:if>
+					<c:if test="#{registryProduct.on3==false}">
+						<h:outputText
+							value="▶ sangpumman mua quyền để hiển thị tập trung có thể được đăng ký." />
+						<br />
+						<h:outputText
+							value="▶ Tập trung Thêm Triển lãm Khối lượng mua, một cuộc triển lãm các sản phẩm sẽ tăng số điểm 20%, cao hơn các ưu tiên tiếp xúc" />
+						<h:graphicImage id="focuson" alt="jsf-sun"
+							url="/resources/images/icon_21.gif" style="margin-left: 5px;" />
+					</c:if>
+				</a4j:outputPanel>
 			</rich:panel>
 			<rich:panel style="text-align: right; width: 90px;" styleClass="panel" bodyClass="bodyPanel">
 				<a4j:commandLink value="Mô tả >" styleClass="bt_header" style="color: white;"/>
 			</rich:panel>
 		</h:panelGrid>
-		<p style="padding-left: 10px;"><h:commandLink value="Cài đặt quảng cáo đấu giá" styleClass="bt_focus"/></p>
+		<p style="padding-left: 10px;"><h:commandLink value="Cài đặt quảng cáo đấu giá" styleClass="bt_focus" style="color:white;"/></p>
 		<!-- Cài đặt quảng cáo đấu giá -->
 		<rich:panel style="width:960px;">
 			<h:graphicImage url="/resources/images/ad_info.gif" style="width: 940px;"/>
 		</rich:panel>
 		
-		<p style="padding-left: 10px;"><h:commandLink value="스페셜샵 설정 " styleClass="bt_focus"/></p>
+		<p style="padding-left: 10px;"><h:commandLink value="스페셜샵 설정 " styleClass="bt_focus" style="color:white;"/></p>
 		
 		<!-- 그녀의 옷장  -->
 		<h:panelGrid columns="4" styleClass="bgPanelHead">
@@ -1160,7 +1204,7 @@
 		</h:panelGrid>
 		
 		<!-- Loi ich khach hang/Cai dat giai thuong -->
-		<p style="padding-left: 10px;"><h:commandLink value="Lợi ích khách hàng/Cài đặt giải thưởng" styleClass="bt_focus"/></p>
+		<p style="padding-left: 10px;"><h:commandLink value="Lợi ích khách hàng/Cài đặt giải thưởng" styleClass="bt_focus" style="color:white;"/></p>
 		
 		<!-- Giảm giá -->
 		<h:panelGrid columns="4" styleClass="bgPanelHead">
