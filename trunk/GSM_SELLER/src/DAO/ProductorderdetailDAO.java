@@ -245,6 +245,8 @@ public class ProductorderdetailDAO extends HibernateDAO{
                  Productorderdetail pDetail = new Productorderdetail();
                  Products product = new Products();
                  Productorder prOder = new Productorder();
+                 User user = new User();
+                 product.setUser(user);
                  
                  pDetail.setProductorder(prOder);
                  pDetail.setProducts(product);
@@ -252,6 +254,7 @@ public class ProductorderdetailDAO extends HibernateDAO{
                  product.setProductId(rs.getInt("ProductID"));
                  product.setProductName(rs.getString("ProductName"));
                  product.setPrice(rs.getFloat("Price"));
+                 user.setAccount(rs.getString("Account"));
                  prOder.setOrderDate(rs.getDate("OrderDate"));
                  
                  lstProductSeller.add(pDetail);
@@ -283,6 +286,7 @@ public class ProductorderdetailDAO extends HibernateDAO{
                  Products product = new Products();
                  Productorder prOder = new Productorder();
                  User user = new User();
+                 product.setUser(user);
                  
                  pDetail.setProductorder(prOder);
                  pDetail.setProducts(product);
@@ -290,6 +294,7 @@ public class ProductorderdetailDAO extends HibernateDAO{
                  product.setProductId(rs.getInt("ProductID"));
                  product.setProductName(rs.getString("ProductName"));
                  product.setPrice(rs.getFloat("Price"));
+                 user.setAccount(rs.getString("Account"));
                  prOder.setOrderDate(rs.getDate("OrderDate"));
                  
                  lstProductSeller.add(pDetail);
@@ -323,12 +328,15 @@ public class ProductorderdetailDAO extends HibernateDAO{
                  Productorderdetail pDetail = new Productorderdetail();
                  Products product = new Products();
                  Productorder prOder = new Productorder();
+                 User user =new User();
+                 product.setUser(user);
                  pDetail.setProductorder(prOder);
                  pDetail.setProducts(product);
                  pDetail.setProductNumber(rs.getInt("Amount"));
                  product.setProductId(rs.getInt("ProductID"));
                  product.setProductName(rs.getString("ProductName"));
                  product.setPrice(rs.getFloat("Price"));
+                 user.setAccount(rs.getString("Account"));
                  prOder.setOrderDate(rs.getDate("OrderDate"));
                  lstProductSeller.add(pDetail);
              }
@@ -362,12 +370,14 @@ public class ProductorderdetailDAO extends HibernateDAO{
                  Products product = new Products();
                  Productorder prOder = new Productorder();
                  User user =new User();
+                 product.setUser(user);
                  pDetail.setProductorder(prOder);
                  pDetail.setProducts(product);
                  pDetail.setProductNumber(rs.getInt("Amount"));
                  product.setProductId(rs.getInt("ProductID"));
                  product.setProductName(rs.getString("ProductName"));
                  product.setPrice(rs.getFloat("Price"));
+                 user.setAccount(rs.getString("Account"));
                  prOder.setOrderDate(rs.getDate("OrderDate"));
                  lstProductSeller.add(pDetail);
              }
@@ -432,6 +442,8 @@ public class ProductorderdetailDAO extends HibernateDAO{
                  Productorderdetail pDetail = new Productorderdetail();
                  Products product = new Products();
                  Productorder prOder = new Productorder();
+                 User user =new User();
+                 product.setUser(user);
                  
                  pDetail.setProductorder(prOder);
                  pDetail.setProducts(product);
@@ -440,6 +452,7 @@ public class ProductorderdetailDAO extends HibernateDAO{
                  product.setProductName(rs.getString("ProductName"));
                  product.setPrice(rs.getFloat("Price"));
                  prOder.setOrderDate(rs.getDate("OrderDate"));
+                 user.setAccount(rs.getString("Account"));
                  lstProductSeller.add(pDetail);
              }
          } catch (Exception ex) {
@@ -468,6 +481,8 @@ public class ProductorderdetailDAO extends HibernateDAO{
                  Productorderdetail pDetail = new Productorderdetail();
                  Products product = new Products();
                  Productorder prOder = new Productorder();
+                 User user =new User();
+                 product.setUser(user);
                  
                  pDetail.setProductorder(prOder);
                  pDetail.setProducts(product);
@@ -476,6 +491,7 @@ public class ProductorderdetailDAO extends HibernateDAO{
                  product.setProductName(rs.getString("ProductName"));
                  product.setPrice(rs.getFloat("Price"));
                  prOder.setOrderDate(rs.getDate("OrderDate"));
+                 user.setAccount(rs.getString("Account"));
                  lstProductSeller.add(pDetail);
              }
          } catch (Exception ex) {
@@ -504,11 +520,14 @@ public class ProductorderdetailDAO extends HibernateDAO{
                  Productorder prOder = new Productorder();
                  pDetail.setProductorder(prOder);
                  pDetail.setProducts(product);
+                 User user=new User();
+                 product.setUser(user);
                  pDetail.setProductNumber(rs.getInt("Amount"));
                  product.setProductId(rs.getInt("ProductID"));
                  product.setProductName(rs.getString("ProductName"));
                  product.setPrice(rs.getFloat("Price"));
                  prOder.setOrderDate(rs.getDate("OrderDate"));
+                 user.setAccount(rs.getString("Account"));
                  lstProductSeller.add(pDetail);
              }
          } catch (Exception ex) {
@@ -537,11 +556,14 @@ public class ProductorderdetailDAO extends HibernateDAO{
                  Productorder prOder = new Productorder();
                  pDetail.setProductorder(prOder);
                  pDetail.setProducts(product);
+                 User user=new User();
+                 product.setUser(user);
                  pDetail.setProductNumber(rs.getInt("Amount"));
                  product.setProductId(rs.getInt("ProductID"));
                  product.setProductName(rs.getString("ProductName"));
                  product.setPrice(rs.getFloat("Price"));
                  prOder.setOrderDate(rs.getDate("OrderDate"));
+                 user.setAccount(rs.getString("Account"));
                  lstProductSeller.add(pDetail);
              }
          } catch (Exception ex) {

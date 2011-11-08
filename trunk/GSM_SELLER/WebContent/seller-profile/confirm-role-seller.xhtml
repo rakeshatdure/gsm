@@ -24,9 +24,12 @@
 		</h:form>
 		<h:form rendered="#{company.user.role.roleId == 4}">
 			<div style="width: 1224px">
-				<ui:insert>
-					<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
-				</ui:insert>
+				<div style="position: fixed; z-index: 100; top: 0px; width: 1224px">
+					<ui:insert>
+						<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
+					</ui:insert>
+				</div>
+				<div style="height: 15px" />
 				<div style="height: 25px" />
 
 				<div style="width: 960px; float: left;">
@@ -34,12 +37,14 @@
 						<h:panelGroup>
 							<h:graphicImage url="/resources/images/hinh5.PNG"
 								style="float:left;margin-top:2px;" />
-							<h:outputLabel value="Xác nhận quyền của seller" />
+							<h:outputLabel value="Xác nhận quyền của seller" style="font-family: cambria;font-size: 18px;font-weight: bold;color: black;"/>
 						</h:panelGroup>
 						<h:panelGroup>
-							<a4j:commandLink value="Xem FAQ mini" styleClass="bt_select"
-								style="float:right;margin-right:2px;height:16px;" />
+
 							<a4j:commandLink value="Xem/Đóng" styleClass="bt_select"
+								style="float:right;margin-right:2px;height:16px;" render="out"
+								action="#{beantest.eventClick}" />
+							<a4j:commandLink value="Xem FAQ mini" styleClass="bt_select"
 								style="float:right;margin-right:2px;height:16px;" />
 						</h:panelGroup>
 					</h:panelGrid>
@@ -47,9 +52,14 @@
 					<div style="border: 1px solid #647ce7;" />
 					<h:panelGrid style="width:960px;" columns="1">
 						<h:outputLabel value="content 1" />
-						<h:outputLabel />
-						<h:outputLabel value="content 2" />
-						<h:outputLabel value="content 3" />
+						
+						<a4j:outputPanel id="out">
+							<c:if test="#{beantest.on==true}">
+								<h:outputLabel value="content 2" />
+								<div style="height: 3px;" />
+								<h:outputLabel value="content 3" />
+							</c:if>
+						</a4j:outputPanel>
 					</h:panelGrid>
 					<div style="height: 5px" />
 					<div style="border: 1px solid #647ce7;" />

@@ -27,11 +27,13 @@ import org.hibernate.Query;
 public class ProductDAO extends HibernateDAO {
 
 	// Get all products
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProduct(String lang) {
 		return HibernateDAO.getList("from Products", lang);
 	}
 
 	// Get all products had paid
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProductPaid(String lang) {
 		SimpleDateFormat simp = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDate = simp.format(new Date());
@@ -42,6 +44,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Searchproduct with name
+	@SuppressWarnings("unchecked")
 	public static List<Products> SearchProductkey(String key, int ManuId,
 			double prMin, double prMax, String lang) {
 		return HibernateDAO.getList("from Products where  productName like '%"
@@ -50,6 +53,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Get all products
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProduct(int pageNumber, int pageSize,
 			String lang) {
 		return HibernateDAO
@@ -57,6 +61,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Get all products had paid
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProductPaid(int pageNumber, int pageSize,
 			String lang) {
 		SimpleDateFormat simp = new SimpleDateFormat("yyyy-MM-dd");
@@ -68,6 +73,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Get news products
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProductNew(String lang) {
 		SimpleDateFormat simp = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDate = simp.format(new Date());
@@ -79,12 +85,14 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Get list products in CategoryChild
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProduct(CategoryChild cc, String lang) {
 		return HibernateDAO.getList("from Products where categoryChildId='"
 				+ cc.getCategoryChildId() + "'", lang);
 	}
 
 	// Get list products in CategoryChild had paid
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProductPaid(CategoryChild cc, String lang) {
 		SimpleDateFormat simp = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDate = simp.format(new Date());
@@ -98,6 +106,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Get list products in CategoryChild
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProduct(CategoryChild cc, int pageNumber,
 			int pageSize, String lang) {
 		return HibernateDAO.getList("from Products where categoryChildId='"
@@ -105,6 +114,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Get list products in CategoryChild had payment
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProductPaid(CategoryChild cc,
 			int pageNumber, int pageSize, String lang) {
 		SimpleDateFormat simp = new SimpleDateFormat("yyyy-MM-dd");
@@ -120,6 +130,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Get list products in CategorySub
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProduct(CategorySub cb, String lang) {
 		return HibernateDAO.getList(
 				"from Products where categorySubId='" + cb.getCategorySubId()
@@ -127,6 +138,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Get list products in CategorySub had paid
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProductPaid(CategorySub cb, String lang) {
 		SimpleDateFormat simp = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDate = simp.format(new Date());
@@ -140,6 +152,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Get list products in CategorySub
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProduct(CategorySub cb, int pageNumber,
 			int pageSize, String lang) {
 		return HibernateDAO.getList(
@@ -148,6 +161,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Get list products in CategorySub had paid
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProductPaid(CategorySub cb, int pageNumber,
 			int pageSize, String lang) {
 		SimpleDateFormat simp = new SimpleDateFormat("yyyy-MM-dd");
@@ -163,6 +177,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Get list products in user
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProduct(User user, String lang) {
 		return HibernateDAO.getList(
 				"from Products where user.account='" + user.getAccount() + "'",
@@ -170,6 +185,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Get list products in user
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProduct(User user, int pageNumber,
 			int pageSize, String lang) {
 		return HibernateDAO.getList(
@@ -178,6 +194,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Get list products in news promotions
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstProduct_PromotionNews(String lang) {
 		ArrayList<Products> lstPr = new ArrayList<Products>();
 		List<Promotions> lst = HibernateDAO.getList(
@@ -232,6 +249,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Searchproduct with name
+	@SuppressWarnings("unchecked")
 	public static List<Products> SearchProductkey(String key, int ManuId,
 			Double min, Double max, String lang) {
 
@@ -265,6 +283,7 @@ public class ProductDAO extends HibernateDAO {
 	}
 
 	// Advanced search products
+	@SuppressWarnings("unchecked")
 	public static List<Products> advancedSearchProduct(String seller,
 			String child, String sub, String key, Date from, Date to,
 			String lang) {
@@ -328,6 +347,7 @@ public class ProductDAO extends HibernateDAO {
 		return result;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static List<Products> SearchProductAmount(String categoryId,
 			String categorychildId, String categorysubId, String lang) {
 		return HibernateDAO.getList("from Products where categorySubId='"
@@ -404,12 +424,14 @@ public class ProductDAO extends HibernateDAO {
 		return lstProduct;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static List<Products> lstInvenProduct(User user, String lang) {
 		return HibernateDAO.getList(
 				"from Products where user.account='" + user.getAccount() + "'",
 				lang);
 	}
 
+	@SuppressWarnings("unchecked")
 	public static List<Products> getListProductByCategory(String categoryID,
 			String lang) {
 		SimpleDateFormat simp = new SimpleDateFormat("yyyy-MM-dd");
@@ -425,10 +447,10 @@ public class ProductDAO extends HibernateDAO {
 								+ categoryID
 								+ "' and p.productId=inv.productId and inv.limitDate > '"
 								+ currentDate + "'", lang);
-
 		return list;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static List<Products> getListProductByCategoryMax(String categoryID,
 			int firstResult, int maxResult, String lang) {
 		SimpleDateFormat simp = new SimpleDateFormat("yyyy-MM-dd");
@@ -442,7 +464,6 @@ public class ProductDAO extends HibernateDAO {
 								+ "' and p.productId=inv.productId and inv.limitDate > '"
 								+ currentDate + "'", firstResult, maxResult,
 						lang);
-
 		return list;
 	}
 
@@ -450,7 +471,6 @@ public class ProductDAO extends HibernateDAO {
 			int firstResult, int maxResult, String lang) {
 		SimpleDateFormat simp = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDate = simp.format(new Date());
-
 		return HibernateDAO
 				.getListMap(
 						"select p from Products p,CategoryChild cac,Inventory inv where cac.categoryChildId=p.categoryChildId"
@@ -461,9 +481,4 @@ public class ProductDAO extends HibernateDAO {
 						lang);
 
 	}
-
-	public static void main(String[] args) {
-
-	}
-
 }

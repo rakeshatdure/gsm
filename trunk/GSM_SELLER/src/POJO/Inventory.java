@@ -10,49 +10,58 @@ import java.util.Date;
 public class Inventory  implements java.io.Serializable {
 
 
-     private int inventoryId;
-     private int productId;
-     private int sateId;
-     private Date limitDate;
+	private int inventoryId;
+	private int productId;
+	private int sateId;
+	private Date limitDate;
+	private Date updateDate;
 
-    
+
 
 	public Inventory() {
-    }
+	}
 
+
+	public Inventory(int inventoryId, int productId, int sateId, Date limitDate) {
+		this.inventoryId = inventoryId;
+		this.productId = productId;
+		this.sateId = sateId;
+		this.limitDate = limitDate;
+	}
 	
-    public Inventory(int inventoryId, int productId, int sateId, Date limitDate) {
-        this.inventoryId = inventoryId;
-        this.productId = productId;
-        this.sateId = sateId;
-        this.limitDate = limitDate;
-    }
-    
-   
-    public int getInventoryId() {
-        return this.inventoryId;
-    }
-    
-    public void setInventoryId(int inventoryId) {
-        this.inventoryId = inventoryId;
-    }
-    public int getProductId() {
-        return this.productId;
-    }
-    
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-  
-    public int getSateId() {
-        return this.sateId;
-    }
-    
-    public void setSateId(int sateId) {
-        this.sateId = sateId;
-    }
-   
-    public Date getLimitDate() {
+	public Inventory(int inventoryId, int productId, int sateId, Date limitDate, Date updateDate) {
+		this.inventoryId = inventoryId;
+		this.productId = productId;
+		this.sateId = sateId;
+		this.limitDate = limitDate;
+		this.updateDate = updateDate;
+	}
+	
+
+	public int getInventoryId() {
+		return this.inventoryId;
+	}
+
+	public void setInventoryId(int inventoryId) {
+		this.inventoryId = inventoryId;
+	}
+	public int getProductId() {
+		return this.productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+
+	public int getSateId() {
+		return this.sateId;
+	}
+
+	public void setSateId(int sateId) {
+		this.sateId = sateId;
+	}
+
+	public Date getLimitDate() {
 		return limitDate;
 	}
 
@@ -61,7 +70,13 @@ public class Inventory  implements java.io.Serializable {
 		this.limitDate = limitDate;
 	}
 
+	public Date getUpdateDate() {
+		return updateDate;
+	}
 
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
 
 }
 

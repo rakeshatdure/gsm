@@ -2,11 +2,11 @@ package UTIL;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/*import java.io.UnsupportedEncodingException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import javax.transaction.SystemException;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
-import java.io.IOException;*/
 
 public class  VuHong_MD5 {
 	
@@ -14,7 +14,7 @@ public class  VuHong_MD5 {
 		// TODO Auto-generated constructor stub
 	}
 	
-	/*public static String encodeBase64(String text){
+	public static String encodeBase64(String text){
 		try {
 			return new BASE64Encoder().encode(toByteArray(text));
 		} catch (SystemException e) {
@@ -38,8 +38,7 @@ public class  VuHong_MD5 {
 	        SystemException se = new SystemException();
 	        throw se;
 	    }
-	}*/
-	
+	}
 	
 	public static String encrypt(String value){		
 		try

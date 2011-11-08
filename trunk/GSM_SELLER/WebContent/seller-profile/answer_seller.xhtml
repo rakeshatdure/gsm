@@ -27,9 +27,12 @@
 		</h:form>
 		<h:form rendered="#{company.user.role.roleId == 4}">
 			<div style="width: 1224px">
-				<ui:insert>
-					<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
-				</ui:insert>
+				<div style="position: fixed; z-index: 100; top: 0px;width: 1224px">
+					<ui:insert>
+						<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
+					</ui:insert>
+				</div>
+				<div style="height: 15px" />
 				<div style="height: 5px" />
 
 				<div style="width: 960px; float: left;">

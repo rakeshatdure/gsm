@@ -14,11 +14,8 @@
         <property name="cache" type="java.lang.String">
             <column name="Cache" />
         </property>
-        <property name="fromTime" type="java.util.Date">
-            <column name="FromTime" />
-        </property>
-        <property name="toTime" type="java.util.Date">
-            <column name="ToTime" />
+        <property name="time" type="int">
+            <column name="Time" />
         </property>
     </class>
 </hibernate-mapping>

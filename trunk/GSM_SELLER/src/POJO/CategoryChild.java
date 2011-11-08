@@ -35,6 +35,11 @@ public class CategoryChild  implements java.io.Serializable {
         this.products = products;
         this.categorysubs = categorysubs;
      }
+    
+    public CategoryChild(String categoryChildId,String categoryChildName){
+    	this.categoryChildId = categoryChildId;
+    	this.categoryChildName = categoryChildName;
+    }
    
     public String getCategoryChildId() {
         return this.categoryChildId;

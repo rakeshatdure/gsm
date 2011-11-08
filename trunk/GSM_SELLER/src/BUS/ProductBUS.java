@@ -6,7 +6,12 @@ package BUS;
 
 import DAO.*;
 import POJO.*;
+import POJO.View.ProductsView;
+import UTIL.MySqlDataAccessHelper;
 
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -146,14 +151,146 @@ public class ProductBUS {
     	return ProductDAO.getListProductByCategoryPaging(categoryID,pageNumber,pageSize,lang);
     }
     
-    public static void main(String[] args) {
-		Products p=new Products();
-		p.setProductName("test");
-		p.setSize("d");
-		p.setColor("d");
-		p.setDetail("d");
-		p.setUnit("df");
-		p.setUploadDate(new Date());
-		insertProducts(p, "MALL_EN");
+    // update product by user
+    public static boolean updateProductByUser(float price,int amount,String lang,String account,int productID,String limitDate){
+		boolean result = false;
+		MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
+		try {
+			helper.open(lang);
+			String sql = "update  products, inventory set products.Price = "+ price +" " +
+					" , products.Amount="+amount+",inventory.LimitDate ='"+limitDate+"' where products.ProductID = "+ productID +" " +
+							" and  products.Account='"+account+"' and products.ProductID = inventory.InventoryId";
+			int rs = helper.executeUpdate(sql);
+			System.out.println("----" + rs);
+			if(rs > 0){
+				result = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
+    // load all product inventory
+    public static List<ProductInvetoryView> lstProductInvetory(String account,String lang){
+    	List<ProductInvetoryView> lst = new ArrayList<ProductInvetoryView>();
+    	MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
+    	SimpleDateFormat simp=new SimpleDateFormat("yyyy-MM-dd");
+    	String currentDate=simp.format(new Date());
+    	try {
+			helper.open(lang);
+			String query = "SELECT prs.ProductID as productCode , prs.ProductName as productName," +
+					"(SELECT man.ManufacturerName from  manufacturer man WHERE prs.ManufacturerId = man.ManufacturerId) as producer," +
+					"(SELECT inv.InventoryId from  inventory inv WHERE inv.ProductId = prs.ProductID) as invetoryCode," +
+					"(SELECT inst.StateName from invenstate inst  WHERE inst.StateId = iven.SateId and iven.ProductId = prs.ProductID ) as stateIventory," +
+					" prs.Amount as amount,iven.LimitDate as expired " +
+					" from products prs, inventory iven " +
+					" WHERE prs.ProductID = iven.ProductId and prs.Account='"+ account+"' and iven.LimitDate < '" + currentDate + "'" ;
+			
+			ResultSet rs = helper.executeQuery(query);
+			while (rs.next()) {
+				ProductInvetoryView prsview = new ProductInvetoryView(rs.getInt("productCode"), rs.getString("productName"), 
+						rs.getString("producer"), rs.getInt("invetoryCode"), rs.getString("stateIventory"), rs.getInt("amount"),rs.getDate("expired"));
+				lst.add(prsview);
+			}
+		} catch (Exception e) {
+			e.getMessage();
+		}
+    	return lst;
+    }
+    // load all product infor by user
+    public static List<ProductsView> getAllProductByUser(String account,String lang){
+    	List<ProductsView> lstProduct = new ArrayList<ProductsView>();
+    	
+    	MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
+    	try {
+			String query = "SELECT prs.ProductID as productId ,prs.ProductName as productName, " +
+					" prs.Price as price,prs.Amount as amount , " +
+					"(SELECT SUM((prs.Price * prs.Amount)+ dc.Cost + dc.FeeExtra) FROM delivercost dc" +
+					"	 WHERE prs.DeliverCost=dc.DeliverCostID and prs.Account='"+account+"' ) as totalPrice," +
+					"(SELECT cat.CategoryName  from category cat, categorychild catch" +
+					" 	WHERE prs.CategoryChildId = catch.CategoryChildId and catch.CategoryId = cat.CategoryID) as categoryName," +
+					"(SELECT catch.CategoryChildName  from categorychild catch WHERE prs.CategoryChildId = catch.CategoryChildId ) as categoryChild," +
+					"(SELECT catsub.CategorySubName  from categorysub catsub" +
+					" 	WHERE prs.CategorySubId= catsub.CategorySubId) as categorySub,inv.InventoryId as invetoryID," +
+					" inv.LimitDate as limitDate, st.StateName as stateName " +
+					" from products prs, inventory inv, `user` , invenstate st " +
+					" WHERE prs.ProductID = inv.ProductId and`user`.Account='"+ account+"'  and inv.SateId = st.StateId ";
+			
+			helper.open(lang);
+
+			ResultSet rs = helper.executeQuery(query);
+			while (rs.next()) {
+				ProductsView prView = new ProductsView(rs.getInt("productId"),rs.getString("productName"),rs.getFloat("price"),rs.getFloat("totalPrice"),rs.getInt("amount"),
+						rs.getDate("limitDate"),rs.getString("categoryName"),rs.getString("categoryChild"),rs.getString("categorySub"),rs.getInt("invetoryID"),rs.getString("stateName"));
+				lstProduct.add(prView);
+			}
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return lstProduct;
+    }
+    // load all product selling
+    public static List<ProductsView> getAllProductSellingByUser(String account,String lang){
+    	List<ProductsView> lstProduct = new ArrayList<ProductsView>();
+    	MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
+    	try {
+			String query = "SELECT prs.ProductID as productId ,prs.ProductName as productName, " +
+					" prs.Price as price,prs.Amount as amount , " +
+					" (SELECT SUM((prs.Price * prs.Amount)+ dc.Cost + dc.FeeExtra) FROM delivercost dc" +
+					"	 WHERE prs.DeliverCost=dc.DeliverCostID and prs.Account='"+account+"' ) as totalPrice," +
+					" (SELECT cat.CategoryName  from category cat, categorychild catch" +
+					" 	WHERE prs.CategoryChildId = catch.CategoryChildId and catch.CategoryId = cat.CategoryID) as categoryName," +
+					" (SELECT catch.CategoryChildName  from categorychild catch WHERE prs.CategoryChildId = catch.CategoryChildId ) as categoryChild," +
+					" (SELECT catsub.CategorySubName  from categorysub catsub" +
+					" 	WHERE prs.CategorySubId= catsub.CategorySubId) as categorySub,inv.InventoryId as invetoryID," +
+					" inv.LimitDate as limitDate, st.StateName as stateName " +
+					" from products prs, inventory inv,invenstate st " +
+					" WHERE prs.ProductID = inv.ProductId and prs.Account='"+ account+"'  and inv.SateId = st.StateId AND st.StateName='OutputSto' ";
+			
+			helper.open(lang);
+
+			ResultSet rs = helper.executeQuery(query);
+			while (rs.next()) {
+				ProductsView prView = new ProductsView(rs.getInt("productId"),rs.getString("productName"),rs.getFloat("price"),rs.getFloat("totalPrice"),rs.getInt("amount"),
+						rs.getDate("limitDate"),rs.getString("categoryName"),rs.getString("categoryChild"),rs.getString("categorySub"),rs.getInt("invetoryID"),rs.getString("stateName"));
+				lstProduct.add(prView);
+			}
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return lstProduct;
+    }
+    
+ // load all product infor by categoryName
+    public static List<ProductsView> getAllProductByCategory(String account,String lang,String where){
+    	List<ProductsView> lstProduct = new ArrayList<ProductsView>();
+    	MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
+    	try {
+			String query = "SELECT prs.ProductID as productId ,prs.ProductName as productName, " +
+					" prs.Price as price,prs.Amount as amount , " +
+					"(SELECT SUM((prs.Price * prs.Amount)+ dc.Cost + dc.FeeExtra) FROM delivercost dc" +
+					"	 WHERE prs.DeliverCost=dc.DeliverCostID and prs.Account='"+account+"' ) as totalPrice," +
+					"(SELECT cat.CategoryName  from category cat, categorychild catch" +
+					" 	WHERE prs.CategoryChildId = catch.CategoryChildId and catch.CategoryId = cat.CategoryID) as categoryName," +
+					"(SELECT catch.CategoryChildName  from categorychild catch WHERE prs.CategoryChildId = catch.CategoryChildId ) as categoryChild," +
+					"(SELECT catsub.CategorySubName  from categorysub catsub" +
+					" 	WHERE prs.CategorySubId= catsub.CategorySubId) as categorySub,inv.InventoryId as invetoryID," +
+					" inv.LimitDate as limitDate, st.StateName as stateName " +
+					" from products prs, inventory inv, `user` , invenstate st " +
+					" WHERE prs.ProductID = inv.ProductId and`user`.Account='"+ account+"'  and inv.SateId = st.StateId " ;
+			
+			helper.open(lang);
+
+			ResultSet rs = helper.executeQuery(query+ where);
+			while (rs.next()) {
+				ProductsView prView = new ProductsView(rs.getInt("productId"),rs.getString("productName"),rs.getFloat("price"),rs.getFloat("totalPrice"),rs.getInt("amount"),
+						rs.getDate("limitDate"),rs.getString("categoryName"),rs.getString("categoryChild"),rs.getString("categorySub"),rs.getInt("invetoryID"),rs.getString("stateName"));
+				lstProduct.add(prView);
+			}
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		return lstProduct;
+    }
 }

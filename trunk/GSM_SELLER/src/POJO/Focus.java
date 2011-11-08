@@ -1,7 +1,6 @@
 package POJO;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Focus implements Serializable {
 
@@ -13,8 +12,7 @@ public class Focus implements Serializable {
 	private int focusId;
 	private String nameFocus;
 	private String cache;
-	private Date fromTime;
-	private Date toTime;
+	private int time;
 	
 	public int getFocusId() {
 		return focusId;
@@ -34,18 +32,11 @@ public class Focus implements Serializable {
 	public void setCache(String cache) {
 		this.cache = cache;
 	}
-	public Date getFromTime() {
-		return fromTime;
+	public void setTime(int time) {
+		this.time = time;
 	}
-	public void setFromTime(Date fromTime) {
-		this.fromTime = fromTime;
+	public int getTime() {
+		return time;
 	}
-	public Date getToTime() {
-		return toTime;
-	}
-	public void setToTime(Date toTime) {
-		this.toTime = toTime;
-	}
-	
 	
 }
