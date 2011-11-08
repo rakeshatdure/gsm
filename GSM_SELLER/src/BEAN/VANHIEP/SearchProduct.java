@@ -70,6 +70,8 @@ public class SearchProduct extends HibernateDAO {
 	private boolean onCC = true;
 	private boolean onCS = true;
 	
+	
+	
 	public List<Category> getlCat() {
 		String action = "from Category";
 		lCat = HibernateDAO.getList(action, lang);
@@ -349,9 +351,11 @@ public class SearchProduct extends HibernateDAO {
 	}
 
 	public String getUser() {
-		HttpSession ses = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-		user = (String) ses.getAttribute("account");
-		return user;
+		HttpSession ses = (HttpSession) FacesContext.getCurrentInstance()
+		.getExternalContext().getSession(true);
+		User user = (User) ses.getAttribute("uselogin");
+		ses.setAttribute("uselogin", user);
+		return user.getAccount();
 	}
 
 	//get size of lists product to show display
@@ -453,6 +457,7 @@ public class SearchProduct extends HibernateDAO {
 		String sql = "from Products";
 		if(showTable.equals("0")){
 			sql = "from Products";
+			
 		}
 		if(showTable.equals("1")){
 			sql = "from Products p where p.account = '" + user + "' and p.amount < 3 and p.marketId = 1";
@@ -475,8 +480,8 @@ public class SearchProduct extends HibernateDAO {
 		if(showTable.equals("7")){
 			sql = searchProduct();
 		}
-		
 		List<Products> lpro = HibernateDAO.getList(sql, lang);
+		
 		for (Products p : lpro) {
 			ProductAll pa = new ProductAll();
 			pa.setProductId(p.getProductId());
@@ -498,14 +503,17 @@ public class SearchProduct extends HibernateDAO {
 			pa.setTransactionInfo(getTras(p.getTransactionInfoId()));
 			listProductSearch.add(pa);
 		}
+		System.out.println("---------- size: " + lpro.size());
 		return listProductSearch;
 	}
 
 	
 	private String searchProduct() {
-		String excute = "from Products p where p.account = '" + user + "'";
+		String excute = "select p ";
+		excute += " from Products as p, Category as c, CategoryChild as cc where p.account = '" + user + "'";
 		String sCategoryChild = "";
 		String sCategorySub = "";
+		String sCategory = "";
 		String date = "";
 		String ttgd = "";
 		String sellM = "";
@@ -513,15 +521,19 @@ public class SearchProduct extends HibernateDAO {
 		String searchText = "";
 		
 		Format format = new SimpleDateFormat("yyyy/MM/dd");
-		
 		//SET CATEGORY
-		if(categoryChildId != ""){
-			sCategoryChild = " and p.categoryChildId = '" + categoryChildId + "'";
-		}
-		if(categorySubId != ""){
-			sCategorySub = " and p.categorySubId = '" + categorySubId + "'";
-		}
-		
+		if (categoryId != "") {
+			if(categoryChildId != ""){
+				sCategoryChild = " and p.categoryChildId = '" + categoryChildId + "'";
+			}
+			if(categorySubId != ""){
+				sCategorySub = " and p.categorySubId = '" + categorySubId + "'";
+			}
+			if(categoryChildId.equals("")){
+				sCategory = " and c.categoryId = cc.categoryId and cc.categoryChildId = p.categoryChildId and c.categoryId like '"+categoryId+"'";
+			}
+		} 
+
 		//SET DATE
 		if(fromDate != null){
 			String fdate = format.format(fromDate);
@@ -570,7 +582,7 @@ public class SearchProduct extends HibernateDAO {
 			}
 		}
 		
-		excute += sCategoryChild + sCategorySub + date + ttgd + sellM + amount + searchText;
+		excute += sCategory + sCategoryChild + sCategorySub + date + ttgd + sellM + amount + searchText + " group by p.productId";
 		
 		System.out.println("Query String: ["+excute+"]");
 		

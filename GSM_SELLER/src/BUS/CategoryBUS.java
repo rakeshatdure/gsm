@@ -43,26 +43,27 @@ public class CategoryBUS {
 		return CategoryDAO.deleteCategory(p, lang);
 	}
 	// load all category by user
-	public static List<String> lstAllCategory(String lang,String account){
-		List<String> list = new ArrayList<String>();
+	public static List<Category> lstAllCategory(String lang,String account){
+		List<Category> list = new ArrayList<Category>();
 		MySqlDataAccessHelper helper = new MySqlDataAccessHelper();
 
 		try {
-			String sql = "select cat.CategoryName FROM category cat, categorychild catch, products prs, `user` us" +
+			String sql = "select cat.CategoryName,cat.CategoryID FROM category cat, categorychild catch, products prs, `user` us" +
 			" WHERE us.Account = prs.Account and prs.CategoryChildId = catch.CategoryChildId" +
 			" and catch.CategoryId = cat.CategoryID" +
-			" and us.Account ='" + account + "'";
+			" and us.Account ='" + account + "' group by cat.CategoryName";
 			helper.open(lang);
 
 			ResultSet rs = helper.executeQuery(sql);
 			while (rs.next()) {
-				String s = new String(rs.getString("Banking"));
-				list.add(s);
+				Category cat = new Category(rs.getString("CategoryID"),rs.getString("CategoryName"));
+				list.add(cat);
 			}
 		} catch (Exception ex) {
 			ex.getMessage();
 		}
 		return list;
 	}
+
 
 }

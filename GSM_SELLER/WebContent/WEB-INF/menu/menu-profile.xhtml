@@ -14,12 +14,16 @@
                 <f:facet name="label">
                     <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
                         style="vertical-align:middle">
-                        <h:outputText value="Profile" />
+                        <h:outputText value="Menu 2 (Profile)" />
                     </h:panelGrid>
                 </f:facet>
+                 <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/Notice.xhtml'">
+                        <h:outputText value="Menu 2-2 (Notice)" />
+                </rich:menuItem>
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/seller-profile/answer_seller.xhtml'">
-                        <h:outputText value="Contact with Gmarket" />
+                        <h:outputText value="Menu 2-4 (Contact with Gmarket)" />
                 </rich:menuItem>
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/Notice.xhtml'">
@@ -27,15 +31,15 @@
                 </rich:menuItem>
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/seller-profile/profile_seller.xhtml'">
-                        <h:outputText value="Seller Profile" />
-                </rich:menuItem>
-                <rich:menuItem submitMode="client"
-                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/seller-profile/task_change_account.xhtml'">
-                        <h:outputText value="Change account infor" />
+                        <h:outputText value="Menu 2-5 (Seller Profile)" />
                 </rich:menuItem>
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/seller-profile/confirm-role-seller.xhtml'">
-                        <h:outputText value="Confirm role " />
+                        <h:outputText value="Menu 2-9 (Confirm role) " />
+                </rich:menuItem>
+                <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/seller-profile/task_change_account.xhtml'">
+                        <h:outputText value="Menu 2-11 (Change account infor)" />
                 </rich:menuItem>
             </rich:dropDownMenu>
             
@@ -43,32 +47,33 @@
                 <f:facet name="label">
                     <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
                         style="vertical-align:middle">
-                        <h:outputText value="ManagePriceAndAmount" />
+                        <h:outputText value="Menu 3 (ManagePriceAndAmount)" />
                     </h:panelGrid>
                 </f:facet>
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/mProduct.xhtml'">
-                        <h:outputText value="Manage Product" />
+                        <h:outputText value="Menu 3-1 (Manage Product)" />
                 </rich:menuItem>
+               
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/price-quantity/manage-price-quantity.xhtml'">
-                        <h:outputText value="Manage price and amount" />
+                        <h:outputText value="Menu 3-2 (Manage price and amount)" />
                 </rich:menuItem>
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/price-quantity/manage-community-purchase.xhtml'">
-                        <h:outputText value="Manage Community purchase" />
+                        <h:outputText value="Menu 3-3 (Manage Community purchase(Plus))" />
                 </rich:menuItem>
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/price-quantity/setting-inventory.xhtml'">
-                        <h:outputText value="Setting Inventory" />
+                        <h:outputText value="Menu 3-4 (Setting Inventory)" />
                 </rich:menuItem>
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/price-quantity/service-hosting-image.xhtml'">
-                        <h:outputText value="Service hosting image" />
+                        <h:outputText value="Menu 3-5 (Service hosting image)" />
                 </rich:menuItem>
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/price-quantity/product-detail-itemcode.xhtml'">
-                        <h:outputText value="Product detail ITEMCODI" />
+                        <h:outputText value="Menu 3-6 (Product detail ITEMCODI)" />
                 </rich:menuItem>
             </rich:dropDownMenu>
             
@@ -76,39 +81,41 @@
                 <f:facet name="label">
                     <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
                         style="vertical-align:middle">
-                        <h:outputText value="ManageExchangeReturnProduct" />
-                    </h:panelGrid>
-                </f:facet>
-                 <rich:menuItem submitMode="client"
-                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/product-exchange-return/manage-drop-product.xhtml'">
-                        <h:outputText value="Manage drop product" />
-                </rich:menuItem>
-                <rich:menuItem submitMode="client"
-                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/product-exchange-return/manage-exchange-return-product.xhtml'">
-                        <h:outputText value="Manage exchange and return product" />
-                </rich:menuItem>
-            </rich:dropDownMenu>
-            
-            <rich:dropDownMenu mode="ajax">
-                <f:facet name="label">
-                    <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
-                        style="vertical-align:middle">
-                        <h:outputText value="Manage Delivery" />
+                        <h:outputText value="Menu 6 (Manage Delivery)" />
                     </h:panelGrid>
                 </f:facet>
                  <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/manage-delivery/delivery-status.xhtml'">
-                        <h:outputText value="Manage Delivery status" />
+                        <h:outputText value="Menu 6-1 (Manage Delivery status)" />
                 </rich:menuItem>
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/manage-delivery/delivery-fee.xhtml'">
-                        <h:outputText value="Manage delivery fee" />
+                        <h:outputText value="Menu 6-2 (Manage delivery fee)" />
                 </rich:menuItem>
                 <rich:menuItem submitMode="client"
                     onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/manage-delivery/delivery-service.xhtml'">
-                        <h:outputText value="Manage delivery service" />
+                        <h:outputText value="Menu 6-3 (Manage delivery service)" />
                 </rich:menuItem>
             </rich:dropDownMenu>
+            
+            <rich:dropDownMenu mode="ajax">
+                <f:facet name="label">
+                    <h:panelGrid cellpadding="0" cellspacing="0" columns="2"
+                        style="vertical-align:middle">
+                        <h:outputText value="Menu 7 (ManageExchangeReturnProduct)" />
+                    </h:panelGrid>
+                </f:facet>
+                 <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/product-exchange-return/manage-drop-product.xhtml'">
+                        <h:outputText value="Menu 7-1 (Manage drop product)" />
+                </rich:menuItem>
+                <rich:menuItem submitMode="client"
+                    onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/product-exchange-return/manage-exchange-return-product.xhtml'">
+                        <h:outputText value="Menu 7-2 (Manage exchange and return product)" />
+                </rich:menuItem>
+            </rich:dropDownMenu>
+            
+            
 		</rich:toolbar>
 	</ui:composition>
 </body>

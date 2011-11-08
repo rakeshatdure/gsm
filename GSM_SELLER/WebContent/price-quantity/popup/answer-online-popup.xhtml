@@ -1,0 +1,49 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+	<h:head>
+		<h:outputStylesheet name="common-style.css" library="css"></h:outputStylesheet>
+		<h:outputScript name="wysiwyg.js" library="wysiwyg"></h:outputScript>
+		<h:outputStylesheet name="/pro-style.css" library="/css" />
+		<title>Thắc mắc Online</title>
+	</h:head>
+	<h:body>
+		<h:panelGrid
+			style="width:800px; border: 2px solid #c4c4c4;-webkit-border-radius: 10px; -moz-border-radius: 10px;
+					border-radius: 10px; ">
+			<h:panelGrid
+				style="width:780px;height:40px;;background:#3b6dcc;border: 1px solid #dbdada;-webkit-border-radius: 10px; -moz-border-radius: 10px;
+					border-radius: 10px; ">
+				<h:outputLabel value="ITEMCODI"
+					style="float:left;font-size:20px; color:white;font-weight:bold;margin-left:20px" />
+			</h:panelGrid>
+			<div style="height: 25px;" />
+			<div style="border: 1px solid #cccccc" />
+			<h:panelGrid style="width:600px" columns="2">
+				<h:outputLabel value="Họ tên" />
+				<h:inputText value="" style="width:150px"/>
+				<h:outputLabel value="Email" />
+				<h:inputText value="" style="width:150px"/>
+				<h:outputLabel value="Số ĐT" />
+				<h:inputText value="" style="width:150px"/>
+				<h:outputLabel value="Địa Chỉ" />
+				<h:inputText value="" style="width:150px"/>
+				<h:outputLabel value="Nội Dung" />
+				<h:inputTextarea value="" cols="40" rows="5" />
+			</h:panelGrid>
+			<div style="height: 25px;" />
+				<a4j:commandButton value="Button 2"
+								styleClass="bt_bassic" style="margin-left:150px;" />
+			<div style="height: 25px;" />
+		</h:panelGrid>
+	</h:body>
+</f:view>
+</html>

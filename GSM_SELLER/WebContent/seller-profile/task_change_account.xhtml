@@ -24,13 +24,16 @@
 		</h:form>
 		<h:form rendered="#{company.user.role.roleId == 4}">
 			<div style="width: 1224px">
-				<ui:insert>
-					<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
-				</ui:insert>
-				<div style="height: 5px" />
+				<div style="position: fixed; z-index: 100; top: 0px;width: 1224px">
+					<ui:insert>
+						<ui:include src="/WEB-INF/menu/menu-profile.xhtml"></ui:include>
+					</ui:insert>
+				</div>
+				<div style="height: 15px" />
 
 				<div style="width: 960px; float: left;">
-					<h:panelGrid style=" width:960px;background-color:#FFC519;">
+					<h:panelGrid style=" width:960px;background-color:#FFC519;font-family: cambria;font-size: 18px;font-weight: bold;color: black;">
+					
 						<h:outputLabel
 							value="Yêu cầu thay đổi tài khoản, thông tin tài khoản" />
 					</h:panelGrid>
@@ -348,7 +351,7 @@
 					<div style="height: 40px" />
 				</div>
 
-				<div style="width: 252px; float: right; margin-top: 0px">
+				<div style="width: 252px; float: right;position: fixed;z-index: 0;left:982px;margin-top: -20px; margin-top: 0px">
 					<ui:insert>
 						<ui:include src="/WEB-INF/right/right.xhtml"></ui:include>
 					</ui:insert>

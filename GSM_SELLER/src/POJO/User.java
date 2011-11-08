@@ -286,8 +286,8 @@ public class User  implements java.io.Serializable {
 			String query = "select * from user";
 			ResultSet rs = helper.executeQuery(query);
 			ArrayList<User> list = new ArrayList<User>();
-			System.out.println("Account: " + account);
-			System.out.println("pass: " + pass);
+			System.out.println("Account: "+account);
+			System.out.println("pass: "+pass);
 			
 			while(rs.next()){
 				User user = new User(rs.getString("Account"),rs.getString("Pass"),rs.getString("Address"),rs.getString("Email"),rs.getString("FullName"));
@@ -309,7 +309,6 @@ public class User  implements java.io.Serializable {
 					match=true;
 					HttpSession session= (HttpSession) face.getExternalContext().getSession(true);
 					session.setAttribute("uselogin", us);
-					session.setAttribute("account", account);
 					System.out.println("thanh cong");
 					break;
 				}

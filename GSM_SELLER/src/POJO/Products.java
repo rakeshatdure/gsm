@@ -36,7 +36,6 @@ public class Products  implements java.io.Serializable {
 	 private Date fromDate;
 	 private Date toDate;
 	 private int transactionInfoId;
-	 private int sellingModeId;
     
 	public Date getFromDate() {
 		return fromDate;
@@ -66,10 +65,10 @@ public class Products  implements java.io.Serializable {
     }
     
     public void setProductName(String productName) {
-    	this.productName = productName;
+        this.productName = productName;
     }
     public String getSize() {
-    	return this.size;
+        return this.size;
     }
     
     public void setSize(String size) {
@@ -202,14 +201,6 @@ public class Products  implements java.io.Serializable {
 
 	public int getTransactionInfoId() {
 		return transactionInfoId;
-	}
-
-	public void setSellingModeId(int sellingModeId) {
-		this.sellingModeId = sellingModeId;
-	}
-
-	public int getSellingModeId() {
-		return sellingModeId;
 	}
 	
 }

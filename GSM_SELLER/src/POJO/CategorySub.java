@@ -33,6 +33,12 @@ public class CategorySub  implements java.io.Serializable {
         this.categorySubName = categorySubName;
         this.products = products;
      }
+    
+    public CategorySub(String categorySubId,String categorySubName) {
+        this.categorySubId = categorySubId;
+        this.categorySubName = categorySubName;
+     }
+   
    
     public String getCategorySubId() {
         return this.categorySubId;

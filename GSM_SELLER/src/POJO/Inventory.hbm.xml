@@ -18,6 +18,9 @@
         <property name="limitDate" type="date">
             <column name="LimitDate" length="10" not-null="true" />
         </property>
+         <property name="updateDate" type="date">
+            <column name="UpdateDate" length="10" not-null="true" />
+        </property>
         
     </class>
 </hibernate-mapping>

@@ -94,7 +94,7 @@
 										<h:outputLabel value="Label 1" />
 									</h:panelGroup>
 									<div style="width: 240px; border: 1px solid #e7e7e7;" />
-									<a4j:commandButton value="CODI CỦA TÔI" styleClass="bt_header"
+									<a4j:commandButton value="CODI CỦA TÔI" styleClass="bt_bassic"
 										style="font-weight: bold;font-size:12px;color:white;margin-left:50px;" />
 								</h:panelGrid>
 								<h:panelGrid style="width:250px;border:2px solid #e7e7e7;">
@@ -114,7 +114,9 @@
 									<div style="height: 3px;" />
 									<h:panelGroup>
 										<h:outputLabel value="Thắc mắc online" />
-										<a4j:commandLink value="Thắc mắc" styleClass="bt_select" style="margin-left:7px;"/>
+										<a4j:commandLink value="Thắc mắc" styleClass="bt_select" style="margin-left:7px;"
+										onclick="window.open('http://localhost:8080/GSM_SELLER/price-quantity/popup/answer-online-popup.xhtml', 
+								'Thắc mắc Online', 'width=820,height=500', 'menubar=no, toolbar=no'); return false;"/>
 										<div style="height: 3px;" />
 									</h:panelGroup>
 								</h:panelGrid>
@@ -129,6 +131,8 @@
 									<div style="width: 240px; border: 1px solid #e7e7e7;" />
 									<div style="height: 3px;" />
 									<a4j:commandLink value="Đăng kí" styleClass="bt_select"
+									onclick="window.open('http://localhost:8080/GSM_SELLER/price-quantity/popup/register-item-codi.xhtml', 
+								'Hướng dẫn quản lý tồn kho bằng điện thoại di động', 'width=820,height=500', 'menubar=no, toolbar=no'); return false;"
 										style="margin-left:90px;" />
 									<div style="height: 3px;" />
 								</h:panelGrid>
