@@ -147,14 +147,14 @@
 							<a4j:commandLink value="#{searchpro.sizeListProduct1}"
 								style="color: #2985ad; font-weight: bold;">
 								<a4j:param value="1" assignTo="#{searchpro.showTable}" />
-								<a4j:ajax event="click" render="tableProSearch" />
+								<a4j:ajax event="click" render="tableProSearch" status="status"/>
 							</a4j:commandLink>
 							<h:outputLabel value=" SP | Trong 30 ngày mãn hạn: "
 								style="cursor: pointer;" />
 							<a4j:commandLink value="#{searchpro.sizeListProduct2}"
 								style="color: #2985ad; font-weight: bold;">
 								<a4j:param value="2" assignTo="#{searchpro.showTable}" />
-								<a4j:ajax event="click" render="tableProSearch" />
+								<a4j:ajax event="click" render="tableProSearch" status="status" />
 							</a4j:commandLink>
 							<h:outputLabel value=" SP )" />
 						</h:form>
@@ -166,13 +166,13 @@
 						<a4j:commandLink value="#{searchpro.sizeListProduct3}"
 							style="color: #2985ad; font-weight: bold;">
 							<a4j:param value="3" assignTo="#{searchpro.showTable}" />
-							<a4j:ajax event="click" render="tableProSearch" />
+							<a4j:ajax event="click" render="tableProSearch" status="status" />
 						</a4j:commandLink>
 						<h:outputLabel value=" SP | Trong 30 ngày mãn hạn: " />
 						<a4j:commandLink value="#{searchpro.sizeListProduct4}"
 							style="color: #2985ad; font-weight: bold;">
 							<a4j:param value="4" assignTo="#{searchpro.showTable}" />
-							<a4j:ajax event="click" render="tableProSearch" />
+							<a4j:ajax event="click" render="tableProSearch" status="status" />
 						</a4j:commandLink>
 						<h:outputLabel value=" SP )" />
 					</h:panelGroup>
@@ -185,7 +185,7 @@
 							<a4j:commandLink value="#{searchpro.sizeListProduct5}"
 								style="color: #2985ad; font-weight: bold;">
 								<a4j:param value="5" assignTo="#{searchpro.showTable}" />
-								<a4j:ajax event="click" render="tableProSearch" />
+								<a4j:ajax event="click" render="tableProSearch" status="status" />
 							</a4j:commandLink>
 							<h:outputLabel value=" SP | " />
 						</h:panelGroup>
@@ -196,7 +196,7 @@
 							<a4j:commandLink value="#{searchpro.sizeListProduct6}"
 								style="color: #2985ad; font-weight: bold;">
 								<a4j:param value="6" assignTo="#{searchpro.showTable}" />
-								<a4j:ajax event="click" render="tableProSearch" />
+								<a4j:ajax event="click" render="tableProSearch" status="status" />
 							</a4j:commandLink>
 							<h:outputLabel value=" SP )" />
 						</h:panelGroup>
@@ -224,7 +224,7 @@
 				</h:panelGrid>
 				<a4j:commandButton value="Tìm kiếm >" styleClass="bt_bassic">
 					<a4j:param value="7" assignTo="#{searchpro.showTable}" />
-					<a4j:ajax event="click" render="tableProSearch" />
+					<a4j:ajax event="click" render="tableProSearch" status="status"/>
 				</a4j:commandButton>
 				<a4j:commandButton value="Excel >" styleClass="bt_bassic" />
 			</h:panelGrid>
@@ -745,12 +745,11 @@
 		</h:form>
 	</div>
 	<div style="position: fixed; z-index: 0; left: 400px; top: 400px;">
-		<a4j:status>
+		<a4j:status name="status">
 			<f:facet name="start">
 				<h:panelGrid columns="2">
 					<h:graphicImage value="/resources/images/wait.gif" alt="ai" />
-					<h:outputText value="Now loading..."
-						style="font-style: italy; font-size: 15px; font-weight: bold;" />
+					
 				</h:panelGrid>
 			</f:facet>
 		</a4j:status>
